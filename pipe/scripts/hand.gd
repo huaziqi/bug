@@ -40,7 +40,7 @@ func grab():
 
 #单个抓取目标
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemies"):
+	if body.is_in_group("enemies") and not is_holding:
 		target_rigidbody=body
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body==target_rigidbody:
