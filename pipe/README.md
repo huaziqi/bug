@@ -1,4 +1,0 @@
-# wake
-
-hello
-
