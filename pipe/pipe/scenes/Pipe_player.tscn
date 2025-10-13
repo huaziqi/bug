@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://p6dopje3btqk"]
+
+[ext_resource type="Script" uid="uid://b3kxkykuvvycf" path="res://scripts/pipe.gd" id="1_7meox"]
+[ext_resource type="Texture2D" uid="uid://dpmuksrx8pnox" path="res://assets/Textures/side_pipe.png" id="2_7meox"]
+[ext_resource type="PackedScene" uid="uid://dn0bw5kg1vrhe" path="res://scenes/hand.tscn" id="3_8q1br"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_71kmc"]
+bounce = 0.1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8q1br"]
+radius = 30.8707
+
+[node name="Steel_Pipe" type="RigidBody2D" groups=["player"]]
+mass = 0.916
+physics_material_override = SubResource("PhysicsMaterial_71kmc")
+gravity_scale = 1.612
+script = ExtResource("1_7meox")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5, -3)
+scale = Vector2(0.0805407, 0.0856384)
+texture = ExtResource("2_7meox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-9.53674e-07, -1)
+rotation = -0.420624
+shape = SubResource("CircleShape2D_8q1br")
+
+[node name="hand" parent="." instance=ExtResource("3_8q1br")]
+position = Vector2(40, -9.53674e-07)
