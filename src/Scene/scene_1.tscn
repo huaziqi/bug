@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsti00ow4x2p5"]
+
+[ext_resource type="Texture2D" uid="uid://daqeuf3x6qg57" path="res://icon.svg" id="1_ag7bo"]
+[ext_resource type="Script" uid="uid://cxplknjn5wtyt" path="res://src/Scene/rigid_body_2d.gd" id="2_3g0w7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ag7bo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ag7bo"]
+size = Vector2(1038, 354)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1yra7"]
+height = 208.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3g0w7"]
+size = Vector2(547, 351)
+
+[node name="lajiTEST(随便改)" type="Node2D"]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_ag7bo")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(72.5, 495)
+scale = Vector2(8.1171875, 2.75)
+texture = ExtResource("1_ag7bo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(71.99997, 496)
+shape = SubResource("RectangleShape2D_ag7bo")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+script = ExtResource("2_3g0w7")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(224, -26)
+scale = Vector2(0.14843749, 1.6367188)
+texture = ExtResource("1_ag7bo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(226, -32)
+shape = SubResource("CapsuleShape2D_1yra7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(1046, 503.5)
+scale = Vector2(4.2812495, 2.7421877)
+texture = ExtResource("1_ag7bo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1043.5, 504)
+shape = SubResource("RectangleShape2D_3g0w7")
