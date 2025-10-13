@@ -20,9 +20,10 @@ func spawn_frog():
 	frog.add_child(shadow)
 
 func prepare_player():
-	var player=get_node("Steel_Pipe")
-	var shadow=shadow_scene.instantiate()
-	player.add_child(shadow)
+	var player=get_node("Pipe_player")
+	var shadow1=shadow_scene.instantiate()
+	player.add_child(shadow1)
+	
 	
 func _on_timer_timeout() -> void:
 	spawn_frog()

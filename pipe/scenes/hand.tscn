@@ -3,19 +3,23 @@
 [ext_resource type="Texture2D" uid="uid://c6xm7qv5ipnt8" path="res://assets/Textures/hand.png" id="1_cmdsa"]
 [ext_resource type="Script" uid="uid://cr32afm64bx0g" path="res://scripts/hand.gd" id="2_k7pjy"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gshmd"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_obnn6"]
+radius = 707.458
+height = 1584.16
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmdsa"]
 atlas = ExtResource("1_cmdsa")
 region = Rect2(0, 0, 1107, 1171)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_06cfq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7pjy"]
 atlas = ExtResource("1_cmdsa")
 region = Rect2(1107, 0, 1107, 1171)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_gshmd"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_m1v21"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gshmd")
+"texture": SubResource("AtlasTexture_cmdsa")
 }],
 "loop": true,
 "name": &"fist",
@@ -23,29 +27,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_06cfq")
+"texture": SubResource("AtlasTexture_k7pjy")
 }],
 "loop": true,
 "name": &"hand",
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_obnn6"]
-radius = 707.458
-height = 1584.16
-
-[node name="hand" type="AnimatedSprite2D"]
+[node name="hand" type="Area2D"]
 scale = Vector2(0.0409918, 0.0366125)
-sprite_frames = SubResource("SpriteFrames_gshmd")
-animation = &"hand"
 script = ExtResource("2_k7pjy")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-48.7904, 27.3131)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-48.7902, 27.3131)
 shape = SubResource("CapsuleShape2D_obnn6")
 
-[connection signal="area_exited" from="Area2D" to="Area2D" method="_on_area_exited"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-24.3951, -27.313)
+scale = Vector2(1.46963, 1.57293)
+sprite_frames = SubResource("SpriteFrames_m1v21")
+animation = &"fist"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

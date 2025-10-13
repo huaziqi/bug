@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://basginu0bnl5w"]
+[gd_scene load_steps=23 format=3 uid="uid://basginu0bnl5w"]
 
 [ext_resource type="Script" uid="uid://knxgayakmmhq" path="res://scripts/stage.gd" id="1_umyg1"]
 [ext_resource type="PackedScene" uid="uid://bp3hsx7ra62nm" path="res://scenes/frog.tscn" id="2_lug6x"]
@@ -7,7 +7,8 @@
 [ext_resource type="Script" uid="uid://cokj77x13tamf" path="res://scripts/Stage_camera.gd" id="5_drotj"]
 [ext_resource type="Script" uid="uid://csqetpfotvvc8" path="res://scripts/ground-checker.gd" id="6_lo6ek"]
 [ext_resource type="AudioStream" uid="uid://cfrvmrqufkw6n" path="res://assets/Sound/钢管落地.wav" id="7_w5a8x"]
-[ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://scenes/Side_Pipe.tscn" id="8_umyg1"]
+[ext_resource type="PackedScene" uid="uid://dowhnfufkjuvn" path="res://scenes/Pipe_weapon.tscn" id="8_lug6x"]
+[ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://scenes/Pipe_player.tscn" id="8_umyg1"]
 [ext_resource type="FontFile" uid="uid://u1tdi6cs0kuk" path="res://assets/Uranus_Pixel_11Px.ttf" id="9_ecj4f"]
 [ext_resource type="Script" uid="uid://cnucyxtblw7a1" path="res://scripts/label.gd" id="10_lbynx"]
 
@@ -163,7 +164,10 @@ volume_db = -13.998
 wait_time = 2.0
 autostart = true
 
-[node name="Steel_Pipe" parent="." instance=ExtResource("8_umyg1")]
+[node name="Pipe_weapon" parent="." instance=ExtResource("8_lug6x")]
+position = Vector2(121, 3)
+
+[node name="Pipe_player" parent="." instance=ExtResource("8_umyg1")]
 
 [node name="wall_celling" type="Node" parent="."]
 

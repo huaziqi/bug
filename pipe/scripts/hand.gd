@@ -1,16 +1,17 @@
 #需要父节点
-extends AnimatedSprite2D 
-@export var max_distance: float = 100.0  # 手活动半径
+extends Area2D
+@export var max_distance: float = 150.0  # 手活动半径
 @export var fixed_dist_to_mouse: float = 20.0  # 调整鼠标与手间距
-@export var target_rigidbody: RigidBody2D = null  # 要吸附的目标
+@export var target_rigidbodies: Array = [] # 要吸附的目标
 var is_holding = false
 
-func _process(delta):
+func _process(_delta):
 	var mouse_pos = get_global_mouse_position()
 	var parent_pos = get_parent().global_position
 	var parent_to_mouse_vec = mouse_pos - parent_pos
 	var parent_to_mouse_dist = parent_to_mouse_vec.length()
 	var target_pos: Vector2
+	check_target_freed(target_rigidbodies)
 	grab()
 	if parent_to_mouse_dist <= fixed_dist_to_mouse:
 		target_pos = parent_pos
@@ -23,25 +24,40 @@ func _process(delta):
 
 	global_position =target_pos
 	global_rotation = (get_global_mouse_position() - global_position).angle()
+	#让大拇指朝上
+	$AnimatedSprite2D.flip_v=rad_to_deg(global_rotation)<90 and rad_to_deg(global_rotation)>-90
 
 func grab():
 	var is_left_mouse_down = Input.is_action_pressed("left_click")
 	if is_left_mouse_down:
-		play("fist")
+		$AnimatedSprite2D.play("fist")
 		is_holding = true
-		if target_rigidbody!=null:
-			target_rigidbody.set_process(false)
-			target_rigidbody.global_position =target_rigidbody.global_position.move_toward(global_position,10)
+		if target_rigidbodies!=[]:
+			target_rigidbodies[-1].gravity_scale=0
+			target_rigidbodies[-1].global_position =target_rigidbodies[-1].global_position.move_toward(global_position,10)
+			
+			if target_rigidbodies[-1].is_in_group("weapons"):
+				if rad_to_deg(global_rotation)<=90 and rad_to_deg(global_rotation)>=-90:
+					target_rigidbodies[-1].global_rotation=global_rotation
+				else	:
+					target_rigidbodies[-1].global_rotation=deg_to_rad(rad_to_deg(global_rotation)+180)
+			
 	else:
-		play("hand")
-		if target_rigidbody!=null:
-			target_rigidbody.set_process(true)
+		$AnimatedSprite2D.play("hand")
+		if target_rigidbodies!=[]:
+			for body in target_rigidbodies:
+				
+				body.gravity_scale=body.b_gravity
 		is_holding = false
 
 #单个抓取目标
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemies") and not is_holding:
-		target_rigidbody=body
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body==target_rigidbody:
-		target_rigidbody=null
+func check_target_freed(array):
+	for body in array:
+		if not is_instance_valid(body):
+			array.erase(body)
+func _on_body_entered(body: Node2D) -> void:
+	if (body.is_in_group("enemies") or body.is_in_group("weapons") or body.is_in_group("player"))and not is_holding:
+		target_rigidbodies.append(body)
+func _on_body_exited(body: Node2D) -> void:
+	if not is_holding:
+		target_rigidbodies.erase(body)

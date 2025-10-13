@@ -1,5 +1,5 @@
 extends RigidBody2D
-
+@export var b_gravity: float = 1.6
 # 跳跃参数
 @export var b_jump_force: float = 500.0 
 @export var jump_force: float = 500.0  

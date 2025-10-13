@@ -210,7 +210,6 @@ size = Vector2(80, 72)
 [node name="Frog" type="RigidBody2D" groups=["enemies"]]
 mass = 0.144
 physics_material_override = SubResource("PhysicsMaterial_uu7fg")
-gravity_scale = 1.611
 center_of_mass_mode = 1
 script = ExtResource("1_uu7fg")
 
