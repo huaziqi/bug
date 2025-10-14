@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq78wcgwfo5sw"]
+
+[ext_resource type="Texture2D" uid="uid://g2bmiuvoarxp" path="res://assets/temp/GUI_0/Level/Button/Locked/Default.svg" id="1_dy52g"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l4bix"]
+texture = ExtResource("1_dy52g")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[node name="PanelContainer" type="PanelContainer"]
+offset_top = 6.0
+offset_right = 252.0
+offset_bottom = 270.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_l4bix")
