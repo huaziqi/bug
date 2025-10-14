@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bsti00ow4x2p5"]
+[gd_scene load_steps=8 format=3 uid="uid://bsti00ow4x2p5"]
 
-[ext_resource type="Texture2D" uid="uid://daqeuf3x6qg57" path="res://icon.svg" id="1_ag7bo"]
+[ext_resource type="Texture2D" uid="uid://b36ckjlb5px1k" path="res://icon.svg" id="1_ag7bo"]
 [ext_resource type="Script" uid="uid://cxplknjn5wtyt" path="res://src/Scene/rigid_body_2d.gd" id="2_3g0w7"]
+[ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://src/Scene/Pipe_player.tscn" id="3_1yra7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ag7bo"]
 
@@ -21,11 +22,11 @@ physics_material_override = SubResource("PhysicsMaterial_ag7bo")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
 position = Vector2(72.5, 495)
-scale = Vector2(8.1171875, 2.75)
+scale = Vector2(8.11719, 2.75)
 texture = ExtResource("1_ag7bo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(71.99997, 496)
+position = Vector2(72, 496)
 shape = SubResource("RectangleShape2D_ag7bo")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
@@ -33,7 +34,7 @@ script = ExtResource("2_3g0w7")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 position = Vector2(224, -26)
-scale = Vector2(0.14843749, 1.6367188)
+scale = Vector2(0.148437, 1.63672)
 texture = ExtResource("1_ag7bo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
@@ -44,9 +45,11 @@ shape = SubResource("CapsuleShape2D_1yra7")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 position = Vector2(1046, 503.5)
-scale = Vector2(4.2812495, 2.7421877)
+scale = Vector2(4.28125, 2.74219)
 texture = ExtResource("1_ag7bo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1043.5, 504)
 shape = SubResource("RectangleShape2D_3g0w7")
+
+[node name="Steel_Pipe" parent="." instance=ExtResource("3_1yra7")]

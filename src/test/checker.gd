@@ -1,0 +1,13 @@
+extends Area2D
+
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is RigidBody2D:
+		body.on_ground=true
+
+
+
+func _on_body_exited(body: Node2D) -> void:
+	if body is RigidBody2D:
+		body.on_ground=false

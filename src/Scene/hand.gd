@@ -11,6 +11,7 @@ func _process(_delta):
 	check_target_freed(target_rigidbodies)
 	grab()
 	follow(mouse_pos,parent_pos)
+	print("fuck")
 
 func follow(mouse_pos,parent_pos):
 	var parent_to_mouse_vec = mouse_pos - parent_pos

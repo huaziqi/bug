@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://dcb6oo4wmcbwv"]
+
+[ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://src/Scene/Pipe_player.tscn" id="1_xgsbt"]
+[ext_resource type="Script" uid="uid://ccvwii8dy8t0d" path="res://src/test/checker.gd" id="2_fgatd"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fgatd"]
+distance = -598.5
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xnfl2"]
+distance = -503.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vryaj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vryaj"]
+size = Vector2(1231, 35)
+
+[node name="PlayerTest" type="Node2D"]
+
+[node name="ground" type="StaticBody2D" parent="."]
+position = Vector2(620, 518)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ground"]
+position = Vector2(3.5, 9)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_fgatd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_xnfl2")
+
+[node name="solid" type="CollisionShape2D" parent="ground"]
+shape = SubResource("WorldBoundaryShape2D_vryaj")
+
+[node name="checker" type="Area2D" parent="ground"]
+position = Vector2(-31, -10)
+script = ExtResource("2_fgatd")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ground/checker"]
+position = Vector2(-1.5, 19.5)
+shape = SubResource("RectangleShape2D_vryaj")
+
+[node name="Steel_Pipe" parent="." instance=ExtResource("1_xgsbt")]
+position = Vector2(661, 248)
+
+[connection signal="body_entered" from="ground/checker" to="ground/checker" method="_on_body_entered"]
+[connection signal="body_exited" from="ground/checker" to="ground/checker" method="_on_body_exited"]
