@@ -65,10 +65,13 @@ func _on_body_entered(body: Node2D) -> void:
 #筛选抓取目标，石山需要优化
 	if body.is_in_group("grippable")and not is_holding: 
 		target_rigidbodies.append(body)
-	elif	 body.is_in_group("grippable"):
+	elif	 body.is_in_group("grippable") and not body in target_rigidbodies:
 		temp_target_rigidbodies.append(body)
 func _on_body_exited(body: Node2D) -> void:
 	if not is_holding:
-		target_rigidbodies.erase(body)
+		while body in target_rigidbodies:
+			target_rigidbodies.erase(body)
 	else:
-		temp_target_rigidbodies.erase(body)
+		while body in temp_target_rigidbodies:
+			temp_target_rigidbodies.erase(body)
+		
