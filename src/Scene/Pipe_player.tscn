@@ -10,7 +10,7 @@ bounce = 0.1
 [sub_resource type="CircleShape2D" id="CircleShape2D_8q1br"]
 radius = 30.8707
 
-[node name="Steel_Pipe" type="RigidBody2D" groups=["player"]]
+[node name="Steel_Pipe" type="RigidBody2D" groups=["grippable", "player"]]
 mass = 0.916
 physics_material_override = SubResource("PhysicsMaterial_71kmc")
 gravity_scale = 1.612

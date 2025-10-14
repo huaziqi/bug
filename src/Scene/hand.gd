@@ -3,9 +3,10 @@ extends Area2D
 @export var max_distance: float = 150.0  # 手活动半径
 @export var fixed_dist_to_mouse: float = 20.0  # 调整鼠标与手间距
 @export var target_rigidbodies: Array = [] # 要吸附的目标,暂时使用collisionshape的信号获取目标
+@export var temp_target_rigidbodies: Array = []
 var is_holding = false
 
-func _process(_delta):
+func  _physics_process(_delta: float):
 	var mouse_pos = get_global_mouse_position()
 	var parent_pos = get_parent().global_position
 	check_target_freed(target_rigidbodies)
@@ -36,7 +37,7 @@ func grab():
 		is_holding = true
 		if target_rigidbodies!=[]:
 			target_rigidbodies[-1].gravity_scale=0
-			target_rigidbodies[-1].global_position =target_rigidbodies[-1].global_position.move_toward(global_position,10)
+			target_rigidbodies[-1].global_position = target_rigidbodies[-1].global_position.move_toward(global_position,30)
 			
 			#if target_rigidbodies[-1].is_in_group("weapons"):
 				#if rad_to_deg(global_rotation)<=90 and rad_to_deg(global_rotation)>=-90:
@@ -45,10 +46,12 @@ func grab():
 					#target_rigidbodies[-1].global_rotation=deg_to_rad(rad_to_deg(global_rotation)+180)
 			#
 	else:
+		if temp_target_rigidbodies!=[]:
+			target_rigidbodies.append_array(temp_target_rigidbodies)
+			temp_target_rigidbodies=[]
 		$AnimatedSprite2D.play("hand")
 		if target_rigidbodies!=[]:
-			for body in target_rigidbodies:
-				
+			for body in target_rigidbodies:		
 				body.gravity_scale=body.b_gravity
 		is_holding = false
 
@@ -60,8 +63,12 @@ func check_target_freed(array):
 #单个抓取目标			
 func _on_body_entered(body: Node2D) -> void:
 #筛选抓取目标，石山需要优化
-	if (body.is_in_group("enemies") or body.is_in_group("weapons") or body.is_in_group("player"))and not is_holding:
+	if body.is_in_group("grippable")and not is_holding: 
 		target_rigidbodies.append(body)
+	elif	 body.is_in_group("grippable"):
+		temp_target_rigidbodies.append(body)
 func _on_body_exited(body: Node2D) -> void:
 	if not is_holding:
 		target_rigidbodies.erase(body)
+	else:
+		temp_target_rigidbodies.erase(body)

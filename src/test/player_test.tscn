@@ -14,7 +14,7 @@ distance = -503.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vryaj"]
 size = Vector2(1231, 35)
 
-[node name="PlayerTest" type="Node2D"]
+[node name="PlayerTest" type="Node2D" groups=["player"]]
 
 [node name="ground" type="StaticBody2D" parent="."]
 position = Vector2(620, 518)

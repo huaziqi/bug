@@ -26,6 +26,10 @@ directories/dch_directory={
 directories/dtl_directory={}
 layout/style_directory={}
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
