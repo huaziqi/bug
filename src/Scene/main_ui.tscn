@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://chxhb60rk54wd"]
+
+[ext_resource type="Texture2D" uid="uid://ub7bt16kniky" path="res://assets/temp/title.png" id="1_7fyyl"]
+[ext_resource type="Script" uid="uid://d0saruai5e8rv" path="res://src/script/main_ui.gd" id="1_dktd0"]
+[ext_resource type="Texture2D" uid="uid://db2vblixi3mrt" path="res://assets/temp/button.png" id="2_egy7s"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_egy7s"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dktd0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+texture = SubResource("CanvasTexture_egy7s")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/TextureRect"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 45.0
+offset_right = 1120.0
+offset_bottom = 313.0
+texture = ExtResource("1_7fyyl")
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/PanelContainer/TextureRect"]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 385.0
+offset_right = 738.0
+offset_bottom = 573.0
+texture_normal = ExtResource("2_egy7s")
+
+[connection signal="pressed" from="MarginContainer/PanelContainer/TextureRect/TextureButton" to="." method="_on_texture_button_pressed"]
