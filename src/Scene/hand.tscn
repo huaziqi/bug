@@ -1,25 +1,25 @@
 [gd_scene load_steps=7 format=3 uid="uid://dn0bw5kg1vrhe"]
 
-[ext_resource type="Texture2D" uid="uid://cxv3d2q35qo1u" path="res://src/assets/hand.png" id="1_cmdsa"]
+[ext_resource type="Texture2D" uid="uid://bl4pvc00cxe0i" path="res://assets/temp/hand.png" id="2_enm0g"]
 [ext_resource type="Script" uid="uid://dxy0ohkig4bti" path="res://src/Scene/hand.gd" id="2_k7pjy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_obnn6"]
 radius = 707.458
 height = 1584.16
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cmdsa"]
-atlas = ExtResource("1_cmdsa")
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqxqo"]
+atlas = ExtResource("2_enm0g")
 region = Rect2(0, 0, 1107, 1171)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k7pjy"]
-atlas = ExtResource("1_cmdsa")
+[sub_resource type="AtlasTexture" id="AtlasTexture_kss7k"]
+atlas = ExtResource("2_enm0g")
 region = Rect2(1107, 0, 1107, 1171)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_m1v21"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_diaca"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cmdsa")
+"texture": SubResource("AtlasTexture_rqxqo")
 }],
 "loop": true,
 "name": &"fist",
@@ -27,7 +27,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k7pjy")
+"texture": SubResource("AtlasTexture_kss7k")
 }],
 "loop": true,
 "name": &"hand",
@@ -45,7 +45,7 @@ shape = SubResource("CapsuleShape2D_obnn6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-24.3951, -27.313)
 scale = Vector2(1.46963, 1.57293)
-sprite_frames = SubResource("SpriteFrames_m1v21")
+sprite_frames = SubResource("SpriteFrames_diaca")
 animation = &"fist"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
