@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0qfdiehqe5w"]
+
+[ext_resource type="Texture2D" uid="uid://btwrc7k7gvlr0" path="res://assets/sprites/map_units/num_container.png" id="1_fby6k"]
+[ext_resource type="Script" uid="uid://sde713w77xp8" path="res://scripts/map_units/nums/num_container.gd" id="1_g4k54"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fby6k"]
+size = Vector2(62, 60)
+
+[node name="NumContainer" type="Area2D"]
+collision_layer = 0
+collision_mask = 5
+script = ExtResource("1_g4k54")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fby6k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_fby6k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,12 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://chshif8cs7021"]
 
-[ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/basic_map.tscn" id="1_o2sna"]
+[ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="1_o2sna"]
 [ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://src/Scene/Pipe_player.tscn" id="2_yqnkn"]
 
-[node name="Stage0" type="Node2D"]
-
-[node name="basic_map" parent="." instance=ExtResource("1_o2sna")]
+[node name="Level_0" type="Node2D"]
 
 [node name="Steel_Pipe" parent="." instance=ExtResource("2_yqnkn")]
 position = Vector2(170, -72)
 collision_mask = 2
+
+[node name="basic_ground" parent="." instance=ExtResource("1_o2sna")]
+position = Vector2(-7, 4)

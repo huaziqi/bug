@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c201j5crm3x5k"]
+
+[ext_resource type="Script" uid="uid://c034ml0ma77sc" path="res://scripts/map_units/nums/num_item.gd" id="1_54e8f"]
+
+[node name="NumItem" type="RigidBody2D" groups=["grippable", "num_item"]]
+collision_layer = 4
+collision_mask = 10
+script = ExtResource("1_54e8f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)

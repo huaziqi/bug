@@ -1,7 +1,122 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnlr3ccl4v3b4"]
+[gd_scene load_steps=19 format=3 uid="uid://bnlr3ccl4v3b4"]
 
-[ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/basic_map.tscn" id="1_v2dmm"]
+[ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="1_v2dmm"]
+[ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://src/Scene/Pipe_player.tscn" id="2_6iamk"]
+[ext_resource type="Script" uid="uid://cxldgbf6a8wmn" path="res://scripts/map_units/nums/num_caculator.gd" id="3_wtwp4"]
+[ext_resource type="PackedScene" uid="uid://c0qfdiehqe5w" path="res://scenes/map_units/nums/num_container.tscn" id="3_x42e6"]
+[ext_resource type="Texture2D" uid="uid://pl2c6eu5r4nl" path="res://assets/temp(临时美术资源)/ground.png" id="4_6761a"]
+[ext_resource type="PackedScene" uid="uid://bjouinocaqfun" path="res://scenes/map_units/nums/num_nine.tscn" id="5_dnkej"]
+[ext_resource type="Script" uid="uid://ccvwii8dy8t0d" path="res://src/test/checker.gd" id="5_mm8aj"]
+[ext_resource type="PackedScene" uid="uid://bcjttysv773sw" path="res://scenes/map_units/nums/num_six.tscn" id="6_mm8aj"]
+[ext_resource type="PackedScene" uid="uid://b76nxivnmqq62" path="res://scenes/map_units/nums/num_one.tscn" id="7_wtwp4"]
+[ext_resource type="PackedScene" uid="uid://mykxjb7hryy7" path="res://scenes/map_units/nums/num_two.tscn" id="8_iwr0g"]
+[ext_resource type="PackedScene" uid="uid://dchfmdxowc6ic" path="res://scenes/map_units/nums/num_three.tscn" id="9_bahl2"]
+[ext_resource type="PackedScene" uid="uid://b7c0m15c0ounq" path="res://scenes/map_units/nums/num_four.tscn" id="10_np2pn"]
+[ext_resource type="PackedScene" uid="uid://c7bamebswoa7j" path="res://scenes/map_units/nums/num_five.tscn" id="11_v6ha0"]
+[ext_resource type="PackedScene" uid="uid://ck2g7sge8g6i2" path="res://scenes/map_units/nums/num_seven.tscn" id="12_gmpev"]
+[ext_resource type="PackedScene" uid="uid://dm5uxeql3acly" path="res://scenes/map_units/nums/num_eight.tscn" id="13_mkypq"]
 
-[node name="Stage1" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sk5k4"]
+size = Vector2(180.5, 16.25)
 
-[node name="basic_map" parent="." instance=ExtResource("1_v2dmm")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtwp4"]
+size = Vector2(179, 12.5)
+
+[sub_resource type="Theme" id="Theme_mm8aj"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 44
+
+[node name="Level1" type="Node2D"]
+
+[node name="BasicMap" parent="." instance=ExtResource("1_v2dmm")]
+
+[node name="SteelPipe" parent="." instance=ExtResource("2_6iamk")]
+position = Vector2(126, -75)
+
+[node name="NumCaculator" type="Node2D" parent="." node_paths=PackedStringArray("nums", "ans_label")]
+script = ExtResource("3_wtwp4")
+nums = [NodePath("NumContainers/NumContainer1"), NodePath("NumContainers/NumContainer2"), NodePath("NumContainers/NumContainer3"), NodePath("NumContainers/NumContainer4")]
+ans_label = NodePath("Label")
+
+[node name="NumContainers" type="Node2D" parent="NumCaculator"]
+
+[node name="NumContainer1" parent="NumCaculator/NumContainers" instance=ExtResource("3_x42e6")]
+position = Vector2(269, 253)
+
+[node name="NumContainer2" parent="NumCaculator/NumContainers" instance=ExtResource("3_x42e6")]
+position = Vector2(339, 253)
+
+[node name="NumContainer3" parent="NumCaculator/NumContainers" instance=ExtResource("3_x42e6")]
+position = Vector2(270, 340)
+
+[node name="NumContainer4" parent="NumCaculator/NumContainers" instance=ExtResource("3_x42e6")]
+position = Vector2(340, 340)
+
+[node name="Platform" type="StaticBody2D" parent="NumCaculator"]
+
+[node name="Sprite2D" type="Sprite2D" parent="NumCaculator/Platform"]
+position = Vector2(307, 297)
+scale = Vector2(11.25, 1)
+texture = ExtResource("4_6761a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NumCaculator/Platform"]
+position = Vector2(306.75, 296.875)
+shape = SubResource("RectangleShape2D_sk5k4")
+
+[node name="Area2D" type="Area2D" parent="NumCaculator/Platform"]
+collision_layer = 2
+script = ExtResource("5_mm8aj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NumCaculator/Platform/Area2D"]
+position = Vector2(307.5, 287.25)
+shape = SubResource("RectangleShape2D_wtwp4")
+
+[node name="Nums" type="Node2D" parent="NumCaculator"]
+position = Vector2(324, 105)
+
+[node name="NumNine" parent="NumCaculator/Nums" instance=ExtResource("5_dnkej")]
+position = Vector2(-291, 64)
+
+[node name="NumSix" parent="NumCaculator/Nums" instance=ExtResource("6_mm8aj")]
+position = Vector2(-227, 142)
+
+[node name="NumOne" parent="NumCaculator/Nums" instance=ExtResource("7_wtwp4")]
+position = Vector2(127, 146)
+
+[node name="NumTwo" parent="NumCaculator/Nums" instance=ExtResource("8_iwr0g")]
+position = Vector2(180, 16)
+
+[node name="NumThree" parent="NumCaculator/Nums" instance=ExtResource("9_bahl2")]
+position = Vector2(-173, 1)
+
+[node name="NumFour" parent="NumCaculator/Nums" instance=ExtResource("10_np2pn")]
+position = Vector2(-177, 68)
+
+[node name="NumFive" parent="NumCaculator/Nums" instance=ExtResource("11_v6ha0")]
+position = Vector2(193, 94)
+
+[node name="NumSeven" parent="NumCaculator/Nums" instance=ExtResource("12_gmpev")]
+position = Vector2(208, 193)
+
+[node name="NumEight" parent="NumCaculator/Nums" instance=ExtResource("13_mkypq")]
+position = Vector2(-154, 211)
+
+[node name="Equals" type="Node2D" parent="NumCaculator"]
+
+[node name="Up" type="Sprite2D" parent="NumCaculator/Equals"]
+position = Vector2(447, 286)
+scale = Vector2(3.2, 0.75)
+texture = ExtResource("4_6761a")
+
+[node name="Down" type="Sprite2D" parent="NumCaculator/Equals"]
+position = Vector2(447, 302)
+scale = Vector2(3.2, 0.75)
+texture = ExtResource("4_6761a")
+
+[node name="Label" type="Label" parent="NumCaculator"]
+offset_left = 486.0
+offset_top = 259.0
+offset_right = 763.0
+offset_bottom = 320.0
+theme = SubResource("Theme_mm8aj")
+text = "4565456465"
