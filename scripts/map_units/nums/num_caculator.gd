@@ -10,10 +10,9 @@ var num2 : Array[int]
 func _physics_process(delta: float) -> void:
 	get_num()
 	if(caculable):
-		var ans = calc()
-		ans_label.text = str(ans)
+		ans_label.text = calc()
 	else:
-		ans_label.text = ""
+		ans_label.text = "?"
 	
 	
 func get_num():
@@ -31,13 +30,13 @@ func get_num():
 	if(not(num1.is_empty() or num2.is_empty())):
 		caculable = true
 
-func calc() -> float:
+func calc() -> String:
 	var div_num : int = 0
 	var divven_num : int = 0
 	for i in num1:
 		div_num = div_num * 10 + i
 	for i in num2:
 		divven_num = divven_num * 10 + i
-		
-	var ans : float = div_num * 1.0 / divven_num * 1.0
+	var res : float = div_num * 1.0 / divven_num * 1.0
+	var ans : String = String.num(res, 3)
 	return ans

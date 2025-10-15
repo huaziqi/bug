@@ -1,18 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://dchfmdxowc6ic"]
 
 [ext_resource type="PackedScene" uid="uid://c201j5crm3x5k" path="res://scenes/map_units/nums/num_item.tscn" id="1_03106"]
-[ext_resource type="Texture2D" uid="uid://b0sd5ob37kmv4" path="res://assets/sprites/map_units/num_three.png" id="2_r1fht"]
+[ext_resource type="Texture2D" uid="uid://b0yry6j45r18j" path="res://assets/sprites/map_units/0_9nums.png" id="2_03106"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_03106"]
-size = Vector2(40, 52)
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1fht"]
+atlas = ExtResource("2_03106")
+region = Rect2(4642, 18, 588, 1135)
 
 [node name="NumThree" instance=ExtResource("1_03106")]
-collision_mask = 10
 self_num = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
-position = Vector2(1, -1)
-shape = SubResource("RectangleShape2D_03106")
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("AtlasTexture_r1fht")
 
-[node name="Sprite2D" parent="." index="1"]
-texture = ExtResource("2_r1fht")
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-12, -23, 4, -22, 9, -20, 12, -13, 11, -6, 7, -1, 10, 3, 12, 8, 11, 16, 8, 21, 2, 23, -12, 23, -12, 7, -9, 10, -5, 12, -2, 10, -2, 7, -3, 3, -7, 2, -12, 4, -12, -5, -8, -4, -4, -4, -2, -7, -2, -11, -6, -13, -10, -11, -12, -8)

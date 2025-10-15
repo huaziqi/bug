@@ -11,7 +11,7 @@ extends RigidBody2D
 @export var velocity_threshold: float = 5.0  # 判断"0速"的速度阈值
 @export var air_spin_force: float = 500.0   # 空中旋转产生的位移力
 @export var self_num :int =0
-@export var target_snap :Node2D = null
+@export var snap_target :Node2D = null
 signal jump
 
 
@@ -30,7 +30,7 @@ func _physics_process(_delta: float) -> void:
 	handle_movement()  
 	handle_jump()
 	handle_fall_acceleration()
-	blank()
+	absorb_to_container(_delta) #吸附到数字框
 	
 	# 限制最大旋转速度
 	angular_velocity = clamp(angular_velocity, -max_angular_velocity, max_angular_velocity)
@@ -89,5 +89,14 @@ func handle_jump() -> void:
 func handle_fall_acceleration() -> void:
 	if Input.is_action_pressed("down"):
 		apply_central_force(Vector2(0, fall_acceleration))
-func blank() -> void:
-	pass
+func absorb_to_container(delta : float) -> void:
+	var snap_min_distance : float = 2.0
+	var snap_strength: float = 6.25
+	if snap_target:
+		gravity_scale = 0
+		var target_pos = snap_target.global_position
+		var dir = target_pos - global_position
+		if dir.length() > snap_min_distance:
+			global_position += dir * snap_strength * delta
+	else:
+		gravity_scale = 1

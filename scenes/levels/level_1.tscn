@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bnlr3ccl4v3b4"]
+[gd_scene load_steps=20 format=3 uid="uid://bnlr3ccl4v3b4"]
 
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="1_v2dmm"]
 [ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://src/Scene/Pipe_player.tscn" id="2_6iamk"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c7bamebswoa7j" path="res://scenes/map_units/nums/num_five.tscn" id="11_v6ha0"]
 [ext_resource type="PackedScene" uid="uid://ck2g7sge8g6i2" path="res://scenes/map_units/nums/num_seven.tscn" id="12_gmpev"]
 [ext_resource type="PackedScene" uid="uid://dm5uxeql3acly" path="res://scenes/map_units/nums/num_eight.tscn" id="13_mkypq"]
+[ext_resource type="FontFile" uid="uid://d2o0pmjktk63t" path="res://assets/fonts/Gill Sans Ultra Bold Condensed.ttf" id="16_iwr0g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk5k4"]
 size = Vector2(180.5, 16.25)
@@ -25,6 +26,7 @@ size = Vector2(179, 12.5)
 [sub_resource type="Theme" id="Theme_mm8aj"]
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 44
+Label/fonts/font = ExtResource("16_iwr0g")
 
 [node name="Level1" type="Node2D"]
 
@@ -115,8 +117,7 @@ texture = ExtResource("4_6761a")
 
 [node name="Label" type="Label" parent="NumCaculator"]
 offset_left = 486.0
-offset_top = 259.0
+offset_top = 267.0
 offset_right = 763.0
-offset_bottom = 320.0
+offset_bottom = 328.0
 theme = SubResource("Theme_mm8aj")
-text = "4565456465"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0sd5ob37kmv4"
-path="res://.godot/imported/num_three.png-5ccd4337e17098fa56b4a654d1935b4a.ctex"
+uid="uid://dwp3kddmyil7p"
+path="res://.godot/imported/num_seven.png-2d50f4ed8b5d5a35bac5b2bffded93d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/map_units/num_three.png"
-dest_files=["res://.godot/imported/num_three.png-5ccd4337e17098fa56b4a654d1935b4a.ctex"]
+source_file="res://assets/sprites/map_units/temp/num_seven.png"
+dest_files=["res://.godot/imported/num_seven.png-2d50f4ed8b5d5a35bac5b2bffded93d0.ctex"]
 
 [params]
 
