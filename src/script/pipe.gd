@@ -1,7 +1,6 @@
 extends RigidBody2D
 
 # 基础参数
-@export var b_gravity: float = 1.6
 @export var ground_force: float = 3000.0
 @export var max_angular_velocity: float = 20.0  # 最大旋转速度
 @export var jump_impulse: float = 800.0   # 跳跃冲量大小（垂直方向）

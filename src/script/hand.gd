@@ -34,9 +34,13 @@ func grab():
 	var is_left_mouse_down = Input.is_action_pressed("left_click") #根据项目设置修改
 	if is_left_mouse_down:
 		$AnimatedSprite2D.play("fist")
+		
+		if is_holding==false and target_rigidbodies!=[]:
+			temp_target_rigidbodies.append(target_rigidbodies[-1])
 		is_holding = true
+		
 		if target_rigidbodies!=[]:
-			target_rigidbodies[-1].gravity_scale=0
+			target_rigidbodies[-1].linear_velocity=Vector2(0,0)
 			target_rigidbodies[-1].global_position = target_rigidbodies[-1].global_position.move_toward(global_position,30)
 			
 			#if target_rigidbodies[-1].is_in_group("weapons"):
@@ -46,14 +50,14 @@ func grab():
 					#target_rigidbodies[-1].global_rotation=deg_to_rad(rad_to_deg(global_rotation)+180)
 			#
 	else:
+		if is_holding==true:
+			target_rigidbodies=temp_target_rigidbodies
+			is_holding = false
 		if temp_target_rigidbodies!=[]:
 			target_rigidbodies.append_array(temp_target_rigidbodies)
 			temp_target_rigidbodies=[]
 		$AnimatedSprite2D.play("hand")
-		if target_rigidbodies!=[]:
-			for body in target_rigidbodies:		
-				body.gravity_scale=body.b_gravity
-		is_holding = false
+	
 
 #删除已经释放的目标
 func check_target_freed(array):
@@ -65,7 +69,7 @@ func _on_body_entered(body: Node2D) -> void:
 #筛选抓取目标，石山需要优化
 	if body.is_in_group("grippable")and not is_holding: 
 		target_rigidbodies.append(body)
-	elif	 body.is_in_group("grippable") and not body in target_rigidbodies:
+	elif	 body.is_in_group("grippable"):
 		temp_target_rigidbodies.append(body)
 func _on_body_exited(body: Node2D) -> void:
 	if not is_holding:
