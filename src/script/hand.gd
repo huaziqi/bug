@@ -11,7 +11,7 @@ func  _physics_process(_delta: float):
 	var parent_pos = get_parent().global_position
 	check_target_freed(target_rigidbodies)
 	grab()
-	follow(mouse_pos,parent_pos)
+	drag(follow(mouse_pos,parent_pos))
 
 func follow(mouse_pos,parent_pos):
 	var parent_to_mouse_vec = mouse_pos - parent_pos
@@ -29,7 +29,7 @@ func follow(mouse_pos,parent_pos):
 	global_rotation = (get_global_mouse_position() - global_position).angle()
 	#让大拇指朝上
 	$AnimatedSprite2D.flip_v=rad_to_deg(global_rotation)<90 and rad_to_deg(global_rotation)>-90	
-
+	return parent_to_mouse_dist
 func grab():
 	var is_left_mouse_down = Input.is_action_pressed("left_click") #根据项目设置修改
 	if is_left_mouse_down:
@@ -58,7 +58,13 @@ func grab():
 			temp_target_rigidbodies=[]
 		$AnimatedSprite2D.play("hand")
 	
-
+func drag(parent_to_mouse_dist):
+	if parent_to_mouse_dist >= max_distance-10:
+		if cos(global_rotation)<0:	
+			get_parent().apply_central_force(Vector2(-100, 0))
+		elif cos(global_rotation)>0:		
+			get_parent().apply_central_force(Vector2(100, 0))  
+	
 #删除已经释放的目标
 func check_target_freed(array):
 	for body in array:

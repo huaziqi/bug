@@ -19,13 +19,8 @@ signal jump
 var on_ground: bool = false
 var on_body: int = 0
 var last_jump_time: float = 0.0
-@export var b_damage: float = 200
-@export var damage_fix: float = 0.2
-var damage: float = b_damage
 
 func _physics_process(_delta: float) -> void:
-	# 更新伤害数值（根据垂直速度动态调整）
-	damage = b_damage + (abs(linear_velocity.y) * damage_fix if linear_velocity.y > 10 else 0)
 	# 处理移动、跳跃和下落加速
 	handle_movement()  
 	handle_jump()
@@ -47,8 +42,10 @@ func handle_movement() -> void:
 # 地面滚动逻辑
 func handle_ground() -> void:
 	if Input.is_action_pressed("left"):
+		apply_torque(start_torque * 5)
 		apply_central_force(Vector2(-ground_force, 0))
 	elif Input.is_action_pressed("right"):
+		apply_torque(-start_torque * 5)		
 		apply_central_force(Vector2(ground_force, 0))
 
 # 空中旋转产生位移逻辑
