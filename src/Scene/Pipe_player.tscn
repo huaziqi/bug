@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://p6dopje3btqk"]
 
 [ext_resource type="Script" uid="uid://2chbhr3kgodc" path="res://src/script/pipe.gd" id="1_7meox"]
-[ext_resource type="Texture2D" uid="uid://di0qu4ahpm0d0" path="res://assets/temp/side_pipe.png" id="2_hvujv"]
+[ext_resource type="Texture2D" uid="uid://di0qu4ahpm0d0" path="res://assets/temp(临时美术资源)/side_pipe.png" id="2_hvujv"]
 [ext_resource type="PackedScene" uid="uid://dn0bw5kg1vrhe" path="res://src/Scene/hand.tscn" id="3_8q1br"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_71kmc"]

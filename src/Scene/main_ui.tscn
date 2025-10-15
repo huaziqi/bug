@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://chxhb60rk54wd"]
 
-[ext_resource type="Texture2D" uid="uid://ub7bt16kniky" path="res://assets/temp/title.png" id="1_7fyyl"]
+[ext_resource type="Texture2D" uid="uid://ub7bt16kniky" path="res://assets/temp(临时美术资源)/title.png" id="1_7fyyl"]
 [ext_resource type="Script" uid="uid://d0saruai5e8rv" path="res://src/script/main_ui.gd" id="1_dktd0"]
-[ext_resource type="Texture2D" uid="uid://db2vblixi3mrt" path="res://assets/temp/button.png" id="2_egy7s"]
+[ext_resource type="Texture2D" uid="uid://db2vblixi3mrt" path="res://assets/temp(临时美术资源)/button.png" id="2_egy7s"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_egy7s"]
 

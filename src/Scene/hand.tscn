@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dn0bw5kg1vrhe"]
 
-[ext_resource type="Texture2D" uid="uid://bl4pvc00cxe0i" path="res://assets/temp/hand.png" id="2_enm0g"]
+[ext_resource type="Texture2D" uid="uid://bl4pvc00cxe0i" path="res://assets/temp(临时美术资源)/hand.png" id="2_enm0g"]
 [ext_resource type="Script" uid="uid://dxy0ohkig4bti" path="res://src/script/hand.gd" id="2_k7pjy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_obnn6"]
