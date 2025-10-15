@@ -10,6 +10,9 @@ extends RigidBody2D
 @export var start_torque: float = 5000.0    # 启动时的初始倾斜扭矩(原本用于优化正方体滚动）
 @export var velocity_threshold: float = 5.0  # 判断"0速"的速度阈值
 @export var air_spin_force: float = 500.0   # 空中旋转产生的位移力
+@export var self_num :int =0
+signal jump
+
 
 # 状态变量
 var on_ground: bool = false
@@ -60,9 +63,9 @@ func handle_jump() -> void:
 	# 检查跳跃冷却
 	if (Time.get_ticks_msec() / 1000.0) - last_jump_time < jump_cooldown:
 		return
-	
 	# 执行跳跃（仅在地面或物体上）
 	if Input.is_action_just_pressed("jump") and (on_ground or on_body):
+		jump.emit()
 		# 计算水平方向（左/右）
 		var horizontal_dir: float = 0.0
 		if Input.is_action_pressed("left"):

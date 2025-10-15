@@ -42,5 +42,14 @@ shape = SubResource("RectangleShape2D_vryaj")
 [node name="Steel_Pipe" parent="." instance=ExtResource("1_xgsbt")]
 position = Vector2(661, 248)
 
+[node name="Steel_Pipe2" parent="." instance=ExtResource("1_xgsbt")]
+position = Vector2(1322, 496)
+
+[node name="Steel_Pipe3" parent="." instance=ExtResource("1_xgsbt")]
+position = Vector2(1983, 744)
+
+[node name="Steel_Pipe4" parent="." instance=ExtResource("1_xgsbt")]
+position = Vector2(2644, 992)
+
 [connection signal="body_entered" from="ground/checker" to="ground/checker" method="_on_body_entered"]
 [connection signal="body_exited" from="ground/checker" to="ground/checker" method="_on_body_exited"]
