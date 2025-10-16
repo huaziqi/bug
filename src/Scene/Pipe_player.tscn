@@ -24,7 +24,7 @@ fill_to = Vector2(0.47196263, 0.08411215)
 collision_mask = 3
 mass = 0.916
 physics_material_override = SubResource("PhysicsMaterial_71kmc")
-gravity_scale = 1.612
+gravity_scale = 8.0
 script = ExtResource("1_7meox")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -1,15 +1,15 @@
 extends RigidBody2D
 
 # 基础参数
-@export var ground_force: float = 3000.0
-@export var max_angular_velocity: float = 20.0  # 最大旋转速度
-@export var jump_impulse: float = 800.0   # 跳跃冲量大小（垂直方向）
-@export var jump_direction_strength: float = 0.1  # 水平方向弹射比例
+@export var gravity:float=2.5
+@export var ground_force: float = 200.0 #地面中心力，现在调整为仅一定程度修正速度
+@export var max_angular_velocity: float = 8.0  # 最大旋转速度
+@export var jump_impulse: float = 600.0   # 跳跃冲量大小（垂直方向）
+@export var jump_direction_strength: float = 0.001  # 水平方向弹射比例
 @export var jump_cooldown: float = 0.5     # 跳跃冷却时间
 @export var fall_acceleration: float = 3500.0  # 按下↓时的下落加速度
-@export var start_torque: float = 5000.0    # 启动时的初始倾斜扭矩(原本用于优化正方体滚动）
-@export var velocity_threshold: float = 5.0  # 判断"0速"的速度阈值
-@export var air_spin_force: float = 500.0   # 空中旋转产生的位移力
+@export var start_torque: float = 5000.0    # 滚动倾斜扭矩，影响地面位移的主要属性！
+@export var air_spin_force: float = 100.0   # 空中旋转产生的位移力，唯一影响空中位移的属性！
 @export var self_num :int =0
 @export var snap_target :Node2D = null
 signal jump
@@ -42,10 +42,10 @@ func handle_movement() -> void:
 # 地面滚动逻辑
 func handle_ground() -> void:
 	if Input.is_action_pressed("left"):
-		apply_torque(start_torque * 5)
+		apply_torque(-start_torque * 5)
 		apply_central_force(Vector2(-ground_force, 0))
 	elif Input.is_action_pressed("right"):
-		apply_torque(-start_torque * 5)		
+		apply_torque(start_torque * 5)		
 		apply_central_force(Vector2(ground_force, 0))
 
 # 空中旋转产生位移逻辑
@@ -96,4 +96,4 @@ func absorb_to_container(delta : float) -> void:
 		if dir.length() > snap_min_distance:
 			global_position += dir * snap_strength * delta
 	else:
-		gravity_scale = 1
+		gravity_scale = gravity
