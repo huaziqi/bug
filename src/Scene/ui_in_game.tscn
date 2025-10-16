@@ -1,12 +1,97 @@
-[gd_scene load_steps=5 format=3 uid="uid://dehf8owa8j41j"]
+[gd_scene load_steps=12 format=3 uid="uid://dehf8owa8j41j"]
 
 [ext_resource type="Script" uid="uid://cxo4v3lqjutf2" path="res://src/script/ui_in_game.gd" id="1_n64jb"]
+[ext_resource type="FontFile" uid="uid://d2o0pmjktk63t" path="res://assets/fonts/Gill Sans Ultra Bold Condensed.ttf" id="1_yw1oe"]
+[ext_resource type="Texture2D" uid="uid://8qx5wl8qos07" path="res://assets/temp(临时美术资源)/restart_buttun.png" id="3_l1ej1"]
 
 [sub_resource type="Theme" id="Theme_n64jb"]
 
-[sub_resource type="Theme" id="Theme_yw1oe"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l1ej1"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_l1ej1"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ha1jt"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n64jb"]
+bg_color = Color(0.5461496, 0.009235112, 0.19201836, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yw1oe"]
+bg_color = Color(0, 0, 0, 0.827451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gj7pb"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Theme" id="Theme_yw1oe"]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 40
+Button/fonts/font = ExtResource("1_yw1oe")
+Button/styles/disabled = SubResource("StyleBoxFlat_l1ej1")
+Button/styles/focus = SubResource("StyleBoxFlat_ha1jt")
+Button/styles/hover = SubResource("StyleBoxFlat_n64jb")
+Button/styles/normal = SubResource("StyleBoxFlat_yw1oe")
+Button/styles/pressed = SubResource("StyleBoxFlat_gj7pb")
+MarginContainer/constants/margin_bottom = 0
+MarginContainer/constants/margin_left = 0
+MarginContainer/constants/margin_right = 0
+MarginContainer/constants/margin_top = 20
+
+[sub_resource type="Theme" id="Theme_iks2h"]
+Button/constants/line_spacing = 10
+Button/font_sizes/font_size = 30
+Button/fonts/font = ExtResource("1_yw1oe")
+Label/font_sizes/font_size = 20
 
 [node name="ui" type="Control"]
 process_mode = 3
@@ -22,7 +107,7 @@ theme = SubResource("Theme_n64jb")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("1_n64jb")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
+[node name="Panel" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -35,30 +120,73 @@ offset_bottom = 116.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_yw1oe")
-texture = SubResource("CanvasTexture_l1ej1")
 metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/NinePatchRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/NinePatchRect/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel"]
 layout_mode = 2
 
-[node name="continue" type="Button" parent="CanvasLayer/NinePatchRect/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="continue" type="Button" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "继续"
 
-[node name="setting" type="Button" parent="CanvasLayer/NinePatchRect/MarginContainer/VBoxContainer"]
+[node name="setting" type="Button" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "设置"
 
-[node name="quit" type="Button" parent="CanvasLayer/NinePatchRect/MarginContainer/VBoxContainer"]
+[node name="quit" type="Button" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "退出"
 
-[connection signal="pressed" from="CanvasLayer/NinePatchRect/MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[node name="setting_ui" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 468.0
+offset_top = 219.0
+offset_right = 705.0
+offset_bottom = 440.0
+theme = SubResource("Theme_iks2h")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/setting_ui"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/setting_ui/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/setting_ui/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "音乐"
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/setting_ui/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/setting_ui/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "音效"
+
+[node name="ProgressBar2" type="ProgressBar" parent="CanvasLayer/setting_ui/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/setting_ui/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "全屏"
+
+[node name="return" type="Button" parent="CanvasLayer/setting_ui/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "返回"
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.062000003
+offset_left = 910.0
+offset_top = 41.0
+offset_right = 928.68
+offset_bottom = 58.823997
+texture_normal = ExtResource("3_l1ej1")
+
+[connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/VBoxContainer/continue" to="CanvasLayer" method="_on_continue_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/VBoxContainer/setting" to="CanvasLayer" method="_on_setting_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/VBoxContainer/quit" to="CanvasLayer" method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/setting_ui/MarginContainer/VBoxContainer/return" to="CanvasLayer" method="_on_return_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureButton" to="CanvasLayer" method="_on_texture_button_pressed"]

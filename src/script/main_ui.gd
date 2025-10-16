@@ -1,6 +1,6 @@
 extends Control
 
-
+signal game_initialized
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$ui.mouse_filter = Control.MOUSE_FILTER_IGNORE# 标题页面时，防止ui干扰
@@ -30,4 +30,5 @@ func start_game():
 	add_child(instance) 
 	$MarginContainer.free()
 	GameState.state=GameState.PLAYING
+	game_initialized.emit()
 	$ui.mouse_filter = Control.MOUSE_FILTER_STOP #回复ui
