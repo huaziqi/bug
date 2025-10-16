@@ -3,7 +3,7 @@ extends CanvasLayer
 @onready var ui_main=$Panel
 @onready var ui_setting=$setting_ui
 @onready var ui_restart=$TextureButton
-@onready var gd_main=$"../.."#主界面
+@onready var gd_main=$"../.."
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	ui_restart.visible=false
