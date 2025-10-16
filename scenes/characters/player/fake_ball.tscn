@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://5kshbfs22s1x"]
+
+[node name="FakeBall" type="Node2D"]

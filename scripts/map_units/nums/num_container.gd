@@ -15,11 +15,12 @@ func _on_body_entered(body: Node2D) -> void:
 			target_item = body
 			if("self_num" in body):
 				in_container_num = body.self_num
-				print(in_container_num)
+				#print(in_container_num)
 		else:
 			items_list.append(body)
 
 func _on_body_exited(body: Node2D) -> void:
+	print(body.self_num)
 	if body == target_item:
 		body.snap_target = null
 		target_item = null

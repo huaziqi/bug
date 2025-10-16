@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://bnlr3ccl4v3b4"]
+[gd_scene load_steps=24 format=3 uid="uid://bnlr3ccl4v3b4"]
 
+[ext_resource type="Script" uid="uid://copts0ef8qjnc" path="res://scripts/levels/level_manager.gd" id="1_np2pn"]
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="1_v2dmm"]
 [ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://src/Scene/Pipe_player.tscn" id="2_6iamk"]
 [ext_resource type="Script" uid="uid://cxldgbf6a8wmn" path="res://scripts/map_units/nums/num_caculator.gd" id="3_wtwp4"]
@@ -16,19 +17,26 @@
 [ext_resource type="PackedScene" uid="uid://ck2g7sge8g6i2" path="res://scenes/map_units/nums/num_seven.tscn" id="12_gmpev"]
 [ext_resource type="PackedScene" uid="uid://dm5uxeql3acly" path="res://scenes/map_units/nums/num_eight.tscn" id="13_mkypq"]
 [ext_resource type="FontFile" uid="uid://d2o0pmjktk63t" path="res://assets/fonts/Gill Sans Ultra Bold Condensed.ttf" id="16_iwr0g"]
+[ext_resource type="Script" uid="uid://br310ojw346j2" path="res://scripts/map_units/nums/ans_platform.gd" id="17_bahl2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk5k4"]
-size = Vector2(180.5, 16.25)
+size = Vector2(180, 17.125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wtwp4"]
-size = Vector2(179, 12.5)
+size = Vector2(179, 14.25)
 
 [sub_resource type="Theme" id="Theme_mm8aj"]
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 44
 Label/fonts/font = ExtResource("16_iwr0g")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bahl2"]
+size = Vector2(20, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_np2pn"]
+
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_np2pn")
 
 [node name="BasicMap" parent="." instance=ExtResource("1_v2dmm")]
 
@@ -55,6 +63,8 @@ position = Vector2(270, 340)
 position = Vector2(340, 340)
 
 [node name="Platform" type="StaticBody2D" parent="NumCaculator"]
+collision_layer = 2
+collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="NumCaculator/Platform"]
 position = Vector2(307, 297)
@@ -62,19 +72,19 @@ scale = Vector2(11.25, 1)
 texture = ExtResource("4_6761a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NumCaculator/Platform"]
-position = Vector2(306.75, 296.875)
+position = Vector2(307, 296.4375)
 shape = SubResource("RectangleShape2D_sk5k4")
 
 [node name="Area2D" type="Area2D" parent="NumCaculator/Platform"]
-collision_layer = 2
+collision_layer = 0
 script = ExtResource("5_mm8aj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NumCaculator/Platform/Area2D"]
-position = Vector2(307.5, 287.25)
+position = Vector2(306.5, 290.125)
 shape = SubResource("RectangleShape2D_wtwp4")
 
 [node name="Nums" type="Node2D" parent="NumCaculator"]
-position = Vector2(324, 105)
+position = Vector2(329, 44)
 
 [node name="NumNine" parent="NumCaculator/Nums" instance=ExtResource("5_dnkej")]
 position = Vector2(-291, 64)
@@ -98,7 +108,7 @@ position = Vector2(-177, 68)
 position = Vector2(193, 94)
 
 [node name="NumSeven" parent="NumCaculator/Nums" instance=ExtResource("12_gmpev")]
-position = Vector2(208, 193)
+position = Vector2(163, 139)
 
 [node name="NumEight" parent="NumCaculator/Nums" instance=ExtResource("13_mkypq")]
 position = Vector2(-154, 211)
@@ -118,6 +128,41 @@ texture = ExtResource("4_6761a")
 [node name="Label" type="Label" parent="NumCaculator"]
 offset_left = 486.0
 offset_top = 267.0
-offset_right = 763.0
+offset_right = 537.0
 offset_bottom = 328.0
 theme = SubResource("Theme_mm8aj")
+text = "12"
+
+[node name="AnsPlatform" type="StaticBody2D" parent="NumCaculator/Label" node_paths=PackedStringArray("ans_label", "collision_area", "checker_area")]
+position = Vector2(6, 10)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("17_bahl2")
+ans_label = NodePath("..")
+collision_area = NodePath("CollisionShape2D")
+checker_area = NodePath("Area2D/CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NumCaculator/Label/AnsPlatform"]
+position = Vector2(9, 17)
+shape = SubResource("RectangleShape2D_bahl2")
+
+[node name="Area2D" type="Area2D" parent="NumCaculator/Label/AnsPlatform"]
+collision_layer = 0
+script = ExtResource("5_mm8aj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NumCaculator/Label/AnsPlatform/Area2D"]
+position = Vector2(9, 4)
+shape = SubResource("RectangleShape2D_np2pn")
+
+[node name="ResetButton" type="Button" parent="."]
+offset_left = 1038.0
+offset_top = 39.0
+offset_right = 1086.0
+offset_bottom = 70.0
+text = "reset"
+
+[connection signal="body_entered" from="NumCaculator/Platform/Area2D" to="NumCaculator/Platform/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="NumCaculator/Platform/Area2D" to="NumCaculator/Platform/Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="NumCaculator/Label/AnsPlatform/Area2D" to="NumCaculator/Label/AnsPlatform/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="NumCaculator/Label/AnsPlatform/Area2D" to="NumCaculator/Label/AnsPlatform/Area2D" method="_on_body_exited"]
+[connection signal="pressed" from="ResetButton" to="." method="_on_button_pressed"]

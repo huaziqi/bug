@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://3guswm2uo0xu"]
+
+[ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="1_js88d"]
+
+[node name="TransitionScene" type="Node2D"]
+
+[node name="BasicGround" parent="." instance=ExtResource("1_js88d")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(579, 974)

@@ -3,17 +3,19 @@ extends Node
 @export var ans_label : Label
 
 var caculable: bool = false
+var zero_error: bool = false
 var num1 : Array[int]
 var num2 : Array[int]
 
 
 func _physics_process(delta: float) -> void:
 	get_num()
-	if(caculable):
+	if(caculable and not zero_error):
 		ans_label.text = calc()
-	else:
+	elif(not caculable and not zero_error):
 		ans_label.text = "?"
-	
+	elif(zero_error):
+		pass
 	
 func get_num():
 	caculable = false
@@ -37,6 +39,10 @@ func calc() -> String:
 		div_num = div_num * 10 + i
 	for i in num2:
 		divven_num = divven_num * 10 + i
-	var res : float = div_num * 1.0 / divven_num * 1.0
-	var ans : String = String.num(res, 3)
-	return ans
+	if(divven_num == 0):
+		zero_error = true
+		return "warning: division by zero"
+	else:
+		var res : float = div_num * 1.0 / divven_num * 1.0
+		var ans : String = String.num(res, 3)
+		return ans
