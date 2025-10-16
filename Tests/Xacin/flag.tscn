@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://ct5l5eh65tbi1"]
+
+[ext_resource type="Script" uid="uid://bcrjpaf3ecyts" path="res://Tests/Xacin/flag.gd" id="1_3juuy"]
+[ext_resource type="Texture2D" uid="uid://ds72j2ocl2wfo" path="res://assets/sprites/map_units/flag.png" id="1_pg2jc"]
+[ext_resource type="AudioStream" uid="uid://dcnfa6unb1s8i" path="res://assets/sounds/sfx/bo.mp3" id="3_lh2x2"]
+[ext_resource type="AudioStream" uid="uid://brr04icxc4cc5" path="res://assets/sounds/sfx/geelgeel.mp3" id="4_ggrl8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3juuy"]
+size = Vector2(74, 95.5)
+
+[node name="Flag" type="RigidBody2D" groups=["grippable"]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_3juuy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.000001, -16.999998)
+scale = Vector2(0.19476743, 0.1826225)
+texture = ExtResource("1_pg2jc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -18.25)
+shape = SubResource("RectangleShape2D_3juuy")
+
+[node name="bo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_lh2x2")
+
+[node name="geelgeel" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ggrl8")

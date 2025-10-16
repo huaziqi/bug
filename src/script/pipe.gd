@@ -16,8 +16,7 @@ signal jump
 
 
 # 状态变量
-var on_ground: bool = false
-var on_body: int = 0
+var on_ground: int = 0
 var last_jump_time: float = 0.0
 
 func _physics_process(_delta: float) -> void:
@@ -34,7 +33,7 @@ func _physics_process(_delta: float) -> void:
 
 # 整合地面和空中移动逻辑
 func handle_movement() -> void:
-	if on_ground or on_body:
+	if on_ground:
 		handle_ground()
 	else:
 		handle_air_spin()
@@ -63,7 +62,7 @@ func handle_jump() -> void:
 	if (Time.get_ticks_msec() / 1000.0) - last_jump_time < jump_cooldown:
 		return
 	# 执行跳跃（仅在地面或物体上）
-	if Input.is_action_just_pressed("jump") and (on_ground or on_body):
+	if Input.is_action_just_pressed("jump") and (on_ground):
 		jump.emit()
 		# 计算水平方向（左/右）
 		var horizontal_dir: float = 0.0

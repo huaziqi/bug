@@ -34,21 +34,24 @@ func follow(mouse_pos,parent_pos):
 func grab():
 	var is_left_mouse_down = Input.is_action_pressed("left_click") #根据项目设置修改
 	if is_left_mouse_down:
-		$AnimatedSprite2D.play("fist")
-		
 		if is_holding==false and target_rigidbodies!=[]:
 			temp_target_rigidbodies.append(target_rigidbodies[-1])
 		is_holding = true
 		
-		#破坏静止状态
 		if target_rigidbodies!=[]:
+			#破坏静止状态
 			if "breaked" in target_rigidbodies[-1]:
 				if target_rigidbodies[-1].breaked==false:
-					target_rigidbodies[-1].breaked=true
+					target_rigidbodies[-1].breaking()
+					if "is_being_breaked" in target_rigidbodies[-1]:
+						target_rigidbodies[-1].is_being_breaked=true
+				else:
+					if "is_being_breaked" in target_rigidbodies[-1]:	
+						target_rigidbodies[-1].is_being_breaked=false	
 					
 			target_rigidbodies[-1].linear_velocity=Vector2(0,0)
 			target_rigidbodies[-1].global_position = target_rigidbodies[-1].global_position.move_toward(global_position,30)
-			
+		$AnimatedSprite2D.play("fist")
 			#if target_rigidbodies[-1].is_in_group("weapons"):
 				#if rad_to_deg(global_rotation)<=90 and rad_to_deg(global_rotation)>=-90:
 					#target_rigidbodies[-1].global_rotation=global_rotation
@@ -57,12 +60,13 @@ func grab():
 			#
 	else:
 		if is_holding==true:
+			if target_rigidbodies!=[]:
+				if "is_being_breaked" in target_rigidbodies[-1]:
+					target_rigidbodies[-1].is_being_breaked=false
+					
 			target_rigidbodies=temp_target_rigidbodies
-			is_holding = false
-		if temp_target_rigidbodies!=[]:
-			target_rigidbodies.append_array(temp_target_rigidbodies)
 			temp_target_rigidbodies=[]
-			
+			is_holding = false
 		$AnimatedSprite2D.play("hand")
 	
 func drag(parent_to_mouse_dist):

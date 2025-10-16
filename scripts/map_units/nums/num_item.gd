@@ -9,7 +9,7 @@ var rotation_speed : float = 20
 var snap_target: Node2D = null
 var is_grabbed: bool = false
 var sprite: Sprite2D
-var on_ground : bool = true
+var on_ground : int = 0
 
 func _ready():
 	sprite = $Sprite2D  # 拿到精灵引用
