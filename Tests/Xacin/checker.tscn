@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://qeriht8qcrgf"]
+
+[ext_resource type="Script" uid="uid://ccvwii8dy8t0d" path="res://src/test/checker.gd" id="1_wd8xd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sq6mr"]
+size = Vector2(305.5, 26)
+
+[node name="Checker" type="Area2D"]
+script = ExtResource("1_wd8xd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1000.25, 399)
+shape = SubResource("RectangleShape2D_sq6mr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

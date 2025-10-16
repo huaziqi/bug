@@ -30,6 +30,7 @@ func follow(mouse_pos,parent_pos):
 	#让大拇指朝上
 	$AnimatedSprite2D.flip_v=rad_to_deg(global_rotation)<90 and rad_to_deg(global_rotation)>-90	
 	return parent_to_mouse_dist
+	
 func grab():
 	var is_left_mouse_down = Input.is_action_pressed("left_click") #根据项目设置修改
 	if is_left_mouse_down:
@@ -39,7 +40,12 @@ func grab():
 			temp_target_rigidbodies.append(target_rigidbodies[-1])
 		is_holding = true
 		
+		#破坏静止状态
 		if target_rigidbodies!=[]:
+			if "breaked" in target_rigidbodies[-1]:
+				if target_rigidbodies[-1].breaked==false:
+					target_rigidbodies[-1].breaked=true
+					
 			target_rigidbodies[-1].linear_velocity=Vector2(0,0)
 			target_rigidbodies[-1].global_position = target_rigidbodies[-1].global_position.move_toward(global_position,30)
 			
@@ -56,6 +62,7 @@ func grab():
 		if temp_target_rigidbodies!=[]:
 			target_rigidbodies.append_array(temp_target_rigidbodies)
 			temp_target_rigidbodies=[]
+			
 		$AnimatedSprite2D.play("hand")
 	
 func drag(parent_to_mouse_dist):

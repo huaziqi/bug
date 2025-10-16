@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://pl2c6eu5r4nl" path="res://assets/temp(临时美术资源)/ground.png" id="1_h1ly1"]
 [ext_resource type="Script" uid="uid://ccvwii8dy8t0d" path="res://src/test/checker.gd" id="2_gcwum"]
+[ext_resource type="PackedScene" uid="uid://qeriht8qcrgf" path="res://Tests/Xacin/checker.tscn" id="3_vxndb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gcwum"]
 size = Vector2(621, 258)
@@ -16,9 +17,6 @@ size = Vector2(621, 24)
 size = Vector2(308, 254.5)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_q306n"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sq6mr"]
-size = Vector2(305.5, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w6evp"]
 size = Vector2(226, 56)
