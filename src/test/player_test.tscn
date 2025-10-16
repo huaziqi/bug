@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dcb6oo4wmcbwv"]
+[gd_scene load_steps=7 format=3 uid="uid://dcb6oo4wmcbwv"]
 
 [ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://src/Scene/Pipe_player.tscn" id="1_xgsbt"]
 [ext_resource type="Script" uid="uid://ccvwii8dy8t0d" path="res://src/test/checker.gd" id="2_fgatd"]
-[ext_resource type="PackedScene" uid="uid://cw78r6vo1et0u" path="res://Tests/Xacin/platform2.tscn" id="3_fgatd"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fgatd"]
 distance = -598.5
@@ -51,8 +50,6 @@ position = Vector2(1983, 744)
 
 [node name="Steel_Pipe4" parent="." instance=ExtResource("1_xgsbt")]
 position = Vector2(2644, 992)
-
-[node name="Platform2" parent="." instance=ExtResource("3_fgatd")]
 
 [connection signal="body_entered" from="ground/checker" to="ground/checker" method="_on_body_entered"]
 [connection signal="body_exited" from="ground/checker" to="ground/checker" method="_on_body_exited"]
