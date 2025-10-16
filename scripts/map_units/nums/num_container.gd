@@ -1,6 +1,5 @@
 extends Node
 
-
 @export var snap_speed: float = 300.0  # 吸附速度
 var target_item: Node2D = null
 var items_list: Array[Node2D] = []
@@ -27,6 +26,8 @@ func _on_body_exited(body: Node2D) -> void:
 		if(not items_list.is_empty()):
 			target_item = items_list[0]
 			items_list[0].snap_target = self
+			if("self_num" in body):
+				in_container_num = body.self_num
 			items_list.pop_front()
 	elif(body in items_list):
 		items_list.erase(body)
