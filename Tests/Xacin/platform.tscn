@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpguias6py81r"]
+
+[ext_resource type="Texture2D" uid="uid://pl2c6eu5r4nl" path="res://assets/temp(临时美术资源)/ground.png" id="1_atdlx"]
+[ext_resource type="Script" uid="uid://dpq31dwd5f082" path="res://Tests/Xacin/platform.gd" id="1_oss3n"]
+[ext_resource type="Script" uid="uid://ccvwii8dy8t0d" path="res://src/test/checker.gd" id="2_33mpg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33mpg"]
+size = Vector2(216, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oss3n"]
+size = Vector2(242, 35)
+
+[node name="platform" type="RigidBody2D" groups=["grippable"]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_oss3n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_33mpg")
+
+[node name="Checker" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("2_33mpg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checker"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_oss3n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.2308359e-05, 1.2499996)
+scale = Vector2(14.374999, 1.28125)
+texture = ExtResource("1_atdlx")
+
+[connection signal="body_entered" from="Checker" to="Checker" method="_on_body_entered"]
+[connection signal="body_exited" from="Checker" to="Checker" method="_on_body_exited"]
