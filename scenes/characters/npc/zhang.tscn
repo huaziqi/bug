@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bobd1dnm65ixa"]
+[gd_scene load_steps=4 format=3 uid="uid://bobd1dnm65ixa"]
 
 [ext_resource type="Texture2D" uid="uid://bm0bfjijlv0fr" path="res://assets/sprites/characters/zhang.png" id="1_mwt8b"]
 
@@ -6,8 +6,17 @@
 atlas = ExtResource("1_mwt8b")
 region = Rect2(544, 1676, 430, 966)
 
-[node name="Zhang" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwt8b"]
+size = Vector2(56, 139)
+
+[node name="Zhang" type="RigidBody2D" groups=["grippable"]]
+collision_layer = 16
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.15, 0.15)
 texture = SubResource("AtlasTexture_404j0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 1.5)
+shape = SubResource("RectangleShape2D_mwt8b")

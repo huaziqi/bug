@@ -7,7 +7,6 @@ extends StaticBody2D
 func _ready():
 	pass
 	
-	
 func _physics_process(delta: float) -> void:
 	update_layout()
 
@@ -26,8 +25,13 @@ func update_layout():
 	set_collision_width_keep_left(checker_area, text_width)
 
 func set_collision_width_keep_left(area: CollisionShape2D, new_width: float):
+	
 	if area == null:
 		return
+	if(ans_label.text == "?"):
+		area.disabled = true
+		return
+	area.disabled = false
 
 	var shape = area.shape
 	if shape is RectangleShape2D:

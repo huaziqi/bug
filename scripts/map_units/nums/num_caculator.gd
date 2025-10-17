@@ -7,6 +7,11 @@ var zero_error: bool = false
 var num1 : Array[int]
 var num2 : Array[int]
 
+var error_info : Array[String] = [
+	"eeeee",
+	"nonono",
+	"shitshitshit"
+]
 
 func _physics_process(delta: float) -> void:
 	get_num()
