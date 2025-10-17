@@ -70,12 +70,13 @@ func grab():
 		$AnimatedSprite2D.play("hand")
 	
 func drag(parent_to_mouse_dist):
-	if parent_to_mouse_dist >= max_distance-10:
-		if cos(global_rotation)<0:	
-			get_parent().apply_central_force(Vector2(-100, 0))
-		elif cos(global_rotation)>0:		
-			get_parent().apply_central_force(Vector2(100, 0))  
-	
+	pass
+	#if parent_to_mouse_dist >= max_distance-10:
+		#if cos(global_rotation)<0:	
+			#get_parent().apply_central_force(Vector2(-100, 0))
+		#elif cos(global_rotation)>0:		
+			#get_parent().apply_central_force(Vector2(100, 0))  
+	#
 #删除已经释放的目标
 func check_target_freed(array):
 	for body in array:

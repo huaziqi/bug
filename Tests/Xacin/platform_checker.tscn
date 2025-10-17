@@ -7,7 +7,7 @@ size = Vector2(305.5, 26)
 
 [node name="Checker" type="Area2D"]
 collision_layer = 2
-collision_mask = 3
+collision_mask = 7
 script = ExtResource("1_wd8xd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
