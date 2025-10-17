@@ -1,0 +1,10 @@
+GameState.Playing表示在关卡中
+GameState.Title表示在主标题
+
+10.18
+（在每个level关卡ready函数里加了点ui相关的代码）
+注销了level_manager里的一段代码，注意一下
+
+发现bug:	
+
+10.19
