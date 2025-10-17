@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://src/Scene/Pipe_player.tscn" id="3_l37oo"]
 [ext_resource type="PackedScene" uid="uid://bobd1dnm65ixa" path="res://scenes/characters/npc/zhang.tscn" id="4_qpwj6"]
 [ext_resource type="Script" uid="uid://ccvwii8dy8t0d" path="res://src/test/checker.gd" id="5_l37oo"]
-[ext_resource type="PackedScene" uid="uid://ct5l5eh65tbi1" path="res://tests/Xacin/flag.tscn" id="6_qpwj6"]
+[ext_resource type="PackedScene" uid="uid://ct5l5eh65tbi1" path="res://Tests/Xacin/flag.tscn" id="6_qpwj6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpwj6"]
 size = Vector2(550, 96)

@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://chxhb60rk54wd"]
+[gd_scene load_steps=7 format=3 uid="uid://chxhb60rk54wd"]
 
 [ext_resource type="Texture2D" uid="uid://ub7bt16kniky" path="res://assets/temp(临时美术资源)/title.png" id="1_7fyyl"]
 [ext_resource type="Script" uid="uid://d0saruai5e8rv" path="res://src/script/main_ui.gd" id="1_dktd0"]
 [ext_resource type="FontFile" uid="uid://d2o0pmjktk63t" path="res://assets/fonts/Gill Sans Ultra Bold Condensed.ttf" id="1_f1lne"]
 [ext_resource type="Texture2D" uid="uid://db2vblixi3mrt" path="res://assets/temp(临时美术资源)/button.png" id="2_egy7s"]
-[ext_resource type="PackedScene" uid="uid://dehf8owa8j41j" path="res://src/Scene/ui_in_game.tscn" id="4_iues8"]
 
 [sub_resource type="Theme" id="Theme_tg8k2"]
 Label/colors/font_color = Color(0, 0, 0, 1)
@@ -24,9 +23,6 @@ grow_vertical = 2
 mouse_filter = 2
 theme = SubResource("Theme_tg8k2")
 script = ExtResource("1_dktd0")
-
-[node name="ui" parent="." instance=ExtResource("4_iues8")]
-layout_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

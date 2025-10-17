@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://src/Scene/Pipe_player.tscn" id="2_yqnkn"]
 
 [node name="Level_0" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_osc7o")
 
 [node name="Steel_Pipe" parent="." instance=ExtResource("2_yqnkn")]

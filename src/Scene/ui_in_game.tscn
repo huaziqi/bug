@@ -105,6 +105,7 @@ mouse_filter = 2
 theme = SubResource("Theme_n64jb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
 script = ExtResource("1_n64jb")
 
 [node name="Panel" type="PanelContainer" parent="CanvasLayer"]

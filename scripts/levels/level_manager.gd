@@ -3,13 +3,16 @@ extends Node
 
 
 func _ready() -> void:
-	
+	GameState.state=GameState.PLAYING
+	GameState.game_initialized.emit()#ui相关
+	'''
 	show_item($Flag)
 	show_item($NumCaculator/Platform)
 	show_item($NumCaculator/Equals)
 	show_item($NumCaculator/Label)
 	show_item($NumCaculator/NumContainers)
 	pass
+	'''
 
 func reset_game() -> void:
 	var _current_scene = get_tree().current_scene
@@ -51,7 +54,6 @@ func show_item(node: Node, duration: float = 0.8):
 		1.0,  # 目标透明度：完全透明
 		duration
 	).set_ease(Tween.EASE_IN_OUT)
-
 
 # 切换下一个场景的函数
 func change_to_next_scene():

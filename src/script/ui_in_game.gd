@@ -3,19 +3,25 @@ extends CanvasLayer
 @onready var ui_main=$Panel
 @onready var ui_setting=$setting_ui
 @onready var ui_restart=$TextureButton
-@onready var gd_main=$"../.."
+#@onready var gd_main=$"../.."
 # Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
+	ui_restart.focus_mode = Control.FOCUS_NONE
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	ui_restart.visible=false
 	ui_main.visible=false
 	ui_setting.visible=false
 	get_tree().paused=false
-	gd_main.game_initialized.connect(initial_game)
+	GameState.game_initialized.connect(initial_game)	
 	
 func initial_game()->void:
 	if GameState.state==GameState.PLAYING:
 		ui_restart.visible=true
-		
+		$"..".mouse_filter = Control.MOUSE_FILTER_STOP
+func in_title()->void:
+	if GameState.state==GameState.TITLE:
+		$"..".mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func _input(event):
 	# 检查是否是您定义的动作按下事件
@@ -27,8 +33,8 @@ func _input(event):
 			# 如果游戏暂停，则恢
 			get_tree().paused = false
 			ui_main.visible=false
-			# 隐藏暂停菜单
-			# $PauseMenu.hide()
+			ui_setting.visible=false
+		
 		else:
 			# 如果游戏未暂停，则暂停
 			get_tree().paused = true
@@ -64,10 +70,16 @@ func _on_return_pressed() -> void:
 
 func _on_texture_button_pressed() -> void:
 	get_tree().paused = false
+	ui_main.visible=false
+	ui_setting.visible=false
+	get_tree().reload_current_scene()
+	'''
 	var new_scene = preload("res://scenes/levels/level_0.tscn").instantiate()
 	var parent = get_tree().root
 	parent.add_child(new_scene)
+	
 
 	# 删除旧场景（假设这是暂停菜单里的按钮）
 	get_tree().current_scene.queue_free()
 	get_tree().current_scene = new_scene
+	'''
