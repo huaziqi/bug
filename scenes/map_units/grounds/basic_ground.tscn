@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://be3c7t3180orp"]
+[gd_scene load_steps=14 format=3 uid="uid://be3c7t3180orp"]
 
 [ext_resource type="Texture2D" uid="uid://pl2c6eu5r4nl" path="res://assets/temp(临时美术资源)/ground.png" id="1_h1ly1"]
+[ext_resource type="Texture2D" uid="uid://dihue23a0jt0m" path="res://assets/sprites/map_units/white_block.png" id="1_vxndb"]
 [ext_resource type="Script" uid="uid://ccvwii8dy8t0d" path="res://src/test/checker.gd" id="2_gcwum"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gcwum"]
@@ -32,6 +33,15 @@ size = Vector2(226.5, 21)
 
 [node name="BasicGround" type="Node2D"]
 
+[node name="BackGround" type="Sprite2D" parent="."]
+position = Vector2(654.0001, -57.99991)
+scale = Vector2(128.5, 161.875)
+texture = ExtResource("1_vxndb")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.30692267, 0.3069227, 0.3069227, 1)
+
 [node name="LeftGround" type="StaticBody2D" parent="."]
 collision_layer = 2
 collision_mask = 0
@@ -58,46 +68,46 @@ script = ExtResource("2_gcwum")
 position = Vector2(311, 398)
 shape = SubResource("RectangleShape2D_apjpt")
 
-[node name="ground_1" type="StaticBody2D" parent="."]
+[node name="RightGround" type="StaticBody2D" parent="."]
 collision_layer = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="ground_1"]
+[node name="Sprite2D" type="Sprite2D" parent="RightGround"]
 position = Vector2(1000.5, 520)
 scale = Vector2(19.187502, 16)
 texture = ExtResource("1_h1ly1")
 
-[node name="BottomCollision" type="CollisionShape2D" parent="ground_1"]
+[node name="BottomCollision" type="CollisionShape2D" parent="RightGround"]
 position = Vector2(1002, 519.75)
 shape = SubResource("RectangleShape2D_q306n")
 
-[node name="RightCollision" type="CollisionShape2D" parent="ground_1"]
+[node name="RightCollision" type="CollisionShape2D" parent="RightGround"]
 position = Vector2(1154, 336)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_q306n")
 
-[node name="Checker" type="Area2D" parent="ground_1"]
+[node name="Checker" type="Area2D" parent="RightGround"]
 script = ExtResource("2_gcwum")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ground_1/Checker"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightGround/Checker"]
 position = Vector2(1000.25, 399)
 shape = SubResource("RectangleShape2D_sq6mr")
 
-[node name="ground_2" type="StaticBody2D" parent="."]
+[node name="BottomGround" type="StaticBody2D" parent="."]
 collision_layer = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="ground_2"]
+[node name="Sprite2D" type="Sprite2D" parent="BottomGround"]
 position = Vector2(733.5, 620)
 scale = Vector2(14.187501, 3.4999998)
 texture = ExtResource("1_h1ly1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ground_2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomGround"]
 position = Vector2(734, 620)
 shape = SubResource("RectangleShape2D_w6evp")
 
-[node name="Checker" type="Area2D" parent="ground_2"]
+[node name="Checker" type="Area2D" parent="BottomGround"]
 script = ExtResource("2_gcwum")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ground_2/Checker"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomGround/Checker"]
 position = Vector2(733.75, 596)
 shape = SubResource("RectangleShape2D_kh47f")
 
@@ -117,7 +127,7 @@ shape = SubResource("WorldBoundaryShape2D_vxndb")
 
 [connection signal="body_entered" from="LeftGround/Checker" to="LeftGround/Checker" method="_on_body_entered"]
 [connection signal="body_exited" from="LeftGround/Checker" to="LeftGround/Checker" method="_on_body_exited"]
-[connection signal="body_entered" from="ground_1/Checker" to="ground_1/Checker" method="_on_body_entered"]
-[connection signal="body_exited" from="ground_1/Checker" to="ground_1/Checker" method="_on_body_exited"]
-[connection signal="body_entered" from="ground_2/Checker" to="ground_2/Checker" method="_on_body_entered"]
-[connection signal="body_exited" from="ground_2/Checker" to="ground_2/Checker" method="_on_body_exited"]
+[connection signal="body_entered" from="RightGround/Checker" to="RightGround/Checker" method="_on_body_entered"]
+[connection signal="body_exited" from="RightGround/Checker" to="RightGround/Checker" method="_on_body_exited"]
+[connection signal="body_entered" from="BottomGround/Checker" to="BottomGround/Checker" method="_on_body_entered"]
+[connection signal="body_exited" from="BottomGround/Checker" to="BottomGround/Checker" method="_on_body_exited"]

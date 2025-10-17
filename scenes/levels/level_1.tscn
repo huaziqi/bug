@@ -173,8 +173,16 @@ position = Vector2(30, -116)
 [node name="Flag" parent="." instance=ExtResource("20_gmpev")]
 position = Vector2(1049, 348)
 
+[node name="Next" type="Button" parent="."]
+offset_left = 1037.0
+offset_top = 87.0
+offset_right = 1080.0
+offset_bottom = 118.0
+text = "next"
+
 [connection signal="body_entered" from="NumCaculator/Platform/Area2D" to="NumCaculator/Platform/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="NumCaculator/Platform/Area2D" to="NumCaculator/Platform/Area2D" method="_on_body_exited"]
 [connection signal="body_entered" from="NumCaculator/Label/AnsPlatform/Area2D" to="NumCaculator/Label/AnsPlatform/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="NumCaculator/Label/AnsPlatform/Area2D" to="NumCaculator/Label/AnsPlatform/Area2D" method="_on_body_exited"]
 [connection signal="pressed" from="ResetButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]

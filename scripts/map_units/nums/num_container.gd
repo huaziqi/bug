@@ -20,7 +20,6 @@ func _on_body_entered(body: Node2D) -> void:
 			items_list.append(body)
 
 func _on_body_exited(body: Node2D) -> void:
-	print(body.self_num)
 	if body == target_item:
 		body.snap_target = null
 		target_item = null

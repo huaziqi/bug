@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bobd1dnm65ixa"]
+[gd_scene load_steps=6 format=3 uid="uid://bobd1dnm65ixa"]
 
+[ext_resource type="Script" uid="uid://bvqmov1tb5tkl" path="res://scripts/characters/npc/zhang.gd" id="1_404j0"]
 [ext_resource type="Texture2D" uid="uid://bm0bfjijlv0fr" path="res://assets/sprites/characters/zhang.png" id="1_mwt8b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_404j0"]
@@ -9,9 +10,14 @@ region = Rect2(544, 1676, 430, 966)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mwt8b"]
 size = Vector2(56, 139)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_404j0"]
+size = Vector2(68, 145)
+
 [node name="Zhang" type="RigidBody2D" groups=["grippable"]]
-collision_layer = 16
-collision_mask = 3
+collision_layer = 20
+collision_mask = 2
+gravity_scale = 2.0
+script = ExtResource("1_404j0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.15, 0.15)
@@ -20,3 +26,14 @@ texture = SubResource("AtlasTexture_404j0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 1.5)
 shape = SubResource("RectangleShape2D_mwt8b")
+
+[node name="InteractArea" type="Area2D" parent="."]
+position = Vector2(-1, 0)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(-3, -1.5)
+shape = SubResource("RectangleShape2D_404j0")
+
+[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]
