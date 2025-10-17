@@ -9,7 +9,8 @@
 size = Vector2(74, 95.5)
 
 [node name="Flag" type="RigidBody2D" groups=["grippable"]]
-collision_layer = 3
+z_index = 2
+collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_3juuy")
 

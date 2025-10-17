@@ -10,6 +10,10 @@ func _physics_process(_delta: float) -> void:
 		if breaking_progress>=1:
 			$bo.play()
 			breaked=true
+	else:
+		if is_instance_valid($"../start_cutscenes"):
+			$"../start_cutscenes".get_node("cutscenes").display(1)
+				
 	if is_being_breaked==true:
 		standing_spot.x+=5*dir
 		standing_spot.y+=1*dir
@@ -17,10 +21,14 @@ func _physics_process(_delta: float) -> void:
 			$geelgeel.play()
 	else:
 		$geelgeel.stop()
+		if is_instance_valid($"../start_cutscenes") and not breaked:
+			$"../start_cutscenes".get_node("cutscenes").display(0)		
 		breaking_progress=0
 	dir=-dir
 func breaking() -> void:
 	breaking_progress+=0.01
+	if is_instance_valid($"../start_cutscenes"):
+		$"../start_cutscenes".get_node("cutscenes").display(breaking_progress)
 	print(breaking_progress)
 
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://p6dopje3btqk"]
+[gd_scene load_steps=6 format=3 uid="uid://p6dopje3btqk"]
 
 [ext_resource type="Script" uid="uid://2chbhr3kgodc" path="res://src/script/pipe.gd" id="1_7meox"]
 [ext_resource type="Texture2D" uid="uid://di0qu4ahpm0d0" path="res://assets/temp(临时美术资源)/side_pipe.png" id="2_hvujv"]
@@ -10,17 +10,8 @@ bounce = 0.1
 [sub_resource type="CircleShape2D" id="CircleShape2D_8q1br"]
 radius = 30.8707
 
-[sub_resource type="Gradient" id="Gradient_q306n"]
-offsets = PackedFloat32Array(0, 0.27333334, 0.36666667, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.94666666, 0.94666666, 0.94666666, 1, 0.82507646, 0.82507646, 0.82507646, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_hvujv"]
-gradient = SubResource("Gradient_q306n")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.47196263, 0.08411215)
-
 [node name="Steel_Pipe" type="RigidBody2D" groups=["grippable", "num_item", "player"]]
+z_index = 2
 collision_mask = 3
 mass = 0.916
 physics_material_override = SubResource("PhysicsMaterial_71kmc")
@@ -38,9 +29,3 @@ rotation = -0.420624
 shape = SubResource("CircleShape2D_8q1br")
 
 [node name="hand" parent="." instance=ExtResource("3_8q1br")]
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-1, 0)
-energy = 1.8
-texture = SubResource("GradientTexture2D_hvujv")
-texture_scale = 3.97
