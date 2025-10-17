@@ -1,40 +1,47 @@
-[gd_scene load_steps=10 format=3 uid="uid://cs3qu0yak2v7l"]
+[gd_scene load_steps=11 format=3 uid="uid://cs3qu0yak2v7l"]
 
-[ext_resource type="Texture2D" uid="uid://xr43inr076bc" path="res://assets/temp(临时美术资源)/TVsnowflakes2.jpg" id="1_wu813"]
+[ext_resource type="Texture2D" uid="uid://28v4fa6njxx0" path="res://assets/temp(临时美术资源)/flakes.png" id="1_wu813"]
 [ext_resource type="Script" uid="uid://dgs6a51v2h304" path="res://Tests/Xacin/cutscene.gd" id="2_5rdob"]
 [ext_resource type="AudioStream" uid="uid://rr2x6fgm5s6x" path="res://assets/temp(临时美术资源)/flakes.mp3" id="3_sjnpy"]
 [ext_resource type="Script" uid="uid://baoncmaujn204" path="res://Tests/Xacin/startscene.gd" id="4_ko5n6"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gyusr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rdob"]
 atlas = ExtResource("1_wu813")
-region = Rect2(0, 0, 960, 540)
+region = Rect2(0, 0, 1024, 682)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3oda8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjnpy"]
 atlas = ExtResource("1_wu813")
-region = Rect2(960, 0, 960, 540)
+region = Rect2(1024, 0, 1024, 682)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tu2cn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ko5n6"]
 atlas = ExtResource("1_wu813")
-region = Rect2(1920, 0, 960, 540)
+region = Rect2(0, 682, 1024, 682)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bipsi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxhqk"]
 atlas = ExtResource("1_wu813")
-region = Rect2(2880, 0, 960, 540)
+region = Rect2(1024, 682, 1024, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2l5u8"]
+atlas = ExtResource("1_wu813")
+region = Rect2(0, 1364, 1024, 682)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gc0pj"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gyusr")
+"texture": SubResource("AtlasTexture_5rdob")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3oda8")
+"texture": SubResource("AtlasTexture_sjnpy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tu2cn")
+"texture": SubResource("AtlasTexture_ko5n6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bipsi")
+"texture": SubResource("AtlasTexture_bxhqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2l5u8")
 }],
 "loop": true,
 "name": &"flakes",
@@ -42,6 +49,8 @@ animations = [{
 }]
 
 [node name="start_cutscenes" type="Node2D"]
+position = Vector2(574, 322)
+scale = Vector2(1.2, 1.2)
 
 [node name="cutscenes" type="AnimatedSprite2D" parent="."]
 z_index = 1

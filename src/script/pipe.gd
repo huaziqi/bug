@@ -50,10 +50,10 @@ func handle_ground() -> void:
 # 空中旋转产生位移逻辑
 func handle_air_spin() -> void:
 	if Input.is_action_pressed("left"):
-		apply_torque(start_torque * 5)
+		apply_torque(-start_torque * 5)
 		apply_central_force(Vector2(-air_spin_force, 0))  
 	elif Input.is_action_pressed("right"):
-		apply_torque(-start_torque * 5)
+		apply_torque(start_torque * 5)
 		apply_central_force(Vector2(air_spin_force, 0))
 
 # 跳跃处理逻辑（含冷却判断）

@@ -37,7 +37,7 @@ animations = [{
 [node name="hand" type="Area2D"]
 z_index = -2
 scale = Vector2(0.0409918, 0.0366125)
-collision_mask = 5
+collision_mask = 13
 script = ExtResource("2_k7pjy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -11,7 +11,7 @@ size = Vector2(98, 14)
 size = Vector2(121, 26)
 
 [node name="platform" type="RigidBody2D" groups=["grippable"]]
-collision_layer = 4
+collision_layer = 8
 collision_mask = 7
 script = ExtResource("1_oss3n")
 
