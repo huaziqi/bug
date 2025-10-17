@@ -12,7 +12,6 @@ func  _physics_process(_delta: float):
 	check_target_freed(target_rigidbodies)
 	grab()
 	drag(follow(mouse_pos,parent_pos))
-
 func follow(mouse_pos,parent_pos):
 	var parent_to_mouse_vec = mouse_pos - parent_pos
 	var parent_to_mouse_dist = parent_to_mouse_vec.length()
