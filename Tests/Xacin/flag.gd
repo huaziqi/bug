@@ -20,7 +20,7 @@ func _physics_process(_delta: float) -> void:
 		breaking_progress=0
 	dir=-dir
 func breaking() -> void:
-	breaking_progress+=0.02
+	breaking_progress+=0.01
 	print(breaking_progress)
 
 	
