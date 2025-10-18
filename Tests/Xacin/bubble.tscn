@@ -1,14 +1,14 @@
 [gd_scene load_steps=7 format=3 uid="uid://cf7j470et3y05"]
 
 [ext_resource type="Script" uid="uid://ddg87tj3idmku" path="res://Tests/Xacin/bubble.gd" id="1_bh4lt"]
-[ext_resource type="Texture2D" uid="uid://idurq13jpq3m" path="res://assets/temp(临时美术资源)/bubble.png" id="1_lov0b"]
+[ext_resource type="Texture2D" uid="uid://6qenhpmdx4rj" path="res://assets/temp(临时美术资源)/Angry-Face-Emoji.png" id="2_ffmac"]
 [ext_resource type="Script" uid="uid://ccvwii8dy8t0d" path="res://src/test/checker.gd" id="3_ffmac"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bh4lt"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_lov0b")
+"texture": ExtResource("2_ffmac")
 }],
 "loop": true,
 "name": &"default",
@@ -27,8 +27,8 @@ collision_mask = 11
 script = ExtResource("1_bh4lt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0.37500036, -1.0000006)
-scale = Vector2(0.029062502, 0.03)
+position = Vector2(0.035936594, -1.1500006)
+scale = Vector2(0.0098771155, 0.010324074)
 sprite_frames = SubResource("SpriteFrames_bh4lt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

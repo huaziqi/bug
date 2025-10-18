@@ -1,6 +1,7 @@
 extends RigidBody2D
 func _ready() -> void:
 	await get_tree().create_timer(5).timeout
+	get_parent().bub_num-=1
 	queue_free()
 func floating(body) -> void:
 	body.apply_impulse(Vector2(100,-300))

@@ -111,7 +111,6 @@ func handle_sfx():
 	temp=really_on_ground		
 func playsound(audio,command):
 	if not audio.playing and command==true:
-		print(audio.playing)
 		audio.play()
 	elif command==false:
 		audio.stop()	
