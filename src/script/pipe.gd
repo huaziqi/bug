@@ -17,6 +17,8 @@ signal jump
 
 # 状态变量
 var on_ground: int = 0
+var really_on_ground=false
+var temp=really_on_ground
 var last_jump_time: float = 0.0
 
 func _physics_process(_delta: float) -> void:
@@ -25,7 +27,7 @@ func _physics_process(_delta: float) -> void:
 	handle_jump()
 	handle_fall_acceleration()
 	absorb_to_container(_delta) #吸附到数字框
-	
+	handle_sfx()
 	# 限制最大旋转速度
 	angular_velocity = clamp(angular_velocity, -max_angular_velocity, max_angular_velocity)
 	
@@ -96,3 +98,20 @@ func absorb_to_container(delta : float) -> void:
 			global_position += dir * snap_strength * delta
 	else:
 		gravity_scale = gravity
+		
+func handle_sfx():
+	if really_on_ground==true and abs(linear_velocity.x)>50:
+		playsound($move,true)
+	else:
+		playsound($move,false)	
+	
+	if really_on_ground!=temp and really_on_ground==true:
+		playsound($fall,true)
+		$"../camera".shake()
+	temp=really_on_ground		
+func playsound(audio,command):
+	if not audio.playing and command==true:
+		print(audio.playing)
+		audio.play()
+	elif command==false:
+		audio.stop()	
