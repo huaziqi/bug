@@ -1,12 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://edbw54x762jl"]
+[gd_scene load_steps=5 format=3 uid="uid://edbw54x762jl"]
 
 [ext_resource type="PackedScene" uid="uid://5kshbfs22s1x" path="res://scenes/characters/player/fake_ball.tscn" id="1_44gv1"]
 [ext_resource type="PackedScene" uid="uid://cyckxdgr73uaa" path="res://scenes/map_units/grounds/moveable_ground.tscn" id="2_0ljxa"]
+[ext_resource type="PackedScene" uid="uid://b76nxivnmqq62" path="res://scenes/map_units/nums/num_one.tscn" id="3_0qepi"]
+[ext_resource type="PackedScene" uid="uid://mykxjb7hryy7" path="res://scenes/map_units/nums/num_two.tscn" id="4_fmg3e"]
 
 [node name="Level3" type="Node2D"]
+position = Vector2(-1, 0)
+
+[node name="MoveableGround" parent="." instance=ExtResource("2_0ljxa")]
+position = Vector2(-1, 257)
 
 [node name="FakeBall" parent="." instance=ExtResource("1_44gv1")]
 position = Vector2(231, 369)
 
-[node name="MoveableGround" parent="." instance=ExtResource("2_0ljxa")]
-position = Vector2(-1, 257)
+[node name="NumOne" parent="." instance=ExtResource("3_0qepi")]
+position = Vector2(381, 365)
+gravity_scale = -1.0
+b_gravity = -1.0
+
+[node name="NumTwo" parent="." instance=ExtResource("4_fmg3e")]
+position = Vector2(314, 368)
+gravity_scale = -1.0
+b_gravity = -1.0
+
+[node name="NumOne2" parent="." instance=ExtResource("3_0qepi")]
+position = Vector2(441, 368)
+gravity_scale = -1.0
+b_gravity = -1.0
+
+[node name="NumOne3" parent="." instance=ExtResource("3_0qepi")]
+position = Vector2(525, 362)
+gravity_scale = -1.0
+b_gravity = -1.0
+
+[node name="NumOne4" parent="." instance=ExtResource("3_0qepi")]
+position = Vector2(633, 367)
+gravity_scale = -1.0
+b_gravity = -1.0

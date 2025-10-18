@@ -21,9 +21,10 @@ script = ExtResource("1_j2425")
 [node name="Steel_Pipe" parent="." instance=ExtResource("3_l37oo")]
 position = Vector2(156, 108)
 
-[node name="Zhang" parent="." node_paths=PackedStringArray("level_manager") instance=ExtResource("4_qpwj6")]
+[node name="Zhang" parent="." node_paths=PackedStringArray("level_manager", "player") instance=ExtResource("4_qpwj6")]
 position = Vector2(41, -14)
 level_manager = NodePath("..")
+player = NodePath("../Steel_Pipe")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(26, 80)
@@ -45,6 +46,9 @@ disabled = true
 
 [node name="Flag" parent="." instance=ExtResource("6_qpwj6")]
 position = Vector2(1092, 362)
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2(576, 323)
 
 [connection signal="body_entered" from="StaticBody2D/checker" to="StaticBody2D/checker" method="_on_body_entered"]
 [connection signal="body_exited" from="StaticBody2D/checker" to="StaticBody2D/checker" method="_on_body_exited"]

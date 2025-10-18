@@ -13,6 +13,11 @@ var on_ground : int = 0
 
 func _ready():
 	sprite = $Sprite2D  # 拿到精灵引用
+	if(b_gravity == -1):
+		b_gravity = 0
+		get_tree().create_timer(0.3).timeout.connect(func():
+			b_gravity = -1
+		)
 
 func _physics_process(delta):
 	if snap_target:

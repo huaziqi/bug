@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cyckxdgr73uaa"]
+[gd_scene load_steps=11 format=3 uid="uid://cyckxdgr73uaa"]
 
 [ext_resource type="Script" uid="uid://b3mxeqipmaaha" path="res://scripts/map_units/movable_ground.gd" id="1_3v4te"]
 [ext_resource type="Texture2D" uid="uid://pl2c6eu5r4nl" path="res://assets/temp(临时美术资源)/ground.png" id="2_26dmm"]
+[ext_resource type="Texture2D" uid="uid://dihue23a0jt0m" path="res://assets/sprites/map_units/white_block.png" id="2_186ts"]
 [ext_resource type="PackedScene" uid="uid://bbcr5t21ro20c" path="res://scenes/map_units/fake_flag.tscn" id="3_26dmm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_186ts"]
@@ -19,12 +20,18 @@ size = Vector2(226, 56)
 distance = -17.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3v4te"]
-size = Vector2(15.428589, 15.726906)
+size = Vector2(15.428589, 2.7753384)
 
-[node name="MoveableGround" type="RigidBody2D" groups=["moveable_ground"]]
+[node name="MoveableGround" type="RigidBody2D" node_paths=PackedStringArray("collisions") groups=["moveable_ground"]]
 collision_layer = 2
 gravity_scale = -1.0
 script = ExtResource("1_3v4te")
+collisions = [NodePath("RightBottomCollision"), NodePath("LeftBottomCollision"), NodePath("RightCollision"), NodePath("CollisionShape2D"), NodePath("LeftCollision"), NodePath("PlatformCollision")]
+
+[node name="BackGround" type="Sprite2D" parent="."]
+position = Vector2(580.5, 321.5)
+scale = Vector2(71.8125, 39.9375)
+texture = ExtResource("2_186ts")
 
 [node name="RightBottomCollision" type="CollisionShape2D" parent="."]
 position = Vector2(1002, 520)
@@ -64,12 +71,12 @@ scale = Vector2(19.187502, 16)
 texture = ExtResource("2_26dmm")
 
 [node name="Platform" type="Sprite2D" parent="."]
-position = Vector2(730, 363)
-scale = Vector2(10.809499, 1.750001)
+position = Vector2(736, 364)
+scale = Vector2(1.8750005, 1.750001)
 texture = ExtResource("2_26dmm")
 
 [node name="PlatformCollision" type="CollisionShape2D" parent="."]
-position = Vector2(730, 362.5)
+position = Vector2(736.00006, 363.00003)
 rotation = -1.5707966
 scale = Vector2(1.750001, 10.809499)
 shape = SubResource("RectangleShape2D_3v4te")

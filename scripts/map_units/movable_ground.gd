@@ -3,6 +3,7 @@ extends RigidBody2D
 # 调整速度和跳跃力度
 @export var move_speed: float = 200.0
 @export var jump_force: float = 400.0
+@export var collisions : Array[CollisionShape2D]
 
 var on_ground: bool = false
 
@@ -13,6 +14,9 @@ func _ready():
 	freeze_mode = RigidBody2D.FREEZE_MODE_STATIC
 	freeze = false
 	set_freeze_enabled(false)
+	GameState.state=GameState.PLAYING
+	GameState.game_initialized.emit()#ui相关全局变量
+
 
 func _integrate_forces(state):
 	var velocity = linear_velocity
@@ -31,8 +35,3 @@ func _integrate_forces(state):
 		on_ground = false
 
 	linear_velocity = velocity
-
-func _on_body_entered(body):
-	# 检测是否落地
-	if body.is_in_group("ground"):
-		on_ground = true

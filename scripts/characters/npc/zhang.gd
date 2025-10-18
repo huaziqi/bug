@@ -1,6 +1,8 @@
 extends Node
 @export var level_manager: Node2D
 
+@export var player : Node2D
+
 
 func _on_interact_area_body_entered(body: Node2D) -> void:
 	if(level_manager and level_manager.has_method("npc_talking")):
