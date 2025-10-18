@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://edbw54x762jl"]
+
+[ext_resource type="PackedScene" uid="uid://5kshbfs22s1x" path="res://scenes/characters/player/fake_ball.tscn" id="1_44gv1"]
+[ext_resource type="PackedScene" uid="uid://cyckxdgr73uaa" path="res://scenes/map_units/grounds/moveable_ground.tscn" id="2_0ljxa"]
+
+[node name="Level3" type="Node2D"]
+
+[node name="FakeBall" parent="." instance=ExtResource("1_44gv1")]
+position = Vector2(231, 369)
+
+[node name="MoveableGround" parent="." instance=ExtResource("2_0ljxa")]
+position = Vector2(-1, 257)

@@ -1,3 +1,37 @@
-[gd_scene format=3 uid="uid://5kshbfs22s1x"]
+[gd_scene load_steps=6 format=3 uid="uid://5kshbfs22s1x"]
 
-[node name="FakeBall" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://di0qu4ahpm0d0" path="res://assets/temp(临时美术资源)/side_pipe.png" id="1_uqf8f"]
+[ext_resource type="PackedScene" uid="uid://dn0bw5kg1vrhe" path="res://src/Scene/hand.tscn" id="2_57p7i"]
+[ext_resource type="Script" uid="uid://dt8lhtrpjmnnr" path="res://scripts/map_units/ground_checker.gd" id="3_57p7i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_57p7i"]
+radius = 27.768013
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gfgnm"]
+size = Vector2(35.5, 30.125)
+
+[node name="FakeBall" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5, -3.9999998)
+scale = Vector2(0.081, 0.086)
+texture = ExtResource("1_uqf8f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -3)
+shape = SubResource("CircleShape2D_57p7i")
+
+[node name="hand" parent="." instance=ExtResource("2_57p7i")]
+position = Vector2(59.999996, 77.99999)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_57p7i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.75, 17.9375)
+shape = SubResource("RectangleShape2D_gfgnm")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

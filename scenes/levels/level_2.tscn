@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://src/Scene/Pipe_player.tscn" id="3_l37oo"]
 [ext_resource type="PackedScene" uid="uid://bobd1dnm65ixa" path="res://scenes/characters/npc/zhang.tscn" id="4_qpwj6"]
 [ext_resource type="Script" uid="uid://ccvwii8dy8t0d" path="res://src/test/checker.gd" id="5_l37oo"]
-[ext_resource type="PackedScene" uid="uid://ct5l5eh65tbi1" path="res://Tests/Xacin/flag.tscn" id="6_qpwj6"]
+[ext_resource type="PackedScene" uid="uid://ct5l5eh65tbi1" path="res://tests/Xacin/flag.tscn" id="6_qpwj6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpwj6"]
 size = Vector2(550, 96)
@@ -19,7 +19,7 @@ script = ExtResource("1_j2425")
 [node name="BasicGround" parent="." instance=ExtResource("2_fiq81")]
 
 [node name="Steel_Pipe" parent="." instance=ExtResource("3_l37oo")]
-position = Vector2(153, -22)
+position = Vector2(156, 108)
 
 [node name="Zhang" parent="." node_paths=PackedStringArray("level_manager") instance=ExtResource("4_qpwj6")]
 position = Vector2(41, -14)

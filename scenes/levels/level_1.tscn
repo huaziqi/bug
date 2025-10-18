@@ -19,7 +19,7 @@
 [ext_resource type="FontFile" uid="uid://d2o0pmjktk63t" path="res://assets/fonts/Gill Sans Ultra Bold Condensed.ttf" id="16_iwr0g"]
 [ext_resource type="Script" uid="uid://br310ojw346j2" path="res://scripts/map_units/nums/ans_platform.gd" id="17_bahl2"]
 [ext_resource type="PackedScene" uid="uid://bobd1dnm65ixa" path="res://scenes/characters/npc/zhang.tscn" id="19_v6ha0"]
-[ext_resource type="PackedScene" uid="uid://ct5l5eh65tbi1" path="res://Tests/Xacin/flag.tscn" id="20_gmpev"]
+[ext_resource type="PackedScene" uid="uid://ct5l5eh65tbi1" path="res://tests/Xacin/flag.tscn" id="20_gmpev"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk5k4"]
 size = Vector2(180, 17.125)

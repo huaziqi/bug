@@ -1,3 +1,78 @@
-[gd_scene format=3 uid="uid://cyckxdgr73uaa"]
+[gd_scene load_steps=10 format=3 uid="uid://cyckxdgr73uaa"]
 
-[node name="MoveableGround" type="Node2D"]
+[ext_resource type="Script" uid="uid://b3mxeqipmaaha" path="res://scripts/map_units/movable_ground.gd" id="1_3v4te"]
+[ext_resource type="Texture2D" uid="uid://pl2c6eu5r4nl" path="res://assets/temp(临时美术资源)/ground.png" id="2_26dmm"]
+[ext_resource type="PackedScene" uid="uid://bbcr5t21ro20c" path="res://scenes/map_units/fake_flag.tscn" id="3_26dmm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_186ts"]
+size = Vector2(308, 254)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1o6d"]
+size = Vector2(621, 258)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_whs2i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvnde"]
+size = Vector2(226, 56)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yvarb"]
+distance = -17.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3v4te"]
+size = Vector2(15.428589, 15.726906)
+
+[node name="MoveableGround" type="RigidBody2D" groups=["moveable_ground"]]
+collision_layer = 2
+gravity_scale = -1.0
+script = ExtResource("1_3v4te")
+
+[node name="RightBottomCollision" type="CollisionShape2D" parent="."]
+position = Vector2(1002, 520)
+shape = SubResource("RectangleShape2D_186ts")
+
+[node name="LeftBottomCollision" type="CollisionShape2D" parent="."]
+position = Vector2(310.5, 520)
+shape = SubResource("RectangleShape2D_i1o6d")
+
+[node name="RightCollision" type="CollisionShape2D" parent="."]
+position = Vector2(1154, 336)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_whs2i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(734, 620)
+shape = SubResource("RectangleShape2D_kvnde")
+
+[node name="LeftCollision" type="CollisionShape2D" parent="."]
+position = Vector2(16, 313)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_yvarb")
+
+[node name="BottomGround" type="Sprite2D" parent="."]
+position = Vector2(733.5, 620)
+scale = Vector2(14.187501, 3.4999998)
+texture = ExtResource("2_26dmm")
+
+[node name="LeftGround" type="Sprite2D" parent="."]
+position = Vector2(310.19202, 520)
+scale = Vector2(38.726, 16)
+texture = ExtResource("2_26dmm")
+
+[node name="RightGround" type="Sprite2D" parent="."]
+position = Vector2(1000.5, 520)
+scale = Vector2(19.187502, 16)
+texture = ExtResource("2_26dmm")
+
+[node name="Platform" type="Sprite2D" parent="."]
+position = Vector2(730, 363)
+scale = Vector2(10.809499, 1.750001)
+texture = ExtResource("2_26dmm")
+
+[node name="PlatformCollision" type="CollisionShape2D" parent="."]
+position = Vector2(730, 362.5)
+rotation = -1.5707966
+scale = Vector2(1.750001, 10.809499)
+shape = SubResource("RectangleShape2D_3v4te")
+
+[node name="Flag" parent="." instance=ExtResource("3_26dmm")]
+position = Vector2(995, 358)
