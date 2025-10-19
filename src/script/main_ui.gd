@@ -1,6 +1,7 @@
 extends Control
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass# 标题页面时，防止ui干扰
@@ -27,3 +28,7 @@ func start_game():
 	GameState.state=GameState.PLAYING
 	GameState.game_initialized.emit()
 	print("GAMEstart")
+
+
+func end_back_to_main(): #从结尾回来的函数，连个结尾的信号
+	$sound_end_back_to_main.play()

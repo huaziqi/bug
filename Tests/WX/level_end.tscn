@@ -1,11 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://juswa33cbnkv"]
+[gd_scene load_steps=21 format=3 uid="uid://juswa33cbnkv"]
 
 [ext_resource type="Script" uid="uid://c57x0y0lvb0xw" path="res://scripts/levels/level_end_manager.gd" id="1_01851"]
-[ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://src/Scene/Pipe_player.tscn" id="1_h7k8j"]
+[ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://scenes/characters/player/Pipe_player.tscn" id="1_h7k8j"]
 [ext_resource type="Texture2D" uid="uid://dihue23a0jt0m" path="res://assets/sprites/map_units/white_block.png" id="2_nsmfr"]
 [ext_resource type="Texture2D" uid="uid://pl2c6eu5r4nl" path="res://assets/temp(临时美术资源)/ground.png" id="3_01851"]
 [ext_resource type="Script" uid="uid://ccvwii8dy8t0d" path="res://src/test/checker.gd" id="4_5tf1k"]
-[ext_resource type="PackedScene" uid="uid://ct5l5eh65tbi1" path="res://Tests/Xacin/flag.tscn" id="5_nsmfr"]
+[ext_resource type="Script" uid="uid://bcrjpaf3ecyts" path="res://scripts/map_units/flag.gd" id="6_u5b2p"]
+[ext_resource type="Texture2D" uid="uid://ds72j2ocl2wfo" path="res://assets/sprites/map_units/flag.png" id="7_57xcx"]
+[ext_resource type="AudioStream" uid="uid://bnotgmdor8uy7" path="res://assets/sounds/sfx/铃芽之旅_结尾.mp3" id="8_u5b2p"]
+[ext_resource type="AudioStream" uid="uid://bv75usnd80kcn" path="res://assets/sounds/sfx/铃芽之旅_开头.mp3" id="9_57xcx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gcwum"]
 size = Vector2(621, 258)
@@ -34,12 +37,16 @@ size = Vector2(226.5, 21)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vxndb"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3juuy"]
+size = Vector2(74, 95.5)
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_01851")
 
 [node name="Steel_Pipe" parent="." instance=ExtResource("1_h7k8j")]
 
 [node name="BasicGround" type="Node2D" parent="."]
+position = Vector2(0, 259)
 
 [node name="BackGround" type="Sprite2D" parent="BasicGround"]
 visible = false
@@ -144,8 +151,28 @@ position = Vector2(0, 315)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_vxndb")
 
-[node name="Flag" parent="." instance=ExtResource("5_nsmfr")]
-position = Vector2(1053, 349)
+[node name="Flag" type="RigidBody2D" parent="." groups=["grippable"]]
+z_index = 2
+position = Vector2(1065, 613)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("6_u5b2p")
+standing_spot = Vector2(1044, 616)
+
+[node name="Sprite2D" type="Sprite2D" parent="Flag"]
+position = Vector2(1.000001, -16.999998)
+scale = Vector2(0.19476743, 0.1826225)
+texture = ExtResource("7_57xcx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flag"]
+position = Vector2(3, -18.25)
+shape = SubResource("RectangleShape2D_3juuy")
+
+[node name="bo" type="AudioStreamPlayer2D" parent="Flag"]
+stream = ExtResource("8_u5b2p")
+
+[node name="geelgeel" type="AudioStreamPlayer2D" parent="Flag"]
+stream = ExtResource("9_57xcx")
 
 [connection signal="body_entered" from="BasicGround/LeftGround/Checker" to="BasicGround/LeftGround/Checker" method="_on_body_entered"]
 [connection signal="body_exited" from="BasicGround/LeftGround/Checker" to="BasicGround/LeftGround/Checker" method="_on_body_exited"]
@@ -153,3 +180,4 @@ position = Vector2(1053, 349)
 [connection signal="body_exited" from="BasicGround/RightGround/Checker" to="BasicGround/RightGround/Checker" method="_on_body_exited"]
 [connection signal="body_entered" from="BasicGround/BottomGround/Checker" to="BasicGround/BottomGround/Checker" method="_on_body_entered"]
 [connection signal="body_exited" from="BasicGround/BottomGround/Checker" to="BasicGround/BottomGround/Checker" method="_on_body_exited"]
+[connection signal="flag_up" from="Flag" to="." method="_on_flag_flag_up"]

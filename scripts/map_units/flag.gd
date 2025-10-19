@@ -1,4 +1,5 @@
 extends RigidBody2D
+signal flag_up #旗子被拔起来的信号
 @export var breaked:bool=false
 @export var is_being_breaked=false
 @export var breaking_progress:float=0
@@ -11,6 +12,7 @@ func _physics_process(_delta: float) -> void:
 		if breaking_progress>=1:
 			$bo.play()
 			breaked=true
+			flag_up.emit() #旗子被拔发出信号，by WX
 	else:
 		if is_instance_valid($"../start_cutscenes"):
 			$"../start_cutscenes".get_node("cutscenes").display(1)
