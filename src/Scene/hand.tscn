@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bl4pvc00cxe0i" path="res://assets/temp(临时美术资源)/hand.png" id="2_enm0g"]
 [ext_resource type="Script" uid="uid://dxy0ohkig4bti" path="res://src/script/hand.gd" id="2_k7pjy"]
-[ext_resource type="AudioStream" uid="uid://icgpge3g75wk" path="res://assets/temp(临时美术资源)/grab.mp3" id="3_rqxqo"]
+[ext_resource type="AudioStream" uid="uid://icgpge3g75wk" path="res://assets/sounds/sfx/grab.mp3" id="3_rqxqo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_obnn6"]
 radius = 707.458

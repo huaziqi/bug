@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://copts0ef8qjnc" path="res://scripts/levels/level_manager.gd" id="1_np2pn"]
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="1_v2dmm"]
-[ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://src/Scene/Pipe_player.tscn" id="2_6iamk"]
+[ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://scenes/characters/player/Pipe_player.tscn" id="2_6iamk"]
 [ext_resource type="Script" uid="uid://cxldgbf6a8wmn" path="res://scripts/map_units/nums/num_caculator.gd" id="3_wtwp4"]
 [ext_resource type="PackedScene" uid="uid://c0qfdiehqe5w" path="res://scenes/map_units/nums/num_container.tscn" id="3_x42e6"]
 [ext_resource type="Texture2D" uid="uid://pl2c6eu5r4nl" path="res://assets/temp(临时美术资源)/ground.png" id="4_6761a"]
@@ -19,7 +19,7 @@
 [ext_resource type="FontFile" uid="uid://d2o0pmjktk63t" path="res://assets/fonts/Gill Sans Ultra Bold Condensed.ttf" id="16_iwr0g"]
 [ext_resource type="Script" uid="uid://br310ojw346j2" path="res://scripts/map_units/nums/ans_platform.gd" id="17_bahl2"]
 [ext_resource type="PackedScene" uid="uid://bobd1dnm65ixa" path="res://scenes/characters/npc/zhang.tscn" id="19_v6ha0"]
-[ext_resource type="PackedScene" uid="uid://ct5l5eh65tbi1" path="res://tests/Xacin/flag.tscn" id="20_gmpev"]
+[ext_resource type="PackedScene" uid="uid://ct5l5eh65tbi1" path="res://scenes/map_units/flag.tscn" id="20_gmpev"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk5k4"]
 size = Vector2(180, 17.125)

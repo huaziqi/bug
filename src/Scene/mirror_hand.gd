@@ -13,22 +13,28 @@ func  _physics_process(_delta: float):
 	grab()
 	drag(follow(mouse_pos,parent_pos))
 	handle_sfx()
-func follow(mouse_pos,parent_pos):
+func follow(mouse_pos, parent_pos):
 	var parent_to_mouse_vec = mouse_pos - parent_pos
 	var parent_to_mouse_dist = parent_to_mouse_vec.length()
 	var target_pos: Vector2
+
 	if parent_to_mouse_dist <= fixed_dist_to_mouse:
 		target_pos = parent_pos
 	elif (parent_to_mouse_dist - fixed_dist_to_mouse) <= max_distance:
-		var dir_from_mouse_to_parent = (parent_pos - mouse_pos).normalized()
-		target_pos = mouse_pos + dir_from_mouse_to_parent * fixed_dist_to_mouse
+		target_pos = mouse_pos + (parent_pos - mouse_pos).normalized() * fixed_dist_to_mouse
 	else:
-		var dir_from_parent_to_mouse = parent_to_mouse_vec.normalized()
-		target_pos = parent_pos + dir_from_parent_to_mouse * max_distance
-	global_position=target_pos	
-	global_rotation = (get_global_mouse_position() - global_position).angle()
-	#让大拇指朝上
-	$AnimatedSprite2D.flip_v=rad_to_deg(global_rotation)<90 and rad_to_deg(global_rotation)>-90	
+		target_pos = parent_pos + parent_to_mouse_vec.normalized() * max_distance
+
+	# 位置镜像（父节点y轴为对称轴）
+	var offset = target_pos - parent_pos
+	target_pos = parent_pos + Vector2(-offset.x, offset.y)
+	global_position = target_pos
+
+	# 角度镜像
+	global_rotation = (Vector2(-(get_global_mouse_position().x -parent_pos.x), get_global_mouse_position().y - parent_pos.y) - (global_position - parent_pos)).angle()
+	# 调整朝向翻转
+	$AnimatedSprite2D.flip_v = rad_to_deg(global_rotation) < 90 and rad_to_deg(global_rotation) > -90
+
 	return parent_to_mouse_dist
 	
 func grab():
@@ -69,7 +75,7 @@ func grab():
 			is_holding = false
 		$AnimatedSprite2D.play("hand")
 	
-func drag(parent_to_mouse_dist):
+func drag(_parent_to_mouse_dist):
 	pass
 	#if parent_to_mouse_dist >= max_distance-10:
 		#if cos(global_rotation)<0:	

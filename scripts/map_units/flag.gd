@@ -16,8 +16,8 @@ func _physics_process(_delta: float) -> void:
 			$"../start_cutscenes".get_node("cutscenes").display(1)
 				
 	if is_being_breaked==true:
-		standing_spot.x+=5*dir
-		standing_spot.y+=1*dir
+		position.x=randf_range(standing_spot.x-2,standing_spot.x+2)
+		position.y=randf_range(standing_spot.y-2,standing_spot.y+2)
 		if not $geelgeel.playing:
 			$geelgeel.play()
 	else:
