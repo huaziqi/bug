@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://qn2mxmxrshh2"]
 
-[ext_resource type="Script" uid="uid://cqwha4tyen6da" path="res://scripts/map_units/laser.gd" id="1_l630i"]
+[ext_resource type="Script" uid="uid://cqwha4tyen6da" path="res://Tests/Xacin/laser.gd" id="1_l630i"]
 [ext_resource type="Texture2D" uid="uid://calw1cr04fltv" path="res://assets/temp(临时美术资源)/laser.png" id="2_mafq3"]
 [ext_resource type="AudioStream" uid="uid://dcnfa6unb1s8i" path="res://assets/sounds/sfx/bo.mp3" id="3_rcu0m"]
 [ext_resource type="AudioStream" uid="uid://brr04icxc4cc5" path="res://assets/sounds/sfx/geelgeel.mp3" id="4_rcu0m"]

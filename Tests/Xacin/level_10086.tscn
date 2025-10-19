@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://vt0jkl7fi1mh"]
+[gd_scene load_steps=7 format=3 uid="uid://vt0jkl7fi1mh"]
 
-[ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://scenes/characters/player/Pipe_player.tscn" id="1_awkne"]
-[ext_resource type="Script" path="res://Tests/Xacin/level_10086.gd" id="1_wxa2h"]
+[ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://src/Scene/Pipe_player.tscn" id="1_awkne"]
+[ext_resource type="Script" uid="uid://dx4mccamb3wf2" path="res://Tests/Xacin/level_10086.gd" id="1_wxa2h"]
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="2_cq5cw"]
-[ext_resource type="PackedScene" uid="uid://dpguias6py81r" path="res://scenes/map_units/platform.tscn" id="3_4kd37"]
-[ext_resource type="PackedScene" uid="uid://ct5l5eh65tbi1" path="res://scenes/map_units/flag.tscn" id="4_fjat8"]
+[ext_resource type="PackedScene" uid="uid://dpguias6py81r" path="res://Tests/Xacin/platform.tscn" id="3_4kd37"]
+[ext_resource type="PackedScene" uid="uid://ct5l5eh65tbi1" path="res://Tests/Xacin/flag.tscn" id="4_fjat8"]
 [ext_resource type="PackedScene" uid="uid://cs3qu0yak2v7l" path="res://Tests/Xacin/start_cutscenes.tscn" id="5_dt2jb"]
-[ext_resource type="PackedScene" uid="uid://5s2ku8p8nqju" path="res://Tests/Xacin/camera.tscn" id="7_oikoc"]
 
 [node name="Level_0" type="Node2D"]
 script = ExtResource("1_wxa2h")
@@ -22,5 +21,3 @@ position = Vector2(-7, 4)
 
 [node name="start_cutscenes" parent="." instance=ExtResource("5_dt2jb")]
 position = Vector2(571, 323)
-
-[node name="camera" parent="." instance=ExtResource("7_oikoc")]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://28v4fa6njxx0" path="res://assets/temp(临时美术资源)/flakes.png" id="1_wu813"]
 [ext_resource type="Script" uid="uid://dgs6a51v2h304" path="res://Tests/Xacin/cutscene.gd" id="2_5rdob"]
-[ext_resource type="AudioStream" uid="uid://rr2x6fgm5s6x" path="res://assets/sounds/sfx/flakes.mp3" id="3_sjnpy"]
+[ext_resource type="AudioStream" uid="uid://rr2x6fgm5s6x" path="res://assets/temp(临时美术资源)/flakes.mp3" id="3_sjnpy"]
 [ext_resource type="Script" uid="uid://baoncmaujn204" path="res://Tests/Xacin/startscene.gd" id="4_ko5n6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5rdob"]

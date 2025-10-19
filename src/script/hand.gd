@@ -84,12 +84,12 @@ func check_target_freed(array):
 			array.erase(body)
 #单个抓取目标			
 func _on_body_entered(body: Node2D) -> void:
-	if body!=get_parent():
-		if body.is_in_group("grippable")and not is_holding: 
-			body.modulate.a=0.8
-			target_rigidbodies.append(body)
-		elif	 body.is_in_group("grippable"):
-			temp_target_rigidbodies.append(body)
+#筛选抓取目标，石山需要优化
+	if body.is_in_group("grippable")and not is_holding: 
+		body.modulate.a=0.8
+		target_rigidbodies.append(body)
+	elif	 body.is_in_group("grippable"):
+		temp_target_rigidbodies.append(body)
 func _on_body_exited(body: Node2D) -> void:
 	if not is_holding:
 		while body in target_rigidbodies:

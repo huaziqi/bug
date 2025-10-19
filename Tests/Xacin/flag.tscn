@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ct5l5eh65tbi1"]
 
-[ext_resource type="Script" uid="uid://bcrjpaf3ecyts" path="res://scripts/map_units/flag.gd" id="1_3juuy"]
+[ext_resource type="Script" uid="uid://bcrjpaf3ecyts" path="res://Tests/Xacin/flag.gd" id="1_3juuy"]
 [ext_resource type="Texture2D" uid="uid://ds72j2ocl2wfo" path="res://assets/sprites/map_units/flag.png" id="1_pg2jc"]
 [ext_resource type="AudioStream" uid="uid://dcnfa6unb1s8i" path="res://assets/sounds/sfx/bo.mp3" id="3_lh2x2"]
 [ext_resource type="AudioStream" uid="uid://wasj8e8kw8jf" path="res://assets/sounds/sfx/蓄力声.ogg" id="4_ggrl8"]
