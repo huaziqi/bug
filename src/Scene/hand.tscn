@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dn0bw5kg1vrhe"]
+[gd_scene load_steps=8 format=3 uid="uid://dn0bw5kg1vrhe"]
 
 [ext_resource type="Texture2D" uid="uid://bl4pvc00cxe0i" path="res://assets/temp(临时美术资源)/hand.png" id="2_enm0g"]
 [ext_resource type="Script" uid="uid://dxy0ohkig4bti" path="res://src/script/hand.gd" id="2_k7pjy"]
+[ext_resource type="AudioStream" uid="uid://icgpge3g75wk" path="res://assets/temp(临时美术资源)/grab.mp3" id="3_rqxqo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_obnn6"]
 radius = 707.458
@@ -49,6 +50,9 @@ position = Vector2(-24.3951, -27.313)
 scale = Vector2(1.46963, 1.57293)
 sprite_frames = SubResource("SpriteFrames_diaca")
 animation = &"fist"
+
+[node name="grab" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_rqxqo")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

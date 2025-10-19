@@ -107,7 +107,8 @@ func handle_sfx():
 	
 	if really_on_ground!=temp and really_on_ground==true:
 		playsound($fall,true)
-		$"../camera".shake()
+		if is_instance_valid($"../camera"):
+			$"../camera".shake()
 	temp=really_on_ground		
 func playsound(audio,command):
 	if not audio.playing and command==true:

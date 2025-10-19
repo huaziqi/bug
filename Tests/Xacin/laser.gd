@@ -5,6 +5,8 @@ extends RigidBody2D
 @export var standing_spot:Vector2=Vector2(445,400)
 @export var r:float = 0
 var dir:int=1
+func _ready() -> void:
+	get_node("AnimationPlayer").play("laser")
 func _physics_process(_delta: float) -> void:
 	if not breaked:
 		global_position=standing_spot
@@ -27,7 +29,7 @@ func _physics_process(_delta: float) -> void:
 		breaking_progress=0
 	dir=-dir
 func breaking() -> void:
-	breaking_progress+=0.01
+	breaking_progress+=0.02
 	print(breaking_progress)
 
 

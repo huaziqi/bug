@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://qn2mxmxrshh2"]
+[gd_scene load_steps=10 format=3 uid="uid://qn2mxmxrshh2"]
 
 [ext_resource type="Script" uid="uid://cqwha4tyen6da" path="res://Tests/Xacin/laser.gd" id="1_l630i"]
 [ext_resource type="Texture2D" uid="uid://calw1cr04fltv" path="res://assets/temp(临时美术资源)/laser.png" id="2_mafq3"]
@@ -10,7 +10,68 @@ a = Vector2(0, 10)
 b = Vector2(0, -951)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3juuy"]
-size = Vector2(28, 77)
+size = Vector2(18, 63)
+
+[sub_resource type="Animation" id="Animation_l630i"]
+resource_name = "laser"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Line2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(2.2191396, 0.46651652, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.27058825, 0.039215688, 0.52156866), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Line2D:width")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.099999994, 0.53333336, 1),
+"transitions": PackedFloat32Array(2.2191393, 0.49999997, 1),
+"update": 0,
+"values": [5.0, 8.0, 5.0]
+}
+
+[sub_resource type="Animation" id="Animation_mafq3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Line2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Line2D:width")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rcu0m"]
+_data = {
+&"RESET": SubResource("Animation_mafq3"),
+&"laser": SubResource("Animation_l630i")
+}
 
 [node name="laser" type="RigidBody2D" groups=["grippable"]]
 collision_layer = 4
@@ -19,9 +80,9 @@ mass = 43.287
 script = ExtResource("1_l630i")
 
 [node name="Line2D" type="Line2D" parent="."]
-points = PackedVector2Array(0, 0, 0, -1000)
+points = PackedVector2Array(0, -39, 0, -1000)
 width = 5.0
-default_color = Color(1, 0, 0.3764706, 1)
+default_color = Color(0, 0, 0, 1)
 
 [node name="Area2D" type="Area2D" parent="Line2D"]
 collision_layer = 4
@@ -32,18 +93,24 @@ position = Vector2(0, -49)
 shape = SubResource("SegmentShape2D_l630i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1.4007092e-06, -1)
-scale = Vector2(1.7499999, 4.8125)
+position = Vector2(-3.874302e-07, -7.75)
+scale = Vector2(1.125, 3.96875)
 texture = ExtResource("2_mafq3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1.5)
+position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_3juuy")
 
 [node name="bo" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_rcu0m")
+volume_db = -8.357
 
 [node name="geelgeel" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_rcu0m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rcu0m")
+}
 
 [connection signal="body_entered" from="Line2D/Area2D" to="." method="_on_area_2d_body_entered"]

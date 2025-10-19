@@ -3,18 +3,21 @@ extends Camera2D
 var is_shaking = false
 var shake_time = 0.2  # 抖动持续时间
 var shake_strength = 2  # 抖动幅度
-
+var pos=Vector2(570,328)
+func _ready() -> void:
+	position=pos
+	
 func _process(delta):
 	if is_shaking:
 		# 随机偏移位置实现抖动
 		position = Vector2(
-			randf_range(569-shake_strength, 569+shake_strength),
-			randf_range(322-shake_strength, 322+shake_strength)
+			randf_range(pos.x-shake_strength, pos.x+shake_strength),
+			randf_range(pos.y-shake_strength, pos.y+shake_strength)
 		)
 		shake_time -= delta
 		if shake_time <= 0:
 			is_shaking = false
-			position=Vector2(569,322)
+			position=pos
 
 # 调用这个函数触发抖动
 func shake():
