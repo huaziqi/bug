@@ -3,6 +3,7 @@ func _ready() -> void:
 	$pop.play()
 	await get_tree().create_timer(5).timeout
 	$pop.play()
+	await $pop.finished
 	get_parent().bub_num-=1
 	queue_free()
 func floating(body) -> void:

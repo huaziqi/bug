@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cf7j470et3y05"]
 
 [ext_resource type="Script" uid="uid://ddg87tj3idmku" path="res://scripts/map_units/bubble.gd" id="1_gslgn"]
-[ext_resource type="Texture2D" uid="uid://6qenhpmdx4rj" path="res://assets/temp(临时美术资源)/Angry-Face-Emoji.png" id="2_6dye8"]
+[ext_resource type="Texture2D" uid="uid://idurq13jpq3m" path="res://assets/temp(临时美术资源)/bubble.png" id="2_gslgn"]
 [ext_resource type="Script" uid="uid://ccvwii8dy8t0d" path="res://src/test/checker.gd" id="3_opj2q"]
 [ext_resource type="AudioStream" uid="uid://c27avth5h1f1v" path="res://assets/sounds/sfx/pop.mp3" id="4_2y16l"]
 
@@ -9,7 +9,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_6dye8")
+"texture": ExtResource("2_gslgn")
 }],
 "loop": true,
 "name": &"default",
@@ -28,8 +28,8 @@ collision_mask = 11
 script = ExtResource("1_gslgn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0.035936594, -1.1500006)
-scale = Vector2(0.0098771155, 0.010324074)
+position = Vector2(-1.4305115e-06, -1.500001)
+scale = Vector2(0.0556962, 0.05764411)
 sprite_frames = SubResource("SpriteFrames_bh4lt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -46,7 +46,8 @@ shape = SubResource("CircleShape2D_folu5")
 
 [node name="pop" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_2y16l")
-volume_db = -10.13
+volume_db = -17.559
+pitch_scale = 0.82
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

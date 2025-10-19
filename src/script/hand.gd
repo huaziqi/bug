@@ -48,8 +48,9 @@ func grab():
 				else:
 					if "is_being_breaked" in target_rigidbodies[-1]:	
 						target_rigidbodies[-1].is_being_breaked=false	
-			target_rigidbodies[-1].modulate.a=1		
-			target_rigidbodies[-1].linear_velocity=Vector2(0,0)
+			target_rigidbodies[-1].modulate.a=1
+			if	target_rigidbodies[-1] is RigidBody2D: 
+				target_rigidbodies[-1].linear_velocity=Vector2(0,0)
 			target_rigidbodies[-1].global_position = target_rigidbodies[-1].global_position.move_toward(global_position,30)
 		$AnimatedSprite2D.play("fist")
 			#if target_rigidbodies[-1].is_in_group("weapons"):

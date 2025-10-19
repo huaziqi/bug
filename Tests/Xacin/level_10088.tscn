@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ccs185p6fdqmx"]
+[gd_scene load_steps=17 format=3 uid="uid://ccs185p6fdqmx"]
 
 [ext_resource type="Script" path="res://Tests/Xacin/level_10086.gd" id="1_x7qfu"]
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="2_l4qdf"]
@@ -7,6 +7,91 @@
 [ext_resource type="PackedScene" uid="uid://ct5l5eh65tbi1" path="res://scenes/map_units/flag.tscn" id="5_5uu27"]
 [ext_resource type="PackedScene" uid="uid://cs3qu0yak2v7l" path="res://Tests/Xacin/start_cutscenes.tscn" id="6_nqalr"]
 [ext_resource type="PackedScene" uid="uid://5s2ku8p8nqju" path="res://Tests/Xacin/camera.tscn" id="7_yvgjx"]
+[ext_resource type="Texture2D" uid="uid://dbpqs8sk7yafs" path="res://assets/temp(临时美术资源)/mirror.png" id="8_l4qdf"]
+[ext_resource type="Script" uid="uid://c0w0fg26wpbe0" path="res://Tests/Xacin/mirror_frame.gd" id="9_pok1h"]
+[ext_resource type="Texture2D" uid="uid://ufso8s6ib6or" path="res://assets/temp(临时美术资源)/mirror_frame.png" id="10_fjwsl"]
+[ext_resource type="AudioStream" uid="uid://s3b2ctlvdsrd" path="res://assets/sounds/sfx/frame_break.mp3" id="11_5uu27"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pok1h"]
+size = Vector2(38.26722, 1522.5038)
+
+[sub_resource type="Animation" id="Animation_fjwsl"]
+resource_name = "break"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2.2973964, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("mirror_frame1/Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.2500001, 1),
+"update": 0,
+"values": [Vector2(2.2510135, 95.88287), Vector2(5, 95.833)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("mirror_frame2/Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.17075506, 1),
+"update": 0,
+"values": [Vector2(2.2510135, 95.88287), Vector2(5, 95.833)]
+}
+
+[sub_resource type="Animation" id="Animation_5uu27"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("mirror_frame1/Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.2510135, 95.88287)]
+}
+
+[sub_resource type="Animation" id="Animation_nqalr"]
+resource_name = "orign"
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nqalr"]
+_data = {
+&"RESET": SubResource("Animation_5uu27"),
+&"break": SubResource("Animation_fjwsl"),
+&"orign": SubResource("Animation_nqalr")
+}
 
 [node name="Level_0" type="Node2D"]
 script = ExtResource("1_x7qfu")
@@ -15,9 +100,11 @@ script = ExtResource("1_x7qfu")
 position = Vector2(-7, 4)
 
 [node name="Steel_Pipe" parent="." instance=ExtResource("3_pok1h")]
-position = Vector2(600, 0)
+position = Vector2(216, 0)
 
 [node name="Steel_Pipe2" parent="." instance=ExtResource("4_x7qfu")]
+z_index = 3
+position = Vector2(134, 0)
 
 [node name="Flag" parent="." instance=ExtResource("5_5uu27")]
 
@@ -25,3 +112,40 @@ position = Vector2(600, 0)
 position = Vector2(571, 323)
 
 [node name="camera" parent="." instance=ExtResource("7_yvgjx")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Mirror" type="Sprite2D" parent="."]
+position = Vector2(91.375, 205.5)
+scale = Vector2(0.44424462, 0.25812742)
+texture = ExtResource("8_l4qdf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Mirror" groups=["grippable"]]
+position = Vector2(0, -23.244324)
+script = ExtResource("9_pok1h")
+
+[node name="mirror_frame1" type="CollisionShape2D" parent="Mirror/StaticBody2D"]
+position = Vector2(189.36638, 0)
+shape = SubResource("RectangleShape2D_pok1h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Mirror/StaticBody2D/mirror_frame1"]
+position = Vector2(-1.1255084, 21.307281)
+scale = Vector2(2.2510135, 95.88287)
+texture = ExtResource("10_fjwsl")
+
+[node name="mirror_frame2" type="CollisionShape2D" parent="Mirror/StaticBody2D"]
+position = Vector2(-194.43115, -5.8110833)
+shape = SubResource("RectangleShape2D_pok1h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Mirror/StaticBody2D/mirror_frame2"]
+position = Vector2(-1.1255084, 21.307281)
+scale = Vector2(2.2510135, 95.88287)
+texture = ExtResource("10_fjwsl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Mirror/StaticBody2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_nqalr")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Mirror/StaticBody2D"]
+stream = ExtResource("11_5uu27")

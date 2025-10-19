@@ -4,7 +4,6 @@ extends RigidBody2D
 @export var breaking_progress:float=0
 @export var standing_spot:Vector2=Vector2(445,400)
 @export var r:float = 0
-var dir:int=1
 func _ready() -> void:
 	get_node("AnimationPlayer").play("laser")
 func _physics_process(_delta: float) -> void:
@@ -27,7 +26,6 @@ func _physics_process(_delta: float) -> void:
 	else:
 		$geelgeel.stop()	
 		breaking_progress=0
-	dir=-dir
 func breaking() -> void:
 	breaking_progress+=0.02
 
