@@ -5,14 +5,13 @@ extends Area2D
 @export var target_rigidbodies: Array = [] # 要吸附的目标,暂时使用collisionshape的信号获取目标
 @export var temp_target_rigidbodies: Array = []
 var is_holding = false
-var temp=is_holding
+
 func  _physics_process(_delta: float):
 	var mouse_pos = get_global_mouse_position()
 	var parent_pos = get_parent().global_position
 	check_target_freed(target_rigidbodies)
 	grab()
 	drag(follow(mouse_pos,parent_pos))
-	handle_sfx()
 func follow(mouse_pos,parent_pos):
 	var parent_to_mouse_vec = mouse_pos - parent_pos
 	var parent_to_mouse_dist = parent_to_mouse_vec.length()
@@ -48,7 +47,7 @@ func grab():
 				else:
 					if "is_being_breaked" in target_rigidbodies[-1]:	
 						target_rigidbodies[-1].is_being_breaked=false	
-			target_rigidbodies[-1].modulate.a=1		
+					
 			target_rigidbodies[-1].linear_velocity=Vector2(0,0)
 			target_rigidbodies[-1].global_position = target_rigidbodies[-1].global_position.move_toward(global_position,30)
 		$AnimatedSprite2D.play("fist")
@@ -86,20 +85,14 @@ func check_target_freed(array):
 func _on_body_entered(body: Node2D) -> void:
 #筛选抓取目标，石山需要优化
 	if body.is_in_group("grippable")and not is_holding: 
-		body.modulate.a=0.8
 		target_rigidbodies.append(body)
 	elif	 body.is_in_group("grippable"):
 		temp_target_rigidbodies.append(body)
 func _on_body_exited(body: Node2D) -> void:
 	if not is_holding:
 		while body in target_rigidbodies:
-			body.modulate.a=1
 			target_rigidbodies.erase(body)
 	else:
 		while body in temp_target_rigidbodies:
 			temp_target_rigidbodies.erase(body)
-
-func handle_sfx():
-	if is_holding!=temp and is_holding==true:
-		$grab.play()
-	temp=is_holding				
+		
