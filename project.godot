@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="bug"
-run/main_scene="uid://juswa33cbnkv"
+run/main_scene="uid://bnlr3ccl4v3b4"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
