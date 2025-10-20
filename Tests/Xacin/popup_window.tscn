@@ -73,6 +73,7 @@ animations = [{
 oversampling_override = 1.0
 initial_position = 1
 size = Vector2i(300, 300)
+unresizable = true
 always_on_top = true
 script = ExtResource("1_2empw")
 

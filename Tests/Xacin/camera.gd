@@ -23,5 +23,3 @@ func _process(delta):
 func shake():
 	is_shaking = true
 	shake_time = 0.5  # 重置时间
-func zoomer():
-	$AnimationPlayer.play("zoom")
