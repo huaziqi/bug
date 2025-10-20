@@ -13,6 +13,7 @@ func  _physics_process(_delta: float):
 	grab()
 	drag(follow(mouse_pos,parent_pos))
 	handle_sfx()
+
 func follow(mouse_pos,parent_pos):
 	var parent_to_mouse_vec = mouse_pos - parent_pos
 	var parent_to_mouse_dist = parent_to_mouse_vec.length()
@@ -64,13 +65,14 @@ func grab():
 			if target_rigidbodies!=[]:
 				if "is_being_breaked" in target_rigidbodies[-1]:
 					target_rigidbodies[-1].is_being_breaked=false
-					
+			for body in 	target_rigidbodies:
+				body.modulate.a=1 #!!!!!!
 			target_rigidbodies=temp_target_rigidbodies
 			temp_target_rigidbodies=[]
 			is_holding = false
 		$AnimatedSprite2D.play("hand")
 	
-func drag(parent_to_mouse_dist):
+func drag(_parent_to_mouse_dist):
 	pass
 	#if parent_to_mouse_dist >= max_distance-10:
 		#if cos(global_rotation)<0:	
@@ -87,14 +89,14 @@ func check_target_freed(array):
 func _on_body_entered(body: Node2D) -> void:
 	if body!=get_parent():
 		if body.is_in_group("grippable")and not is_holding: 
-			body.modulate.a=0.8
+			body.modulate.a=0.8 #!!!!!!
 			target_rigidbodies.append(body)
 		elif	 body.is_in_group("grippable"):
 			temp_target_rigidbodies.append(body)
 func _on_body_exited(body: Node2D) -> void:
 	if not is_holding:
 		while body in target_rigidbodies:
-			body.modulate.a=1
+			body.modulate.a=1  #!!!!!!
 			target_rigidbodies.erase(body)
 	else:
 		while body in temp_target_rigidbodies:

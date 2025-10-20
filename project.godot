@@ -24,8 +24,7 @@ ui_in_game="*res://src/Scene/ui_in_game.tscn"
 [dialogic]
 
 directories/dch_directory={
-"Resources/unit_test_character": "res://Tests/Resources/unit_test_character.dch",
-"unit_test_character": "res://tests/Resources/unit_test_character.dch",
+"unit_test_character": "res://Tests/Resources/unit_test_character.dch",
 "zhang": "res://dialogic/character/zhang.dch"
 }
 directories/dtl_directory={
@@ -76,6 +75,7 @@ audio/channel_defaults={
 
 [display]
 
+window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
