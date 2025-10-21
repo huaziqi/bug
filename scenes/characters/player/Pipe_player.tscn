@@ -35,6 +35,8 @@ collision_mask = 15
 
 [node name="move" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_c2cpl")
+volume_db = -8.104
 
 [node name="fall" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_6hx4n")
+volume_db = -2.026

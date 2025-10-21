@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=3 uid="uid://cabcjsouo44ka"]
+
+[ext_resource type="Script" uid="uid://btmbb5q4nis20" path="res://Tests/Xacin/level_10089.gd" id="1_vdpjh"]
+[ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="2_0lagq"]
+[ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://scenes/characters/player/Pipe_player.tscn" id="3_76opb"]
+[ext_resource type="PackedScene" uid="uid://ct5l5eh65tbi1" path="res://scenes/map_units/flag.tscn" id="5_l774y"]
+[ext_resource type="PackedScene" uid="uid://cs3qu0yak2v7l" path="res://Tests/Xacin/start_cutscenes.tscn" id="6_86xpo"]
+[ext_resource type="PackedScene" uid="uid://dkm8rf4jlgjed" path="res://Tests/Xacin/fan.tscn" id="7_26xsg"]
+[ext_resource type="PackedScene" uid="uid://5s2ku8p8nqju" path="res://Tests/Xacin/camera.tscn" id="7_kveet"]
+[ext_resource type="PackedScene" uid="uid://rlvyp8w83cdj" path="res://scenes/map_units/fan_button.tscn" id="8_0lagq"]
+
+[node name="Level_0" type="Node2D"]
+script = ExtResource("1_vdpjh")
+
+[node name="basic_ground" parent="." instance=ExtResource("2_0lagq")]
+position = Vector2(-7, 4)
+
+[node name="Steel_Pipe" parent="." instance=ExtResource("3_76opb")]
+
+[node name="Flag" parent="." instance=ExtResource("5_l774y")]
+
+[node name="start_cutscenes" parent="." instance=ExtResource("6_86xpo")]
+visible = false
+position = Vector2(571, 323)
+
+[node name="camera" parent="." instance=ExtResource("7_kveet")]
+
+[node name="fan" parent="." instance=ExtResource("7_26xsg")]
+position = Vector2(408, 123)
+
+[node name="button" parent="." instance=ExtResource("8_0lagq")]
+z_index = 10
+position = Vector2(413, 283)
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 5.0
+default_color = Color(0, 0, 0, 1)

@@ -13,6 +13,33 @@
 [ext_resource type="AudioStream" uid="uid://rr2x6fgm5s6x" path="res://assets/sounds/sfx/flakes.mp3" id="11_q2d32"]
 [ext_resource type="AudioStream" uid="uid://biwnn1heqmqrx" path="res://assets/temp(临时美术资源)/hole_open.mp3" id="12_8iol1"]
 
+[sub_resource type="Animation" id="Animation_utrje"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_iv28x"]
 resource_name = "far"
 length = 3.0
@@ -39,33 +66,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1.8660669, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(0.8, 0.8)]
-}
-
-[sub_resource type="Animation" id="Animation_utrje"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:zoom")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x7syj"]
@@ -110,34 +110,6 @@ animations = [{
 "speed": 30.0
 }]
 
-[sub_resource type="Animation" id="Animation_x7syj"]
-resource_name = "new_animation"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../flake_fountain:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.03333336, 0.5, 1),
-"transitions": PackedFloat32Array(0.39229202, 1.1892077, 1),
-"update": 0,
-"values": [Vector2(0.1567872, 1.4894972), Vector2(0.2, 1.489), Vector2(0.1567872, 1.4894972)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../flake_fountain:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0.7553861, 0.75538605, 0.75538605, 1), Color(1, 1, 1, 1), Color(0.7135178, 0.7135178, 0.71351784, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_57rsx"]
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -179,11 +151,54 @@ tracks/0/keys = {
 "values": [Color(0.75686276, 0.75686276, 0.75686276, 0), Color(0.7553861, 0.75538605, 0.75538605, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_x7syj"]
+resource_name = "new_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../flake_fountain:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.03333336, 0.5, 1),
+"transitions": PackedFloat32Array(0.39229202, 1.1892077, 1),
+"update": 0,
+"values": [Vector2(0.1567872, 1.4894972), Vector2(0.2, 1.489), Vector2(0.1567872, 1.4894972)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../flake_fountain:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.7553861, 0.75538605, 0.75538605, 1), Color(1, 1, 1, 1), Color(0.7135178, 0.7135178, 0.71351784, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q2d32"]
 _data = {
 &"RESET": SubResource("Animation_57rsx"),
 &"apear": SubResource("Animation_2r4mb"),
 &"new_animation": SubResource("Animation_x7syj")
+}
+
+[sub_resource type="Animation" id="Animation_5eabr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 41.063)]
 }
 
 [sub_resource type="Animation" id="Animation_8iol1"]
@@ -200,21 +215,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 0.07694675),
 "update": 0,
 "values": [Vector2(0, 41.063), Vector2(20, 41.063)]
-}
-
-[sub_resource type="Animation" id="Animation_5eabr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 41.063)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2r4mb"]
@@ -285,6 +285,7 @@ libraries = {
 
 [node name="earthquake" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_x7syj")
+volume_db = 9.37
 
 [node name="flakes" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_q2d32")
