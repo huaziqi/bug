@@ -5,7 +5,7 @@ func _ready() -> void:
 	GameState.state=GameState.PLAYING
 	GameState.game_initialized.emit()#ui相关全局变量
 func npc_talking():
-	Dialogic.start("level_2")
+	Dialogic.start("level2")
 	call_deferred("enable_collision_shapes")
 
 func enable_collision_shapes():
