@@ -1,4 +1,4 @@
-extends "res://tests/Xacin/flag.gd"
+extends "res://scripts/map_units/flag.gd"
 
 func _physics_process(_delta: float) -> void:
 	

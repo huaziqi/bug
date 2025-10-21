@@ -3,7 +3,7 @@ extends Node2D
 
 # 过渡参数
 @export var transition_speed: float = 50.0  # 摄像头上移速度
-@export var target_scene: String = "res://scenes/levels/level_1.tscn"       # 目标场景路径
+@export var target_scene: String
 
 # 内部变量
 var is_transitioning: bool = false

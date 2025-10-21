@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://ye8dhs32f7oj"]
+
+[ext_resource type="Texture2D" uid="uid://di0qu4ahpm0d0" path="res://assets/temp(临时美术资源)/side_pipe.png" id="1_5jkna"]
+[ext_resource type="Script" uid="uid://ccvwii8dy8t0d" path="res://src/test/checker.gd" id="2_tmfg8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tmfg8"]
+radius = 18.02776
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5jkna"]
+radius = 36.013885
+
+[node name="TrailBall" type="StaticBody2D"]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5, -3)
+scale = Vector2(0.0805407, 0.0856384)
+texture = ExtResource("1_5jkna")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-9.53674e-07, -1)
+rotation = -0.420624
+shape = SubResource("CircleShape2D_tmfg8")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_tmfg8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -3)
+shape = SubResource("CircleShape2D_5jkna")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

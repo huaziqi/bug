@@ -103,7 +103,7 @@ func handle_sfx():
 	if really_on_ground==true and abs(linear_velocity.x)>50:
 		playsound($move,true)
 	else:
-		playsound($move,false)	
+		playsound($move,false)
 	
 	if really_on_ground!=temp and really_on_ground==true:
 		playsound($fall,true)

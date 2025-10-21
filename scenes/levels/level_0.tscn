@@ -4,9 +4,10 @@
 [ext_resource type="Script" uid="uid://copts0ef8qjnc" path="res://scripts/levels/level_manager.gd" id="1_osc7o"]
 [ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://scenes/characters/player/Pipe_player.tscn" id="2_yqnkn"]
 
-[node name="Level_0" type="Node2D"]
+[node name="Level_0" type="Node2D" node_paths=PackedStringArray("static_items")]
 process_mode = 1
 script = ExtResource("1_osc7o")
+static_items = [null]
 
 [node name="Steel_Pipe" parent="." instance=ExtResource("2_yqnkn")]
 position = Vector2(170, -72)
