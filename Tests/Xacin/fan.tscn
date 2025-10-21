@@ -1,0 +1,122 @@
+[gd_scene load_steps=11 format=3 uid="uid://dkm8rf4jlgjed"]
+
+[ext_resource type="Script" uid="uid://bda0kq2s70jgw" path="res://fan.gd" id="1_nw76x"]
+[ext_resource type="Texture2D" uid="uid://ccfvah0vdxnb1" path="res://assets/temp(临时美术资源)/fan.png" id="2_icq1l"]
+[ext_resource type="Texture2D" uid="uid://b3hrmacqi3lb3" path="res://assets/temp(临时美术资源)/wind.png" id="2_l0agx"]
+[ext_resource type="AudioStream" uid="uid://1cyt1pqdbmpo" path="res://assets/temp(临时美术资源)/fansound.mp3" id="3_icq1l"]
+
+[sub_resource type="Animation" id="Animation_l0agx"]
+resource_name = "wind"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(3.3635848, 3.363585, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.3019608), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(2.462289, 0.34151012, 1),
+"update": 0,
+"values": [Vector2(2, 1.918), Vector2(3, 2.878), Vector2(3.5, 3.358)]
+}
+
+[sub_resource type="Animation" id="Animation_e1wb7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.402097, 2.3037908)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mmaj4"]
+_data = {
+&"RESET": SubResource("Animation_e1wb7"),
+&"wind": SubResource("Animation_l0agx")
+}
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_nw76x"]
+b = Vector2(244.05988, 215.62628)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_icq1l"]
+b = Vector2(-274.7682, 183.97266)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_l0agx"]
+a = Vector2(-47.490795, -318.66693)
+
+[node name="fan" type="Node2D"]
+scale = Vector2(0.29479396, 0.30439305)
+script = ExtResource("1_nw76x")
+
+[node name="Wind" type="Sprite2D" parent="."]
+position = Vector2(1.9073486e-06, 3.2852268)
+scale = Vector2(2.402097, 2.3037908)
+texture = ExtResource("2_l0agx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wind"]
+libraries = {
+&"": SubResource("AnimationLibrary_mmaj4")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6.7844, -29.567034)
+scale = Vector2(0.23939155, 0.2324076)
+texture = ExtResource("2_icq1l")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["fan"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+rotation = -0.21816616
+shape = SubResource("SegmentShape2D_nw76x")
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="." groups=["fan"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
+shape = SubResource("SegmentShape2D_icq1l")
+
+[node name="CharacterBody2D3" type="CharacterBody2D" parent="." groups=["fan"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D3"]
+shape = SubResource("SegmentShape2D_l0agx")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_icq1l")
+parameters/looping = true
