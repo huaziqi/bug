@@ -1,16 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://ye8dhs32f7oj"]
+[gd_scene load_steps=6 format=3 uid="uid://ye8dhs32f7oj"]
 
 [ext_resource type="Texture2D" uid="uid://di0qu4ahpm0d0" path="res://assets/temp(临时美术资源)/side_pipe.png" id="1_5jkna"]
+[ext_resource type="Script" uid="uid://eeyebx1hiyic" path="res://scripts/map_units/trail_ball.gd" id="1_l8m2r"]
 [ext_resource type="Script" uid="uid://ccvwii8dy8t0d" path="res://src/test/checker.gd" id="2_tmfg8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tmfg8"]
-radius = 18.02776
+radius = 18.384777
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5jkna"]
 radius = 36.013885
 
 [node name="TrailBall" type="StaticBody2D"]
-collision_layer = 2
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_l8m2r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(5, -3)

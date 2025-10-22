@@ -1,13 +1,35 @@
 extends Node
 class_name LevelManager
-@onready var basic_map : Node2D = $BasicMap
 
-@export var static_items : Array[Node] #不移动的item
+const TRANSITION_SCENE = preload("uid://3guswm2uo0xu")
+@onready var basic_ground: Node2D = $BasicGround
+@export var player : Node
+@export var next_scene : PackedScene
+@export var static_items : Array[Node] #不移动的item，也就是开局要显现出来的
+@export var flag : Node
 
 func _ready() -> void:
-	GameState.state=GameState.PLAYING
-	GameState.game_initialized.emit()#ui相关
+	init_player()
+	init_signal()
+	init_ui()
 	show_all_items()
+
+func init_player():
+	if(player):
+		player.position = Vector2(20, -10)
+	else:
+
+		push_error("player is null")
+
+func init_signal():
+	if(flag):
+		flag.flag_up.connect(quit_current_level)
+	else:
+		push_error("flag is null")
+
+func init_ui() -> void:
+	GameState.state=GameState.PLAYING
+	GameState.game_initialized.emit() #ui相关
 
 func show_all_items(): #展示所有的物品
 	for item in static_items:
@@ -17,14 +39,22 @@ func show_all_items(): #展示所有的物品
 func _on_button_pressed() -> void:
 	reset_game()
 
-func _on_next_pressed() -> void:
+func quit_current_level() -> void:
 	var tween = create_tween()
-	tween.tween_property(basic_map, "position:y", 
-		basic_map.position.y + 500,  # 向下移动500像素
+	tween.tween_property(basic_ground, "position:y", 
+		basic_ground.position.y + 500,  # 向下移动500像素
 		0.5  # 快速移动，持续0.5秒
 	).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	await get_tree().create_timer(1.0).timeout
 	change_to_next_scene()
+
+# 切换下一个场景的函数
+func change_to_next_scene():
+	if(not next_scene):
+		return
+	TransitionInfo.next_scene = next_scene
+	get_tree().change_scene_to_packed(TRANSITION_SCENE)
+
 
 func reset_game() -> void:
 	var _current_scene = get_tree().current_scene
@@ -45,9 +75,3 @@ func show_item(node: Node, duration: float = 0.8):
 		1.0,  # 目标透明度：完全透明
 		duration
 	).set_ease(Tween.EASE_IN_OUT)
-
-# 切换下一个场景的函数
-func change_to_next_scene():
-	var transition_scene = preload("res://scenes/animation/transition_scene.tscn").instantiate()
-	transition_scene.target_scene = "res://scenes/levels/level_1.tscn"
-	get_tree().root.add_child(transition_scene)
