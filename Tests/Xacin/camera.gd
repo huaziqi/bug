@@ -1,9 +1,9 @@
 extends Camera2D
 
-var is_shaking = false
-var shake_time = 0.2  # 抖动持续时间
-var shake_strength = 2  # 抖动幅度
-var pos=Vector2(570,328)
+@export var is_shaking = false
+@export var shake_time=0 # 抖动持续时间
+@export var shake_strength=0# 抖动幅度
+@export var pos=Vector2(570,328)
 func _ready() -> void:
 	position=pos
 	
@@ -20,6 +20,8 @@ func _process(delta):
 			position=pos
 
 # 调用这个函数触发抖动
-func shake():
+func shake(s,t):
 	is_shaking = true
-	shake_time = 0.5  # 重置时间
+	shake_time = t  
+	shake_strength = s# 重置时间
+	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b33i821hn6ng3"]
+[gd_scene load_steps=13 format=3 uid="uid://b33i821hn6ng3"]
 
 [ext_resource type="Script" uid="uid://b5vr37jm1ps3q" path="res://src/script/mirror_pipe_player.gd" id="1_i0rbg"]
 [ext_resource type="Texture2D" uid="uid://di0qu4ahpm0d0" path="res://assets/temp(临时美术资源)/side_pipe.png" id="2_i0rbg"]
@@ -6,12 +6,74 @@
 [ext_resource type="Script" uid="uid://vrpyc1jyfafk" path="res://src/Scene/mirror_hand.gd" id="4_1yate"]
 [ext_resource type="AudioStream" uid="uid://cywrjx8tvvdkx" path="res://assets/sounds/sfx/rockmove.mp3" id="4_3a7bv"]
 [ext_resource type="AudioStream" uid="uid://ck8p8bhg6eulc" path="res://assets/sounds/sfx/fall.mp3" id="5_qxjg8"]
+[ext_resource type="AudioStream" uid="uid://bqfaf0xxjlamp" path="res://assets/temp(临时美术资源)/breaking-glass.wav" id="7_phyhg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_71kmc"]
 bounce = 0.1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8q1br"]
 radius = 30.8707
+
+[sub_resource type="Animation" id="Animation_00inu"]
+resource_name = "break"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.10881905, 1),
+"update": 0,
+"values": [Vector2(0.0805407, 0.0856384), Vector2(0.13373253, 0.09605124)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.55561996, 0.55561996, 0.55561996, 0.9411765), Color(0.15630609, 0.6401869, 0.5687091, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_phyhg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.0805407, 0.0856384)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.55561996, 0.55561996, 0.55561996, 0.9411765)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2o81w"]
+_data = {
+&"RESET": SubResource("Animation_phyhg"),
+&"break": SubResource("Animation_00inu")
+}
 
 [node name="Steel_Pipe" type="RigidBody2D" groups=["grippable", "num_item", "player"]]
 modulate = Color(0.55561996, 0.55561996, 0.55561996, 0.9411765)
@@ -23,7 +85,7 @@ gravity_scale = 8.0
 script = ExtResource("1_i0rbg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(5, -3)
+position = Vector2(8.999998, -7.000001)
 scale = Vector2(0.0805407, 0.0856384)
 texture = ExtResource("2_i0rbg")
 
@@ -41,3 +103,11 @@ stream = ExtResource("4_3a7bv")
 
 [node name="fall" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_qxjg8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2o81w")
+}
+
+[node name="breaks" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_phyhg")
