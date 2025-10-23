@@ -11,7 +11,7 @@ var next_scene_instance: Node = null
 func _ready():
 	next_scene = TransitionInfo.next_scene
 	start_transition()
-
+	$Camera2D/startscenes/AudioStreamPlayer2D.play()
 func start_transition():
 	if not next_scene:
 		return

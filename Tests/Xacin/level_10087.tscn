@@ -9,10 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://qn2mxmxrshh2" path="res://scenes/map_units/laser.tscn" id="6_dfqa5"]
 [ext_resource type="PackedScene" uid="uid://5s2ku8p8nqju" path="res://Tests/Xacin/camera.tscn" id="7_2ypl4"]
 
-[node name="Level_0" type="Node2D"]
+[node name="Level_10087" type="Node2D" node_paths=PackedStringArray("static_items")]
 script = ExtResource("1_2ypl4")
+static_items = [NodePath("laser"), NodePath("Flag")]
 
-[node name="basic_ground" parent="." instance=ExtResource("1_fepmk")]
+[node name="BasicGround" parent="." instance=ExtResource("1_fepmk")]
 position = Vector2(-7, 4)
 
 [node name="Steel_Pipe" parent="." instance=ExtResource("2_dfqa5")]

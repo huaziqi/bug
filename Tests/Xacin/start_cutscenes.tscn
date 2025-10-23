@@ -52,8 +52,8 @@ animations = [{
 
 [node name="cutscenes" type="AnimatedSprite2D" parent="."]
 z_index = 1
-position = Vector2(51.000076, -35.000008)
-scale = Vector2(1.576172, 1.5131966)
+position = Vector2(12.5, -51.5)
+scale = Vector2(1.2197264, 1.1129032)
 sprite_frames = SubResource("SpriteFrames_gc0pj")
 animation = &"flakes"
 script = ExtResource("2_5rdob")
@@ -62,9 +62,9 @@ script = ExtResource("2_5rdob")
 stream = ExtResource("3_sjnpy")
 
 [node name="startscenes" type="AnimatedSprite2D" parent="."]
-z_index = 1
-position = Vector2(50.500076, -36.000023)
-scale = Vector2(1.5712892, 1.5190618)
+z_index = -1
+position = Vector2(12.500015, -51.499985)
+scale = Vector2(1.22, 1.113)
 sprite_frames = SubResource("SpriteFrames_gc0pj")
 animation = &"flakes"
 script = ExtResource("4_ko5n6")

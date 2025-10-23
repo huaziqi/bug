@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://ccs185p6fdqmx"]
 
-[ext_resource type="Script" uid="uid://dx4mccamb3wf2" path="res://Tests/Xacin/level_10086.gd" id="1_x7qfu"]
+[ext_resource type="Script" uid="uid://dx4mccamb3wf2" path="res://Tests/Xacin/level_10086_manager.gd" id="1_x7qfu"]
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="2_l4qdf"]
 [ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://scenes/characters/player/Pipe_player.tscn" id="3_pok1h"]
 [ext_resource type="PackedScene" uid="uid://b33i821hn6ng3" path="res://scenes/characters/player/mirror_Pipe_player.tscn" id="4_x7qfu"]
@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://s3b2ctlvdsrd" path="res://assets/sounds/sfx/frame_break.mp3" id="11_5uu27"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pok1h"]
-size = Vector2(38.668236, 1504.3528)
+size = Vector2(36.345894, 1565.3015)
 
 [sub_resource type="Animation" id="Animation_5uu27"]
 length = 0.001
@@ -108,7 +108,6 @@ position = Vector2(561, -43)
 [node name="Flag" parent="." instance=ExtResource("5_5uu27")]
 
 [node name="start_cutscenes" parent="." instance=ExtResource("6_nqalr")]
-visible = false
 position = Vector2(571, 323)
 
 [node name="camera" parent="." instance=ExtResource("7_yvgjx")]
@@ -116,6 +115,7 @@ position = Vector2(571, 323)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="Mirror" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(520, 199)
 scale = Vector2(0.43963662, 0.26365408)
 texture = ExtResource("8_l4qdf")
@@ -125,11 +125,11 @@ position = Vector2(0, -23.244324)
 script = ExtResource("9_pok1h")
 
 [node name="mirror_frame1" type="CollisionShape2D" parent="Mirror/StaticBody2D"]
-position = Vector2(194.479, 5.3775635)
+position = Vector2(194.47888, 23.1969)
 shape = SubResource("RectangleShape2D_pok1h")
 
 [node name="mirror_frame2" type="CollisionShape2D" parent="Mirror/StaticBody2D"]
-position = Vector2(-194.43115, -2.1131592)
+position = Vector2(-195.59235, 10.54187)
 shape = SubResource("RectangleShape2D_pok1h")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Mirror/StaticBody2D"]
