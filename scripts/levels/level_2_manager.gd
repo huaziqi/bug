@@ -1,10 +1,10 @@
 extends LevelManager
 @onready var collision_area: CollisionShape2D = $StaticBody2D/CollisionShape2D
 @onready var checker_area: CollisionShape2D = $StaticBody2D/checker/CollisionShape2D
-#
-#func npc_talking():
-	#Dialogic.start("level2")
-	#call_deferred("enable_collision_shapes")
+
+func npc_talking():
+	Dialogic.start("level2")
+	call_deferred("enable_collision_shapes")
 
 func enable_collision_shapes():
 	if is_instance_valid(collision_area):

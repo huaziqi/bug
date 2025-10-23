@@ -14,11 +14,12 @@ func _ready() -> void:
 	init_ui()
 	show_all_items()
 
+
+
 func init_player():
 	if(player):
 		player.position = Vector2(20, -10)
 	else:
-
 		push_error("player is null")
 
 func init_signal():
@@ -55,7 +56,6 @@ func change_to_next_scene():
 	TransitionInfo.next_scene = next_scene
 	get_tree().change_scene_to_packed(TRANSITION_SCENE)
 
-
 func reset_game() -> void:
 	var _current_scene = get_tree().current_scene
 	var path = _current_scene.scene_file_path
@@ -64,7 +64,7 @@ func reset_game() -> void:
 func hide_item(node: Node, duration: float = 0.8):
 	var tween = create_tween()
 	tween.tween_property(node, "modulate:a",
-		0.0,  # 目标透明度：完全透明
+		0.0,  
 		duration
 	).set_ease(Tween.EASE_IN_OUT)
 
@@ -72,6 +72,6 @@ func show_item(node: Node, duration: float = 0.8):
 	node.modulate.a = 0
 	var tween = create_tween()
 	tween.tween_property(node, "modulate:a",
-		1.0,  # 目标透明度：完全透明
+		1.0,  
 		duration
 	).set_ease(Tween.EASE_IN_OUT)
