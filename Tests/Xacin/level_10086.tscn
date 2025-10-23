@@ -9,8 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://cs3qu0yak2v7l" path="res://Tests/Xacin/start_cutscenes.tscn" id="5_dt2jb"]
 [ext_resource type="PackedScene" uid="uid://5s2ku8p8nqju" path="res://Tests/Xacin/camera.tscn" id="7_oikoc"]
 
-[node name="Level_10086" type="Node2D" node_paths=PackedStringArray("static_items", "flag")]
+[node name="Level_10086" type="Node2D" node_paths=PackedStringArray("player", "static_items", "flag")]
 script = ExtResource("1_wxa2h")
+player = NodePath("Steel_Pipe")
 next_scene = ExtResource("2_cu37o")
 static_items = [null, NodePath("platform"), NodePath("Flag")]
 flag = NodePath("Flag")

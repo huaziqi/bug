@@ -9,10 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://5s2ku8p8nqju" path="res://Tests/Xacin/camera.tscn" id="7_kveet"]
 [ext_resource type="PackedScene" uid="uid://rlvyp8w83cdj" path="res://scenes/map_units/fan_button.tscn" id="8_0lagq"]
 
-[node name="Level_0" type="Node2D"]
+[node name="Level_0" type="Node2D" node_paths=PackedStringArray("player", "static_items", "flag")]
 script = ExtResource("1_vdpjh")
+player = NodePath("Steel_Pipe")
+static_items = [NodePath("fan"), NodePath("button"), NodePath("Line2D"), NodePath("Flag")]
+flag = NodePath("Flag")
 
-[node name="basic_ground" parent="." instance=ExtResource("2_0lagq")]
+[node name="BasicGround" parent="." instance=ExtResource("2_0lagq")]
 position = Vector2(-7, 4)
 
 [node name="Steel_Pipe" parent="." instance=ExtResource("3_76opb")]
@@ -33,6 +36,4 @@ points = PackedVector2Array(0, 0, 0, 0)
 default_color = Color(0, 0, 0, 1)
 
 [node name="start_cutscenes" parent="." instance=ExtResource("6_86xpo")]
-visible = false
-z_index = 1
 position = Vector2(571, 320)

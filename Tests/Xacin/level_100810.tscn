@@ -13,8 +13,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_25a75"]
 size = Vector2(129, 356)
 
-[node name="Level_0" type="Node2D"]
+[node name="Level_0" type="Node2D" node_paths=PackedStringArray("player", "flag")]
 script = ExtResource("1_8uxql")
+player = NodePath("Steel_Pipe")
+flag = NodePath("Flag")
 
 [node name="basic_ground" parent="." instance=ExtResource("2_25a75")]
 position = Vector2(-7, 4)

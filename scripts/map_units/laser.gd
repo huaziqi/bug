@@ -2,7 +2,7 @@ extends RigidBody2D
 @export var breaked:bool=false
 @export var is_being_breaked=false
 @export var breaking_progress:float=0
-@export var standing_spot:Vector2=Vector2(445,400)
+@export var standing_spot:Vector2=Vector2(445,410)
 @export var r:float = 0
 func _ready() -> void:
 	get_node("AnimationPlayer").play("laser")

@@ -17,6 +17,7 @@ func _physics_process(_delta: float) -> void:
 	if r_speed>40:
 		if not is_wind:
 			is_wind=true
+			$AudioStreamPlayer2D.play()
 			var w=wind.instantiate()
 			w.global_position=global_position
 			get_parent().add_child(w)

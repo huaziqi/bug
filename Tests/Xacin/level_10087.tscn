@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5l4w2ks6oop4"]
+[gd_scene load_steps=10 format=3 uid="uid://b5l4w2ks6oop4"]
 
 [ext_resource type="Script" uid="uid://blx071g24nvtc" path="res://Tests/Xacin/level_10087.gd" id="1_2ypl4"]
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="1_fepmk"]
@@ -8,10 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://qrqftvtgmw0q" path="res://scenes/map_units/spawner.tscn" id="6_2ypl4"]
 [ext_resource type="PackedScene" uid="uid://qn2mxmxrshh2" path="res://scenes/map_units/laser.tscn" id="6_dfqa5"]
 [ext_resource type="PackedScene" uid="uid://5s2ku8p8nqju" path="res://Tests/Xacin/camera.tscn" id="7_2ypl4"]
+[ext_resource type="AudioStream" uid="uid://dwpexgmfj62i3" path="res://assets/temp(临时美术资源)/laserreset.mp3" id="7_bubof"]
 
-[node name="Level_10087" type="Node2D" node_paths=PackedStringArray("static_items")]
+[node name="Level_10087" type="Node2D" node_paths=PackedStringArray("player", "static_items", "flag")]
 script = ExtResource("1_2ypl4")
+player = NodePath("Steel_Pipe")
 static_items = [NodePath("laser"), NodePath("Flag")]
+flag = NodePath("Flag")
 
 [node name="BasicGround" parent="." instance=ExtResource("1_fepmk")]
 position = Vector2(-7, 4)
@@ -20,13 +23,17 @@ position = Vector2(-7, 4)
 
 [node name="Flag" parent="." instance=ExtResource("4_6o28c")]
 
-[node name="laser" parent="." instance=ExtResource("6_dfqa5")]
-
 [node name="start_cutscenes" parent="." instance=ExtResource("5_bubof")]
 position = Vector2(571, 323)
 
 [node name="spawner" parent="." instance=ExtResource("6_2ypl4")]
 position = Vector2(1080, 451)
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="spawner"]
+stream = ExtResource("7_bubof")
+
 [node name="camera" parent="." instance=ExtResource("7_2ypl4")]
 position = Vector2(568, 328)
+
+[node name="laser" parent="." instance=ExtResource("6_dfqa5")]
+z_index = -1
