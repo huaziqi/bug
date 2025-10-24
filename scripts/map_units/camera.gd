@@ -21,6 +21,8 @@ func _process(delta):
 
 # 调用这个函数触发抖动
 func shake(s,t):
+	if not is_shaking:
+		pos=position
 	is_shaking = true
 	shake_time = t  
 	shake_strength = s# 重置时间

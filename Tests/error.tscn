@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c36w4hassr74t"]
+
+[ext_resource type="Texture2D" uid="uid://cyf31mdcjdkob" path="res://assets/temp(临时美术资源)/ERROR.png" id="1_m8576"]
+
+[node name="ERROR" type="Window"]
+oversampling_override = 1.0
+initial_position = 1
+size = Vector2i(300, 200)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(148.50003, 101.5)
+scale = Vector2(0.18089549, 0.19999999)
+texture = ExtResource("1_m8576")

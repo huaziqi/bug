@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://k4rgaq5tbl46" path="res://scripts/map_units/popup_window.gd" id="1_2empw"]
 [ext_resource type="Texture2D" uid="uid://28v4fa6njxx0" path="res://assets/sprites/map_units/flakes.png" id="2_nbl44"]
 [ext_resource type="AudioStream" uid="uid://rr2x6fgm5s6x" path="res://assets/sounds/sfx/flakes.mp3" id="3_cuhxt"]
-[ext_resource type="Texture2D" uid="uid://di0qu4ahpm0d0" path="res://assets/temp(临时美术资源)/side_pipe.png" id="4_nbl44"]
+[ext_resource type="Texture2D" uid="uid://btpwlugt031c2" path="res://assets/temp(临时美术资源)/ball1.png" id="4_d0epm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bwg4o"]
 atlas = ExtResource("2_nbl44")
@@ -71,6 +71,7 @@ animations = [{
 
 [node name="PopupWindow" type="Window"]
 oversampling_override = 1.0
+title = "player"
 initial_position = 1
 size = Vector2i(300, 300)
 unresizable = true
@@ -89,6 +90,6 @@ stream = ExtResource("3_cuhxt")
 autoplay = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(168.99998, 154.00003)
-scale = Vector2(0.23852292, 0.25213447)
-texture = ExtResource("4_nbl44")
+position = Vector2(148.00002, 151)
+scale = Vector2(0.24688053, 0.25213447)
+texture = ExtResource("4_d0epm")

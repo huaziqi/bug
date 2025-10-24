@@ -12,6 +12,7 @@ extends RigidBody2D
 @export var air_spin_force: float = 100.0   # 空中旋转产生的位移力，唯一影响空中位移的属性！
 @export var self_num :int =0
 @export var snap_target :Node2D = null
+@export var freezing:bool=false
 signal jump
 
 
@@ -23,8 +24,9 @@ var last_jump_time: float = 0.0
 
 func _physics_process(_delta: float) -> void:
 	# 处理移动、跳跃和下落加速
-	handle_movement()  
-	handle_jump()
+	if not freezing:
+		handle_movement()  
+		handle_jump()
 	handle_fall_acceleration()
 	absorb_to_container(_delta) #吸附到数字框
 	handle_sfx()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5l4w2ks6oop4"]
+[gd_scene load_steps=11 format=3 uid="uid://b5l4w2ks6oop4"]
 
 [ext_resource type="Script" uid="uid://blx071g24nvtc" path="res://scripts/levels/level_10087.gd" id="1_2ypl4"]
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="1_fepmk"]
 [ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://scenes/characters/player/Pipe_player.tscn" id="2_dfqa5"]
+[ext_resource type="PackedScene" uid="uid://ccs185p6fdqmx" path="res://scenes/levels/level_10088.tscn" id="2_kt7ex"]
 [ext_resource type="PackedScene" uid="uid://ct5l5eh65tbi1" path="res://scenes/map_units/flag.tscn" id="4_6o28c"]
 [ext_resource type="PackedScene" uid="uid://cs3qu0yak2v7l" path="res://scenes/map_units/start_cutscenes.tscn" id="5_bubof"]
 [ext_resource type="PackedScene" uid="uid://qrqftvtgmw0q" path="res://scenes/map_units/spawner.tscn" id="6_2ypl4"]
@@ -13,10 +14,12 @@
 [node name="Level_10087" type="Node2D" node_paths=PackedStringArray("player", "static_items", "flag")]
 script = ExtResource("1_2ypl4")
 player = NodePath("Steel_Pipe")
+next_scene = ExtResource("2_kt7ex")
 static_items = [NodePath("laser"), NodePath("Flag")]
 flag = NodePath("Flag")
 
 [node name="BasicGround" parent="." instance=ExtResource("1_fepmk")]
+z_index = 2
 position = Vector2(-7, 4)
 
 [node name="Steel_Pipe" parent="." instance=ExtResource("2_dfqa5")]
@@ -36,4 +39,4 @@ stream = ExtResource("7_bubof")
 position = Vector2(568, 328)
 
 [node name="laser" parent="." instance=ExtResource("6_dfqa5")]
-z_index = -1
+z_index = 1

@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cabcjsouo44ka"]
+[gd_scene load_steps=10 format=3 uid="uid://cabcjsouo44ka"]
 
 [ext_resource type="Script" uid="uid://btmbb5q4nis20" path="res://scripts/levels/level_10089.gd" id="1_pi6pv"]
+[ext_resource type="PackedScene" uid="uid://dr7jwchrktwxa" path="res://scenes/levels/level_end.tscn" id="2_fuwsl"]
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="2_ykugv"]
 [ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://scenes/characters/player/Pipe_player.tscn" id="3_fuwsl"]
 [ext_resource type="PackedScene" uid="uid://ct5l5eh65tbi1" path="res://scenes/map_units/flag.tscn" id="4_gwxj4"]
@@ -12,6 +13,7 @@
 [node name="Level_0" type="Node2D" node_paths=PackedStringArray("player", "static_items", "flag")]
 script = ExtResource("1_pi6pv")
 player = NodePath("Steel_Pipe")
+next_scene = ExtResource("2_fuwsl")
 static_items = [NodePath("fan"), NodePath("button"), NodePath("Line2D"), NodePath("Flag")]
 flag = NodePath("Flag")
 
