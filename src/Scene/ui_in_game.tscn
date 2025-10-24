@@ -152,6 +152,10 @@ expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6vlds"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vlds"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0, 0, 0, 1)
+
 [sub_resource type="Theme" id="Theme_xi381"]
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
@@ -165,13 +169,8 @@ Label/font_sizes/font_size = 16
 Label/fonts/font = ExtResource("5_iks2h")
 Label/styles/focus = SubResource("StyleBoxFlat_rflpt")
 Label/styles/normal = SubResource("StyleBoxEmpty_6vlds")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_6vlds")
 VBoxContainer/constants/separation = 0
-
-[sub_resource type="Theme" id="Theme_iks2h"]
-Button/constants/line_spacing = 10
-Button/font_sizes/font_size = 30
-Button/fonts/font = ExtResource("1_yw1oe")
-Label/font_sizes/font_size = 20
 
 [node name="ui" type="Control"]
 process_mode = 3
@@ -247,42 +246,6 @@ theme = SubResource("Theme_xi381")
 [node name="initial_instruction" parent="CanvasLayer/Panel/VBoxContainer/below_white_bar/MarginContainer/below_bar" instance=ExtResource("6_ammk3")]
 layout_mode = 2
 
-[node name="setting_ui" type="PanelContainer" parent="CanvasLayer"]
-visible = false
-offset_left = 468.0
-offset_top = 219.0
-offset_right = 705.0
-offset_bottom = 440.0
-theme = SubResource("Theme_iks2h")
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/setting_ui"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/setting_ui/MarginContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/setting_ui/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "音乐"
-
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/setting_ui/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label2" type="Label" parent="CanvasLayer/setting_ui/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "音效"
-
-[node name="ProgressBar2" type="ProgressBar" parent="CanvasLayer/setting_ui/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="CanvasLayer/setting_ui/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "全屏"
-
-[node name="return" type="Button" parent="CanvasLayer/setting_ui/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "返回"
-
 [node name="TextureButton" type="TextureButton" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_right = 0.035
@@ -294,5 +257,4 @@ offset_bottom = 58.823997
 texture_normal = ExtResource("3_l1ej1")
 
 [connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/white_bar/PanelContainer/TextureButton" to="CanvasLayer" method="_on_texture_button_bar_cross_pressed"]
-[connection signal="pressed" from="CanvasLayer/setting_ui/MarginContainer/VBoxContainer/return" to="CanvasLayer" method="_on_return_pressed"]
 [connection signal="pressed" from="CanvasLayer/TextureButton" to="CanvasLayer" method="_on_texture_button_pressed"]

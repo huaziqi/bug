@@ -6,19 +6,16 @@ signal game_initialized
 
 signal quit_ui
 signal continue_ui
-signal setting_ui
+signal level_ui
 
 
 func _on_continue_pressed() -> void:
 	continue_ui.emit()
 
 
-func _on_setting_pressed() -> void:
-	setting_ui.emit()
+func _on_level_pressed() -> void:
+	level_ui.emit()
 
-
-func _on_select_level_pressed() -> void:
-	pass # Replace with function body.
 
 
 func _on_quit_pressed() -> void:
