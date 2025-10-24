@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://p6dopje3btqk"]
+[gd_scene load_steps=15 format=3 uid="uid://p6dopje3btqk"]
 
 [ext_resource type="Script" uid="uid://2chbhr3kgodc" path="res://src/script/pipe.gd" id="1_7meox"]
-[ext_resource type="Texture2D" uid="uid://btpwlugt031c2" path="res://assets/temp(临时美术资源)/ball1.png" id="2_nkwrb"]
+[ext_resource type="Texture2D" uid="uid://krx3lsft5uvl" path="res://assets/temp(临时美术资源)/null_ball.png" id="2_nkwrb"]
 [ext_resource type="PackedScene" uid="uid://dn0bw5kg1vrhe" path="res://src/Scene/hand.tscn" id="3_8q1br"]
 [ext_resource type="AudioStream" uid="uid://cywrjx8tvvdkx" path="res://assets/sounds/sfx/rockmove.mp3" id="4_c2cpl"]
 [ext_resource type="AudioStream" uid="uid://ck8p8bhg6eulc" path="res://assets/sounds/sfx/fall.mp3" id="5_6hx4n"]
@@ -9,11 +9,50 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_71kmc"]
 bounce = 0.1
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_svyqv"]
+atlas = ExtResource("2_nkwrb")
+region = Rect2(0, 0, 421, 424)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugd4c"]
+atlas = ExtResource("2_nkwrb")
+region = Rect2(421, 0, 421, 424)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tagur"]
+atlas = ExtResource("2_nkwrb")
+region = Rect2(842, 0, 421, 424)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbelb"]
+atlas = ExtResource("2_nkwrb")
+region = Rect2(1263, 0, 421, 424)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4p600"]
+atlas = ExtResource("2_nkwrb")
+region = Rect2(1684, 0, 421, 424)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q56ke"]
+atlas = ExtResource("2_nkwrb")
+region = Rect2(2105, 0, 421, 424)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_oknm1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_nkwrb")
+"texture": SubResource("AtlasTexture_svyqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugd4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tagur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbelb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4p600")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q56ke")
 }],
 "loop": true,
 "name": &"default",
@@ -32,8 +71,8 @@ gravity_scale = 8.0
 script = ExtResource("1_7meox")
 
 [node name="ani" type="AnimatedSprite2D" parent="."]
-position = Vector2(-0.5354817, -0.39834574)
-scale = Vector2(0.12775421, 0.12848763)
+position = Vector2(-0.5, -1)
+scale = Vector2(0.14489311, 0.14622642)
 sprite_frames = SubResource("SpriteFrames_oknm1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -42,6 +81,7 @@ rotation = -0.420624
 shape = SubResource("CircleShape2D_8q1br")
 
 [node name="hand" parent="." instance=ExtResource("3_8q1br")]
+visible = false
 collision_mask = 15
 
 [node name="move" type="AudioStreamPlayer2D" parent="."]

@@ -13,6 +13,7 @@ extends RigidBody2D
 @export var self_num :int =0
 @export var snap_target :Node2D = null
 @export var freezing:bool=false
+@export var frame:int=0
 signal jump
 
 
@@ -21,7 +22,8 @@ var on_ground: int = 0
 var really_on_ground=false
 var temp=really_on_ground
 var last_jump_time: float = 0.0
-
+func _ready() -> void:
+	$ani.frame=frame
 func _physics_process(_delta: float) -> void:
 	# 处理移动、跳跃和下落加速
 	if not freezing:
