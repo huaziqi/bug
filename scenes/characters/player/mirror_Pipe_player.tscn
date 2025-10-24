@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://vrpyc1jyfafk" path="res://src/Scene/mirror_hand.gd" id="4_1yate"]
 [ext_resource type="AudioStream" uid="uid://cywrjx8tvvdkx" path="res://assets/sounds/sfx/rockmove.mp3" id="4_3a7bv"]
 [ext_resource type="AudioStream" uid="uid://ck8p8bhg6eulc" path="res://assets/sounds/sfx/fall.mp3" id="5_qxjg8"]
-[ext_resource type="AudioStream" uid="uid://bqfaf0xxjlamp" path="res://assets/temp(临时美术资源)/breaking-glass.wav" id="7_phyhg"]
+[ext_resource type="AudioStream" uid="uid://bqfaf0xxjlamp" path="res://assets/sounds/sfx/breaking-glass.wav" id="7_phyhg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_71kmc"]
 bounce = 0.1

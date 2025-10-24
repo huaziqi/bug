@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=3 uid="uid://cabcjsouo44ka"]
+
+[ext_resource type="Script" uid="uid://btmbb5q4nis20" path="res://scripts/levels/level_10089.gd" id="1_pi6pv"]
+[ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="2_ykugv"]
+[ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://scenes/characters/player/Pipe_player.tscn" id="3_fuwsl"]
+[ext_resource type="PackedScene" uid="uid://ct5l5eh65tbi1" path="res://scenes/map_units/flag.tscn" id="4_gwxj4"]
+[ext_resource type="PackedScene" uid="uid://5s2ku8p8nqju" path="res://scenes/map_units/camera.tscn" id="5_2d23y"]
+[ext_resource type="PackedScene" uid="uid://dkm8rf4jlgjed" path="res://scenes/map_units/fan.tscn" id="6_5rsv5"]
+[ext_resource type="PackedScene" uid="uid://rlvyp8w83cdj" path="res://scenes/map_units/fan_button.tscn" id="7_nncne"]
+[ext_resource type="PackedScene" uid="uid://cs3qu0yak2v7l" path="res://scenes/map_units/start_cutscenes.tscn" id="8_htknf"]
+
+[node name="Level_0" type="Node2D" node_paths=PackedStringArray("player", "static_items", "flag")]
+script = ExtResource("1_pi6pv")
+player = NodePath("Steel_Pipe")
+static_items = [NodePath("fan"), NodePath("button"), NodePath("Line2D"), NodePath("Flag")]
+flag = NodePath("Flag")
+
+[node name="BasicGround" parent="." instance=ExtResource("2_ykugv")]
+position = Vector2(-7, 4)
+
+[node name="Steel_Pipe" parent="." instance=ExtResource("3_fuwsl")]
+
+[node name="Flag" parent="." instance=ExtResource("4_gwxj4")]
+
+[node name="camera" parent="." instance=ExtResource("5_2d23y")]
+
+[node name="fan" parent="." instance=ExtResource("6_5rsv5")]
+position = Vector2(408, 123)
+
+[node name="button" parent="." instance=ExtResource("7_nncne")]
+position = Vector2(407, 283)
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = -1
+points = PackedVector2Array(0, 0, 0, 0)
+default_color = Color(0, 0, 0, 1)
+
+[node name="start_cutscenes" parent="." instance=ExtResource("8_htknf")]
+position = Vector2(571, 320)

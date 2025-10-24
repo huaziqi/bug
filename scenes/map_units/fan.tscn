@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://dkm8rf4jlgjed"]
+
+[ext_resource type="Script" uid="uid://bda0kq2s70jgw" path="res://scripts/map_units/fan.gd" id="1_nw76x"]
+[ext_resource type="Texture2D" uid="uid://ccfvah0vdxnb1" path="res://assets/sprites/map_units/fan.png" id="2_icq1l"]
+[ext_resource type="PackedScene" uid="uid://cgoufmfpfalwx" path="res://scenes/map_units/wind.tscn" id="2_l0agx"]
+[ext_resource type="AudioStream" uid="uid://1cyt1pqdbmpo" path="res://assets/sounds/sfx/fansound.mp3" id="3_icq1l"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_nw76x"]
+b = Vector2(244.05988, 215.62628)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_icq1l"]
+b = Vector2(-274.7682, 183.97266)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_l0agx"]
+a = Vector2(-47.490795, -318.66693)
+
+[node name="fan" type="Node2D"]
+scale = Vector2(0.29479396, 0.30439305)
+script = ExtResource("1_nw76x")
+wind = ExtResource("2_l0agx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6.7844, -29.567034)
+scale = Vector2(0.23939155, 0.2324076)
+texture = ExtResource("2_icq1l")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["fan"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+rotation = -0.21816616
+shape = SubResource("SegmentShape2D_nw76x")
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="." groups=["fan"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
+shape = SubResource("SegmentShape2D_icq1l")
+
+[node name="CharacterBody2D3" type="CharacterBody2D" parent="." groups=["fan"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D3"]
+shape = SubResource("SegmentShape2D_l0agx")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_icq1l")
+parameters/looping = true

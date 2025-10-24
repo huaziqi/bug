@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cgeaqqyd1i1jx" path="res://scripts/animation/transition_scene.gd" id="1_6lsgj"]
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="1_js88d"]
-[ext_resource type="Texture2D" uid="uid://28v4fa6njxx0" path="res://assets/temp(临时美术资源)/flakes.png" id="3_xtx71"]
+[ext_resource type="Texture2D" uid="uid://28v4fa6njxx0" path="res://assets/sprites/map_units/flakes.png" id="3_xtx71"]
 [ext_resource type="AudioStream" uid="uid://rr2x6fgm5s6x" path="res://assets/sounds/sfx/flakes.mp3" id="5_hivkg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5rdob"]

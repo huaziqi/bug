@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://rlvyp8w83cdj"]
 
-[ext_resource type="Script" uid="uid://63oihn7h3jtk" path="res://scenes/map_units/fan_button.gd" id="1_hkb8b"]
-[ext_resource type="Texture2D" uid="uid://blq5vxltu4i2w" path="res://assets/temp(临时美术资源)/button_up.png" id="2_hkb8b"]
-[ext_resource type="Texture2D" uid="uid://blfrcibusn1jm" path="res://assets/temp(临时美术资源)/button_down.png" id="3_5qbrp"]
-[ext_resource type="AudioStream" uid="uid://bwmdx6xidigrr" path="res://assets/temp(临时美术资源)/pressbutton.mp3" id="4_l43l4"]
-[ext_resource type="AudioStream" uid="uid://brvd0hkyfp7ly" path="res://assets/temp(临时美术资源)/loosebutton.mp3" id="5_ceupt"]
+[ext_resource type="Script" uid="uid://63oihn7h3jtk" path="res://scripts/map_units/fan_button.gd" id="1_hkb8b"]
+[ext_resource type="Texture2D" uid="uid://blq5vxltu4i2w" path="res://assets/sprites/map_units/button_up.png" id="2_hkb8b"]
+[ext_resource type="Texture2D" uid="uid://blfrcibusn1jm" path="res://assets/sprites/map_units/button_down.png" id="3_5qbrp"]
+[ext_resource type="AudioStream" uid="uid://bwmdx6xidigrr" path="res://assets/sounds/sfx/pressbutton.mp3" id="4_l43l4"]
+[ext_resource type="AudioStream" uid="uid://brvd0hkyfp7ly" path="res://assets/sounds/sfx/loosebutton.mp3" id="5_ceupt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l43l4"]
 animations = [{

@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://cs3qu0yak2v7l"]
+
+[ext_resource type="Texture2D" uid="uid://28v4fa6njxx0" path="res://assets/sprites/map_units/flakes.png" id="1_wu813"]
+[ext_resource type="Script" uid="uid://dgs6a51v2h304" path="res://scripts/map_units/cutscene.gd" id="2_5rdob"]
+[ext_resource type="AudioStream" uid="uid://rr2x6fgm5s6x" path="res://assets/sounds/sfx/flakes.mp3" id="3_sjnpy"]
+[ext_resource type="Script" uid="uid://baoncmaujn204" path="res://scripts/map_units/startscene.gd" id="4_ko5n6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rdob"]
+atlas = ExtResource("1_wu813")
+region = Rect2(0, 0, 1024, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjnpy"]
+atlas = ExtResource("1_wu813")
+region = Rect2(1024, 0, 1024, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ko5n6"]
+atlas = ExtResource("1_wu813")
+region = Rect2(0, 682, 1024, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxhqk"]
+atlas = ExtResource("1_wu813")
+region = Rect2(1024, 682, 1024, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2l5u8"]
+atlas = ExtResource("1_wu813")
+region = Rect2(0, 1364, 1024, 682)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gc0pj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rdob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjnpy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ko5n6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxhqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2l5u8")
+}],
+"loop": true,
+"name": &"flakes",
+"speed": 30.0
+}]
+
+[node name="start_cutscenes" type="Node2D"]
+
+[node name="cutscenes" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(12.5, -51.5)
+scale = Vector2(1.2197264, 1.1129032)
+sprite_frames = SubResource("SpriteFrames_gc0pj")
+animation = &"flakes"
+script = ExtResource("2_5rdob")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="cutscenes"]
+stream = ExtResource("3_sjnpy")
+
+[node name="startscenes" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(12.500015, -51.499985)
+scale = Vector2(1.22, 1.113)
+sprite_frames = SubResource("SpriteFrames_gc0pj")
+animation = &"flakes"
+script = ExtResource("4_ko5n6")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="startscenes"]
+stream = ExtResource("3_sjnpy")

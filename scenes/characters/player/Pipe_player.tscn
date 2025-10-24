@@ -1,13 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://p6dopje3btqk"]
+[gd_scene load_steps=9 format=3 uid="uid://p6dopje3btqk"]
 
 [ext_resource type="Script" uid="uid://2chbhr3kgodc" path="res://src/script/pipe.gd" id="1_7meox"]
-[ext_resource type="Texture2D" uid="uid://di0qu4ahpm0d0" path="res://assets/temp(临时美术资源)/side_pipe.png" id="2_hvujv"]
+[ext_resource type="Texture2D" uid="uid://btpwlugt031c2" path="res://assets/temp(临时美术资源)/ball1.png" id="2_nkwrb"]
 [ext_resource type="PackedScene" uid="uid://dn0bw5kg1vrhe" path="res://src/Scene/hand.tscn" id="3_8q1br"]
 [ext_resource type="AudioStream" uid="uid://cywrjx8tvvdkx" path="res://assets/sounds/sfx/rockmove.mp3" id="4_c2cpl"]
 [ext_resource type="AudioStream" uid="uid://ck8p8bhg6eulc" path="res://assets/sounds/sfx/fall.mp3" id="5_6hx4n"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_71kmc"]
 bounce = 0.1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oknm1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nkwrb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8q1br"]
 radius = 30.8707
@@ -20,10 +31,10 @@ physics_material_override = SubResource("PhysicsMaterial_71kmc")
 gravity_scale = 8.0
 script = ExtResource("1_7meox")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(5, -3)
-scale = Vector2(0.0805407, 0.0856384)
-texture = ExtResource("2_hvujv")
+[node name="ani" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.5354817, -0.39834574)
+scale = Vector2(0.12775421, 0.12848763)
+sprite_frames = SubResource("SpriteFrames_oknm1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-9.53674e-07, -1)

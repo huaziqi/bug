@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cf7j470et3y05"]
 
 [ext_resource type="Script" uid="uid://ddg87tj3idmku" path="res://scripts/map_units/bubble.gd" id="1_gslgn"]
-[ext_resource type="Texture2D" uid="uid://idurq13jpq3m" path="res://assets/temp(临时美术资源)/bubble.png" id="2_gslgn"]
+[ext_resource type="Texture2D" uid="uid://idurq13jpq3m" path="res://assets/sprites/map_units/bubble.png" id="2_gslgn"]
 [ext_resource type="Script" uid="uid://ccvwii8dy8t0d" path="res://src/test/checker.gd" id="3_opj2q"]
 [ext_resource type="AudioStream" uid="uid://c27avth5h1f1v" path="res://assets/sounds/sfx/pop.mp3" id="4_2y16l"]
 
