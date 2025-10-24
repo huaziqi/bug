@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://q707o5rt2ktq"]
+
+[ext_resource type="FontFile" uid="uid://d2o0pmjktk63t" path="res://assets/fonts/Gill Sans Ultra Bold Condensed.ttf" id="1_ka7bp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g13cb"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_jou1e"]
+Label/font_sizes/font_size = 19
+Label/fonts/font = ExtResource("1_ka7bp")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_g13cb")
+
+[node name="input_instruction" type="PanelContainer"]
+theme = SubResource("Theme_jou1e")
+
+[node name="input" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label_input" type="Label" parent="input"]
+layout_mode = 2
+text = ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>请输入指令:"
+
+[node name="MarginContainer" type="MarginContainer" parent="input"]
+layout_mode = 2
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="cursor_flicker" type="ColorRect" parent="input/MarginContainer"]
+custom_minimum_size = Vector2(4, 3)
+layout_direction = 2
+layout_mode = 2

@@ -4,3 +4,5 @@
 
 [node name="Autoload" type="Node"]
 script = ExtResource("1_an0si")
+
+[connection signal="game_initialized" from="." to="." method="_on_game_initialized"]

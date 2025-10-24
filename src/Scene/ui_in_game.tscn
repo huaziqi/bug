@@ -1,10 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://dehf8owa8j41j"]
+[gd_scene load_steps=27 format=3 uid="uid://dehf8owa8j41j"]
 
 [ext_resource type="Script" uid="uid://cxo4v3lqjutf2" path="res://src/script/ui_in_game.gd" id="1_n64jb"]
 [ext_resource type="FontFile" uid="uid://d2o0pmjktk63t" path="res://assets/fonts/Gill Sans Ultra Bold Condensed.ttf" id="1_yw1oe"]
+[ext_resource type="Texture2D" uid="uid://c7x1s4r2toupx" path="res://assets/temp(临时美术资源)/x_black_15 (2).png" id="3_gj7pb"]
 [ext_resource type="Texture2D" uid="uid://8qx5wl8qos07" path="res://assets/temp(临时美术资源)/restart_buttun.png" id="3_l1ej1"]
+[ext_resource type="Texture2D" uid="uid://b25mjl1eddjii" path="res://assets/temp(临时美术资源)/x_red_15.png" id="4_iks2h"]
+[ext_resource type="FontFile" uid="uid://dmq6uypfm7okh" path="res://assets/fonts/Silver.ttf" id="5_iks2h"]
+[ext_resource type="PackedScene" uid="uid://cwwq0qjikn4cc" path="res://src/Scene/initial_ui.tscn" id="6_ammk3"]
 
-[sub_resource type="Theme" id="Theme_n64jb"]
+[sub_resource type="Theme" id="Theme_ammk3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l1ej1"]
 content_margin_left = 4.0
@@ -57,6 +61,9 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ammk3"]
+bg_color = Color(0, 0, 0, 1)
+
 [sub_resource type="Theme" id="Theme_yw1oe"]
 Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
@@ -86,6 +93,79 @@ MarginContainer/constants/margin_bottom = 0
 MarginContainer/constants/margin_left = 0
 MarginContainer/constants/margin_right = 0
 MarginContainer/constants/margin_top = 20
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_ammk3")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kw78t"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_5tn4j"]
+HBoxContainer/constants/separation = 0
+Panel/styles/panel = SubResource("StyleBoxFlat_kw78t")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5sh15"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_6vlds"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_5sh15")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tn4j"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="Theme" id="Theme_5sh15"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_5tn4j")
+
+[sub_resource type="Theme" id="Theme_g13cb"]
+MarginContainer/constants/margin_bottom = 0
+MarginContainer/constants/margin_left = 3
+MarginContainer/constants/margin_right = 0
+MarginContainer/constants/margin_top = 5
+PanelContainer/styles/panel = null
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rflpt"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6vlds"]
+
+[sub_resource type="Theme" id="Theme_xi381"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("5_iks2h")
+Label/styles/focus = SubResource("StyleBoxFlat_rflpt")
+Label/styles/normal = SubResource("StyleBoxEmpty_6vlds")
+VBoxContainer/constants/separation = 0
 
 [sub_resource type="Theme" id="Theme_iks2h"]
 Button/constants/line_spacing = 10
@@ -102,7 +182,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = SubResource("Theme_n64jb")
+theme = SubResource("Theme_ammk3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -114,34 +194,61 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -108.0
-offset_top = -105.0
-offset_right = 129.0
-offset_bottom = 116.0
+offset_left = -342.0
+offset_top = -169.5
+offset_right = 342.0
+offset_bottom = 169.5
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = SubResource("Theme_yw1oe")
-metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/MarginContainer"]
+[node name="white_bar" type="HBoxContainer" parent="CanvasLayer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
+theme = SubResource("Theme_5tn4j")
 
-[node name="continue" type="Button" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Panel/VBoxContainer/white_bar"]
+custom_minimum_size = Vector2(470, 0)
 layout_mode = 2
-text = "继续"
+size_flags_horizontal = 3
 
-[node name="setting" type="Button" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Panel/VBoxContainer/white_bar"]
 layout_mode = 2
-text = "设置"
+size_flags_vertical = 0
+theme = SubResource("Theme_6vlds")
 
-[node name="quit" type="Button" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Panel/VBoxContainer/white_bar/PanelContainer"]
+texture_repeat = 1
+custom_minimum_size = Vector2(15, 15)
+layout_direction = 3
 layout_mode = 2
-text = "退出"
+texture_normal = ExtResource("3_gj7pb")
+texture_pressed = ExtResource("4_iks2h")
+ignore_texture_size = true
+
+[node name="below_white_bar" type="PanelContainer" parent="CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_5sh15")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel/VBoxContainer/below_white_bar"]
+layout_mode = 2
+theme = SubResource("Theme_g13cb")
+
+[node name="below_bar" type="VBoxContainer" parent="CanvasLayer/Panel/VBoxContainer/below_white_bar/MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_xi381")
+
+[node name="initial_instruction" parent="CanvasLayer/Panel/VBoxContainer/below_white_bar/MarginContainer/below_bar" instance=ExtResource("6_ammk3")]
+layout_mode = 2
 
 [node name="setting_ui" type="PanelContainer" parent="CanvasLayer"]
+visible = false
 offset_left = 468.0
 offset_top = 219.0
 offset_right = 705.0
@@ -186,8 +293,6 @@ offset_right = 928.68
 offset_bottom = 58.823997
 texture_normal = ExtResource("3_l1ej1")
 
-[connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/VBoxContainer/continue" to="CanvasLayer" method="_on_continue_pressed"]
-[connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/VBoxContainer/setting" to="CanvasLayer" method="_on_setting_pressed"]
-[connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/VBoxContainer/quit" to="CanvasLayer" method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/white_bar/PanelContainer/TextureButton" to="CanvasLayer" method="_on_texture_button_bar_cross_pressed"]
 [connection signal="pressed" from="CanvasLayer/setting_ui/MarginContainer/VBoxContainer/return" to="CanvasLayer" method="_on_return_pressed"]
 [connection signal="pressed" from="CanvasLayer/TextureButton" to="CanvasLayer" method="_on_texture_button_pressed"]

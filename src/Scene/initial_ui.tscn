@@ -1,0 +1,135 @@
+[gd_scene load_steps=11 format=3 uid="uid://cwwq0qjikn4cc"]
+
+[ext_resource type="Script" uid="uid://bk55rkcmwc36n" path="res://src/Scene/initial_ui.gd" id="1_1l1i0"]
+[ext_resource type="PackedScene" uid="uid://q707o5rt2ktq" path="res://src/Scene/input_instruction.tscn" id="1_45r8q"]
+[ext_resource type="FontFile" uid="uid://d2o0pmjktk63t" path="res://assets/fonts/Gill Sans Ultra Bold Condensed.ttf" id="2_1l1i0"]
+[ext_resource type="FontFile" uid="uid://dmq6uypfm7okh" path="res://assets/fonts/Silver.ttf" id="3_o0c84"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uftdu"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rflpt"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qcohd"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_twu03"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhim0"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Theme" id="Theme_00kqe"]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 17
+Button/fonts/font = ExtResource("2_1l1i0")
+Button/styles/disabled = SubResource("StyleBoxFlat_uftdu")
+Button/styles/focus = SubResource("StyleBoxFlat_rflpt")
+Button/styles/hover = SubResource("StyleBoxFlat_qcohd")
+Button/styles/normal = SubResource("StyleBoxFlat_twu03")
+Button/styles/pressed = SubResource("StyleBoxFlat_jhim0")
+HBoxContainer/constants/separation = 0
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("3_o0c84")
+
+[node name="VBoxContainer" type="VBoxContainer"]
+script = ExtResource("1_1l1i0")
+
+[node name="input_instruction" parent="." instance=ExtResource("1_45r8q")]
+layout_mode = 2
+
+[node name="selections" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme = SubResource("Theme_00kqe")
+
+[node name="continue" type="Button" parent="selections"]
+layout_mode = 2
+text = "[Y]继续"
+
+[node name="setting" type="Button" parent="selections"]
+layout_mode = 2
+text = "[S]设置"
+
+[node name="select_level" type="Button" parent="selections"]
+layout_mode = 2
+text = "[L]选择关卡"
+
+[node name="quit" type="Button" parent="selections"]
+layout_mode = 2
+text = "[Q]退出"
+
+[connection signal="pressed" from="selections/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="selections/setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="selections/select_level" to="." method="_on_select_level_pressed"]
+[connection signal="pressed" from="selections/quit" to="." method="_on_quit_pressed"]
