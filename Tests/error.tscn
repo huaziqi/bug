@@ -5,9 +5,9 @@
 [node name="ERROR" type="Window"]
 oversampling_override = 1.0
 initial_position = 1
-size = Vector2i(300, 200)
+size = Vector2i(600, 400)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(148.50003, 101.5)
-scale = Vector2(0.18089549, 0.19999999)
+position = Vector2(300.49997, 202.25)
+scale = Vector2(0.39104477, 0.4035176)
 texture = ExtResource("1_m8576")

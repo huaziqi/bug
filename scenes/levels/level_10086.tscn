@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://vt0jkl7fi1mh"]
+[gd_scene load_steps=18 format=3 uid="uid://vt0jkl7fi1mh"]
 
 [ext_resource type="Script" uid="uid://dx4mccamb3wf2" path="res://scripts/levels/level_10086_manager.gd" id="1_ksa5r"]
 [ext_resource type="PackedScene" uid="uid://b5l4w2ks6oop4" path="res://scenes/levels/level_10087.tscn" id="2_7u5wu"]
@@ -8,6 +8,104 @@
 [ext_resource type="PackedScene" uid="uid://ct5l5eh65tbi1" path="res://scenes/map_units/flag.tscn" id="6_l4k6f"]
 [ext_resource type="PackedScene" uid="uid://cs3qu0yak2v7l" path="res://scenes/map_units/start_cutscenes.tscn" id="7_nw2r2"]
 [ext_resource type="PackedScene" uid="uid://5s2ku8p8nqju" path="res://scenes/map_units/camera.tscn" id="8_o875q"]
+[ext_resource type="Texture2D" uid="uid://28v4fa6njxx0" path="res://assets/sprites/map_units/flakes.png" id="9_7u5wu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2bwy"]
+atlas = ExtResource("9_7u5wu")
+region = Rect2(0, 0, 2048, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mvhm"]
+atlas = ExtResource("9_7u5wu")
+region = Rect2(0, 512, 2048, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4prvs"]
+atlas = ExtResource("9_7u5wu")
+region = Rect2(0, 1024, 2048, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4k6f"]
+atlas = ExtResource("9_7u5wu")
+region = Rect2(0, 1536, 2048, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nw2r2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2bwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1mvhm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4prvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4k6f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="Animation" id="Animation_o875q"]
+resource_name = "fade"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1, 1.9),
+"transitions": PackedFloat32Array(1, 0.30778614, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0666666, 1.0666667, 1.9666667),
+"transitions": PackedFloat32Array(3.8637457, 1, 1),
+"update": 0,
+"values": [Vector2(0.09, 0.081), Vector2(0.059082016, 0.05273433), Vector2(0.08, 0.053)]
+}
+
+[sub_resource type="Animation" id="Animation_iuucr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.059082016, 0.05273433)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h3sg8"]
+_data = {
+&"RESET": SubResource("Animation_iuucr"),
+&"fade": SubResource("Animation_o875q")
+}
 
 [node name="Level_10086" type="Node2D" node_paths=PackedStringArray("player", "static_items", "flag")]
 script = ExtResource("1_ksa5r")
@@ -29,3 +127,15 @@ position = Vector2(-7, 4)
 position = Vector2(571, 323)
 
 [node name="camera" parent="." instance=ExtResource("8_o875q")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(727.00006, 349.00003)
+scale = Vector2(0.059082016, 0.05273433)
+sprite_frames = SubResource("SpriteFrames_nw2r2")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_h3sg8")
+}
+autoplay = "fade"

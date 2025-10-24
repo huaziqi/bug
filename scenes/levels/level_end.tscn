@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dr7jwchrktwxa"]
+[gd_scene load_steps=41 format=3 uid="uid://dr7jwchrktwxa"]
 
 [ext_resource type="Script" uid="uid://dkm8l7hojdw4l" path="res://scripts/levels/level_end.gd" id="1_y03oe"]
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="2_m7naw"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bxkpvt0yc46qm" path="res://assets/sprites/map_units/flake_a.png" id="8_kw2xy"]
 [ext_resource type="Script" uid="uid://b0ucd6e4p3xn8" path="res://scenes/levels/flake_fountain.gd" id="8_y03oe"]
 [ext_resource type="Texture2D" uid="uid://dihue23a0jt0m" path="res://assets/sprites/map_units/white_block.png" id="9_0ij8p"]
+[ext_resource type="Texture2D" uid="uid://28v4fa6njxx0" path="res://assets/sprites/map_units/flakes.png" id="9_iyaps"]
 [ext_resource type="AudioStream" uid="uid://v8gi65yur448" path="res://assets/sounds/sfx/earthquake.wav" id="10_tehb8"]
 [ext_resource type="AudioStream" uid="uid://rr2x6fgm5s6x" path="res://assets/sounds/sfx/flakes.mp3" id="11_ppkge"]
 [ext_resource type="AudioStream" uid="uid://biwnn1heqmqrx" path="res://assets/sounds/sfx/hole_open.mp3" id="12_ijxl3"]
@@ -74,6 +75,85 @@ tracks/1/keys = {
 _data = {
 &"RESET": SubResource("Animation_utrje"),
 &"far": SubResource("Animation_iv28x")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rdob"]
+atlas = ExtResource("9_iyaps")
+region = Rect2(0, 0, 1024, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjnpy"]
+atlas = ExtResource("9_iyaps")
+region = Rect2(1024, 0, 1024, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ko5n6"]
+atlas = ExtResource("9_iyaps")
+region = Rect2(0, 682, 1024, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxhqk"]
+atlas = ExtResource("9_iyaps")
+region = Rect2(1024, 682, 1024, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2l5u8"]
+atlas = ExtResource("9_iyaps")
+region = Rect2(0, 1364, 1024, 682)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_co3y3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rdob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjnpy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ko5n6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxhqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2l5u8")
+}],
+"loop": true,
+"name": &"flakes",
+"speed": 30.0
+}]
+
+[sub_resource type="Animation" id="Animation_qbcri"]
+resource_name = "apear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.25881627, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.28627452)]
+}
+
+[sub_resource type="Animation" id="Animation_pihsk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kw2xy"]
+_data = {
+&"RESET": SubResource("Animation_pihsk"),
+&"apear": SubResource("Animation_qbcri")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8iol1"]
@@ -263,6 +343,18 @@ position = Vector2(571, 323)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="camera_for_end"]
 libraries = {
 &"": SubResource("AnimationLibrary_x7syj")
+}
+
+[node name="endflake" type="AnimatedSprite2D" parent="."]
+position = Vector2(690.0001, 313.00003)
+scale = Vector2(1.4648439, 1.3929619)
+sprite_frames = SubResource("SpriteFrames_co3y3")
+animation = &"flakes"
+autoplay = "flakes"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="endflake"]
+libraries = {
+&"": SubResource("AnimationLibrary_kw2xy")
 }
 
 [node name="flake_fountain" type="AnimatedSprite2D" parent="."]
