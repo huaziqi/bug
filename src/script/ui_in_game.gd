@@ -7,6 +7,8 @@ extends CanvasLayer
 @onready var add_child_place=$Panel/VBoxContainer/below_white_bar/MarginContainer/below_bar
 const Input_instruction_SCENE = preload("res://src/Scene/initial_ui.tscn")
 
+enum {UI_STATE_MAIN , UI_STATE_SETTING , UI_STATE_QUIT , UI_STATE_CONTINUE , UI_STATE_LEVEL}
+var ui_state:int = UI_STATE_MAIN
 
 #@onready var gd_main=$"../.."
 # Called when the node enters the scene tree for the first time.
@@ -52,14 +54,40 @@ func _input(event):
 			ui_main.visible=true
 	
 	#enter输入
-	
-	if event.is_action_pressed("in_ui_enter"):
-		var new_input_instruction_node=Input_instruction_SCENE.instantiate()
-		first_input_instruction.get_node("input_instruction").get_node("input").get_node("MarginContainer").queue_free()
-		first_input_instruction.get_node("selections").queue_free()
-		first_input_instruction=new_input_instruction_node
-		add_child_place.add_child(new_input_instruction_node)
-
+func _unhandled_input(event):
+	if ui_main.visible==true:
+		
+		if event.is_action_pressed("ui_input_q"):
+			GameState.get_last_child_of_node(add_child_place).get_node("input_instruction").get_node("input").get_node("Label_player").text="Q"	#add_child_place就是个面板
+			ui_state=UI_STATE_QUIT
+		elif event.is_action_pressed("ui_input_setting"):
+			GameState.get_last_child_of_node(add_child_place).get_node("input_instruction").get_node("input").get_node("Label_player").text="S"
+			ui_state=UI_STATE_SETTING
+		elif event.is_action_pressed("ui_input_continue"):
+			GameState.get_last_child_of_node(add_child_place).get_node("input_instruction").get_node("input").get_node("Label_player").text="Y"
+			ui_state=UI_STATE_CONTINUE
+		elif event.is_action_pressed("ui_input_level"):
+			GameState.get_last_child_of_node(add_child_place).get_node("input_instruction").get_node("input").get_node("Label_player").text="L"
+			ui_state=UI_STATE_LEVEL
+			
+		if event.is_action_pressed("in_ui_enter"):
+		
+			if ui_state==UI_STATE_QUIT:
+				_on_quit_pressed()
+				ui_state=UI_STATE_MAIN
+			elif ui_state==UI_STATE_SETTING:
+				_on_setting_pressed()
+				ui_state=UI_STATE_MAIN
+			elif ui_state==UI_STATE_CONTINUE:
+				_on_continue_pressed()
+				ui_state=UI_STATE_MAIN
+				
+			if ui_state==UI_STATE_MAIN:
+				var new_input_instruction_node=Input_instruction_SCENE.instantiate()
+				first_input_instruction.get_node("input_instruction").get_node("input").get_node("MarginContainer").queue_free()
+				first_input_instruction.get_node("selections").queue_free()
+				first_input_instruction=new_input_instruction_node
+				add_child_place.add_child(new_input_instruction_node)
 		
 		
 		
