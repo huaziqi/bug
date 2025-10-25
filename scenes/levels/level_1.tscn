@@ -49,6 +49,7 @@ flag = NodePath("Flag")
 
 [node name="SteelPipe" parent="." instance=ExtResource("2_6iamk")]
 position = Vector2(92, -70)
+frame = 3
 
 [node name="NumCaculator" type="Node2D" parent="." node_paths=PackedStringArray("nums", "ans_label")]
 position = Vector2(-32, -4)

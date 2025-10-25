@@ -105,6 +105,8 @@ flag = NodePath("Flag")
 position = Vector2(-6, 4)
 
 [node name="Steel_Pipe" parent="." instance=ExtResource("4_8h01l")]
+self_num = 3
+frame = 3
 
 [node name="Steel_Pipe2" parent="." instance=ExtResource("5_wh0ca")]
 z_index = 3

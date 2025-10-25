@@ -24,7 +24,7 @@ z_index = 2
 position = Vector2(-7, 4)
 
 [node name="Steel_Pipe" parent="." instance=ExtResource("4_x7bmv")]
-frame = 1
+frame = 2
 
 [node name="Flag" parent="." instance=ExtResource("5_dudxx")]
 

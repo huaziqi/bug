@@ -333,6 +333,7 @@ texture = ExtResource("3_qpkib")
 
 [node name="Steel_Pipe" parent="." instance=ExtResource("4_iyaps")]
 z_index = 3
+frame = 5
 
 [node name="camera_for_end" parent="." instance=ExtResource("6_qbcri")]
 

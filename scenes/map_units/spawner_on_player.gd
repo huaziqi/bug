@@ -3,8 +3,9 @@ extends Node2D
 @export var bub_num=0
 @export var mul:bool=false
 func spawn():
-	for i in range(3):
+	for i in range(5):
 		var bub=bubble.instantiate()
+		bub.gravity_scale=0.2
 		add_child(bub)
 		bub_num+=1
 		bub.global_position.x=randf_range($"../Steel_Pipe".global_position.x-100,$"../Steel_Pipe".global_position.x+100)

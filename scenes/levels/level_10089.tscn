@@ -21,7 +21,7 @@ flag = NodePath("Flag")
 position = Vector2(-7, 4)
 
 [node name="Steel_Pipe" parent="." instance=ExtResource("3_fuwsl")]
-frame = 5
+frame = 4
 
 [node name="Flag" parent="." instance=ExtResource("4_gwxj4")]
 

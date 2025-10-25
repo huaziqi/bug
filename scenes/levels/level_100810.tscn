@@ -24,6 +24,7 @@ position = Vector2(-7, 4)
 [node name="Steel_Pipe2" parent="." instance=ExtResource("3_25a75")]
 
 [node name="Steel_Pipe" parent="." instance=ExtResource("3_8uxql")]
+frame = 3
 
 [node name="Flag" parent="." instance=ExtResource("5_y1gih")]
 
