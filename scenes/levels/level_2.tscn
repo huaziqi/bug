@@ -24,6 +24,7 @@ flag = NodePath("Flag")
 
 [node name="Steel_Pipe" parent="." instance=ExtResource("3_l37oo")]
 position = Vector2(156, 108)
+frame = 1
 
 [node name="Zhang" parent="." node_paths=PackedStringArray("level_manager", "player") instance=ExtResource("4_qpwj6")]
 position = Vector2(41, -14)

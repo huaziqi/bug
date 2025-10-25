@@ -3,6 +3,7 @@ extends LevelManager
 @onready var checker_area: CollisionShape2D = $StaticBody2D/checker/CollisionShape2D
 
 func npc_talking():
+	
 	Dialogic.start("level2")
 	call_deferred("enable_collision_shapes")
 

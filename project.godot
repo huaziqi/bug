@@ -21,11 +21,13 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 GameState="*res://autoload/autoload_all.gd"
 ui_in_game="*res://src/Scene/ui_in_game.tscn"
 TransitionInfo="*res://autoload/transition_info.gd"
+Config="*res://autoload/config.gd"
 
 [dialogic]
 
 directories/dch_directory={
 "NULL": "res://dialogic/character/NULL.dch",
+"Resources/unit_test_character": "res://tests/Resources/unit_test_character.dch",
 "Z先生": "res://dialogic/character/Z先生.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch",
 "zhang": "res://dialogic/character/zhang.dch"

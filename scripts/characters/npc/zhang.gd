@@ -5,11 +5,8 @@ extends Node
 
 var in_area : bool = false
 
-func _physics_process(delta: float) -> void:
-	print(in_area)
-
 func _input(event: InputEvent) -> void:
-	if(event.is_action("down") and in_area):
+	if(event.is_action("E") and in_area):
 		if(level_manager and level_manager.has_method("npc_talking")):
 			level_manager.npc_talking()
 
