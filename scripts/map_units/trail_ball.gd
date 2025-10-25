@@ -1,5 +1,8 @@
 extends StaticBody2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var particles: GPUParticles2D = $GPUParticles2D
+
+var in_bomb : bool = false
 
 func _ready() -> void:
 	var tween = create_tween()
@@ -15,6 +18,29 @@ func _physics_process(delta: float) -> void:
 	pass
 
 func bomb():
+	particles.emitting = true
+	in_bomb = true
 	get_tree().create_timer(0.3).timeout.connect(func():
+		
 		queue_free()
 		)
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if in_bomb and body.is_in_group("player"):
+		apply_explosion_force(body)
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.
+
+func apply_explosion_force(body: Node2D):
+	var explosion_center = global_position
+	var body_position = body.global_position
+	var direction = (body_position - explosion_center).normalized()
+
+	var distance = explosion_center.distance_to(body_position)
+	var force_strength = 300.0  # 基础力的大小
+
+	if body is RigidBody2D:
+		body.apply_central_impulse(direction * force_strength)

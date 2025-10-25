@@ -102,6 +102,7 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 grippable=""
 num_item=""
 fan=""
+pressure=""
 
 [input]
 
