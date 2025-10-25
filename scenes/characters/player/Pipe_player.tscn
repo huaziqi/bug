@@ -83,6 +83,7 @@ rotation = -0.420624
 shape = SubResource("CircleShape2D_8q1br")
 
 [node name="hand" parent="." instance=ExtResource("3_8q1br")]
+z_index = -4
 collision_mask = 15
 
 [node name="move" type="AudioStreamPlayer2D" parent="."]

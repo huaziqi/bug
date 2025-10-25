@@ -2,14 +2,15 @@ extends RigidBody2D
 @export var breaked:bool=false
 @export var is_being_breaked=false
 @export var breaking_progress:float=0
-@export var standing_spot:Vector2=Vector2(445,410)
-@export var r:float = 0
+@export var standing_spot:Vector2
+@export var b_r:float
+@export var r:float
 func _ready() -> void:
 	get_node("AnimationPlayer").play("laser")
 func _physics_process(_delta: float) -> void:
 	if not breaked:
 		global_position=standing_spot
-		global_rotation=0
+		global_rotation=deg_to_rad(b_r)
 		linear_velocity=Vector2(0,0)
 		if breaking_progress>=1:
 			$bo.play()

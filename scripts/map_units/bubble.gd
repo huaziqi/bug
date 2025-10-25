@@ -11,5 +11,9 @@ func floating(body) -> void:
 	
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is RigidBody2D:
+	if body.is_in_group("player"):
 		floating(body)
+		$pop.play()
+		await $pop.finished
+		get_parent().bub_num-=1
+		queue_free()
