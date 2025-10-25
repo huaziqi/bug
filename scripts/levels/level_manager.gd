@@ -18,7 +18,7 @@ func _ready() -> void:
 
 func init_player():
 	if(player):
-		player.position = Vector2(50, -10)
+		player.position = Vector2(100, -10)
 	else:
 		push_error("player is null")
 
@@ -42,15 +42,17 @@ func _on_button_pressed() -> void:
 
 func quit_current_level() -> void:
 	var tween = create_tween()
-	tween.tween_property(basic_ground, "position:y", 
-		basic_ground.position.y + 500,  # 向下移动500像素
-		0.5  # 快速移动，持续0.5秒
-	).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	await get_tree().create_timer(1.0).timeout
+	if basic_ground:
+		tween.tween_property(basic_ground, "position:y", 
+			basic_ground.position.y + 500,  # 向下移动500像素
+			0.5  # 快速移动，持续0.5秒
+		).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+		await get_tree().create_timer(1.0).timeout
 	change_to_next_scene()
 
 # 切换下一个场景的函数
 func change_to_next_scene():
+	
 	if(not next_scene):
 		return
 	TransitionInfo.next_scene = next_scene

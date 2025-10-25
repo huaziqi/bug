@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bbcr5t21ro20c"]
 
-[ext_resource type="PackedScene" uid="uid://ct5l5eh65tbi1" path="res://tests/Xacin/flag.tscn" id="1_ue7hs"]
+[ext_resource type="PackedScene" uid="uid://ct5l5eh65tbi1" path="res://scenes/map_units/flag.tscn" id="1_ue7hs"]
 [ext_resource type="Script" uid="uid://ca18k8j4nikdy" path="res://scripts/map_units/fake_flag.gd" id="2_0gt6i"]
 
 [node name="Flag" instance=ExtResource("1_ue7hs")]

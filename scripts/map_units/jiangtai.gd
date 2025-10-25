@@ -3,6 +3,7 @@ extends RigidBody2D
 @onready var jiangtai: RigidBody2D = $"."
 @onready var desk: RigidBody2D = $"../desk"
 @onready var player: RigidBody2D = $"../Steel_Pipe"
+@export var on_class : AudioStream
 
 var static_player : bool = false
 
@@ -34,6 +35,7 @@ func _physics_process(delta: float) -> void:
 		player.hand.temp_target_rigidbodies.clear()
 
 func listen_class():
+	MusicManager.play_sfx(on_class)
 	jiangtai.gravity_scale = 1
 	desk.gravity_scale = 1
 	static_player = true

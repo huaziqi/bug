@@ -1,5 +1,7 @@
 extends Node2D
 @onready var timer: Timer = $Timer
+@export var press_sfx : AudioStream
+@export var loose_sfx : AudioStream
 
 
 var basic_position : Vector2
@@ -18,6 +20,7 @@ func _ready() -> void:
 
 
 func rise_plate():
+	MusicManager.play_sfx(loose_sfx)
 	plate_tween = create_tween()
 	plate_tween.tween_property(self, "global_position:y", basic_position.y, 1.0)
 	plate_tween.finished.connect(func():
@@ -28,6 +31,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if(body.is_in_group("pressure")):
 		if(plate_tween):
 			plate_tween.kill()
+		if(press_sfx):
+			MusicManager.play_sfx(press_sfx)
 		in_triggled = true
 		in_normal = false
 		global_position = basic_position + Vector2(0, 16)

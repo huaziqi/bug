@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cyckxdgr73uaa"]
+[gd_scene load_steps=9 format=3 uid="uid://cyckxdgr73uaa"]
 
 [ext_resource type="Script" uid="uid://b3mxeqipmaaha" path="res://scripts/map_units/movable_ground.gd" id="1_3v4te"]
 [ext_resource type="Texture2D" uid="uid://pl2c6eu5r4nl" path="res://assets/temp(临时美术资源)/ground.png" id="2_26dmm"]
 [ext_resource type="Texture2D" uid="uid://dihue23a0jt0m" path="res://assets/sprites/map_units/white_block.png" id="2_186ts"]
-[ext_resource type="PackedScene" uid="uid://bbcr5t21ro20c" path="res://scenes/map_units/fake_flag.tscn" id="3_26dmm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_186ts"]
 size = Vector2(308, 254)
@@ -67,6 +66,3 @@ texture = ExtResource("2_26dmm")
 position = Vector2(1000.5, 520)
 scale = Vector2(19.187502, 16)
 texture = ExtResource("2_26dmm")
-
-[node name="Flag" parent="." instance=ExtResource("3_26dmm")]
-position = Vector2(995, 358)

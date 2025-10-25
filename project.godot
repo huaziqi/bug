@@ -22,6 +22,7 @@ GameState="*res://autoload/autoload_all.gd"
 ui_in_game="*res://src/Scene/ui_in_game.tscn"
 TransitionInfo="*res://autoload/transition_info.gd"
 Config="*res://autoload/config.gd"
+MusicManager="*res://autoload/music_manager.gd"
 
 [dialogic]
 
@@ -32,19 +33,7 @@ directories/dch_directory={
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch",
 "zhang": "res://dialogic/character/zhang.dch"
 }
-directories/dtl_directory={
-"level2": "res://dialogic/time_line/level2.dtl",
-"level_0_part1": "res://dialogic/time_line/level_0_dialogue/level_0_part1.dtl",
-"level_0_part2": "res://dialogic/time_line/level_0_dialogue/level_0_part2.dtl",
-"level_0_parteaster": "res://dialogic/time_line/level_0_dialogue/level_0_parteaster.dtl",
-"level_0_partloop": "res://dialogic/time_line/level_0_dialogue/level_0_partloop.dtl",
-"level_1_part1": "res://dialogic/time_line/level_1_dialogue/level_1_part1.dtl",
-"level_1_part2": "res://dialogic/time_line/level_1_dialogue/level_1_part2.dtl",
-"level_1_parteaster": "res://dialogic/time_line/level_1_dialogue/level_1_parteaster.dtl",
-"level_1_partloop": "res://dialogic/time_line/level_1_dialogue/level_1_partloop.dtl",
-"level_2": "res://dialogic/time_line/level_2.dtl",
-"test": "res://dialogic/time_line/test.dtl"
-}
+directories/dtl_directory={}
 layout/style_directory={
 "": "res://dialogic/styles/level_2_style.tres",
 "level_2_style": "res://dialogic/styles/level_2_style.tres",

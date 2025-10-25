@@ -6,16 +6,27 @@ var in_bomb : bool = false
 
 func _ready() -> void:
 	var tween = create_tween()
+	get_tree().create_timer(0.7).timeout.connect(func():
+		random_scale_distortion()
+		)
 	tween.tween_property(sprite_2d, "modulate:a",
 	 0.1,
-	 0.5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+	 0.9).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 
 	get_tree().create_timer(1).timeout.connect(func():
 		bomb()
 		)
 
-func _physics_process(delta: float) -> void:
-	pass
+
+
+func random_scale_distortion():
+
+	var target_scale = Vector2(0.15, 0.15)
+	
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(sprite_2d, "scale", target_scale, 0.5)
+
 
 func bomb():
 	particles.emitting = true
@@ -40,7 +51,7 @@ func apply_explosion_force(body: Node2D):
 	var direction = (body_position - explosion_center).normalized()
 
 	var distance = explosion_center.distance_to(body_position)
-	var force_strength = 300.0  # 基础力的大小
+	var force_strength = 270.0  # 基础力的大小
 
 	if body is RigidBody2D:
 		body.apply_central_impulse(direction * force_strength)

@@ -10,6 +10,7 @@ func _physics_process(_delta: float) -> void:
 		if breaking_progress>=1:
 			$bo.play()
 			breaked=true
+			flag_up.emit()
 	else:
 		if is_instance_valid($"../start_cutscenes"):
 			$"../start_cutscenes".get_node("cutscenes").display(1)
