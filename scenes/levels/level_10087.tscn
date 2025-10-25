@@ -26,9 +26,6 @@ position = Vector2(-7, 4)
 
 [node name="Flag" parent="." instance=ExtResource("4_6o28c")]
 
-[node name="start_cutscenes" parent="." instance=ExtResource("5_bubof")]
-position = Vector2(571, 323)
-
 [node name="spawner" parent="." instance=ExtResource("6_2ypl4")]
 position = Vector2(1080, 451)
 
@@ -40,3 +37,5 @@ position = Vector2(568, 328)
 
 [node name="laser" parent="." instance=ExtResource("6_dfqa5")]
 z_index = 1
+
+[node name="start_cutscenes" parent="." instance=ExtResource("5_bubof")]

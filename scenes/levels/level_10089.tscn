@@ -39,4 +39,3 @@ points = PackedVector2Array(0, 0, 0, 0)
 default_color = Color(0, 0, 0, 1)
 
 [node name="start_cutscenes" parent="." instance=ExtResource("8_htknf")]
-position = Vector2(571, 320)
