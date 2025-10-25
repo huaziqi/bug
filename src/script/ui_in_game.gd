@@ -5,12 +5,19 @@ extends CanvasLayer
 @onready var ui_restart=$TextureButton
 @onready var first_input_instruction=$Panel/VBoxContainer/below_white_bar/MarginContainer/below_bar/initial_instruction
 @onready var add_child_place=$Panel/VBoxContainer/below_white_bar/MarginContainer/below_bar
+@onready var animate_ui=$Panel
+
 const Input_instruction_SCENE = preload("res://src/Scene/initial_ui.tscn")
 const Level_instruction_SCENE = preload("res://src/Scene/level_instruction.tscn")
 #状态
-enum {UI_STATE_MAIN , UI_STATE_SETTING , UI_STATE_QUIT , UI_STATE_CONTINUE , UI_STATE_LEVEL, UI_STATE_RETURN}
+enum {UI_STATE_MAIN , UI_STATE_SETTING , UI_STATE_QUIT , UI_STATE_CONTINUE , UI_STATE_LEVEL, UI_STATE_RETURN , UI_STATE_JUMP}
 var ui_state:int = UI_STATE_MAIN
-#方便
+#关卡相关
+var where_to_go="1"
+var level_address_with_index={"1":"res://scenes/levels/level_1.tscn",
+"2":"res://scenes/levels/level_2.tscn",
+"3":"res://scenes/levels/level_3.tscn"}
+
 
 func _ready() -> void:
 	ui_restart.focus_mode = Control.FOCUS_NONE
@@ -42,14 +49,12 @@ func _input(event):
 	#	get_tree().set_input_as_handled()
 		if get_tree().paused==true:
 			# 如果游戏暂停，则恢
-			get_tree().paused = false
-			ui_main.visible=false
+			ui_hide()
 			#ui_level.visible=false
 		
 		else:
 			# 如果游戏未暂停，则暂停
-			get_tree().paused = true
-			ui_main.visible=true
+			ui_out()
 	
 	#enter输入
 func _unhandled_input(event):
@@ -66,10 +71,20 @@ func _unhandled_input(event):
 			elif event.is_action_pressed("ui_input_level"):
 				message_input.text="L"
 				ui_state=UI_STATE_LEVEL
+		#level选关卡
 		if ui_state==UI_STATE_LEVEL:
 			if event.is_action_pressed("ui_input_return"):
 				message_input.text="R"
 				ui_state=UI_STATE_RETURN
+				
+			for i in range(0,10):
+				var add_n_value=str(i)
+				if event.is_action_pressed(add_n_value):
+					message_input.text=add_n_value
+					ui_state=UI_STATE_JUMP
+					where_to_go=add_n_value
+			
+		
 				
 		#按下enter后的反馈
 		if event.is_action_pressed("in_ui_enter"):
@@ -84,7 +99,9 @@ func _unhandled_input(event):
 			elif ui_state==UI_STATE_CONTINUE:
 				_on_continue_pressed()
 				ui_state=UI_STATE_MAIN
-				
+			elif ui_state==UI_STATE_JUMP:
+				_on_jump_pressed()
+				ui_state=UI_STATE_MAIN
 			elif ui_state==UI_STATE_MAIN:
 				add_main_ui()
 				
@@ -96,7 +113,8 @@ func add_main_ui():
 	if is_instance_valid(first_input_instruction.get_node("selections")):
 		first_input_instruction.get_node("selections").queue_free()
 	if is_instance_valid(first_input_instruction.get_node("selection_level")):
-		first_input_instruction.get_node("selection_level").queue_free()
+		#first_input_instruction.get_node("selection_level").queue_free()
+		pass
 	first_input_instruction=new_input_instruction_node
 	add_child_place.add_child(new_input_instruction_node)
 
@@ -104,9 +122,11 @@ func _on_level_pressed() -> void:
 	var new_level_instruction_node=Level_instruction_SCENE.instantiate()
 	get_off_cursor()
 	if is_instance_valid(first_input_instruction.get_node("selections")):
-		first_input_instruction.get_node("selections").queue_free()
+		#first_input_instruction.get_node("selections").queue_free()
+		pass
 	if is_instance_valid(first_input_instruction.get_node("selection_level")):
 		first_input_instruction.get_node("selection_level").queue_free()
+		#pass
 	first_input_instruction=new_level_instruction_node
 	add_child_place.add_child(new_level_instruction_node)
 	
@@ -145,10 +165,14 @@ func _on_texture_button_bar_cross_pressed() -> void:
 	get_tree().paused = false
 	ui_main.visible=false
 
-
+func _on_jump_pressed():
+	get_tree().change_scene_to_file(level_address_with_index[where_to_go])
+	ui_hide()
+	add_main_ui()
+	
 func delete_overflow_cmd():
 	var child_count = add_child_place.get_child_count()
-	if child_count>4:
+	if child_count>3:
 		var first_child = add_child_place.get_child(0)
 		first_child.queue_free()
 		
@@ -156,4 +180,11 @@ func get_off_cursor():
 	first_input_instruction.get_node("input_instruction").get_node("input").get_node("MarginContainer").queue_free()#去掉光标
 
 
-	
+func ui_out():
+	animate_ui.animate_in()
+	get_tree().paused = true
+	ui_main.visible=true
+func ui_hide():
+
+	get_tree().paused = false
+	ui_main.visible=false
