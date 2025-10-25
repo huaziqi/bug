@@ -25,5 +25,5 @@ func shake(s,t):
 		pos=position
 	is_shaking = true
 	shake_time = t  
-	shake_strength = s# 重置时间
+	shake_strength = s
 	

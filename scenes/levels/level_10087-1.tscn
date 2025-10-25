@@ -1,0 +1,47 @@
+[gd_scene load_steps=12 format=3 uid="uid://lcy1suf8pwf7"]
+
+[ext_resource type="Script" uid="uid://cyodkgoa6f32i" path="res://scenes/levels/level_10087_1.gd" id="1_gjtds"]
+[ext_resource type="PackedScene" uid="uid://b5l4w2ks6oop4" path="res://scenes/levels/level_10087.tscn" id="2_wi2oc"]
+[ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="3_2x8mj"]
+[ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://scenes/characters/player/Pipe_player.tscn" id="4_x7bmv"]
+[ext_resource type="PackedScene" uid="uid://ct5l5eh65tbi1" path="res://scenes/map_units/flag.tscn" id="5_dudxx"]
+[ext_resource type="PackedScene" uid="uid://qrqftvtgmw0q" path="res://scenes/map_units/spawner.tscn" id="6_256g2"]
+[ext_resource type="AudioStream" uid="uid://dwpexgmfj62i3" path="res://assets/sounds/sfx/laserreset.mp3" id="7_fhssp"]
+[ext_resource type="Script" uid="uid://wes1ty2tf2j2" path="res://scenes/map_units/spawner_on_player.gd" id="7_pbhvv"]
+[ext_resource type="PackedScene" uid="uid://5s2ku8p8nqju" path="res://scenes/map_units/camera.tscn" id="8_bewp3"]
+[ext_resource type="PackedScene" uid="uid://qn2mxmxrshh2" path="res://scenes/map_units/laser.tscn" id="9_ylrno"]
+[ext_resource type="PackedScene" uid="uid://cs3qu0yak2v7l" path="res://scenes/map_units/start_cutscenes.tscn" id="10_p772v"]
+
+[node name="Level_10087-1" type="Node2D" node_paths=PackedStringArray("player", "static_items", "flag")]
+script = ExtResource("1_gjtds")
+player = NodePath("Steel_Pipe")
+next_scene = ExtResource("2_wi2oc")
+static_items = [NodePath("laser")]
+flag = NodePath("Flag")
+
+[node name="BasicGround" parent="." instance=ExtResource("3_2x8mj")]
+z_index = 2
+position = Vector2(-7, 4)
+
+[node name="Steel_Pipe" parent="." instance=ExtResource("4_x7bmv")]
+frame = 1
+
+[node name="Flag" parent="." instance=ExtResource("5_dudxx")]
+
+[node name="spawner" parent="." instance=ExtResource("6_256g2")]
+position = Vector2(1080, 451)
+script = ExtResource("7_pbhvv")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="spawner"]
+stream = ExtResource("7_fhssp")
+
+[node name="camera" parent="." instance=ExtResource("8_bewp3")]
+position = Vector2(568, 328)
+
+[node name="laser" parent="." instance=ExtResource("9_ylrno")]
+z_index = 1
+position = Vector2(-59, 358)
+standing_spot = Vector2(-59, 320)
+b_r = 90.0
+
+[node name="start_cutscenes" parent="." instance=ExtResource("10_p772v")]

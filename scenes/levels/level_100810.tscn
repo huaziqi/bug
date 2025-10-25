@@ -27,9 +27,6 @@ position = Vector2(-7, 4)
 
 [node name="Flag" parent="." instance=ExtResource("5_y1gih")]
 
-[node name="start_cutscenes" parent="." instance=ExtResource("6_2gcus")]
-position = Vector2(571, 323)
-
 [node name="camera" parent="." instance=ExtResource("7_eipey")]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
@@ -48,5 +45,7 @@ shape = SubResource("RectangleShape2D_25a75")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_80vgp")
+
+[node name="start_cutscenes" parent="." instance=ExtResource("6_2gcus")]
 
 [connection signal="flag_up" from="Flag" to="." method="_on_flag_flag_up"]

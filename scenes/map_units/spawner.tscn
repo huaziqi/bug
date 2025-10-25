@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://qrqftvtgmw0q"]
 
-[ext_resource type="Script" uid="uid://lwylyvhkdanq" path="res://scripts/map_units/spawner.gd" id="1_2b7aa"]
+[ext_resource type="Script" uid="uid://lwylyvhkdanq" path="res://scripts/map_units/spawner_static.gd" id="1_2b7aa"]
 [ext_resource type="PackedScene" uid="uid://cf7j470et3y05" path="res://scenes/map_units/bubble.tscn" id="2_itvck"]
 
 [node name="spawner" type="Node2D"]

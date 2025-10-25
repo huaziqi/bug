@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://b33i821hn6ng3"]
+[gd_scene load_steps=20 format=3 uid="uid://b33i821hn6ng3"]
 
 [ext_resource type="Script" uid="uid://b5vr37jm1ps3q" path="res://src/script/mirror_pipe_player.gd" id="1_i0rbg"]
-[ext_resource type="Texture2D" uid="uid://di0qu4ahpm0d0" path="res://assets/temp(临时美术资源)/side_pipe.png" id="2_i0rbg"]
+[ext_resource type="Texture2D" uid="uid://krx3lsft5uvl" path="res://assets/temp(临时美术资源)/null_ball.png" id="2_phyhg"]
 [ext_resource type="PackedScene" uid="uid://dn0bw5kg1vrhe" path="res://src/Scene/hand.tscn" id="3_1yate"]
 [ext_resource type="Script" uid="uid://vrpyc1jyfafk" path="res://src/Scene/mirror_hand.gd" id="4_1yate"]
 [ext_resource type="AudioStream" uid="uid://cywrjx8tvvdkx" path="res://assets/sounds/sfx/rockmove.mp3" id="4_3a7bv"]
@@ -11,6 +11,56 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_71kmc"]
 bounce = 0.1
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_svyqv"]
+atlas = ExtResource("2_phyhg")
+region = Rect2(0, 0, 421, 424)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugd4c"]
+atlas = ExtResource("2_phyhg")
+region = Rect2(421, 0, 421, 424)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tagur"]
+atlas = ExtResource("2_phyhg")
+region = Rect2(842, 0, 421, 424)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbelb"]
+atlas = ExtResource("2_phyhg")
+region = Rect2(1263, 0, 421, 424)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4p600"]
+atlas = ExtResource("2_phyhg")
+region = Rect2(1684, 0, 421, 424)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q56ke"]
+atlas = ExtResource("2_phyhg")
+region = Rect2(2105, 0, 421, 424)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_phyhg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svyqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugd4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tagur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbelb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4p600")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q56ke")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_8q1br"]
 radius = 30.8707
 
@@ -19,54 +69,54 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/path = NodePath("ani:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.0805407, 0.0856384)]
+"values": [Vector2(0.14489311, 0.14622642)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
+tracks/1/path = NodePath("ani:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.55561996, 0.55561996, 0.55561996, 0.9411765)]
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_00inu"]
 resource_name = "break"
-length = 0.5
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/path = NodePath("ani:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.10881905, 1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.31864017, 1),
 "update": 0,
-"values": [Vector2(0.0805407, 0.0856384), Vector2(0.13373253, 0.09605124)]
+"values": [Vector2(0.14489311, 0.14622642), Vector2(0.3, 0.146)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
+tracks/1/path = NodePath("ani:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 0.27739233),
 "update": 0,
-"values": [Color(0.55561996, 0.55561996, 0.55561996, 0.9411765), Color(0.15630609, 0.6401869, 0.5687091, 0)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2o81w"]
@@ -84,10 +134,11 @@ physics_material_override = SubResource("PhysicsMaterial_71kmc")
 gravity_scale = 8.0
 script = ExtResource("1_i0rbg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(5, -3)
-scale = Vector2(0.0805407, 0.0856384)
-texture = ExtResource("2_i0rbg")
+[node name="ani" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(0.23939513, 0.42489123, 0.48885545, 0.7647059)
+position = Vector2(-0.86474824, -1.7086693)
+scale = Vector2(0.14489311, 0.14622642)
+sprite_frames = SubResource("SpriteFrames_phyhg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-9.53674e-07, -1)
@@ -95,6 +146,7 @@ rotation = -0.420624
 shape = SubResource("CircleShape2D_8q1br")
 
 [node name="hand" parent="." instance=ExtResource("3_1yate")]
+z_index = -4
 collision_mask = 15
 script = ExtResource("4_1yate")
 

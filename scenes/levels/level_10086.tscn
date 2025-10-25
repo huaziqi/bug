@@ -123,9 +123,6 @@ position = Vector2(-7, 4)
 
 [node name="Flag" parent="." instance=ExtResource("6_l4k6f")]
 
-[node name="start_cutscenes" parent="." instance=ExtResource("7_nw2r2")]
-position = Vector2(571, 323)
-
 [node name="camera" parent="." instance=ExtResource("8_o875q")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -139,3 +136,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_h3sg8")
 }
 autoplay = "fade"
+
+[node name="start_cutscenes" parent="." instance=ExtResource("7_nw2r2")]

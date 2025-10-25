@@ -19,15 +19,12 @@ static_items = [NodePath("laser"), NodePath("Flag")]
 flag = NodePath("Flag")
 
 [node name="BasicGround" parent="." instance=ExtResource("1_fepmk")]
-z_index = 2
 position = Vector2(-7, 4)
 
 [node name="Steel_Pipe" parent="." instance=ExtResource("2_dfqa5")]
+frame = 1
 
 [node name="Flag" parent="." instance=ExtResource("4_6o28c")]
-
-[node name="start_cutscenes" parent="." instance=ExtResource("5_bubof")]
-position = Vector2(571, 323)
 
 [node name="spawner" parent="." instance=ExtResource("6_2ypl4")]
 position = Vector2(1080, 451)
@@ -39,4 +36,7 @@ stream = ExtResource("7_bubof")
 position = Vector2(568, 328)
 
 [node name="laser" parent="." instance=ExtResource("6_dfqa5")]
-z_index = 1
+z_index = -1
+standing_spot = Vector2(450, 410)
+
+[node name="start_cutscenes" parent="." instance=ExtResource("5_bubof")]
