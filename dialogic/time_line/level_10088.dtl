@@ -1,0 +1,27 @@
+set {interact_time} += 1.0
+if {interact_time} == 0.0:
+	jump auto
+elif {interact_time} == 1.0:
+	jump 1
+
+else:
+	jump repeat
+label auto
+zhang: **! 根本来不及，能不能把搞点时间魔法，让它乖乖待着！
+zhang: 什么叫我还不够格？
+zhang: 现在又搞什么，你怕他孤独给了他一面镜子？
+zhang: 你肯定偷懒了，镜子里明明只是一份镜像克隆。一点技术含量都没有。
+zhang: 你给我待着，别去碰镜子。
+zhang: ....随你便
+
+jump end
+
+label 1
+zhang: 过会我就给你点颜色看看
+jump end
+
+
+label repeat
+zhang: (....
+....)
+label end

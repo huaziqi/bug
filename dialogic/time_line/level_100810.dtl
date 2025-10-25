@@ -1,0 +1,37 @@
+set {interact_time} += 1.0
+if {interact_time} == 0.0:
+	jump auto
+elif {interact_time} == 1.0:
+	jump 1
+elif {interact_time} == 2.0
+	jump 2
+elif {interact_time} == 3.0:
+	jump 3
+else:
+	jump repeat
+label auto
+zhang: 呼...这才是兵贵神速。
+zhang: 听到刚才那声巨响了吗，这是我穷极一切的造物。
+zhang: 重达1000kg的巨墙！
+zhang: 这还不能让你老老实实待着？
+jump end
+
+label 1
+zhang: .....
+zhang: 除非你.....
+zhang: 那个镜像怎么还在？
+zhang: 等等....
+jump end
+
+label 2
+zhang: 等等....不行!
+jump end
+
+label 3
+zhang: (噤声)（噤声）
+jump end
+
+label repeat
+zhang: (....
+....)
+label end

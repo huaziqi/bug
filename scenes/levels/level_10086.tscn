@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://vt0jkl7fi1mh"]
+[gd_scene load_steps=19 format=3 uid="uid://vt0jkl7fi1mh"]
 
 [ext_resource type="Script" uid="uid://dx4mccamb3wf2" path="res://scripts/levels/level_10086_manager.gd" id="1_ksa5r"]
 [ext_resource type="PackedScene" uid="uid://edbw54x762jl" path="res://scenes/levels/level_3.tscn" id="2_7u5wu"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cs3qu0yak2v7l" path="res://scenes/map_units/start_cutscenes.tscn" id="7_nw2r2"]
 [ext_resource type="PackedScene" uid="uid://5s2ku8p8nqju" path="res://scenes/map_units/camera.tscn" id="8_o875q"]
 [ext_resource type="Texture2D" uid="uid://28v4fa6njxx0" path="res://assets/sprites/map_units/flakes.png" id="9_7u5wu"]
+[ext_resource type="PackedScene" uid="uid://bobd1dnm65ixa" path="res://scenes/characters/npc/zhang.tscn" id="10_e2bwy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e2bwy"]
 atlas = ExtResource("9_7u5wu")
@@ -113,6 +114,7 @@ player = NodePath("Steel_Pipe")
 next_scene = ExtResource("2_7u5wu")
 static_items = [null, NodePath("platform"), NodePath("Flag")]
 flag = NodePath("Flag")
+timeline_name = "level_10086"
 
 [node name="BasicGround" parent="." instance=ExtResource("3_e2bwy")]
 position = Vector2(-7, 4)
@@ -138,3 +140,8 @@ libraries = {
 autoplay = "fade"
 
 [node name="start_cutscenes" parent="." instance=ExtResource("7_nw2r2")]
+
+[node name="Zhang" parent="." node_paths=PackedStringArray("level_manager", "player") instance=ExtResource("10_e2bwy")]
+position = Vector2(86, -45)
+level_manager = NodePath("..")
+player = NodePath("../Steel_Pipe")

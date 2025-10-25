@@ -14,6 +14,7 @@ position = Vector2(-1, 0)
 script = ExtResource("1_ftfob")
 next_scene = ExtResource("2_fkk1g")
 flag = NodePath("MoveableGround/Flag")
+timeline_name = "level_3"
 
 [node name="MoveableGround" parent="." node_paths=PackedStringArray("collisions") instance=ExtResource("2_0ljxa")]
 position = Vector2(-1, 257)

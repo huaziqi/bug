@@ -1,0 +1,35 @@
+set {interact_time} += 1.0
+if {interact_time} == 0.0:
+	jump auto
+elif {interact_time} == 1.0:
+	jump 1
+elif {interact_time} == 2.0
+	jump 2
+else:
+	jump repeat
+label auto
+zhang: adminZ entered
+zhang: 前辈你看你写的，你确定这不是bug吗？
+zhang: 诶？
+zhang: 刚才还不是这样的。
+zhang: 嗯嗯？
+zhang: ......
+zhang: 你说那个激光笔可以吹泡泡，激光碰到泡泡还能吹泡泡？
+zhang: 这有什么好自豪的？
+zhang: 听上去很危险。
+zhang: 先别动....
+zhang: ...别动！别去动那个激光笔！
+jump end
+
+label 1
+zhang: (焦急)（焦急）
+jump end
+
+label 2
+zhang: 我马上解决。
+jump end
+
+label repeat
+zhang: (....
+....)
+label end

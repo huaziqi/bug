@@ -7,20 +7,40 @@ const TRANSITION_SCENE = preload("uid://3guswm2uo0xu")
 @export var next_scene : PackedScene
 @export var static_items : Array[Node] #不移动的item，也就是开局要显现出来的
 @export var flag : Node
+@export var timeline_name : String
+var current_dialogue : Node = null
 
 func _ready() -> void:
+	init_talking()
 	init_player()
 	init_signal()
 	init_ui()
 	show_all_items()
 
-
+func init_talking():
+	var num = Dialogic.VAR.get_variable("interact_time")
+	if(num >= 0):
+		return
+	npc_talking()
 
 func init_player():
 	if(player):
 		player.position = Vector2(100, -10)
 	else:
 		push_error("player is null")
+
+func npc_talking():
+	if(current_dialogue != null):
+		return
+	current_dialogue = Dialogic.start(timeline_name)
+	get_tree().root.add_child(current_dialogue)
+	Dialogic.timeline_ended.connect(_on_dialogue_ended)
+
+func _on_dialogue_ended():
+	get_tree().paused = false
+	if current_dialogue:
+		current_dialogue.queue_free()
+		current_dialogue = null
 
 func init_signal():
 	if(flag):

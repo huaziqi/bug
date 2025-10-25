@@ -33,7 +33,21 @@ directories/dch_directory={
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch",
 "zhang": "res://dialogic/character/zhang.dch"
 }
-directories/dtl_directory={}
+directories/dtl_directory={
+"level_0": "res://dialogic/time_line/level_0_dialogue/level_0.dtl",
+"level_0_auto": "res://dialogic/time_line/level_0_dialogue/level_0_auto.dtl",
+"level_1": "res://dialogic/time_line/level_1.dtl",
+"level_100810": "res://dialogic/time_line/level_100810.dtl",
+"level_10086": "res://dialogic/time_line/level_10086.dtl",
+"level_10087": "res://dialogic/time_line/level_10087.dtl",
+"level_10087-1": "res://dialogic/time_line/level_10087-1.dtl",
+"level_10088": "res://dialogic/time_line/level_10088.dtl",
+"level_10089": "res://dialogic/time_line/level_10089.dtl",
+"level_2": "res://dialogic/time_line/level_2.dtl",
+"level_3": "res://dialogic/time_line/level_3.dtl",
+"level_4": "res://dialogic/time_line/level_4.dtl",
+"level_end": "res://dialogic/time_line/level_end.dtl"
+}
 layout/style_directory={
 "": "res://dialogic/styles/level_2_style.tres",
 "level_2_style": "res://dialogic/styles/level_2_style.tres",
@@ -42,7 +56,9 @@ layout/style_directory={
 glossary/default_case_sensitive=true
 layout/style_list=["res://dialogic/styles/level_2_style.tres", "res://dialogic/styles/test_style.tres"]
 layout/default_style="res://dialogic/styles/level_2_style.tres"
-variables={}
+variables={
+"interact_time": -1
+}
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true

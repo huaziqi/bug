@@ -9,6 +9,7 @@ var is_transitioning: bool = false
 var next_scene_instance: Node = null
 
 func _ready():
+	Dialogic.VAR.set_variable("interact_time", -1)
 	next_scene = TransitionInfo.next_scene
 	start_transition()
 	$Camera2D/startscenes/AudioStreamPlayer2D.play()

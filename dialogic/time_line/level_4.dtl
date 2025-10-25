@@ -1,0 +1,16 @@
+set {interact_time} += 1.0
+if {interact_time} == 0.0:
+	jump auto
+else:
+	jump repeat
+label auto
+zhang: 它刚刚怎么自己过去了？
+zhang: 我明明还没进行指示....
+zhang: 刚才给我晃得不轻，我都看见它有残影了。
+zhang: 我搞不定，这事得始作俑者来解决。
+zhang: 去去就回。
+jump end
+
+label repeat
+zhang: (.....)
+label end

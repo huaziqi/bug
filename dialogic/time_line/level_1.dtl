@@ -1,0 +1,31 @@
+set {interact_time} += 1.0
+if {interact_time} == 0.0:
+	jump auto
+elif {interact_time} == 1.0:
+	jump 1
+elif {interact_time} == 2.0
+	jump 2
+else:
+	jump repeat
+label auto
+zhang: 唔....。
+zhang: 我真没招了
+zhang: 为什么不好好让我定义你？
+zhang: 你难道不想有个名字吗？
+zhang: 你不想在数轴上找到自己的位置吗？
+zhang: 告诉我，作为null很逍遥自在吗？
+zhang: 算我求你，别动那个计算器。
+jump end
+
+label 1
+zhang: 那东西....好吧.....
+zhang: 只是不太适合你，不太适合一个null值...?
+jump end
+
+label 2
+zhang: 停下.....
+jump end
+
+label repeat
+zhang: (.....)
+label end

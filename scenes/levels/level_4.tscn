@@ -32,6 +32,7 @@ player = NodePath("Steel_Pipe")
 next_scene = ExtResource("2_hsvsk")
 static_items = [NodePath("DoorSystem")]
 flag = NodePath("Flag")
+timeline_name = "level_4"
 
 [node name="BasicGround" parent="." instance=ExtResource("1_06474")]
 

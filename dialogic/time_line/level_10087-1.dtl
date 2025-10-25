@@ -1,0 +1,30 @@
+set {interact_time} += 1.0
+if {interact_time} == 0.0:
+	jump auto
+elif {interact_time} == 1.0:
+	jump 1
+elif {interact_time} == 2.0
+	jump 2
+else:
+	jump repeat
+label auto
+zhang: 一切顺利，没有讨厌的报错。
+zhang: 刚才是不是怪怪的，有点晃眼。
+zhang: 场景变了吗，好像没有。
+zhang: 这一阶段有存在的必要吗？
+zhang: 大概还要再来一次
+zhang: 我知道了，这叫排除偶然性！
+zhang: 来吧，再来一次
+jump end
+
+label 1
+zhang: 重复一次吧
+jump end
+
+label 2
+zhang: ...？
+jump end
+
+label repeat
+zhang: (.....)
+label end

@@ -1,0 +1,26 @@
+set {interact_time} += 1.0
+if {interact_time} == 0.0:
+	jump auto
+elif {interact_time} == 1.0:
+	jump 1
+elif {interact_time} == 2.0
+	jump 2
+else:
+	jump repeat
+label auto
+zhang: 搞什么，刚刚这正常吗？
+zhang: 显示屏是不是坏了？
+zhang: 是我的错觉吗？好像有点天旋地转
+jump end
+
+label 1
+zhang: 别动了，越动我越疑惑！
+jump end
+
+label 2
+zhang: 唔....
+jump end
+
+label repeat
+zhang: (.....)
+label end

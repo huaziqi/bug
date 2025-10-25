@@ -44,6 +44,7 @@ player = NodePath("SteelPipe")
 next_scene = ExtResource("2_mkypq")
 static_items = [NodePath("NumCaculator/NumContainers"), NodePath("NumCaculator/Platform"), NodePath("NumCaculator/Equals"), NodePath("NumCaculator/Label"), NodePath("Flag")]
 flag = NodePath("Flag")
+timeline_name = "level_1"
 
 [node name="BasicGround" parent="." instance=ExtResource("1_v2dmm")]
 
