@@ -18,7 +18,7 @@ func _ready() -> void:
 
 func init_player():
 	if(player):
-		player.position = Vector2(20, -10)
+		player.position = Vector2(50, -10)
 	else:
 		push_error("player is null")
 

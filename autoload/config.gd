@@ -3,7 +3,7 @@ extends Node
 var passed_levels : Array = [1, 2, 5]
 
 func _ready() -> void:
-	_load()
+	pass
 
 func _save():
 	var config = ConfigFile.new()

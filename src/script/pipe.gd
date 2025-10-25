@@ -15,6 +15,7 @@ extends RigidBody2D
 @export var freezing:bool=false
 @export var frame:int=0
 signal jump
+@onready var hand: Area2D = $hand
 
 
 # 状态变量

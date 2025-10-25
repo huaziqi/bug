@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cn7crm8p2l11u"]
+[gd_scene load_steps=17 format=3 uid="uid://cn7crm8p2l11u"]
 
 [ext_resource type="Script" uid="uid://bxcd240suh1q8" path="res://scripts/levels/level_2_manager.gd" id="1_j2425"]
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="2_fiq81"]
@@ -7,12 +7,31 @@
 [ext_resource type="PackedScene" uid="uid://bobd1dnm65ixa" path="res://scenes/characters/npc/zhang.tscn" id="4_qpwj6"]
 [ext_resource type="Script" uid="uid://ccvwii8dy8t0d" path="res://src/test/checker.gd" id="5_l37oo"]
 [ext_resource type="PackedScene" uid="uid://ct5l5eh65tbi1" path="res://scenes/map_units/flag.tscn" id="6_qpwj6"]
+[ext_resource type="Script" uid="uid://b7fuuky2t1i0n" path="res://scripts/map_units/jiangtai.gd" id="8_3p04p"]
+[ext_resource type="Texture2D" uid="uid://djpcxkdpu6cty" path="res://assets/sprites/map_units/desks.png" id="8_8qukl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpwj6"]
 size = Vector2(550, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ibugp"]
 size = Vector2(549, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3p04p"]
+atlas = ExtResource("8_8qukl")
+region = Rect2(0, 0, 744, 830)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qukl"]
+size = Vector2(73, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qukl"]
+atlas = ExtResource("8_8qukl")
+region = Rect2(1045, 0, 465, 830)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3p04p"]
+size = Vector2(73, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsp8v"]
+size = Vector2(9, 65)
 
 [node name="Level2" type="Node2D" node_paths=PackedStringArray("player", "flag")]
 script = ExtResource("1_j2425")
@@ -21,9 +40,10 @@ next_scene = ExtResource("2_ibugp")
 flag = NodePath("Flag")
 
 [node name="BasicGround" parent="." instance=ExtResource("2_fiq81")]
+position = Vector2(-1, 2)
 
 [node name="Steel_Pipe" parent="." instance=ExtResource("3_l37oo")]
-position = Vector2(156, 108)
+position = Vector2(215, 72)
 frame = 1
 
 [node name="Zhang" parent="." node_paths=PackedStringArray("level_manager", "player") instance=ExtResource("4_qpwj6")]
@@ -51,6 +71,42 @@ disabled = true
 
 [node name="Flag" parent="." instance=ExtResource("6_qpwj6")]
 position = Vector2(1092, 362)
+
+[node name="jiangtai" type="RigidBody2D" parent="." groups=["grippable"]]
+position = Vector2(87, -143)
+collision_layer = 4
+collision_mask = 2
+gravity_scale = 0.0
+script = ExtResource("8_3p04p")
+
+[node name="Sprite2D" type="Sprite2D" parent="jiangtai"]
+position = Vector2(45.200005, 47.100002)
+scale = Vector2(0.12, 0.12)
+texture = SubResource("AtlasTexture_3p04p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="jiangtai"]
+position = Vector2(42.5, 45.5)
+shape = SubResource("RectangleShape2D_8qukl")
+
+[node name="desk" type="RigidBody2D" parent="." groups=["grippable"]]
+position = Vector2(219, -109)
+collision_layer = 4
+collision_mask = 3
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="desk"]
+position = Vector2(37.012497, 23.774994)
+scale = Vector2(0.185, 0.185)
+texture = SubResource("AtlasTexture_8qukl")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="desk"]
+position = Vector2(36.512497, 31.274994)
+shape = SubResource("RectangleShape2D_3p04p")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="desk"]
+position = Vector2(70.5125, -20.725006)
+shape = SubResource("RectangleShape2D_qsp8v")
 
 [connection signal="body_entered" from="StaticBody2D/checker" to="StaticBody2D/checker" method="_on_body_entered"]
 [connection signal="body_exited" from="StaticBody2D/checker" to="StaticBody2D/checker" method="_on_body_exited"]
