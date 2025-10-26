@@ -84,6 +84,7 @@ disabled = true
 position = Vector2(1092, 362)
 
 [node name="start_cutscenes" parent="." instance=ExtResource("8_nt80m")]
+visible = false
 
 [node name="jiangtai" type="RigidBody2D" parent="." groups=["grippable"]]
 position = Vector2(87, -143)

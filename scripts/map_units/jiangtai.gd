@@ -18,7 +18,6 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
-
 		static_player = false
 		player.gravity_scale = player.gravity
 		player.lock_rotation = false
@@ -42,6 +41,7 @@ func _physics_process(delta: float) -> void:
 
 func listen_class():
 	if(not listended):
+		zhang.global_position.y = 50
 		MusicManager.play_sfx(on_class)
 		jiangtai.gravity_scale = 1
 		desk.gravity_scale = 1

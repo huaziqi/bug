@@ -4,4 +4,6 @@ extends LevelManager
 
 func _on_dialogue_ended():
 	super._on_dialogue_ended()
-	hide_item(zhang)
+	if(zhang):
+		hide_item(zhang)
+		zhang.queue_free()

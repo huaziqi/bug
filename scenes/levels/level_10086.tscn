@@ -145,6 +145,6 @@ autoplay = "fade"
 [node name="start_cutscenes" parent="." instance=ExtResource("7_nw2r2")]
 
 [node name="Zhang" parent="." node_paths=PackedStringArray("level_manager", "player") instance=ExtResource("10_e2bwy")]
-position = Vector2(86, -45)
+position = Vector2(70, -43)
 level_manager = NodePath("..")
 player = NodePath("../Steel_Pipe")
