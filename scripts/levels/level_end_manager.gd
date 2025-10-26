@@ -3,6 +3,7 @@ extends LevelManager
 @export var pop:PackedScene
 @export var error:PackedScene
 func _ready() -> void:
+	super._ready()
 	$endflake.visible=false
 	$Steel_Pipe.freezing=true
 	$flake_fountain.visible=false

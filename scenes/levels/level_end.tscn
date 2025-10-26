@@ -269,7 +269,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7naw"]
-size = Vector2(1377.6631, 1250.7578)
+size = Vector2(1728.4564, 1250.7578)
 
 [sub_resource type="Animation" id="Animation_5eabr"]
 length = 0.001
@@ -374,7 +374,7 @@ libraries = {
 [node name="Area2D" type="Area2D" parent="flake_fountain"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="flake_fountain/Area2D"]
-position = Vector2(-31.891113, -182.94765)
+position = Vector2(-210.47635, -159.11414)
 shape = SubResource("RectangleShape2D_m7naw")
 
 [node name="hole_background" type="Sprite2D" parent="."]
