@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://3guswm2uo0xu"]
+[gd_scene load_steps=13 format=3 uid="uid://3guswm2uo0xu"]
 
 [ext_resource type="Script" uid="uid://cgeaqqyd1i1jx" path="res://scripts/animation/transition_scene.gd" id="1_6lsgj"]
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="1_js88d"]
 [ext_resource type="Texture2D" uid="uid://28v4fa6njxx0" path="res://assets/sprites/map_units/flakes.png" id="3_xtx71"]
 [ext_resource type="AudioStream" uid="uid://rr2x6fgm5s6x" path="res://assets/sounds/sfx/flakes.mp3" id="5_hivkg"]
+[ext_resource type="Shader" uid="uid://buyl0cfph67jb" path="res://shaders/level_100810.gdshader" id="5_xtx71"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5rdob"]
 atlas = ExtResource("3_xtx71")
@@ -48,6 +49,30 @@ animations = [{
 "speed": 30.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jdfn7"]
+shader = ExtResource("5_xtx71")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.1850000087875
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = false
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.02000004845000003
+shader_parameter/brightness = 1.0
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.038000001805
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.40800001938
+
 [node name="TransitionScene" type="Node2D"]
 script = ExtResource("1_6lsgj")
 
@@ -66,3 +91,11 @@ autoplay = "flakes"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D/startscenes"]
 stream = ExtResource("5_hivkg")
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+z_index = 3
+material = SubResource("ShaderMaterial_jdfn7")
+offset_left = -930.0
+offset_top = -622.0
+offset_right = 944.0
+offset_bottom = 607.0

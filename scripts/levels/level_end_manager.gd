@@ -40,6 +40,7 @@ func _process(_delta: float) -> void:
 	if $Steel_Pipe.global_position.y<-100 and not finished:
 		finished=true
 		var e=error.instantiate()
+		$error.play()
 		get_parent().add_child(e)
 		await get_tree().create_timer(2.0).timeout
 		var p=pop.instantiate()

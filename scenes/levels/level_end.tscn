@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dr7jwchrktwxa"]
+[gd_scene load_steps=42 format=3 uid="uid://dr7jwchrktwxa"]
 
 [ext_resource type="Script" uid="uid://dkm8l7hojdw4l" path="res://scripts/levels/level_end_manager.gd" id="1_y03oe"]
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="2_m7naw"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://v8gi65yur448" path="res://assets/sounds/sfx/earthquake.wav" id="10_tehb8"]
 [ext_resource type="AudioStream" uid="uid://rr2x6fgm5s6x" path="res://assets/sounds/sfx/flakes.mp3" id="11_ppkge"]
 [ext_resource type="AudioStream" uid="uid://biwnn1heqmqrx" path="res://assets/sounds/sfx/hole_open.mp3" id="12_ijxl3"]
+[ext_resource type="AudioStream" uid="uid://cwo6kb3jisr16" path="res://assets/temp(临时美术资源)/error_02.wav" id="16_co3y3"]
 
 [sub_resource type="Animation" id="Animation_utrje"]
 length = 0.001
@@ -344,8 +345,8 @@ libraries = {
 }
 
 [node name="endflake" type="AnimatedSprite2D" parent="."]
-position = Vector2(690.0001, 313.00003)
-scale = Vector2(1.4648439, 1.3929619)
+position = Vector2(732, 348.99997)
+scale = Vector2(1.5468749, 1.4985336)
 sprite_frames = SubResource("SpriteFrames_co3y3")
 animation = &"flakes"
 autoplay = "flakes"
@@ -400,5 +401,8 @@ stream = ExtResource("12_ijxl3")
 volume_db = -6.753
 
 [node name="start_cutscenes" parent="." instance=ExtResource("5_co3y3")]
+
+[node name="error" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_co3y3")
 
 [connection signal="body_entered" from="flake_fountain/Area2D" to="flake_fountain" method="_on_area_2d_body_entered"]

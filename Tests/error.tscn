@@ -1,6 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://c36w4hassr74t"]
+[gd_scene load_steps=4 format=3 uid="uid://c36w4hassr74t"]
 
 [ext_resource type="Texture2D" uid="uid://cyf31mdcjdkob" path="res://assets/temp(临时美术资源)/ERROR.png" id="1_m8576"]
+[ext_resource type="Shader" uid="uid://buyl0cfph67jb" path="res://shaders/level_100810.gdshader" id="2_07ug7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cvo3i"]
+shader = ExtResource("2_07ug7")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.18900005647750007
+shader_parameter/brightness = 1.0
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.038000001805
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.40800001938
 
 [node name="ERROR" type="Window"]
 oversampling_override = 1.0
@@ -11,3 +36,11 @@ size = Vector2i(600, 400)
 position = Vector2(300.49997, 202.25)
 scale = Vector2(0.39104477, 0.4035176)
 texture = ExtResource("1_m8576")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 3
+material = SubResource("ShaderMaterial_cvo3i")
+offset_left = -31.0
+offset_top = -38.0
+offset_right = 654.0
+offset_bottom = 430.0
