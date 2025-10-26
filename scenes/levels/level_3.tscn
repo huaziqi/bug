@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://edbw54x762jl"]
+[gd_scene load_steps=11 format=3 uid="uid://edbw54x762jl"]
 
 [ext_resource type="PackedScene" uid="uid://5kshbfs22s1x" path="res://scenes/characters/player/fake_ball.tscn" id="1_44gv1"]
 [ext_resource type="Script" uid="uid://c0exg8l88gc55" path="res://scripts/levels/level_3_manager.gd" id="1_ftfob"]
@@ -9,31 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bbcr5t21ro20c" path="res://scenes/map_units/fake_flag.tscn" id="4_ugcn1"]
 [ext_resource type="PackedScene" uid="uid://c7bamebswoa7j" path="res://scenes/map_units/nums/num_five.tscn" id="5_ftfob"]
 [ext_resource type="PackedScene" uid="uid://cs3qu0yak2v7l" path="res://scenes/map_units/start_cutscenes.tscn" id="5_pimnq"]
-[ext_resource type="Shader" uid="uid://buyl0cfph67jb" path="res://shaders/level_100810.gdshader" id="10_2bnyt"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n6eey"]
-shader = ExtResource("10_2bnyt")
-shader_parameter/overlay = true
-shader_parameter/scanlines_opacity = 0.0
-shader_parameter/scanlines_width = 0.25
-shader_parameter/grille_opacity = 0.1850000087875
-shader_parameter/resolution = Vector2(640, 480)
-shader_parameter/pixelate = true
-shader_parameter/roll = false
-shader_parameter/roll_speed = 8.0
-shader_parameter/roll_size = 0.0
-shader_parameter/roll_variation = 1.8
-shader_parameter/distort_intensity = 0.05
-shader_parameter/noise_opacity = 0.4
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.06
-shader_parameter/aberration = 0.02000004845000003
-shader_parameter/brightness = 1.0
-shader_parameter/discolor = true
-shader_parameter/warp_amount = 0.038000001805
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.4
-shader_parameter/vignette_opacity = 0.40800001938
+[ext_resource type="PackedScene" uid="uid://5s2ku8p8nqju" path="res://scenes/map_units/camera.tscn" id="10_2bnyt"]
 
 [node name="Level3" type="Node2D" node_paths=PackedStringArray("flag")]
 position = Vector2(-1, 0)
@@ -81,10 +57,5 @@ gravity_scale = -1.0
 position = Vector2(624, 368)
 gravity_scale = -1.0
 
-[node name="ColorRect" type="ColorRect" parent="."]
-z_index = 3
-material = SubResource("ShaderMaterial_n6eey")
-offset_left = -413.0
-offset_top = -34.0
-offset_right = 1461.0
-offset_bottom = 1195.0
+[node name="camera" parent="." instance=ExtResource("10_2bnyt")]
+aberration = 0.01

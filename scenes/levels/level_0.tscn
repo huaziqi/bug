@@ -38,6 +38,7 @@ position = Vector2(1071, 358)
 
 [node name="camera" parent="." instance=ExtResource("6_p6rmu")]
 position = Vector2(568, 328)
+aberration = 0.0
 
 [node name="start_cutscenes" parent="." instance=ExtResource("6_65guy")]
 
