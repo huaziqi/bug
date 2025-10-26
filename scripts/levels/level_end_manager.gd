@@ -10,7 +10,7 @@ func _ready() -> void:
 	$hole_background.visible=false
 	$flake_fountain/AnimationPlayer.play("new_animation")
 	await get_tree().create_timer(0.5).timeout
-	hide_item($Steel_Pipe)
+	#hide_item($Steel_Pipe)
 	$camera_for_end/AnimationPlayer.play("far")
 	await $camera_for_end/AnimationPlayer.animation_finished
 	await get_tree().create_timer(1.0).timeout

@@ -99,7 +99,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0.0666666, 1.0666667, 1.9666667),
 "transitions": PackedFloat32Array(3.8637457, 1, 1),
 "update": 0,
-"values": [Vector2(0.09, 0.081), Vector2(0.059082016, 0.05273433), Vector2(0.08, 0.053)]
+"values": [Vector2(0.15, 0.15), Vector2(0.15, 0.15), Vector2(0.4, 0.071)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h3sg8"]
@@ -122,6 +122,8 @@ position = Vector2(-7, 4)
 [node name="Steel_Pipe" parent="." instance=ExtResource("4_1mvhm")]
 
 [node name="platform" parent="." instance=ExtResource("5_4prvs")]
+position = Vector2(718, 302)
+mass = 0.5
 
 [node name="Flag" parent="." instance=ExtResource("6_l4k6f")]
 

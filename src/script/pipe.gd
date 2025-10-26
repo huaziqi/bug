@@ -29,7 +29,7 @@ func _physics_process(_delta: float) -> void:
 	# 处理移动、跳跃和下落加速
 	if not freezing:
 		handle_movement()  
-		handle_jump()
+	handle_jump()
 	handle_fall_acceleration()
 	absorb_to_container(_delta) #吸附到数字框
 	handle_sfx()

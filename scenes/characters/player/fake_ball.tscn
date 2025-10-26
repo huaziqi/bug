@@ -1,13 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://5kshbfs22s1x"]
+[gd_scene load_steps=10 format=3 uid="uid://5kshbfs22s1x"]
 
-[ext_resource type="Texture2D" uid="uid://krx3lsft5uvl" path="res://assets/temp(临时美术资源)/null_ball.png" id="1_o8sx6"]
+[ext_resource type="Texture2D" uid="uid://btpwlugt031c2" path="res://assets/temp(临时美术资源)/ball1.png" id="1_o8sx6"]
 [ext_resource type="PackedScene" uid="uid://dn0bw5kg1vrhe" path="res://src/Scene/hand.tscn" id="2_57p7i"]
 [ext_resource type="Script" uid="uid://dt8lhtrpjmnnr" path="res://scripts/map_units/ground_checker.gd" id="3_57p7i"]
 [ext_resource type="Texture2D" uid="uid://bm0bfjijlv0fr" path="res://assets/sprites/characters/zhang.png" id="4_o8sx6"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e56qv"]
-atlas = ExtResource("1_o8sx6")
-region = Rect2(420, 0, 423, 424)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_57p7i"]
 radius = 27.768013
@@ -28,9 +24,9 @@ size = Vector2(56, 139)
 [node name="FakeBall" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1, -3)
-scale = Vector2(0.131, 0.131)
-texture = SubResource("AtlasTexture_e56qv")
+position = Vector2(-1.4999983, -3.500001)
+scale = Vector2(0.116190486, 0.11433756)
+texture = ExtResource("1_o8sx6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -4)
