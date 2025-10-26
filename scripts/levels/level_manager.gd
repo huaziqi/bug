@@ -8,11 +8,13 @@ const TRANSITION_SCENE = preload("uid://3guswm2uo0xu")
 @export var static_items : Array[Node] #不移动的item，也就是开局要显现出来的
 @export var flag : Node
 @export var timeline_name : String
+@export var bgm: AudioStream
 var current_dialogue : Node = null
 var in_change : bool = false
 var first_talk_end : bool = false
 
 func _ready() -> void:
+
 	init_talking()
 	init_player()
 	init_signal()
@@ -35,15 +37,16 @@ func init_talking():
 
 func init_player():
 	if(player):
-		player.position = Vector2(100, -10)
+		player.global_position = Vector2(150, -10)
 	else:
 		push_error("player is null")
 
 func npc_talking():
 	if(current_dialogue != null or timeline_name == null or timeline_name == ""):
 		return
-	if(player and "freeze" in player):
-		player.freeze = true
+	if(player and "freezing" in player):
+		player.freezing = true
+	
 	current_dialogue = Dialogic.start(timeline_name)
 	get_tree().root.add_child(current_dialogue)
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
@@ -51,7 +54,7 @@ func npc_talking():
 func _on_dialogue_ended():
 	first_talk_end = true
 	if(player):
-		player.freeze = false
+		player.freezing = false
 	if current_dialogue:
 		current_dialogue.queue_free()
 		current_dialogue = null

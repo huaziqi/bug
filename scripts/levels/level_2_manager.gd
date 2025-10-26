@@ -2,10 +2,9 @@ extends LevelManager
 @onready var collision_area: CollisionShape2D = $StaticBody2D/CollisionShape2D
 @onready var checker_area: CollisionShape2D = $StaticBody2D/checker/CollisionShape2D
 
-
 func npc_talking():
 	super.npc_talking()
-	player.freeze = false
+	player.freezing = false
 	call_deferred("enable_collision_shapes")
 	Dialogic.timeline_ended.connect(disable_collision_shapes)
 

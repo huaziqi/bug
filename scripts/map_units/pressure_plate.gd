@@ -29,7 +29,6 @@ func rise_plate():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if(body.is_in_group("pressure")):
-		print(body)
 		if(plate_tween):
 			plate_tween.kill()
 		if(press_sfx):
@@ -41,5 +40,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if(body.is_in_group("pressure")):
-		print(body)
 		in_triggled = false
