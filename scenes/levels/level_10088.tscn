@@ -100,6 +100,7 @@ player = NodePath("Steel_Pipe")
 next_scene = ExtResource("2_rd5pl")
 static_items = [NodePath("Mirror")]
 flag = NodePath("Flag")
+timeline_name = "level_10088"
 
 [node name="BasicGround" parent="." instance=ExtResource("3_s2ltn")]
 position = Vector2(-6, 4)

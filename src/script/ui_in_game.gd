@@ -159,6 +159,9 @@ func _on_quit_pressed() -> void:
 func _on_texture_button_pressed() -> void:
 	get_tree().paused = false
 	ui_main.visible=false
+	var num = Dialogic.VAR.get_variable("interact_time")
+	if(num >= 0):
+		Dialogic.VAR.set_variable("interact_time", 0)
 	get_tree().reload_current_scene()
 	
 

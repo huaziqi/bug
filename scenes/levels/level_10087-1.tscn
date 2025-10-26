@@ -18,6 +18,7 @@ player = NodePath("Steel_Pipe")
 next_scene = ExtResource("2_wi2oc")
 static_items = [NodePath("laser")]
 flag = NodePath("Flag")
+timeline_name = "level_10087-1"
 
 [node name="BasicGround" parent="." instance=ExtResource("3_2x8mj")]
 z_index = 2

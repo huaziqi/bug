@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dkm8l7hojdw4l" path="res://scripts/levels/level_end.gd" id="1_y03oe"]
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="2_m7naw"]
 [ext_resource type="PackedScene" uid="uid://yjx1s3lyivfg" path="res://scenes/map_units/popup_window.tscn" id="2_qpkib"]
-[ext_resource type="PackedScene" uid="uid://c36w4hassr74t" path="res://Tests/error.tscn" id="3_iyaps"]
+[ext_resource type="PackedScene" uid="uid://c36w4hassr74t" path="res://tests/error.tscn" id="3_iyaps"]
 [ext_resource type="Texture2D" uid="uid://pl2c6eu5r4nl" path="res://assets/temp(临时美术资源)/ground.png" id="3_qpkib"]
 [ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://scenes/characters/player/Pipe_player.tscn" id="4_iyaps"]
 [ext_resource type="PackedScene" uid="uid://cs3qu0yak2v7l" path="res://scenes/map_units/start_cutscenes.tscn" id="5_co3y3"]
@@ -312,6 +312,7 @@ _data = {
 script = ExtResource("1_y03oe")
 pop = ExtResource("2_qpkib")
 error = ExtResource("3_iyaps")
+timeline_name = "level_end"
 
 [node name="BasicGround" parent="." instance=ExtResource("2_m7naw")]
 position = Vector2(-11, 65)

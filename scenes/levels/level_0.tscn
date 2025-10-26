@@ -22,6 +22,7 @@ player = NodePath("Steel_Pipe")
 next_scene = ExtResource("2_xy1qu")
 static_items = [null]
 flag = NodePath("Flag")
+timeline_name = "level_0"
 
 [node name="Steel_Pipe" parent="." instance=ExtResource("2_yqnkn")]
 position = Vector2(963, 63)
@@ -33,8 +34,10 @@ position = Vector2(-7, 4)
 [node name="Flag" parent="." instance=ExtResource("4_wjk5u")]
 position = Vector2(1071, 358)
 
-[node name="Zhang" parent="." instance=ExtResource("6_6ayib")]
+[node name="Zhang" parent="." node_paths=PackedStringArray("level_manager", "player") instance=ExtResource("6_6ayib")]
 position = Vector2(73, -4)
+level_manager = NodePath("..")
+player = NodePath("../Steel_Pipe")
 
 [node name="Plantform" type="StaticBody2D" parent="."]
 collision_layer = 2

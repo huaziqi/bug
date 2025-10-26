@@ -1,0 +1,39 @@
+set {interact_time} += 1.0
+if {interact_time} == 0.0:
+	jump auto
+elif {interact_time} == 1.0:
+	jump 1
+elif {interact_time} == 2.0
+	jump 2
+elif {interact_time} == 3.0:
+	jump 3
+else:
+	jump repeat
+label auto
+zhang: 玩完了，我搞砸了，真是失败。
+jump end
+
+label 1
+zhang: ...
+zhang: 怎么了？要不下一次吧...
+jump end
+
+label 2
+zhang: ....
+zhang: 下次再见...我指下个项目之类的...
+zhang: 你最好走了，你也没别的地方可去。
+jump end
+
+label 3
+zhang: .....
+zhang: 都发展成这样了还在磨蹭什么，跳进前面那个晃眼的喷泉里,就都结束了。
+jump end
+
+label repeat
+zhang: (唉...
+zhang: ...
+zhang: 唉...
+zhang: ...
+zhang: 唉)
+zhang: ..........
+label end

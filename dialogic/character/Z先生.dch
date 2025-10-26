@@ -12,7 +12,7 @@
 },
 &"default_portrait": "New portrait",
 &"description": "神秘的Z先生，拥有一些无人知晓的秘密",
-&"display_name": "Z先生",
+&"display_name": "adminZ",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),

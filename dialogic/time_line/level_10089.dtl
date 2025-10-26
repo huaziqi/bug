@@ -1,0 +1,33 @@
+set {interact_time} += 1.0
+if {interact_time} == 0.0:
+	jump auto
+elif {interact_time} == 1.0:
+	jump 1
+elif {interact_time} == 2.0
+	jump 2
+else:
+	jump repeat
+label auto
+zhang: 还能这样...
+zhang: ....
+zhang: ! ! !
+zhang: 停停！别别！
+zhang: 那是最后的底线！
+zhang: 那涉及我最爱的领域...
+zhang: 前辈，我做了什么让你如此恶整！
+zhang: 热力学定律，热力学定律啊！
+jump end
+
+label 1
+zhang: （急切）（急切）
+jump end
+
+label 2
+zhang: ....
+zhang: 别再过去了，求你....
+zhang: 这对你有什么好处
+jump end
+
+label repeat
+zhang: (.....)
+label end

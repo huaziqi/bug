@@ -16,6 +16,7 @@ player = NodePath("Steel_Pipe")
 next_scene = ExtResource("2_fuwsl")
 static_items = [NodePath("fan"), NodePath("button"), NodePath("Line2D"), NodePath("Flag")]
 flag = NodePath("Flag")
+timeline_name = "level_10089"
 
 [node name="BasicGround" parent="." instance=ExtResource("2_ykugv")]
 position = Vector2(-7, 4)

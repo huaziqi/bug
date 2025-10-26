@@ -1,0 +1,20 @@
+set {interact_time} += 1.0
+if {interact_time} == 0.0:
+	jump auto
+else:
+	jump repeat
+label auto
+zhang: 呵....
+zhang: 你以为我山穷水尽了？
+zhang: 其实我刚刚摸清了你的底牌！
+zhang: 你的控制组件赋值是null，这就是为什么我拿你没招！
+zhang: 趁着你还能自由行动，多蹦蹦跳跳，制造点噪音吧！
+zhang: 来吧，让我z好好给你填充填充！
+zhang:   （无限复读施展无量空处妈咪妈咪哄）
+
+jump end
+
+label repeat
+zhang: (....
+....)
+label end
