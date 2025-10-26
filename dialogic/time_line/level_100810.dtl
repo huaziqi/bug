@@ -3,10 +3,8 @@ if {interact_time} == 0.0:
 	jump auto
 elif {interact_time} == 1.0:
 	jump 1
-elif {interact_time} == 2.0
+elif {interact_time} == 2.0:
 	jump 2
-elif {interact_time} == 3.0:
-	jump 3
 else:
 	jump repeat
 label auto
@@ -19,15 +17,12 @@ jump end
 label 1
 zhang: .....
 zhang: 除非你.....
-zhang: 那个镜像怎么还在？
+zhang: 那个[color=red]镜像[/color]怎么还在？
 zhang: 等等....
 jump end
 
 label 2
-zhang: 等等....不行!
-jump end
-
-label 3
+zhang: 等等，如果那样的话....不行!
 zhang: (噤声)（噤声）
 jump end
 

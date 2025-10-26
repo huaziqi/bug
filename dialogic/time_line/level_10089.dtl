@@ -3,7 +3,7 @@ if {interact_time} == 0.0:
 	jump auto
 elif {interact_time} == 1.0:
 	jump 1
-elif {interact_time} == 2.0
+elif {interact_time} == 2.0:
 	jump 2
 else:
 	jump repeat
@@ -19,7 +19,9 @@ zhang: 热力学定律，热力学定律啊！
 jump end
 
 label 1
-zhang: （急切）（急切）
+zhang: 咦，前辈在注释里好像留了什么?
+zhang: [color=red]”在玩风扇时，小心割到手，”[/color]
+zhang: [color=red]”可能会引发连锁反应“[/color]，什么意思？
 jump end
 
 label 2
