@@ -27,6 +27,7 @@ static_items = [null]
 flag = NodePath("Flag")
 timeline_name = "level_0"
 bgm = ExtResource("3_34hum")
+level_index = "0"
 
 [node name="Steel_Pipe" parent="." instance=ExtResource("2_yqnkn")]
 position = Vector2(963, 63)

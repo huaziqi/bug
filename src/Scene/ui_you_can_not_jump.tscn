@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvynt4kxvdarl"]
+
+[ext_resource type="Theme" uid="uid://bqcdi106wexla" path="res://src/theme/ui_loading_process.tres" id="1_t2jep"]
+
+[node name="PanelContainer" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_t2jep")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "!!!  YOU CANNOT ACCESS THIS LEVEL   !!!"

@@ -9,12 +9,19 @@ const TRANSITION_SCENE = preload("uid://3guswm2uo0xu")
 @export var flag : Node
 @export var timeline_name : String
 @export var bgm: AudioStream
+@export var level_index:String#="1"
+@export var address_level:String#="res://scenes/levels/level_0.tscn"
 var current_dialogue : Node = null
 var in_change : bool = false
 var first_talk_end : bool = false
 
 func _ready() -> void:
-
+	GameState.level_address_with_index[level_index]=address_level
+	print("quanbushuchu")
+	print(GameState.level_address_with_index)
+	print("本关的index和保存进度：")
+	print(level_index)
+	print(GameState.level_address_with_index[level_index])
 	init_talking()
 	init_player()
 	init_signal()
@@ -78,6 +85,7 @@ func _on_button_pressed() -> void:
 	reset_game()
 
 func quit_current_level() -> void:
+	
 	var tween = create_tween()
 	if basic_ground:
 		tween.tween_property(basic_ground, "position:y", 

@@ -12,11 +12,13 @@ extends CanvasLayer
 const Process_instruction_SCENE = preload("res://src/Scene/ui_loading_process.tscn")
 const Input_instruction_SCENE = preload("res://src/Scene/initial_ui.tscn")
 const Level_instruction_SCENE = preload("res://src/Scene/level_instruction.tscn")
+const you_cannot_jump_SCENE=preload("res://src/Scene/ui_you_can_not_jump.tscn")
 #状态
 enum {UI_STATE_MAIN , UI_STATE_SETTING , UI_STATE_QUIT , UI_STATE_CONTINUE , UI_STATE_LEVEL, UI_STATE_RETURN , UI_STATE_JUMP}
 var ui_state:int = UI_STATE_MAIN
 #关卡相关
 var where_to_go="1"
+'''
 var level_address_with_index={"1":"res://scenes/levels/level_0.tscn",
 "2":"res://scenes/levels/level_10086.tscn",
 "3":"res://scenes/levels/level_3.tscn",
@@ -29,7 +31,7 @@ var level_address_with_index={"1":"res://scenes/levels/level_0.tscn",
 "0":"res://scenes/levels/level_1.tscn",
 #"?":"res://scenes/levels/level_10089.tscn",
 "E":"res://scenes/levels/level_10089.tscn"}
-
+'''
 #加载动画相关
 const time_change=[2,2,2]
 const basic_time_gap=0.05
@@ -61,7 +63,7 @@ func in_title()->void:
 func _input(event):
 	# 检查是否是您定义的动作按下事件
 	if event.is_action_pressed("menu") and (GameState.state==GameState.PLAYING or GameState.state==GameState.PAUSED):
-		print("pressed")
+		#print("pressed")
 		# 立即标记事件为已处理
 	#	get_tree().set_input_as_handled()
 		if get_tree().paused==true:
@@ -94,7 +96,6 @@ func _unhandled_input(event):
 				ui_state=UI_STATE_LEVEL
 		#level选关卡
 		elif ui_state==UI_STATE_LEVEL:
-			print(97)
 			if event.is_action_pressed("ui_input_return"):
 				message_input.text="R"
 				ui_state=UI_STATE_RETURN
@@ -121,7 +122,6 @@ func _unhandled_input(event):
 				_on_quit_pressed()
 				ui_state=UI_STATE_MAIN
 			elif ui_state==UI_STATE_LEVEL:
-				print(124)
 				_on_level_pressed()
 			elif ui_state==UI_STATE_RETURN:
 				_on_return_pressed()
@@ -129,11 +129,19 @@ func _unhandled_input(event):
 				_on_continue_pressed()
 				ui_state=UI_STATE_MAIN
 			elif ui_state==UI_STATE_JUMP:
-				add_loading_process()
-				await get_tree().create_timer(3.5).timeout
-				_on_jump_pressed()
-				ui_hide()
-				add_main_ui()
+				
+				if GameState.level_address_with_index[where_to_go]==null:
+					print("you have no right")
+					var new_cannot_jump_dode=you_cannot_jump_SCENE.instantiate()
+					add_child_place.add_child(new_cannot_jump_dode)	
+					await get_tree().create_timer(3).timeout
+					add_main_ui()
+				else:
+					add_loading_process()
+					await get_tree().create_timer(3.5).timeout
+					_on_jump_pressed()
+					ui_hide()
+					add_main_ui()
 				ui_state=UI_STATE_MAIN
 			elif ui_state==UI_STATE_MAIN:
 				add_main_ui()
@@ -187,9 +195,17 @@ func _on_texture_button_bar_cross_pressed() -> void:
 	ui_main.visible=false
 
 func _on_jump_pressed(): 
+	print("去哪1")
 	print(where_to_go)
-	get_tree().change_scene_to_file(level_address_with_index[where_to_go])	
-	
+	print(GameState.level_address_with_index[where_to_go])
+	print("全部输出1")
+	print(GameState.level_address_with_index)
+	#if GameState.level_address_with_index[where_to_go]!=null:
+	get_tree().change_scene_to_file(GameState.level_address_with_index[where_to_go])
+	#get_tree().change_scene_to_file("res://scenes/levels/level_10086.tscn")
+	#elif GameState.level_address_with_index[where_to_go]==null:	
+		#var new_cannot_jump_dode=you_cannot_jump_SCENE.instantiate()
+		#add_child_place.add_child(new_cannot_jump_dode)
 	#ui_hide()
 
 func delete_overflow_cmd():

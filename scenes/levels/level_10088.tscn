@@ -102,6 +102,8 @@ next_scene = ExtResource("2_rd5pl")
 static_items = [NodePath("Mirror")]
 flag = NodePath("Flag")
 timeline_name = "level_10088"
+level_index = "7"
+address_level = "res://scenes/levels/level_10088.tscn"
 
 [node name="BasicGround" parent="." instance=ExtResource("3_s2ltn")]
 position = Vector2(-6, 4)

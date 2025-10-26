@@ -19,6 +19,8 @@ next_scene = ExtResource("2_kt7ex")
 static_items = [NodePath("laser"), NodePath("Flag"), NodePath("Zhang")]
 flag = NodePath("Flag")
 timeline_name = "level_10087"
+level_index = "6"
+address_level = "res://scenes/levels/level_10087.tscn"
 
 [node name="BasicGround" parent="." instance=ExtResource("1_fepmk")]
 position = Vector2(-7, 4)

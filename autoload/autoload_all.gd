@@ -8,7 +8,17 @@ signal quit_ui
 signal continue_ui
 signal level_ui
 signal loading_process_signal(time_change_count:int)
-
+var level_address_with_index={"1":"res://scenes/levels/level_0.tscn","2":null,#10086
+"3":null,#3
+"4":null,#4
+"5":null,#10087-1
+"6":null,#10087
+"7":null,#10088
+"8":null,#100810
+"9":null,#2
+"0":null,#1
+#"?":"res://scenes/levels/level_10089.tscn",
+"E":null}#10089
 
 
 func _on_continue_pressed() -> void:

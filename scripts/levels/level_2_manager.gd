@@ -2,6 +2,8 @@ extends LevelManager
 @onready var collision_area: CollisionShape2D = $StaticBody2D/CollisionShape2D
 @onready var checker_area: CollisionShape2D = $StaticBody2D/checker/CollisionShape2D
 
+func _ready() -> void:
+	GameState.level_address_with_index[level_index]=address_level
 func npc_talking():
 	super.npc_talking()
 	player.freezing = false

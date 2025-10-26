@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bqcdi106wexla"]
+
+[ext_resource type="FontFile" uid="uid://dmq6uypfm7okh" path="res://assets/fonts/Silver.ttf" id="1_qlmfk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eprhl"]
+bg_color = Color(0, 0, 0, 1)
+
+[resource]
+Label/font_sizes/font_size = 24
+Label/fonts/font = ExtResource("1_qlmfk")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_eprhl")

@@ -17,6 +17,8 @@ script = ExtResource("1_wi2oc")
 player = NodePath("Steel_Pipe")
 next_scene = ExtResource("2_pbhvv")
 flag = NodePath("Flag")
+level_index = "5"
+address_level = "res://scenes/levels/level_10087-1.tscn"
 
 [node name="BasicGround" parent="." instance=ExtResource("3_2x8mj")]
 z_index = 2

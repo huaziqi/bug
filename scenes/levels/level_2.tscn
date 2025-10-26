@@ -49,6 +49,8 @@ player = NodePath("Steel_Pipe")
 next_scene = ExtResource("2_3p04p")
 flag = NodePath("Flag")
 timeline_name = "level_2"
+level_index = "9"
+address_level = "res://scenes/levels/level_2.tscn"
 
 [node name="BasicGround" parent="." instance=ExtResource("2_fiq81")]
 position = Vector2(-1, 2)
