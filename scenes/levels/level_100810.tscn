@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://cv5xqjatp1ht0"]
 
-[ext_resource type="Script" uid="uid://c2aquu4qg48sg" path="res://scripts/levels/level_100810.gd" id="1_8uxql"]
+[ext_resource type="Script" uid="uid://c2aquu4qg48sg" path="res://scripts/levels/level_100810_manager.gd" id="1_8uxql"]
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="2_25a75"]
 [ext_resource type="PackedScene" uid="uid://cn7crm8p2l11u" path="res://scenes/levels/level_2.tscn" id="2_27w8j"]
 [ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://scenes/characters/player/Pipe_player.tscn" id="3_8uxql"]
@@ -39,7 +39,7 @@ shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.4
 shader_parameter/vignette_opacity = 0.40800001938
 
-[node name="Level_0" type="Node2D" node_paths=PackedStringArray("player", "flag")]
+[node name="Level_100810" type="Node2D" node_paths=PackedStringArray("player", "flag")]
 script = ExtResource("1_8uxql")
 player = NodePath("Steel_Pipe")
 next_scene = ExtResource("2_27w8j")

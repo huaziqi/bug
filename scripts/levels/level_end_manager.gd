@@ -1,24 +1,49 @@
-extends Node2D
-@onready var bo: AudioStreamPlayer2D = $Flag/bo
-signal end_back_to_main1
-#被尘封的代码
-#把背景框调成透明
-#func per_pixel_transparency():
-	#ProjectSettings.set_setting("display/window/per_pixel_transparency/allowed",true)
-##显示-窗口-像素级透明
-	#ProjectSettings.set_setting("display/window/size/transparent",true)
-##显示-窗口-透明
-	#ProjectSettings.set_setting("rendering/viewport/transparent_background",true)
-##渲染-视口-透明背景
-#func _ready() -> void:
-	#per_pixel_transparency()
-	#print(ProjectSettings.get_setting("display/window/per_pixel_transparency/allowed"))
-	#print(ProjectSettings.get_setting("display/window/size/transparent"))
-	#print(ProjectSettings.get_setting("rendering/viewport/transparent_background"))
-func get_back_to_main():
-	get_tree().change_scene_to_file("res://src/Scene/main.tscn")
-
-
-func _on_flag_flag_up() -> void:
-	get_back_to_main()
-	end_back_to_main1.emit()
+extends LevelManager
+@export var finished:bool=false
+@export var pop:PackedScene
+@export var error:PackedScene
+func _ready() -> void:
+	$endflake.visible=false
+	$Steel_Pipe.freezing=true
+	$flake_fountain.visible=false
+	$hole_background.visible=false
+	$flake_fountain/AnimationPlayer.play("new_animation")
+	await get_tree().create_timer(0.5).timeout
+	hide_item($Steel_Pipe)
+	$camera_for_end/AnimationPlayer.play("far")
+	await $camera_for_end/AnimationPlayer.animation_finished
+	await get_tree().create_timer(1.0).timeout
+	$earthquake.play()
+	$camera_for_end.shake(8,5)
+	await get_tree().create_timer(5.0).timeout
+	$earthquake.stop()
+	$hole_background.visible=true
+	$hole_background/AnimationPlayer.play("break")
+	$open.play()
+	await get_tree().create_timer(3.0).timeout
+	$earthquake.play()
+	$camera_for_end.shake(8,1000000)
+	await get_tree().create_timer(3.0).timeout
+	$flake_fountain.visible=true
+	$flake_fountain.modulate.a=0
+	$flake_fountain/AnimationPlayer.play("apear")
+	await $flake_fountain/AnimationPlayer.animation_finished
+	$flakes.play()
+	$endflake.visible=true
+	$endflake.modulate.a=0
+	$endflake/AnimationPlayer.play("apear")
+	$flake_fountain/AnimationPlayer.play("new_animation")
+	show_item($Steel_Pipe)
+	$Steel_Pipe.freezing=false
+func _process(_delta: float) -> void:
+	if $Steel_Pipe.global_position.y<-100 and not finished:
+		finished=true
+		var e=error.instantiate()
+		get_parent().add_child(e)
+		await get_tree().create_timer(2.0).timeout
+		var p=pop.instantiate()
+		get_parent().add_child(p)
+		await get_tree().create_timer(2.0).timeout
+		get_tree().quit()
+		
+		

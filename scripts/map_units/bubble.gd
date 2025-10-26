@@ -11,8 +11,9 @@ func floating(body) -> void:
 		if Input.is_action_pressed("left"):
 			body.apply_impulse(Vector2(-10,-30))
 		if Input.is_action_pressed("right"):
-			body.apply_impulse(Vector2(10,-30))	
-		await get_tree().create_timer(0.01).timeout
+			body.apply_impulse(Vector2(10,-30))
+		if is_instance_valid(get_tree()):
+			await get_tree().create_timer(0.01).timeout
 	
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

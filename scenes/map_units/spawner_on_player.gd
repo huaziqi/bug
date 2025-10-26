@@ -8,11 +8,10 @@ func spawn():
 		bub.gravity_scale=0.2
 		add_child(bub)
 		bub_num+=1
-		bub.global_position.x=randf_range($"../Steel_Pipe".global_position.x-100,$"../Steel_Pipe".global_position.x+100)
+		bub.global_position.x=randf_range($"../Steel_Pipe".global_position.x+100,$"../Steel_Pipe".global_position.x+200)
 		bub.global_position.y=randf_range(395,370)
 func _physics_process(_delta: float) -> void:
-	print(get_parent().get_child_count())
-	if bub_num>=600 and not mul:
+	if bub_num>=70 and not mul:
 		mul=true
 		$AudioStreamPlayer2D.play()
 		await get_tree().create_timer(0.1).timeout
