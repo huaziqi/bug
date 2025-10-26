@@ -14,7 +14,7 @@ Label/fonts/font = ExtResource("1_6x5as")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_77yaw")
 
 [sub_resource type="Theme" id="Theme_moy4y"]
-Label/font_sizes/font_size = 25
+Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("4_kfsom")
 
 [sub_resource type="Theme" id="Theme_xxn52"]
@@ -46,7 +46,7 @@ text = "-input [R]return"
 
 [node name="prompt" type="Label" parent="selection_level/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
-text = "-level list"
+text = "-file list"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="selection_level/VBoxContainer"]
 layout_mode = 2
@@ -57,35 +57,35 @@ layout_mode = 2
 
 [node name="label1" type="Label" parent="selection_level/VBoxContainer/HBoxContainer/1"]
 layout_mode = 2
-text = "[1]第一关"
+text = "[1]文件一"
 
 [node name="2" type="PanelContainer" parent="selection_level/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
 [node name="label1" type="Label" parent="selection_level/VBoxContainer/HBoxContainer/2"]
 layout_mode = 2
-text = "[2]第二关"
+text = "[2]文件二"
 
 [node name="3" type="PanelContainer" parent="selection_level/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
 [node name="label1" type="Label" parent="selection_level/VBoxContainer/HBoxContainer/3"]
 layout_mode = 2
-text = "[3]第三关"
+text = "[3]文三件"
 
 [node name="4" type="PanelContainer" parent="selection_level/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
 [node name="label1" type="Label" parent="selection_level/VBoxContainer/HBoxContainer/4"]
 layout_mode = 2
-text = "[4]第四关"
+text = "[4]文牛4"
 
 [node name="5" type="PanelContainer" parent="selection_level/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
 [node name="label1" type="Label" parent="selection_level/VBoxContainer/HBoxContainer/5"]
 layout_mode = 2
-text = "[5]第五关"
+text = "[5]方件Ⅴ"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="selection_level/VBoxContainer"]
 layout_mode = 2
@@ -96,21 +96,21 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="selection_level/VBoxContainer/HBoxContainer2/6"]
 layout_mode = 2
-text = "[6]第六关"
+text = "[6]纹身六"
 
 [node name="7" type="PanelContainer" parent="selection_level/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="selection_level/VBoxContainer/HBoxContainer2/7"]
 layout_mode = 2
-text = "[7]第七关"
+text = "CR[7]"
 
 [node name="8" type="PanelContainer" parent="selection_level/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="selection_level/VBoxContainer/HBoxContainer2/8"]
 layout_mode = 2
-text = "[8]第八关"
+text = "[8]入八&"
 
 [node name="9" type="PanelContainer" parent="selection_level/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
@@ -124,7 +124,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="selection_level/VBoxContainer/HBoxContainer2/10"]
 layout_mode = 2
-text = "[10]第十关"
+text = "[0]"
 
 [node name="Panel" type="Panel" parent="selection_level"]
 layout_mode = 2

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://fgxjk6c0pyy2"]
+
+[ext_resource type="FontFile" uid="uid://dmq6uypfm7okh" path="res://assets/fonts/Silver.ttf" id="1_eprhl"]
+[ext_resource type="Script" uid="uid://wqpdcraug2ow" path="res://load_level_process.gd" id="1_w8xi8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eprhl"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_k6kdf"]
+Label/font_sizes/font_size = 24
+Label/fonts/font = ExtResource("1_eprhl")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_eprhl")
+
+[node name="PanelContainer" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_k6kdf")
+script = ExtResource("1_w8xi8")
+
+[node name="loading_content" type="Label" parent="."]
+layout_mode = 2
+text = "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-prepare file----> level
+-prepare music----> actually no music
+-prepare to run away..."

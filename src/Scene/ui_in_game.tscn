@@ -260,5 +260,9 @@ offset_right = 928.68
 offset_bottom = 58.823997
 texture_normal = ExtResource("3_l1ej1")
 
+[node name="load_timer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/white_bar/PanelContainer/TextureButton" to="CanvasLayer" method="_on_texture_button_bar_cross_pressed"]
 [connection signal="pressed" from="CanvasLayer/TextureButton" to="CanvasLayer" method="_on_texture_button_pressed"]
+[connection signal="timeout" from="load_timer" to="CanvasLayer" method="_on_load_timer_timeout"]

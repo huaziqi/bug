@@ -7,6 +7,8 @@ signal game_initialized
 signal quit_ui
 signal continue_ui
 signal level_ui
+signal loading_process_signal(time_change_count:int)
+
 
 
 func _on_continue_pressed() -> void:
@@ -33,7 +35,9 @@ func initial_game()->void:
 		$"..".mouse_filter = Control.MOUSE_FILTER_STOP
 		'''
 func get_last_child_of_node(node: Node) -> Node:
-	
+	if not is_instance_valid(node):
+		print("错误：传入的节点参数是无效或为空值。")
+		return null
 	# 1. 获取子节点的总数
 	var child_count = node.get_child_count()
 	

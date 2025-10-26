@@ -6,7 +6,10 @@ extends CanvasLayer
 @onready var first_input_instruction=$Panel/VBoxContainer/below_white_bar/MarginContainer/below_bar/initial_instruction
 @onready var add_child_place=$Panel/VBoxContainer/below_white_bar/MarginContainer/below_bar
 @onready var animate_ui=$Panel
+@onready var load_timer=$"../load_timer"
 
+#var message_input=GameState.get_last_child_of_node(add_child_place).get_node("input_instruction").get_node("input").get_node("Label_player")
+const Process_instruction_SCENE = preload("res://src/Scene/ui_loading_process.tscn")
 const Input_instruction_SCENE = preload("res://src/Scene/initial_ui.tscn")
 const Level_instruction_SCENE = preload("res://src/Scene/level_instruction.tscn")
 #状态
@@ -17,6 +20,11 @@ var where_to_go="1"
 var level_address_with_index={"1":"res://scenes/levels/level_1.tscn",
 "2":"res://scenes/levels/level_2.tscn",
 "3":"res://scenes/levels/level_3.tscn"}
+#加载动画相关
+const time_change=[2,2,2]
+const basic_time_gap=0.05
+var time_change_counter=0
+var time_array_l=time_change.size()
 
 
 func _ready() -> void:
@@ -27,7 +35,6 @@ func _ready() -> void:
 	#ui_setting.visible=false
 	get_tree().paused=false
 	GameState.game_initialized.connect(initial_game)
-	GameState.state=GameState.PLAYING
 	GameState.quit_ui.connect(_on_quit_pressed)
 	GameState.continue_ui.connect(_on_continue_pressed)
 	GameState.level_ui.connect(_on_level_pressed)
@@ -43,7 +50,7 @@ func in_title()->void:
 
 func _input(event):
 	# 检查是否是您定义的动作按下事件
-	if event.is_action_pressed("menu") and GameState.state==GameState.PLAYING:
+	if event.is_action_pressed("menu") and (GameState.state==GameState.PLAYING or GameState.state==GameState.PAUSED):
 		print("pressed")
 		# 立即标记事件为已处理
 	#	get_tree().set_input_as_handled()
@@ -58,6 +65,10 @@ func _input(event):
 	
 	#enter输入
 func _unhandled_input(event):
+	if GameState.get_last_child_of_node(add_child_place)==null:
+		return
+	if GameState.get_last_child_of_node(add_child_place).get_node("input_instruction")==null:
+		return
 	var message_input=GameState.get_last_child_of_node(add_child_place).get_node("input_instruction").get_node("input").get_node("Label_player")
 	if ui_main.visible==true:
 		#初始化暂停界面的输入
@@ -100,21 +111,24 @@ func _unhandled_input(event):
 				_on_continue_pressed()
 				ui_state=UI_STATE_MAIN
 			elif ui_state==UI_STATE_JUMP:
+				add_loading_process()
+				await get_tree().create_timer(8).timeout
 				_on_jump_pressed()
+				add_main_ui()
+				ui_hide()
 				ui_state=UI_STATE_MAIN
 			elif ui_state==UI_STATE_MAIN:
 				add_main_ui()
 				
-			delete_overflow_cmd()
+		delete_overflow_cmd()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func add_main_ui():
 	var new_input_instruction_node=Input_instruction_SCENE.instantiate()
 	get_off_cursor()
-	if is_instance_valid(first_input_instruction.get_node("selections")):
-		first_input_instruction.get_node("selections").queue_free()
-	if is_instance_valid(first_input_instruction.get_node("selection_level")):
-		#first_input_instruction.get_node("selection_level").queue_free()
-		pass
+	if first_input_instruction!=null:#check null and delete selection
+		if is_instance_valid(first_input_instruction.get_node("selections")):
+			first_input_instruction.get_node("selections").queue_free()
+			
 	first_input_instruction=new_input_instruction_node
 	add_child_place.add_child(new_input_instruction_node)
 
@@ -166,10 +180,9 @@ func _on_texture_button_bar_cross_pressed() -> void:
 	ui_main.visible=false
 
 func _on_jump_pressed():
-	get_tree().change_scene_to_file(level_address_with_index[where_to_go])
-	ui_hide()
-	add_main_ui()
-	
+	get_tree().change_scene_to_file(level_address_with_index[where_to_go])	
+	#ui_hide()
+
 func delete_overflow_cmd():
 	var child_count = add_child_place.get_child_count()
 	if child_count>3:
@@ -177,14 +190,46 @@ func delete_overflow_cmd():
 		first_child.queue_free()
 		
 func get_off_cursor():
+	if first_input_instruction==null:
+		return
 	first_input_instruction.get_node("input_instruction").get_node("input").get_node("MarginContainer").queue_free()#去掉光标
+
+func add_loading_process():
+	load_timer.timeout.connect(_on_load_timer_timeout)#添加过程在链接的函数
+	time_change_counter=0
+	_execute_next_step()
 
 
 func ui_out():
+	GameState.state=GameState.PAUSED
 	animate_ui.animate_in()
 	get_tree().paused = true
 	ui_main.visible=true
+	
 func ui_hide():
-
+	GameState.state=GameState.PLAYING
+	#animate_ui.animate_out()
 	get_tree().paused = false
 	ui_main.visible=false
+	
+func _on_load_timer_timeout() -> void:
+	_execute_next_step()
+	
+func _execute_next_step():
+	# 检查是否应该停止（相当于 while 循环的条件）
+	if time_change_counter >= 3:
+		load_timer.stop()
+		print("加载循环完成。")
+		#ui_hide()
+		#add_main_ui()
+		return
+	var new_process_node=Process_instruction_SCENE.instantiate()
+	add_child_place.add_child(new_process_node)
+	
+	load_timer.wait_time = time_change[time_change_counter ]
+	load_timer.start()
+	GameState.loading_process_signal.emit(time_change_counter)
+	time_change_counter += 1
+	delete_overflow_cmd()
+	
+	
