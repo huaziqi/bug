@@ -120,4 +120,3 @@ func breaks():
 	$AnimationPlayer.play("break")
 	$breaks.play()
 	await $AnimationPlayer.animation_finished
-	queue_free()

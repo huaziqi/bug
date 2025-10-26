@@ -101,6 +101,7 @@ level_manager = NodePath("..")
 player = NodePath("../Steel_Pipe")
 
 [node name="camera" parent="." instance=ExtResource("15_ov8fk")]
+aberration = 0.01
 
 [connection signal="timeout" from="TrailSystem/Timer" to="TrailSystem" method="_on_timer_timeout"]
 [connection signal="body_entered" from="DoorSystem/Platform/Checker" to="DoorSystem/Platform/Checker" method="_on_body_entered"]

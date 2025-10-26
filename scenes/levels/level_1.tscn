@@ -183,6 +183,7 @@ position = Vector2(1049, 348)
 [node name="start_cutscenes" parent="." instance=ExtResource("22_ndtll")]
 
 [node name="camera" parent="." instance=ExtResource("23_7h2jl")]
+aberration = 0.03
 
 [connection signal="body_entered" from="NumCaculator/Platform/Area2D" to="NumCaculator/Platform/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="NumCaculator/Platform/Area2D" to="NumCaculator/Platform/Area2D" method="_on_body_exited"]

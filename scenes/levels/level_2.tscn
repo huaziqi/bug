@@ -144,6 +144,7 @@ position = Vector2(358, 156)
 shape = SubResource("RectangleShape2D_r88tb")
 
 [node name="camera" parent="." instance=ExtResource("13_tv7cl")]
+aberration = 0.03
 
 [connection signal="body_entered" from="StaticBody2D/checker" to="StaticBody2D/checker" method="_on_body_entered"]
 [connection signal="body_exited" from="StaticBody2D/checker" to="StaticBody2D/checker" method="_on_body_exited"]

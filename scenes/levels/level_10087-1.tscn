@@ -37,6 +37,7 @@ stream = ExtResource("7_fhssp")
 
 [node name="camera" parent="." instance=ExtResource("8_bewp3")]
 position = Vector2(568, 328)
+Aberration = 1.0
 
 [node name="laser" parent="." instance=ExtResource("9_ylrno")]
 z_index = 1

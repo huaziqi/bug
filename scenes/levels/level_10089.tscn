@@ -28,6 +28,9 @@ frame = 4
 [node name="Flag" parent="." instance=ExtResource("4_gwxj4")]
 
 [node name="camera" parent="." instance=ExtResource("5_2d23y")]
+aberration = 0.043
+roll = true
+roll_size = 7.0
 
 [node name="fan" parent="." instance=ExtResource("6_5rsv5")]
 position = Vector2(408, 123)
