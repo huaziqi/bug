@@ -48,6 +48,12 @@ text = "-input [R]return"
 layout_mode = 2
 text = "-file list"
 
+[node name="GridContainer" type="GridContainer" parent="selection_level/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="selection_level/VBoxContainer"]
+layout_mode = 2
+
 [node name="HBoxContainer" type="HBoxContainer" parent="selection_level/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_moy4y")
@@ -87,19 +93,22 @@ layout_mode = 2
 layout_mode = 2
 text = "[5]方件Ⅴ"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="selection_level/VBoxContainer"]
+[node name="6" type="PanelContainer" parent="selection_level/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme = SubResource("Theme_xxn52")
+size_flags_horizontal = 3
 
-[node name="6" type="PanelContainer" parent="selection_level/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="selection_level/VBoxContainer/HBoxContainer2/6"]
+[node name="Label" type="Label" parent="selection_level/VBoxContainer/HBoxContainer/6"]
 layout_mode = 2
 text = "[6]纹身六"
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="selection_level/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme = SubResource("Theme_xxn52")
+
 [node name="7" type="PanelContainer" parent="selection_level/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="selection_level/VBoxContainer/HBoxContainer2/7"]
 layout_mode = 2
@@ -124,7 +133,18 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="selection_level/VBoxContainer/HBoxContainer2/10"]
 layout_mode = 2
-text = "[0]"
+text = "[0]&*^&^"
 
-[node name="Panel" type="Panel" parent="selection_level"]
+[node name="11" type="PanelContainer" parent="selection_level/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="selection_level/VBoxContainer/HBoxContainer2/11"]
+layout_mode = 2
+text = "[E]文件11"
+
+[node name="12" type="PanelContainer" parent="selection_level/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="selection_level/VBoxContainer/HBoxContainer2/12"]
+layout_mode = 2
+text = "[YOU HAVE NO RIGHT] Desktop"

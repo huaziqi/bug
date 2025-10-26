@@ -17,9 +17,19 @@ enum {UI_STATE_MAIN , UI_STATE_SETTING , UI_STATE_QUIT , UI_STATE_CONTINUE , UI_
 var ui_state:int = UI_STATE_MAIN
 #关卡相关
 var where_to_go="1"
-var level_address_with_index={"1":"res://scenes/levels/level_1.tscn",
-"2":"res://scenes/levels/level_2.tscn",
-"3":"res://scenes/levels/level_3.tscn"}
+var level_address_with_index={"1":"res://scenes/levels/level_0.tscn",
+"2":"res://scenes/levels/level_10086.tscn",
+"3":"res://scenes/levels/level_3.tscn",
+"4":"res://scenes/levels/level_4.tscn",
+"5":"res://scenes/levels/level_10087-1.tscn",
+"6":"res://scenes/levels/level_10087.tscn",
+"7":"res://scenes/levels/level_10088.tscn",
+"8":"res://scenes/levels/level_100810.tscn",
+"9":"res://scenes/levels/level_2.tscn",
+"0":"res://scenes/levels/level_1.tscn",
+#"?":"res://scenes/levels/level_10089.tscn",
+"E":"res://scenes/levels/level_10089.tscn"}
+
 #加载动画相关
 const time_change=[2,2,2]
 const basic_time_gap=0.05
@@ -83,7 +93,8 @@ func _unhandled_input(event):
 				message_input.text="L"
 				ui_state=UI_STATE_LEVEL
 		#level选关卡
-		if ui_state==UI_STATE_LEVEL:
+		elif ui_state==UI_STATE_LEVEL:
+			print(97)
 			if event.is_action_pressed("ui_input_return"):
 				message_input.text="R"
 				ui_state=UI_STATE_RETURN
@@ -94,6 +105,12 @@ func _unhandled_input(event):
 					message_input.text=add_n_value
 					ui_state=UI_STATE_JUMP
 					where_to_go=add_n_value
+					
+			
+			if event.is_action_pressed("END"):
+				message_input.text="E"
+				where_to_go="E"
+				ui_state=UI_STATE_JUMP
 			
 		
 				
@@ -104,6 +121,7 @@ func _unhandled_input(event):
 				_on_quit_pressed()
 				ui_state=UI_STATE_MAIN
 			elif ui_state==UI_STATE_LEVEL:
+				print(124)
 				_on_level_pressed()
 			elif ui_state==UI_STATE_RETURN:
 				_on_return_pressed()
@@ -135,9 +153,8 @@ func add_main_ui():
 func _on_level_pressed() -> void:
 	var new_level_instruction_node=Level_instruction_SCENE.instantiate()
 	get_off_cursor()
-	if is_instance_valid(first_input_instruction.get_node("selections")):
+	#if is_instance_valid(first_input_instruction.get_node("selections")):
 		#first_input_instruction.get_node("selections").queue_free()
-		pass
 	if is_instance_valid(first_input_instruction.get_node("selection_level")):
 		first_input_instruction.get_node("selection_level").queue_free()
 		#pass
@@ -165,25 +182,14 @@ func _on_texture_button_pressed() -> void:
 	get_tree().reload_current_scene()
 	
 
-	
-	'''
-	var new_scene = preload("res://scenes/levels/level_0.tscn").instantiate()
-	var parent = get_tree().root
-	parent.add_child(new_scene)
-	
-
-	# 删除旧场景（假设这是暂停菜单里的按钮）
-	get_tree().current_scene.queue_free()
-	get_tree().current_scene = new_scene
-	'''
-
-
 func _on_texture_button_bar_cross_pressed() -> void:
 	get_tree().paused = false
 	ui_main.visible=false
 
-func _on_jump_pressed():
+func _on_jump_pressed(): 
+	print(where_to_go)
 	get_tree().change_scene_to_file(level_address_with_index[where_to_go])	
+	
 	#ui_hide()
 
 func delete_overflow_cmd():
