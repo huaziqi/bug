@@ -65,6 +65,7 @@ position = Vector2(-3, -1.5)
 shape = SubResource("RectangleShape2D_404j0")
 
 [node name="InteractIcon" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(0, -149)
 scale = Vector2(0.265, 0.265)
 texture = ExtResource("5_5b877")

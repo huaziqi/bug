@@ -51,7 +51,7 @@ func apply_explosion_force(body: Node2D):
 	var direction = (body_position - explosion_center).normalized()
 
 	var distance = explosion_center.distance_to(body_position)
-	var force_strength = 270.0  # 基础力的大小
+	var force_strength = 350  # 基础力的大小
 
 	if body is RigidBody2D:
 		body.apply_central_impulse(direction * force_strength)

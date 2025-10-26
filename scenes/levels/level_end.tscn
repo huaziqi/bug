@@ -1,9 +1,9 @@
-[gd_scene load_steps=42 format=3 uid="uid://dr7jwchrktwxa"]
+[gd_scene load_steps=43 format=3 uid="uid://dr7jwchrktwxa"]
 
 [ext_resource type="Script" uid="uid://dkm8l7hojdw4l" path="res://scripts/levels/level_end_manager.gd" id="1_y03oe"]
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="2_m7naw"]
 [ext_resource type="PackedScene" uid="uid://yjx1s3lyivfg" path="res://scenes/map_units/popup_window.tscn" id="2_qpkib"]
-[ext_resource type="PackedScene" uid="uid://c36w4hassr74t" path="res://Tests/error.tscn" id="3_iyaps"]
+[ext_resource type="PackedScene" uid="uid://c36w4hassr74t" path="res://tests/error.tscn" id="3_iyaps"]
 [ext_resource type="Texture2D" uid="uid://pl2c6eu5r4nl" path="res://assets/temp(临时美术资源)/ground.png" id="3_qpkib"]
 [ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://scenes/characters/player/Pipe_player.tscn" id="4_iyaps"]
 [ext_resource type="PackedScene" uid="uid://cs3qu0yak2v7l" path="res://scenes/map_units/start_cutscenes.tscn" id="5_co3y3"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://rr2x6fgm5s6x" path="res://assets/sounds/sfx/flakes.mp3" id="11_ppkge"]
 [ext_resource type="AudioStream" uid="uid://biwnn1heqmqrx" path="res://assets/sounds/sfx/hole_open.mp3" id="12_ijxl3"]
 [ext_resource type="AudioStream" uid="uid://cwo6kb3jisr16" path="res://assets/temp(临时美术资源)/error_02.wav" id="16_co3y3"]
+[ext_resource type="PackedScene" uid="uid://bobd1dnm65ixa" path="res://scenes/characters/npc/zhang.tscn" id="17_qbcri"]
 
 [sub_resource type="Animation" id="Animation_utrje"]
 length = 0.001
@@ -309,10 +310,11 @@ _data = {
 &"break": SubResource("Animation_8iol1")
 }
 
-[node name="Level_end" type="Node2D"]
+[node name="Level_end" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_y03oe")
 pop = ExtResource("2_qpkib")
 error = ExtResource("3_iyaps")
+player = NodePath("Steel_Pipe")
 timeline_name = "level_end"
 
 [node name="BasicGround" parent="." instance=ExtResource("2_m7naw")]
@@ -407,5 +409,10 @@ volume_db = -6.753
 
 [node name="error" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_co3y3")
+
+[node name="Zhang" parent="." node_paths=PackedStringArray("level_manager", "player") instance=ExtResource("17_qbcri")]
+position = Vector2(448, -114)
+level_manager = NodePath("..")
+player = NodePath("../Steel_Pipe")
 
 [connection signal="body_entered" from="flake_fountain/Area2D" to="flake_fountain" method="_on_area_2d_body_entered"]

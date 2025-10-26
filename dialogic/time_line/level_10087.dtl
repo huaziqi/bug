@@ -8,7 +8,7 @@ elif {interact_time} == 2.0
 else:
 	jump repeat
 label auto
-zhang: adminZ entered
+adminZ entered
 zhang: 前辈你看你写的，你确定这不是bug吗？
 zhang: 诶？
 zhang: 刚才还不是这样的。

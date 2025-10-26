@@ -35,7 +35,13 @@ overrides = {
 "box_color_custom": "Color(0.34765625, 0.33543396, 0.33543396, 1)",
 "box_color_use_global": "false",
 "name_label_box_modulate": "Color(0.26953125, 0.2590027, 0.2590027, 1)",
-"name_label_box_use_global_color": "false"
+"name_label_box_use_global_color": "false",
+"name_label_custom_font_size": "25.0",
+"name_label_font": "\"res://assets/fonts/Silver.ttf\"",
+"name_label_use_global_font_size": "false",
+"normal_font": "\"res://assets/fonts/Silver.ttf\"",
+"text_size": "30.0",
+"text_use_global_size": "false"
 }
 
 [sub_resource type="Resource" id="Resource_mvjde"]

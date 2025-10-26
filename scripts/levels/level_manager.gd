@@ -9,6 +9,8 @@ const TRANSITION_SCENE = preload("uid://3guswm2uo0xu")
 @export var flag : Node
 @export var timeline_name : String
 var current_dialogue : Node = null
+var in_change : bool = false
+var first_talk_end : bool = false
 
 func _ready() -> void:
 	init_talking()
@@ -24,8 +26,12 @@ func init_position():
 func init_talking():
 	var num = Dialogic.VAR.get_variable("interact_time")
 	if(num >= 0):
+		first_talk_end = true
 		return
-	npc_talking()
+	get_tree().create_timer(0.8).timeout.connect(func():
+		npc_talking()
+		)
+
 
 func init_player():
 	if(player):
@@ -36,12 +42,16 @@ func init_player():
 func npc_talking():
 	if(current_dialogue != null or timeline_name == null or timeline_name == ""):
 		return
+	if(player and "freeze" in player):
+		player.freeze = true
 	current_dialogue = Dialogic.start(timeline_name)
 	get_tree().root.add_child(current_dialogue)
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
 
 func _on_dialogue_ended():
-	get_tree().paused = false
+	first_talk_end = true
+	if(player):
+		player.freeze = false
 	if current_dialogue:
 		current_dialogue.queue_free()
 		current_dialogue = null
@@ -76,7 +86,8 @@ func quit_current_level() -> void:
 
 # 切换下一个场景的函数
 func change_to_next_scene():
-	
+	in_change = true
+	Dialogic.end_timeline(true)
 	if(not next_scene):
 		return
 	TransitionInfo.next_scene = next_scene
