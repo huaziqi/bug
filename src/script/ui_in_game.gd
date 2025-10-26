@@ -112,10 +112,10 @@ func _unhandled_input(event):
 				ui_state=UI_STATE_MAIN
 			elif ui_state==UI_STATE_JUMP:
 				add_loading_process()
-				await get_tree().create_timer(8).timeout
+				await get_tree().create_timer(3.5).timeout
 				_on_jump_pressed()
-				add_main_ui()
 				ui_hide()
+				add_main_ui()
 				ui_state=UI_STATE_MAIN
 			elif ui_state==UI_STATE_MAIN:
 				add_main_ui()
@@ -220,19 +220,22 @@ func _on_load_timer_timeout() -> void:
 	
 func _execute_next_step():
 	# 检查是否应该停止（相当于 while 循环的条件）
-	if time_change_counter >= 3:
-		load_timer.stop()
-		print("加载循环完成。")
+	#if time_change_counter >= 3:
+		#load_timer.stop()
+		#print("加载循环完成。")
 		#ui_hide()
 		#add_main_ui()
-		return
+		#return
+	await get_tree().create_timer(1.5).timeout
 	var new_process_node=Process_instruction_SCENE.instantiate()
 	add_child_place.add_child(new_process_node)
+	#await get_tree().create_timer(1).timeout
+	#add_main_ui()
 	
-	load_timer.wait_time = time_change[time_change_counter ]
-	load_timer.start()
+	#load_timer.wait_time = time_change[time_change_counter ]
+	#load_timer.start()
 	GameState.loading_process_signal.emit(time_change_counter)
-	time_change_counter += 1
+	#time_change_counter += 1
 	delete_overflow_cmd()
 	
 	
