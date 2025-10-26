@@ -21,7 +21,6 @@ func start_transition():
 	
 	is_transitioning = true
 
-	print(next_scene.resource_path)
 	# 异步加载下一个场景
 	ResourceLoader.load_threaded_request(next_scene.resource_path)
 	

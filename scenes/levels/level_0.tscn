@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://chshif8cs7021"]
+[gd_scene load_steps=13 format=3 uid="uid://chshif8cs7021"]
 
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="1_o2sna"]
 [ext_resource type="Script" uid="uid://copts0ef8qjnc" path="res://scripts/levels/level_manager.gd" id="1_osc7o"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://scenes/characters/player/Pipe_player.tscn" id="2_yqnkn"]
 [ext_resource type="PackedScene" uid="uid://ct5l5eh65tbi1" path="res://scenes/map_units/flag.tscn" id="4_wjk5u"]
 [ext_resource type="PackedScene" uid="uid://bobd1dnm65ixa" path="res://scenes/characters/npc/zhang.tscn" id="6_6ayib"]
+[ext_resource type="PackedScene" uid="uid://cs3qu0yak2v7l" path="res://scenes/map_units/start_cutscenes.tscn" id="6_65guy"]
+[ext_resource type="PackedScene" uid="uid://5s2ku8p8nqju" path="res://scenes/map_units/camera.tscn" id="6_p6rmu"]
 [ext_resource type="Texture2D" uid="uid://ufso8s6ib6or" path="res://assets/sprites/map_units/mirror_frame.png" id="7_65guy"]
 [ext_resource type="Script" uid="uid://ccvwii8dy8t0d" path="res://src/test/checker.gd" id="8_p6rmu"]
 
@@ -33,6 +35,11 @@ position = Vector2(-7, 4)
 
 [node name="Flag" parent="." instance=ExtResource("4_wjk5u")]
 position = Vector2(1071, 358)
+
+[node name="camera" parent="." instance=ExtResource("6_p6rmu")]
+position = Vector2(568, 328)
+
+[node name="start_cutscenes" parent="." instance=ExtResource("6_65guy")]
 
 [node name="Zhang" parent="." node_paths=PackedStringArray("level_manager", "player") instance=ExtResource("6_6ayib")]
 position = Vector2(73, -4)

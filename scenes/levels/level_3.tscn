@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://edbw54x762jl"]
+[gd_scene load_steps=10 format=3 uid="uid://edbw54x762jl"]
 
 [ext_resource type="PackedScene" uid="uid://5kshbfs22s1x" path="res://scenes/characters/player/fake_ball.tscn" id="1_44gv1"]
 [ext_resource type="Script" uid="uid://c0exg8l88gc55" path="res://scripts/levels/level_3_manager.gd" id="1_ftfob"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b7c0m15c0ounq" path="res://scenes/map_units/nums/num_four.tscn" id="4_fmg3e"]
 [ext_resource type="PackedScene" uid="uid://bbcr5t21ro20c" path="res://scenes/map_units/fake_flag.tscn" id="4_ugcn1"]
 [ext_resource type="PackedScene" uid="uid://c7bamebswoa7j" path="res://scenes/map_units/nums/num_five.tscn" id="5_ftfob"]
+[ext_resource type="PackedScene" uid="uid://cs3qu0yak2v7l" path="res://scenes/map_units/start_cutscenes.tscn" id="5_pimnq"]
 
 [node name="Level3" type="Node2D" node_paths=PackedStringArray("flag")]
 position = Vector2(-1, 0)
@@ -22,6 +23,8 @@ collisions = [NodePath("RightBottomCollision"), NodePath("LeftBottomCollision"),
 
 [node name="Flag" parent="MoveableGround" instance=ExtResource("4_ugcn1")]
 position = Vector2(995, 358)
+
+[node name="start_cutscenes" parent="MoveableGround" instance=ExtResource("5_pimnq")]
 
 [node name="FakeBall" parent="." instance=ExtResource("1_44gv1")]
 position = Vector2(288, 373)

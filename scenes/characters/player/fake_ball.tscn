@@ -1,9 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://5kshbfs22s1x"]
+[gd_scene load_steps=11 format=3 uid="uid://5kshbfs22s1x"]
 
-[ext_resource type="Texture2D" uid="uid://di0qu4ahpm0d0" path="res://assets/temp(临时美术资源)/side_pipe.png" id="1_uqf8f"]
+[ext_resource type="Texture2D" uid="uid://krx3lsft5uvl" path="res://assets/temp(临时美术资源)/null_ball.png" id="1_o8sx6"]
 [ext_resource type="PackedScene" uid="uid://dn0bw5kg1vrhe" path="res://src/Scene/hand.tscn" id="2_57p7i"]
 [ext_resource type="Script" uid="uid://dt8lhtrpjmnnr" path="res://scripts/map_units/ground_checker.gd" id="3_57p7i"]
 [ext_resource type="Texture2D" uid="uid://bm0bfjijlv0fr" path="res://assets/sprites/characters/zhang.png" id="4_o8sx6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e56qv"]
+atlas = ExtResource("1_o8sx6")
+region = Rect2(420, 0, 423, 424)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_57p7i"]
 radius = 27.768013
@@ -24,9 +28,9 @@ size = Vector2(56, 139)
 [node name="FakeBall" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(5, -4.9999995)
-scale = Vector2(0.081, 0.086)
-texture = ExtResource("1_uqf8f")
+position = Vector2(-1, -3)
+scale = Vector2(0.131, 0.131)
+texture = SubResource("AtlasTexture_e56qv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -4)
@@ -47,16 +51,16 @@ position = Vector2(-1, 19.4375)
 shape = SubResource("RectangleShape2D_gfgnm")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-210, 20)
+position = Vector2(-119, 19.999992)
 shape = SubResource("RectangleShape2D_o8sx6")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(-207.75, -47.549995)
+position = Vector2(-116.75, -47.549995)
 scale = Vector2(0.15, 0.15)
 texture = SubResource("AtlasTexture_gfgnm")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-209.75, -46.049995)
+position = Vector2(-118.75, -46.049995)
 shape = SubResource("RectangleShape2D_e56qv")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

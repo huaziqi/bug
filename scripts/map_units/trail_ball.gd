@@ -21,7 +21,7 @@ func _ready() -> void:
 
 func random_scale_distortion():
 
-	var target_scale = Vector2(0.15, 0.15)
+	var target_scale = Vector2(0.2, 0.2)
 	
 	var tween = create_tween()
 	tween.set_parallel(true)

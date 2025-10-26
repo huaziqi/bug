@@ -1,18 +1,40 @@
 set {interact_time} += 1.0
 if {interact_time} == 0.0:
 	jump auto
+	
+elif {interact_time} == 1.0:
+	jump 1
 else:
 	jump repeat
 label auto
 zhang: 呵....
 zhang: 你以为我山穷水尽了？
+zhang: 坐好听着！
+
+jump end
+
+label 1
 zhang: 其实我刚刚摸清了你的底牌！
 zhang: 你的控制组件赋值是null，这就是为什么我拿你没招！
 zhang: 趁着你还能自由行动，多蹦蹦跳跳，制造点噪音吧！
-zhang: 来吧，让我z好好给你填充填充！
+zhang: 来吧，让我好好给你填充填充！
 zhang:   （无限复读施展无量空处妈咪妈咪哄）
 
-jump end
+zhang: 在程序中，我们的数据都有其存储的地址。在程序每次的实际运行过程中，变量在物理内存中的存储位置不尽相同。不过，我们仍能够在编程时，通过一定的语句，来取得数据在内存中的地址。
+zhang: 指针变量的大小在不同环境下有差异。在 32 位机上，地址用 32 位二进制整数表示，因此一个指针的大小为 4 字节。而 64 位机上，地址用 64 位二进制整数表示，因此一个指针的大小就变成了 8 字节。
+zhang: 地址只是一个刻度一般的数据，为了针对不同类型的数据，「指针变量」也有不同的类型，比如，可以有 int 类型的指针变量，其中存储的地址（即指针变量存储的数值）对应一块大小为 32 位的空间的起始地址；有 char 类型的指针变量，其中存储的地址对应一块 8 位的空间的起始地址。
+label class_repeat
+zhang: 事实上，用户也可以声明指向指针变量的指针变量。
+zhang: 在 C++11 之前，C++ 和 C 一样使用 NULL 宏表示空指针常量，C++ 中 NULL 的实现一般如下：
+zhang: #define NULL 0
+zhang: C 语言在 C23 前有两个 NULL 的定义，只有类型不同：一个是整型常量表达式，一个是转换为 void * 类型的常量表达式，但其值都为 0，编译器可任选一个实现。
+zhang: 空指针和整数 0 的混用在 C++ 中会导致许多问题，比如：
+zhang: int f(int x);
+		int f(int* p);
+zhang: 在调用 f(NULL) 时，实际调用的函数的类型是 int(int) 而不是 int(int *).
+zhang: 话说有人会用NULL去当被除数吗？
+jump class_repeat
+
 
 label repeat
 zhang: (....

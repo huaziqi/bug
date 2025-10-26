@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b5l4w2ks6oop4"]
+[gd_scene load_steps=14 format=3 uid="uid://b5l4w2ks6oop4"]
 
 [ext_resource type="Script" uid="uid://blx071g24nvtc" path="res://scripts/levels/level_10087_manager.gd" id="1_2ypl4"]
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="1_fepmk"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://5s2ku8p8nqju" path="res://scenes/map_units/camera.tscn" id="7_2ypl4"]
 [ext_resource type="AudioStream" uid="uid://dwpexgmfj62i3" path="res://assets/sounds/sfx/laserreset.mp3" id="7_bubof"]
 [ext_resource type="Shader" uid="uid://buyl0cfph67jb" path="res://shaders/level_100810.gdshader" id="11_n7fl6"]
+[ext_resource type="PackedScene" uid="uid://bobd1dnm65ixa" path="res://scenes/characters/npc/zhang.tscn" id="12_4ovdp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ovdp"]
 shader = ExtResource("11_n7fl6")
@@ -74,3 +75,7 @@ offset_left = -140.0
 offset_top = -118.0
 offset_right = 1253.0
 offset_bottom = 732.0
+
+[node name="Zhang" parent="." node_paths=PackedStringArray("level_manager", "player") instance=ExtResource("12_4ovdp")]
+level_manager = NodePath("..")
+player = NodePath("../Steel_Pipe")

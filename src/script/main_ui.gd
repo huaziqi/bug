@@ -1,6 +1,8 @@
 extends Control
 
+const TRANSITION_SCENE = preload("uid://3guswm2uo0xu")
 
+@export var first_scene : PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,7 +21,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func start_game():
 	set_process_unhandled_input(false)
-	get_tree().change_scene_to_file("res://scenes/levels/level_0.tscn")
+	TransitionInfo.next_scene = first_scene
+	get_tree().change_scene_to_packed(TRANSITION_SCENE)
 	GameState.state=GameState.PLAYING
 	GameState.game_initialized.emit()
 	

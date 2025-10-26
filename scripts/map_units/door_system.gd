@@ -3,9 +3,9 @@ extends Node
 @onready var door: StaticBody2D = $Door
 
 var basic_position : Vector2
-var up_speed : float = 2
-var down_speed : float = 0.5
-var max_length : float = 325
+var up_speed : float = 3
+var down_speed : float = 6
+var max_length : float = 250
 
 func _ready() -> void:
 	basic_position = door.global_position

@@ -6,6 +6,7 @@ extends RigidBody2D
 @export var on_class : AudioStream
 
 var static_player : bool = false
+var listended : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,12 +36,14 @@ func _physics_process(delta: float) -> void:
 		player.hand.temp_target_rigidbodies.clear()
 
 func listen_class():
-	MusicManager.play_sfx(on_class)
-	jiangtai.gravity_scale = 1
-	desk.gravity_scale = 1
-	static_player = true
-	player.gravity_scale = 0
-	player.lock_rotation = true
+	if(not listended):
+		MusicManager.play_sfx(on_class)
+		jiangtai.gravity_scale = 1
+		desk.gravity_scale = 1
+		static_player = true
+		player.gravity_scale = 0
+		player.lock_rotation = true
+		listended = true
 		# 强制停止手的物理运动
 
 

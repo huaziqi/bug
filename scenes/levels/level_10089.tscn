@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cabcjsouo44ka"]
+[gd_scene load_steps=11 format=3 uid="uid://cabcjsouo44ka"]
 
 [ext_resource type="Script" uid="uid://btmbb5q4nis20" path="res://scripts/levels/level_10089_manager.gd" id="1_pi6pv"]
 [ext_resource type="PackedScene" uid="uid://dr7jwchrktwxa" path="res://scenes/levels/level_end.tscn" id="2_fuwsl"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dkm8rf4jlgjed" path="res://scenes/map_units/fan.tscn" id="6_5rsv5"]
 [ext_resource type="PackedScene" uid="uid://rlvyp8w83cdj" path="res://scenes/map_units/fan_button.tscn" id="7_nncne"]
 [ext_resource type="PackedScene" uid="uid://cs3qu0yak2v7l" path="res://scenes/map_units/start_cutscenes.tscn" id="8_htknf"]
+[ext_resource type="PackedScene" uid="uid://bobd1dnm65ixa" path="res://scenes/characters/npc/zhang.tscn" id="10_fuwsl"]
 
 [node name="Level_0" type="Node2D" node_paths=PackedStringArray("player", "static_items", "flag")]
 script = ExtResource("1_pi6pv")
@@ -40,3 +41,8 @@ points = PackedVector2Array(0, 0, 0, 0)
 default_color = Color(0, 0, 0, 1)
 
 [node name="start_cutscenes" parent="." instance=ExtResource("8_htknf")]
+
+[node name="Zhang" parent="." node_paths=PackedStringArray("level_manager", "player") instance=ExtResource("10_fuwsl")]
+position = Vector2(85, -12)
+level_manager = NodePath("..")
+player = NodePath("../Steel_Pipe")

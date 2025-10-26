@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bnlr3ccl4v3b4"]
+[gd_scene load_steps=29 format=3 uid="uid://bnlr3ccl4v3b4"]
 
 [ext_resource type="Script" uid="uid://xbireb51ruxt" path="res://scripts/levels/level_1_manager.gd" id="1_gmpev"]
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="1_v2dmm"]
@@ -21,6 +21,8 @@
 [ext_resource type="Script" uid="uid://br310ojw346j2" path="res://scripts/map_units/nums/ans_platform.gd" id="17_bahl2"]
 [ext_resource type="PackedScene" uid="uid://bobd1dnm65ixa" path="res://scenes/characters/npc/zhang.tscn" id="19_v6ha0"]
 [ext_resource type="PackedScene" uid="uid://ct5l5eh65tbi1" path="res://scenes/map_units/flag.tscn" id="20_gmpev"]
+[ext_resource type="PackedScene" uid="uid://cs3qu0yak2v7l" path="res://scenes/map_units/start_cutscenes.tscn" id="22_ndtll"]
+[ext_resource type="PackedScene" uid="uid://5s2ku8p8nqju" path="res://scenes/map_units/camera.tscn" id="23_7h2jl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk5k4"]
 size = Vector2(180, 17.125)
@@ -28,15 +30,15 @@ size = Vector2(180, 17.125)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wtwp4"]
 size = Vector2(179, 14.25)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mkypq"]
+size = Vector2(20, 33.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ndtll"]
+
 [sub_resource type="Theme" id="Theme_mm8aj"]
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 44
 Label/fonts/font = ExtResource("16_iwr0g")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bahl2"]
-size = Vector2(20, 34)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_np2pn"]
 
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("player", "static_items", "flag")]
 script = ExtResource("1_gmpev")
@@ -102,10 +104,10 @@ position = Vector2(329, 44)
 position = Vector2(-225, -3)
 
 [node name="NumSix" parent="NumCaculator/Nums" instance=ExtResource("6_mm8aj")]
-position = Vector2(-227, 142)
+position = Vector2(-63, 226)
 
 [node name="NumOne" parent="NumCaculator/Nums" instance=ExtResource("7_wtwp4")]
-position = Vector2(-193, 109)
+position = Vector2(-59, 315)
 
 [node name="NumTwo" parent="NumCaculator/Nums" instance=ExtResource("8_iwr0g")]
 position = Vector2(-245, 80)
@@ -138,6 +140,27 @@ position = Vector2(447, 302)
 scale = Vector2(3.2, 0.75)
 texture = ExtResource("4_6761a")
 
+[node name="AnsPlatform" type="StaticBody2D" parent="NumCaculator" node_paths=PackedStringArray("ans_label", "collision_area", "checker_area")]
+position = Vector2(508, 335)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("17_bahl2")
+ans_label = NodePath("../Label")
+collision_area = NodePath("CollisionShape2D")
+checker_area = NodePath("Area2D/CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NumCaculator/AnsPlatform"]
+position = Vector2(6, 2)
+shape = SubResource("RectangleShape2D_mkypq")
+
+[node name="Area2D" type="Area2D" parent="NumCaculator/AnsPlatform"]
+collision_layer = 0
+script = ExtResource("5_mm8aj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NumCaculator/AnsPlatform/Area2D"]
+position = Vector2(6, -10)
+shape = SubResource("RectangleShape2D_ndtll")
+
 [node name="Label" type="Label" parent="NumCaculator"]
 offset_left = 491.0
 offset_top = 310.0
@@ -146,51 +169,22 @@ offset_bottom = 371.0
 theme = SubResource("Theme_mm8aj")
 text = "12"
 
-[node name="AnsPlatform" type="StaticBody2D" parent="NumCaculator/Label" node_paths=PackedStringArray("ans_label", "collision_area", "checker_area")]
-position = Vector2(4, 11)
-collision_layer = 2
-collision_mask = 0
-script = ExtResource("17_bahl2")
-ans_label = NodePath("..")
-collision_area = NodePath("CollisionShape2D")
-checker_area = NodePath("Area2D/CollisionShape2D")
+[node name="Marker2D" type="Marker2D" parent="NumCaculator"]
+position = Vector2(494, 323)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NumCaculator/Label/AnsPlatform"]
-position = Vector2(9, 17)
-shape = SubResource("RectangleShape2D_bahl2")
-
-[node name="Area2D" type="Area2D" parent="NumCaculator/Label/AnsPlatform"]
-collision_layer = 0
-script = ExtResource("5_mm8aj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NumCaculator/Label/AnsPlatform/Area2D"]
-position = Vector2(9, 4)
-shape = SubResource("RectangleShape2D_np2pn")
-
-[node name="ResetButton" type="Button" parent="."]
-offset_left = 1038.0
-offset_top = 39.0
-offset_right = 1086.0
-offset_bottom = 70.0
-text = "reset"
-
-[node name="Zhang" parent="." node_paths=PackedStringArray("player") instance=ExtResource("19_v6ha0")]
+[node name="Zhang" parent="." node_paths=PackedStringArray("level_manager", "player") instance=ExtResource("19_v6ha0")]
 position = Vector2(30, -116)
+level_manager = NodePath("..")
 player = NodePath("../SteelPipe")
 
 [node name="Flag" parent="." instance=ExtResource("20_gmpev")]
 position = Vector2(1049, 348)
 
-[node name="Next" type="Button" parent="."]
-offset_left = 1037.0
-offset_top = 87.0
-offset_right = 1080.0
-offset_bottom = 118.0
-text = "next"
+[node name="start_cutscenes" parent="." instance=ExtResource("22_ndtll")]
+
+[node name="camera" parent="." instance=ExtResource("23_7h2jl")]
 
 [connection signal="body_entered" from="NumCaculator/Platform/Area2D" to="NumCaculator/Platform/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="NumCaculator/Platform/Area2D" to="NumCaculator/Platform/Area2D" method="_on_body_exited"]
-[connection signal="body_entered" from="NumCaculator/Label/AnsPlatform/Area2D" to="NumCaculator/Label/AnsPlatform/Area2D" method="_on_body_entered"]
-[connection signal="body_exited" from="NumCaculator/Label/AnsPlatform/Area2D" to="NumCaculator/Label/AnsPlatform/Area2D" method="_on_body_exited"]
-[connection signal="pressed" from="ResetButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[connection signal="body_entered" from="NumCaculator/AnsPlatform/Area2D" to="NumCaculator/AnsPlatform/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="NumCaculator/AnsPlatform/Area2D" to="NumCaculator/AnsPlatform/Area2D" method="_on_body_exited"]

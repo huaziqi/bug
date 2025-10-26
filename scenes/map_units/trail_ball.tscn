@@ -1,8 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://ye8dhs32f7oj"]
+[gd_scene load_steps=8 format=3 uid="uid://ye8dhs32f7oj"]
 
-[ext_resource type="Texture2D" uid="uid://di0qu4ahpm0d0" path="res://assets/temp(临时美术资源)/side_pipe.png" id="1_5jkna"]
 [ext_resource type="Script" uid="uid://eeyebx1hiyic" path="res://scripts/map_units/trail_ball.gd" id="1_l8m2r"]
+[ext_resource type="Texture2D" uid="uid://krx3lsft5uvl" path="res://assets/temp(临时美术资源)/null_ball.png" id="2_l8m2r"]
 [ext_resource type="Texture2D" uid="uid://cxhcunyc80ikp" path="res://assets/sprites/map_units/err.png" id="4_7f75h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7f75h"]
+atlas = ExtResource("2_l8m2r")
+region = Rect2(418, 0, 425, 424)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tmfg8"]
 radius = 30.232435
@@ -29,9 +33,9 @@ collision_mask = 4
 script = ExtResource("1_l8m2r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(5, -3)
-scale = Vector2(0.0805407, 0.0856384)
-texture = ExtResource("1_5jkna")
+position = Vector2(-1.0000005, -1)
+scale = Vector2(0.136, 0.145)
+texture = SubResource("AtlasTexture_7f75h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-9.53674e-07, -1)

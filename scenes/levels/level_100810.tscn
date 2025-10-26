@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cv5xqjatp1ht0"]
+[gd_scene load_steps=15 format=3 uid="uid://cv5xqjatp1ht0"]
 
 [ext_resource type="Script" uid="uid://c2aquu4qg48sg" path="res://scripts/levels/level_100810_manager.gd" id="1_8uxql"]
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="2_25a75"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dh0ufa0oo0t15" path="res://assets/sprites/map_units/wall.png" id="7_gpyf1"]
 [ext_resource type="AudioStream" uid="uid://cf8emviftgdfc" path="res://assets/sounds/sfx/wall_fall.mp3" id="9_80vgp"]
 [ext_resource type="Shader" uid="uid://buyl0cfph67jb" path="res://shaders/level_100810.gdshader" id="11_t2nse"]
+[ext_resource type="PackedScene" uid="uid://bobd1dnm65ixa" path="res://scenes/characters/npc/zhang.tscn" id="12_82qnk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_25a75"]
 size = Vector2(129, 356)
@@ -84,5 +85,10 @@ offset_left = -140.0
 offset_top = -118.0
 offset_right = 1253.0
 offset_bottom = 732.0
+
+[node name="Zhang" parent="." node_paths=PackedStringArray("level_manager", "player") instance=ExtResource("12_82qnk")]
+position = Vector2(86, -20)
+level_manager = NodePath("..")
+player = NodePath("../Steel_Pipe")
 
 [connection signal="flag_up" from="Flag" to="." method="_on_flag_flag_up"]

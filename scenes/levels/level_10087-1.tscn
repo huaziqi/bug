@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://lcy1suf8pwf7"]
+[gd_scene load_steps=13 format=3 uid="uid://lcy1suf8pwf7"]
 
 [ext_resource type="Script" uid="uid://cyodkgoa6f32i" path="res://scripts/levels/level_10087_1.gd" id="1_gjtds"]
 [ext_resource type="PackedScene" uid="uid://b5l4w2ks6oop4" path="res://scenes/levels/level_10087.tscn" id="2_wi2oc"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://5s2ku8p8nqju" path="res://scenes/map_units/camera.tscn" id="8_bewp3"]
 [ext_resource type="PackedScene" uid="uid://qn2mxmxrshh2" path="res://scenes/map_units/laser.tscn" id="9_ylrno"]
 [ext_resource type="PackedScene" uid="uid://cs3qu0yak2v7l" path="res://scenes/map_units/start_cutscenes.tscn" id="10_p772v"]
+[ext_resource type="PackedScene" uid="uid://bobd1dnm65ixa" path="res://scenes/characters/npc/zhang.tscn" id="12_2x8mj"]
 
 [node name="Level_10087-1" type="Node2D" node_paths=PackedStringArray("player", "static_items", "flag")]
 script = ExtResource("1_gjtds")
@@ -18,7 +19,6 @@ player = NodePath("Steel_Pipe")
 next_scene = ExtResource("2_wi2oc")
 static_items = [NodePath("laser")]
 flag = NodePath("Flag")
-timeline_name = "level_10087-1"
 
 [node name="BasicGround" parent="." instance=ExtResource("3_2x8mj")]
 z_index = 2
@@ -46,3 +46,8 @@ standing_spot = Vector2(-59, 300)
 b_r = 90.0
 
 [node name="start_cutscenes" parent="." instance=ExtResource("10_p772v")]
+
+[node name="Zhang" parent="." node_paths=PackedStringArray("level_manager", "player") instance=ExtResource("12_2x8mj")]
+position = Vector2(66, -4)
+level_manager = NodePath("..")
+player = NodePath("../Steel_Pipe")

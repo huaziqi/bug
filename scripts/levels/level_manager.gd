@@ -16,6 +16,10 @@ func _ready() -> void:
 	init_signal()
 	init_ui()
 	show_all_items()
+	init_position()
+
+func init_position():
+	pass
 
 func init_talking():
 	var num = Dialogic.VAR.get_variable("interact_time")
@@ -30,7 +34,7 @@ func init_player():
 		push_error("player is null")
 
 func npc_talking():
-	if(current_dialogue != null):
+	if(current_dialogue != null or timeline_name == null or timeline_name == ""):
 		return
 	current_dialogue = Dialogic.start(timeline_name)
 	get_tree().root.add_child(current_dialogue)
