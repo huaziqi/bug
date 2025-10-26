@@ -32,6 +32,5 @@ func breaking() -> void:
 	breaking_progress+=0.01
 	if is_instance_valid($"../start_cutscenes"):
 		$"../start_cutscenes".get_node("cutscenes").display(breaking_progress)
-	print(breaking_progress)
 
 	

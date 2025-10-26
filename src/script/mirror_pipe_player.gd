@@ -22,8 +22,8 @@ var temp=really_on_ground
 var last_jump_time: float = 0.0
 
 func _physics_process(_delta: float) -> void:
-	# 处理移动、跳跃和下落加速
-	handle_movement()  
+	if not $"../Steel_Pipe".freezing:
+		handle_movement()  
 	handle_jump()
 	handle_fall_acceleration()
 	absorb_to_container(_delta) #吸附到数字框
