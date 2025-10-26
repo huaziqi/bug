@@ -51,7 +51,7 @@ autostart = true
 script = ExtResource("5_ts8eg")
 
 [node name="Door" type="StaticBody2D" parent="DoorSystem"]
-position = Vector2(-5, 0)
+position = Vector2(-8, 0)
 collision_layer = 2
 collision_mask = 0
 

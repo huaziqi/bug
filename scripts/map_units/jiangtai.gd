@@ -7,6 +7,7 @@ extends RigidBody2D
 
 var static_player : bool = false
 var listended : bool = false
+@onready var level_2: Node2D = $".."
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,12 +18,16 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
+
 		static_player = false
 		player.gravity_scale = player.gravity
 		player.lock_rotation = false
 		player.hand.get_node("AnimatedSprite2D").flip_h = false
 
 func _physics_process(delta: float) -> void:
+	if(not level_2.in_change and player.global_position.y > 700):
+		print(player.global_position.y)
+		player.global_position.y = 0
 	if(static_player):
 		player.position = desk.position + Vector2(20, -20)
 		player.hand.global_position = player.global_position + Vector2(-30, 0)

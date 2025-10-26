@@ -4,8 +4,8 @@ extends Node
 
 var basic_position : Vector2
 var up_speed : float = 3
-var down_speed : float = 6
-var max_length : float = 250
+var down_speed : float = 3
+var max_length : float = 210
 
 func _ready() -> void:
 	basic_position = door.global_position
