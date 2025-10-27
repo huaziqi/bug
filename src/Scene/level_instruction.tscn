@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://flhoa422kdly"]
+[gd_scene load_steps=10 format=3 uid="uid://flhoa422kdly"]
 
 [ext_resource type="FontFile" uid="uid://d2o0pmjktk63t" path="res://assets/fonts/Gill Sans Ultra Bold Condensed.ttf" id="1_6x5as"]
 [ext_resource type="Script" uid="uid://bk55rkcmwc36n" path="res://src/Scene/initial_ui.gd" id="1_x4wro"]
 [ext_resource type="PackedScene" uid="uid://q707o5rt2ktq" path="res://src/Scene/input_instruction.tscn" id="2_6x5as"]
+[ext_resource type="Theme" uid="uid://bqcdi106wexla" path="res://src/theme/ui_loading_process.tres" id="4_77yaw"]
 [ext_resource type="FontFile" uid="uid://dmq6uypfm7okh" path="res://assets/fonts/Silver.ttf" id="4_kfsom"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77yaw"]
@@ -39,6 +40,7 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="selection_level/VBoxContainer/PanelContainer"]
 layout_mode = 2
+theme = ExtResource("4_77yaw")
 
 [node name="return" type="Label" parent="selection_level/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -46,7 +48,8 @@ text = "-input [R]return"
 
 [node name="prompt" type="Label" parent="selection_level/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
-text = "-file list"
+text = "-file list
+__________________________________________________________________"
 
 [node name="GridContainer" type="GridContainer" parent="selection_level/VBoxContainer/PanelContainer"]
 layout_mode = 2
