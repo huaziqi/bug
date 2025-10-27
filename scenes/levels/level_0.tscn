@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://chshif8cs7021"]
 
+[ext_resource type="Script" uid="uid://csityi0x8dkft" path="res://scripts/levels/level_0_manager.gd" id="1_65guy"]
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="1_o2sna"]
-[ext_resource type="Script" uid="uid://copts0ef8qjnc" path="res://scripts/levels/level_manager.gd" id="1_osc7o"]
 [ext_resource type="PackedScene" uid="uid://vt0jkl7fi1mh" path="res://scenes/levels/level_10086.tscn" id="2_xy1qu"]
 [ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://scenes/characters/player/Pipe_player.tscn" id="2_yqnkn"]
-[ext_resource type="AudioStream" uid="uid://bv75usnd80kcn" path="res://assets/sounds/sfx/铃芽之旅_开头.mp3" id="3_34hum"]
+[ext_resource type="AudioStream" uid="uid://bwv56llj4tp7g" path="res://assets/sounds/music/bgm1（无限循环版）.mp3" id="3_34hum"]
 [ext_resource type="PackedScene" uid="uid://ct5l5eh65tbi1" path="res://scenes/map_units/flag.tscn" id="4_wjk5u"]
 [ext_resource type="PackedScene" uid="uid://bobd1dnm65ixa" path="res://scenes/characters/npc/zhang.tscn" id="6_6ayib"]
 [ext_resource type="PackedScene" uid="uid://cs3qu0yak2v7l" path="res://scenes/map_units/start_cutscenes.tscn" id="6_65guy"]
@@ -20,14 +20,15 @@ size = Vector2(140, 17)
 
 [node name="Level_0" type="Node2D" node_paths=PackedStringArray("player", "static_items", "flag")]
 process_mode = 1
-script = ExtResource("1_osc7o")
+script = ExtResource("1_65guy")
 player = NodePath("Steel_Pipe")
 next_scene = ExtResource("2_xy1qu")
-static_items = [null]
+static_items = [NodePath("Plantform")]
 flag = NodePath("Flag")
 timeline_name = "level_0"
+level_index = "1"
+address_level = "res://scenes/levels/level_0.tscn"
 bgm = ExtResource("3_34hum")
-level_index = "0"
 
 [node name="Steel_Pipe" parent="." instance=ExtResource("2_yqnkn")]
 position = Vector2(963, 63)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cabcjsouo44ka"]
+[gd_scene load_steps=12 format=3 uid="uid://cabcjsouo44ka"]
 
 [ext_resource type="Script" uid="uid://btmbb5q4nis20" path="res://scripts/levels/level_10089_manager.gd" id="1_pi6pv"]
 [ext_resource type="PackedScene" uid="uid://dr7jwchrktwxa" path="res://scenes/levels/level_end.tscn" id="2_fuwsl"]
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="2_ykugv"]
 [ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://scenes/characters/player/Pipe_player.tscn" id="3_fuwsl"]
+[ext_resource type="AudioStream" uid="uid://ukq1hm3qq21n" path="res://assets/sounds/music/bgm2（改进版无限循环版）.mp3" id="3_gwxj4"]
 [ext_resource type="PackedScene" uid="uid://ct5l5eh65tbi1" path="res://scenes/map_units/flag.tscn" id="4_gwxj4"]
 [ext_resource type="PackedScene" uid="uid://5s2ku8p8nqju" path="res://scenes/map_units/camera.tscn" id="5_2d23y"]
 [ext_resource type="PackedScene" uid="uid://dkm8rf4jlgjed" path="res://scenes/map_units/fan.tscn" id="6_5rsv5"]
@@ -20,6 +21,7 @@ flag = NodePath("Flag")
 timeline_name = "level_10089"
 level_index = "E"
 address_level = "res://scenes/levels/level_10089.tscn"
+bgm = ExtResource("3_gwxj4")
 
 [node name="BasicGround" parent="." instance=ExtResource("2_ykugv")]
 position = Vector2(-7, 4)

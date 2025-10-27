@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://ccs185p6fdqmx"]
+[gd_scene load_steps=20 format=3 uid="uid://ccs185p6fdqmx"]
 
 [ext_resource type="Script" uid="uid://dx4mccamb3wf2" path="res://scripts/levels/level_10086_manager.gd" id="1_q2htw"]
 [ext_resource type="PackedScene" uid="uid://cv5xqjatp1ht0" path="res://scenes/levels/level_100810.tscn" id="2_rd5pl"]
+[ext_resource type="AudioStream" uid="uid://ukq1hm3qq21n" path="res://assets/sounds/music/bgm2（改进版无限循环版）.mp3" id="3_8h01l"]
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="3_s2ltn"]
 [ext_resource type="PackedScene" uid="uid://p6dopje3btqk" path="res://scenes/characters/player/Pipe_player.tscn" id="4_8h01l"]
 [ext_resource type="PackedScene" uid="uid://b33i821hn6ng3" path="res://scenes/characters/player/mirror_Pipe_player.tscn" id="5_wh0ca"]
@@ -104,6 +105,7 @@ flag = NodePath("Flag")
 timeline_name = "level_10088"
 level_index = "7"
 address_level = "res://scenes/levels/level_10088.tscn"
+bgm = ExtResource("3_8h01l")
 
 [node name="BasicGround" parent="." instance=ExtResource("3_s2ltn")]
 position = Vector2(-6, 4)

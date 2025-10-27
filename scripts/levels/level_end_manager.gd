@@ -4,6 +4,7 @@ extends LevelManager
 @export var error:PackedScene
 func _ready() -> void:
 	super._ready()
+	MusicManager.stop_music()
 	$endflake.visible=false
 	$Steel_Pipe.freezing=true
 	$flake_fountain.visible=false

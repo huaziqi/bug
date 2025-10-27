@@ -8,20 +8,27 @@ const TRANSITION_SCENE = preload("uid://3guswm2uo0xu")
 @export var static_items : Array[Node] #不移动的item，也就是开局要显现出来的
 @export var flag : Node
 @export var timeline_name : String
-@export var bgm: AudioStream
 @export var level_index:String#="1"
 @export var address_level:String#="res://scenes/levels/level_0.tscn"
+@export var bgm : AudioStream
 var current_dialogue : Node = null
 var in_change : bool = false
 var first_talk_end : bool = false
 
+
 func _ready() -> void:
+
+	if(bgm and not MusicManager.is_music_playing(bgm)):
+		MusicManager.play_music(bgm)
 	GameState.level_address_with_index[level_index]=address_level
-	print("quanbushuchu")
+	Config.access_levels = GameState.level_address_with_index
 	print(GameState.level_address_with_index)
-	print("本关的index和保存进度：")
-	print(level_index)
-	print(GameState.level_address_with_index[level_index])
+	Config._save()
+	#print("quanbushuchu")
+	#print(GameState.level_address_with_index)
+	#print("本关的index和保存进度：")
+	#print(level_index)
+	#print(GameState.level_address_with_index[level_index])
 	init_talking()
 	init_player()
 	init_signal()
@@ -49,6 +56,7 @@ func init_player():
 		push_error("player is null")
 
 func npc_talking():
+	print(timeline_name)
 	if(current_dialogue != null or timeline_name == null or timeline_name == ""):
 		return
 	if(player and "freezing" in player):
@@ -87,6 +95,7 @@ func _on_button_pressed() -> void:
 func quit_current_level() -> void:
 	
 	var tween = create_tween()
+	in_change = true
 	if basic_ground:
 		tween.tween_property(basic_ground, "position:y", 
 			basic_ground.position.y + 500,  # 向下移动500像素
@@ -97,7 +106,7 @@ func quit_current_level() -> void:
 
 # 切换下一个场景的函数
 func change_to_next_scene():
-	in_change = true
+
 	Dialogic.end_timeline(true)
 	if(not next_scene):
 		return

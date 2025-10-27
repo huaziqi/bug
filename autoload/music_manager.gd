@@ -41,6 +41,19 @@ func play_music(_audio : AudioStream) -> void:
 	next_music_player.play()
 	music_players_index = next_index
 
+func is_music_playing(audio: AudioStream = null) -> bool:
+	if audio != null:
+		for player in music_players:
+			if player.playing and player.stream == audio:
+				return true
+		return false
+	else:
+		# 检查是否有任何音乐正在播放
+		for player in music_players:
+			if player.playing:
+				return true
+		return false
+
 func stop_music() -> void:
 	# 停止当前正在播放的音乐
 	var current_music_player = music_players[music_players_index]

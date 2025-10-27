@@ -1,24 +1,27 @@
-[gd_scene load_steps=11 format=3 uid="uid://edbw54x762jl"]
+[gd_scene load_steps=12 format=3 uid="uid://edbw54x762jl"]
 
 [ext_resource type="PackedScene" uid="uid://5kshbfs22s1x" path="res://scenes/characters/player/fake_ball.tscn" id="1_44gv1"]
 [ext_resource type="Script" uid="uid://c0exg8l88gc55" path="res://scripts/levels/level_3_manager.gd" id="1_ftfob"]
 [ext_resource type="PackedScene" uid="uid://cyckxdgr73uaa" path="res://scenes/map_units/grounds/moveable_ground.tscn" id="2_0ljxa"]
 [ext_resource type="PackedScene" uid="uid://dxiqoa00bnrk2" path="res://scenes/levels/level_4.tscn" id="2_fkk1g"]
 [ext_resource type="PackedScene" uid="uid://b76nxivnmqq62" path="res://scenes/map_units/nums/num_one.tscn" id="3_0qepi"]
+[ext_resource type="AudioStream" uid="uid://bwv56llj4tp7g" path="res://assets/sounds/music/bgm1（无限循环版）.mp3" id="3_n6eey"]
 [ext_resource type="PackedScene" uid="uid://b7c0m15c0ounq" path="res://scenes/map_units/nums/num_four.tscn" id="4_fmg3e"]
 [ext_resource type="PackedScene" uid="uid://bbcr5t21ro20c" path="res://scenes/map_units/fake_flag.tscn" id="4_ugcn1"]
 [ext_resource type="PackedScene" uid="uid://c7bamebswoa7j" path="res://scenes/map_units/nums/num_five.tscn" id="5_ftfob"]
 [ext_resource type="PackedScene" uid="uid://cs3qu0yak2v7l" path="res://scenes/map_units/start_cutscenes.tscn" id="5_pimnq"]
 [ext_resource type="PackedScene" uid="uid://5s2ku8p8nqju" path="res://scenes/map_units/camera.tscn" id="10_2bnyt"]
 
-[node name="Level3" type="Node2D" node_paths=PackedStringArray("flag")]
+[node name="Level3" type="Node2D" node_paths=PackedStringArray("static_items", "flag")]
 position = Vector2(-1, 0)
 script = ExtResource("1_ftfob")
 next_scene = ExtResource("2_fkk1g")
+static_items = [NodePath("NumOne"), NodePath("NumOne2"), NodePath("NumFour"), NodePath("NumFive"), NodePath("NumOne3"), NodePath("NumFour2")]
 flag = NodePath("MoveableGround/Flag")
 timeline_name = "level_3"
 level_index = "3"
 address_level = "res://scenes/levels/level_3.tscn"
+bgm = ExtResource("3_n6eey")
 
 [node name="MoveableGround" parent="." node_paths=PackedStringArray("collisions") instance=ExtResource("2_0ljxa")]
 position = Vector2(-1, 257)
@@ -26,6 +29,7 @@ collisions = [NodePath("RightBottomCollision"), NodePath("LeftBottomCollision"),
 
 [node name="Flag" parent="MoveableGround" instance=ExtResource("4_ugcn1")]
 position = Vector2(995, 358)
+collision_mask = 0
 
 [node name="start_cutscenes" parent="MoveableGround" instance=ExtResource("5_pimnq")]
 
@@ -33,11 +37,12 @@ position = Vector2(995, 358)
 position = Vector2(288, 373)
 
 [node name="NumOne" parent="." instance=ExtResource("3_0qepi")]
+z_index = -2
 position = Vector2(381, 368)
 gravity_scale = -1.0
-b_gravity = -1.0
 
 [node name="NumOne2" parent="." instance=ExtResource("3_0qepi")]
+z_index = -5
 position = Vector2(425, 369)
 gravity_scale = -1.0
 b_gravity = -1.0
@@ -50,6 +55,7 @@ b_gravity = -1.0
 [node name="NumFour" parent="." instance=ExtResource("4_fmg3e")]
 position = Vector2(473, 371)
 gravity_scale = -1.0
+b_gravity = -1.0
 
 [node name="NumFive" parent="." instance=ExtResource("5_ftfob")]
 position = Vector2(527, 371)
@@ -58,6 +64,7 @@ gravity_scale = -1.0
 [node name="NumFour2" parent="." instance=ExtResource("4_fmg3e")]
 position = Vector2(624, 368)
 gravity_scale = -1.0
+b_gravity = -1.0
 
 [node name="camera" parent="." instance=ExtResource("10_2bnyt")]
 aberration = 0.01
