@@ -45,32 +45,33 @@ collision_mask = 2
 position = Vector2(-7, 4)
 
 [node name="keyboard_e" type="Sprite2D" parent="BasicGround"]
-position = Vector2(63.5, 572)
+position = Vector2(215, 469.00006)
 scale = Vector2(3, 3)
 texture = ExtResource("6_vhkxn")
 
 [node name="keyboard_wasd" type="Sprite2D" parent="BasicGround"]
-position = Vector2(62.000008, 479.5)
+position = Vector2(139, 520)
 scale = Vector2(3, 3)
 texture = ExtResource("7_1q7iv")
 
 [node name="keyboard_space" type="Sprite2D" parent="BasicGround"]
-position = Vector2(329, 478.5)
+position = Vector2(225, 594.00006)
 scale = Vector2(3, 3)
 texture = ExtResource("8_s4l03")
 
 [node name="keyboard_esc" type="Sprite2D" parent="BasicGround"]
-position = Vector2(330, 573)
+position = Vector2(68, 463)
 scale = Vector2(4, 4)
 texture = ExtResource("9_ypncs")
 
 [node name="keyboard_mouse" type="Sprite2D" parent="BasicGround"]
-position = Vector2(892, 480)
+visible = false
+position = Vector2(341, 475.00003)
 scale = Vector2(1.9, 1.9)
 texture = ExtResource("10_erlbe")
 
 [node name="keyboard_mouse;eft" type="Sprite2D" parent="BasicGround"]
-position = Vector2(894.00006, 570)
+position = Vector2(324, 519)
 scale = Vector2(1.9, 1.9)
 texture = ExtResource("11_xpoxe")
 
