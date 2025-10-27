@@ -92,7 +92,7 @@ position = Vector2(1092, 362)
 [node name="jiangtai" type="RigidBody2D" parent="." groups=["grippable"]]
 position = Vector2(87, -143)
 collision_layer = 4
-collision_mask = 2
+collision_mask = 3
 gravity_scale = 0.0
 script = ExtResource("8_3p04p")
 on_class = ExtResource("9_qsp8v")
