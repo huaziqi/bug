@@ -9,9 +9,9 @@ extends Camera2D
 @export var roll_size:float=0
 func _ready() -> void:
 	position=pos
-	$ColorRect.material.set_shader_parameter("aberration", aberration)
-	$ColorRect.material.set_shader_parameter("roll", roll)
-	$ColorRect.material.set_shader_parameter("roll_size", roll_size)
+	$CanvasLayer/ColorRect.material.set_shader_parameter("aberration", aberration)
+	$CanvasLayer/ColorRect.material.set_shader_parameter("roll", roll)
+	$CanvasLayer/ColorRect.material.set_shader_parameter("roll_size", roll_size)
 func _process(delta):
 	if is_shaking:
 		# 随机偏移位置实现抖动

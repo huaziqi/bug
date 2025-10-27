@@ -1,14 +1,12 @@
-[gd_scene load_steps=29 format=3 uid="uid://dehf8owa8j41j"]
+[gd_scene load_steps=27 format=3 uid="uid://dehf8owa8j41j"]
 
 [ext_resource type="Script" uid="uid://cxo4v3lqjutf2" path="res://src/script/ui_in_game.gd" id="1_n64jb"]
 [ext_resource type="FontFile" uid="uid://d2o0pmjktk63t" path="res://assets/fonts/Gill Sans Ultra Bold Condensed.ttf" id="1_yw1oe"]
 [ext_resource type="Texture2D" uid="uid://c7x1s4r2toupx" path="res://assets/temp(临时美术资源)/x_black_15 (2).png" id="3_gj7pb"]
 [ext_resource type="Script" uid="uid://ckdocqy2u6h57" path="res://src/Scene/animate_ui.gd" id="3_kw78t"]
-[ext_resource type="Texture2D" uid="uid://8qx5wl8qos07" path="res://assets/temp(临时美术资源)/restart_buttun.png" id="3_l1ej1"]
 [ext_resource type="Texture2D" uid="uid://b25mjl1eddjii" path="res://assets/temp(临时美术资源)/x_red_15.png" id="4_iks2h"]
 [ext_resource type="FontFile" uid="uid://dmq6uypfm7okh" path="res://assets/fonts/Silver.ttf" id="5_iks2h"]
 [ext_resource type="PackedScene" uid="uid://cwwq0qjikn4cc" path="res://src/Scene/initial_ui.tscn" id="6_ammk3"]
-[ext_resource type="Texture2D" uid="uid://b5ilbcu2n4om5" path="res://terminal_circle_icon_100x100.png" id="9_5tn4j"]
 
 [sub_resource type="Theme" id="Theme_ammk3"]
 
@@ -189,6 +187,7 @@ theme = SubResource("Theme_ammk3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
+layer = 2
 script = ExtResource("1_n64jb")
 
 [node name="Panel" type="PanelContainer" parent="CanvasLayer"]
@@ -258,20 +257,17 @@ anchors_preset = -1
 anchor_right = 0.035
 anchor_bottom = 0.062000003
 offset_left = 1009.99994
-offset_top = -11.000001
-offset_right = 1073.68
-offset_bottom = 100.824
+offset_right = 1069.68
+offset_bottom = 96.1097
 scale = Vector2(0.7, 0.7)
-texture_normal = ExtResource("3_l1ej1")
 
 [node name="TextureButton2" type="TextureButton" parent="CanvasLayer"]
 offset_left = 1080.0
-offset_top = 15.0
-offset_right = 1180.0
-offset_bottom = 115.0
+offset_top = 2.0
+offset_right = 1220.0
+offset_bottom = 190.0
 scale = Vector2(0.5, 0.5)
 focus_mode = 0
-texture_normal = ExtResource("9_5tn4j")
 
 [node name="load_timer" type="Timer" parent="."]
 wait_time = 2.0

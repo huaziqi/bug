@@ -2,6 +2,7 @@ extends Node
 class_name LevelManager
 
 const TRANSITION_SCENE = preload("uid://3guswm2uo0xu")
+const FAKE_UI = preload("res://scenes/map_units/fake_ui.tscn")
 @onready var basic_ground: Node2D = $BasicGround
 @export var player : Node
 @export var next_scene : PackedScene
@@ -17,7 +18,8 @@ var first_talk_end : bool = false
 
 
 func _ready() -> void:
-
+	var fi=FAKE_UI.instantiate()
+	add_child(fi)
 	if(bgm and not MusicManager.is_music_playing(bgm)):
 		MusicManager.play_music(bgm)
 	GameState.level_address_with_index[level_index]=address_level
