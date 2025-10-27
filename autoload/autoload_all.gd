@@ -23,7 +23,8 @@ var level_address_with_index={"1":"res://scenes/levels/level_0.tscn","2":null,#1
 
 func _ready() -> void:
 	Config._load()
-	level_address_with_index = Config.access_levels
+	if(Config.access_levels):
+		level_address_with_index = Config.access_levels
 
 func _on_continue_pressed() -> void:
 	continue_ui.emit()

@@ -22,12 +22,13 @@ func _ready() -> void:
 		MusicManager.play_music(bgm)
 	GameState.level_address_with_index[level_index]=address_level
 	Config.access_levels = GameState.level_address_with_index
-	Config._save()
-	print("quanbushuchu")
 	print(GameState.level_address_with_index)
-	print("本关的index和保存进度：")
-	print(level_index)
-	print(GameState.level_address_with_index[level_index])
+	Config._save()
+	#print("quanbushuchu")
+	#print(GameState.level_address_with_index)
+	#print("本关的index和保存进度：")
+	#print(level_index)
+	#print(GameState.level_address_with_index[level_index])
 	init_talking()
 	init_player()
 	init_signal()
@@ -94,6 +95,7 @@ func _on_button_pressed() -> void:
 func quit_current_level() -> void:
 	
 	var tween = create_tween()
+	in_change = true
 	if basic_ground:
 		tween.tween_property(basic_ground, "position:y", 
 			basic_ground.position.y + 500,  # 向下移动500像素
@@ -104,7 +106,7 @@ func quit_current_level() -> void:
 
 # 切换下一个场景的函数
 func change_to_next_scene():
-	in_change = true
+
 	Dialogic.end_timeline(true)
 	if(not next_scene):
 		return

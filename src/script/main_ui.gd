@@ -2,11 +2,38 @@ extends Control
 
 const TRANSITION_SCENE = preload("uid://3guswm2uo0xu")
 
-@export var first_scene : PackedScene
+var first_scene : PackedScene
+var access_level : Dictionary
+
+var level_index : Dictionary = {
+	"1": 1,
+	"2": 2,
+	"3": 3,
+	"4": 4,
+	"5": 5,
+	"6": 6,
+	"7": 7,
+	"8": 8,
+	"9": 9,
+	"0": 10,
+	"E": 11
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass# 标题页面时，防止ui干扰
+	
+	#进入最新关卡
+	Config._load()
+
+	access_level = Config.access_levels
+	var maximum = -1
+	for level in access_level.keys():
+		if(access_level[level] != null and level_index[level] > maximum):
+			maximum = level_index[level]
+			first_scene = load(access_level[level])
+			print(level, access_level[level])
+	if(first_scene == null):
+		first_scene = load("res://scenes/levels/level_0.tscn")
 
 
 func _unhandled_input(event: InputEvent) -> void:

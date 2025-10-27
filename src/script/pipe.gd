@@ -94,7 +94,7 @@ func handle_fall_acceleration() -> void:
 		apply_central_force(Vector2(0, fall_acceleration))
 func absorb_to_container(delta : float) -> void:
 	var snap_min_distance : float = 2.0
-	var snap_strength: float = 6.25
+	var snap_strength: float = 5.25
 	if snap_target:
 		gravity_scale = 0
 		var target_pos = snap_target.global_position
