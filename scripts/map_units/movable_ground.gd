@@ -4,7 +4,7 @@ extends RigidBody2D
 @export var move_speed: float = 200.0
 @export var jump_force: float = 400.0
 @export var collisions : Array[CollisionShape2D]
-
+@export var sfx : AudioStream
 var on_ground: bool = false
 
 func _ready():
@@ -31,6 +31,8 @@ func _integrate_forces(state):
 
 	# 跳跃
 	if Input.is_action_just_pressed("down") and on_ground:
+		#if(sfx):
+			#MusicManager.play_sfx(sfx)
 		velocity.y = jump_force
 		on_ground = false
 
