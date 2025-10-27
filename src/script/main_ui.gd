@@ -24,14 +24,14 @@ func _ready() -> void:
 	
 	#进入最新关卡
 	Config._load()
+	if(Config.access_levels):
+		access_level = Config.access_levels
+		var maximum = -1
+		for level in access_level.keys():
+			if(access_level[level] != null and level_index[level] > maximum):
+				maximum = level_index[level]
+				first_scene = load(access_level[level])
 
-	access_level = Config.access_levels
-	var maximum = -1
-	for level in access_level.keys():
-		if(access_level[level] != null and level_index[level] > maximum):
-			maximum = level_index[level]
-			first_scene = load(access_level[level])
-			print(level, access_level[level])
 	if(first_scene == null):
 		first_scene = load("res://scenes/levels/level_0.tscn")
 
