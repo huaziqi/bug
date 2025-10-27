@@ -257,18 +257,19 @@ layout_mode = 2
 anchors_preset = -1
 anchor_right = 0.035
 anchor_bottom = 0.062000003
-offset_left = 910.0
-offset_top = 41.0
-offset_right = 973.68
-offset_bottom = 152.824
+offset_left = 1009.99994
+offset_top = -11.000001
+offset_right = 1073.68
+offset_bottom = 100.824
+scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("3_l1ej1")
 
 [node name="TextureButton2" type="TextureButton" parent="CanvasLayer"]
-offset_left = 1011.0
-offset_top = 87.0
-offset_right = 1111.0
-offset_bottom = 187.0
-scale = Vector2(0.6, 0.6)
+offset_left = 1080.0
+offset_top = 15.0
+offset_right = 1180.0
+offset_bottom = 115.0
+scale = Vector2(0.5, 0.5)
 focus_mode = 0
 texture_normal = ExtResource("9_5tn4j")
 
