@@ -17,11 +17,10 @@ func _ready() -> void:
 	zhang.interact.connect(listen_class)
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("jump"):
-		player.global_position.y = 248
+	if event.is_action_pressed("jump") and static_player:
 		static_player = false
 		player.gravity_scale = player.gravity
-		player.lock_rotation = false
+		player.freezing = false
 		player.hand.get_node("AnimatedSprite2D").flip_h = false
 
 func _physics_process(delta: float) -> void:
@@ -50,7 +49,7 @@ func listen_class():
 		desk.gravity_scale = 1
 		static_player = true
 		player.gravity_scale = 0
-		player.lock_rotation = true
+		player.freezing = true
 		listended = true
 		# 强制停止手的物理运动
 
