@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b5l4w2ks6oop4"]
+[gd_scene load_steps=17 format=3 uid="uid://b5l4w2ks6oop4"]
 
 [ext_resource type="Script" uid="uid://blx071g24nvtc" path="res://scripts/levels/level_10087_manager.gd" id="1_2ypl4"]
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="1_fepmk"]
@@ -12,6 +12,45 @@
 [ext_resource type="PackedScene" uid="uid://5s2ku8p8nqju" path="res://scenes/map_units/camera.tscn" id="7_2ypl4"]
 [ext_resource type="AudioStream" uid="uid://dwpexgmfj62i3" path="res://assets/sounds/sfx/laserreset.mp3" id="7_bubof"]
 [ext_resource type="PackedScene" uid="uid://bobd1dnm65ixa" path="res://scenes/characters/npc/zhang.tscn" id="12_4ovdp"]
+[ext_resource type="Texture2D" uid="uid://bj2g657c0sr4u" path="res://assets/sprites/map_units/e.png" id="13_y1lm4"]
+
+[sub_resource type="Animation" id="Animation_y1lm4"]
+resource_name = "a"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(0.96593636, 1.0717736, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.50980395), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7p31g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_etyyg"]
+_data = {
+&"RESET": SubResource("Animation_7p31g"),
+&"a": SubResource("Animation_y1lm4")
+}
 
 [node name="Level_10087" type="Node2D" node_paths=PackedStringArray("player", "static_items", "flag")]
 script = ExtResource("1_2ypl4")
@@ -46,8 +85,22 @@ z_index = -1
 standing_spot = Vector2(450, 410)
 
 [node name="start_cutscenes" parent="." instance=ExtResource("5_bubof")]
+visible = false
 
 [node name="Zhang" parent="." node_paths=PackedStringArray("level_manager", "player") instance=ExtResource("12_4ovdp")]
 position = Vector2(70, -73)
 level_manager = NodePath("..")
 player = NodePath("../Steel_Pipe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(377.75, 7.999998)
+scale = Vector2(0.6085714, 0.6194969)
+texture = ExtResource("13_y1lm4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_etyyg")
+}
+autoplay = "a"
+
+[connection signal="laser_up" from="laser" to="." method="_on_laser_laser_up"]
