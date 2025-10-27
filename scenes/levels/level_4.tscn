@@ -33,7 +33,7 @@ static_items = [NodePath("DoorSystem")]
 flag = NodePath("Flag")
 timeline_name = "level_4"
 level_index = "4"
-address_level = "\"res://scenes/levels/level_4.tscn\""
+address_level = "res://scenes/levels/level_4.tscn"
 
 [node name="BasicGround" parent="." instance=ExtResource("1_06474")]
 position = Vector2(-7, 2)
