@@ -104,6 +104,8 @@ Label/font_sizes/font_size = 16
 Label/fonts/font = ExtResource("3_o0c84")
 
 [node name="VBoxContainer" type="VBoxContainer"]
+visibility_layer = 2
+z_index = 100
 script = ExtResource("1_1l1i0")
 
 [node name="input_instruction" parent="." instance=ExtResource("1_45r8q")]

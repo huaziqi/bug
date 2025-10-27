@@ -16,7 +16,10 @@ var in_change : bool = false
 var first_talk_end : bool = false
 
 func _ready() -> void:
+	
 	GameState.level_address_with_index[level_index]=address_level
+	Config.access_levels = GameState.level_address_with_index
+	Config._save()
 	print("quanbushuchu")
 	print(GameState.level_address_with_index)
 	print("本关的index和保存进度：")

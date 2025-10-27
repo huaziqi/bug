@@ -175,6 +175,8 @@ VBoxContainer/constants/separation = 0
 
 [node name="ui" type="Control"]
 process_mode = 3
+visibility_layer = 2
+z_index = 100
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -7,6 +7,8 @@ extends CanvasLayer
 @onready var add_child_place=$Panel/VBoxContainer/below_white_bar/MarginContainer/below_bar
 @onready var animate_ui=$Panel
 @onready var load_timer=$"../load_timer"
+const TRANSITION_SCENE = preload("uid://3guswm2uo0xu")
+
 
 #var message_input=GameState.get_last_child_of_node(add_child_place).get_node("input_instruction").get_node("input").get_node("Label_player")
 const Process_instruction_SCENE = preload("res://src/Scene/ui_loading_process.tscn")
@@ -201,7 +203,8 @@ func _on_jump_pressed():
 	print("全部输出1")
 	print(GameState.level_address_with_index)
 	#if GameState.level_address_with_index[where_to_go]!=null:
-	get_tree().change_scene_to_file(GameState.level_address_with_index[where_to_go])
+	TransitionInfo.next_scene = load(GameState.level_address_with_index[where_to_go])
+	get_tree().change_scene_to_packed(TRANSITION_SCENE)
 	#get_tree().change_scene_to_file("res://scenes/levels/level_10086.tscn")
 	#elif GameState.level_address_with_index[where_to_go]==null:	
 		#var new_cannot_jump_dode=you_cannot_jump_SCENE.instantiate()
