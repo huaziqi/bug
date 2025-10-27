@@ -25,10 +25,10 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	if(not level_2.in_change and player.global_position.y > 700):
-		print(player.global_position.y)
 		player.global_position = Vector2(150, 0)
 	if(static_player):
 		player.position = desk.position + Vector2(20, -20)
+		player.linear_velocity = Vector2(0, 0)
 		player.hand.global_position = player.global_position + Vector2(-30, 0)
 		player.hand.global_rotation = 0  # 固定旋转
 		player.hand.get_node("AnimatedSprite2D").flip_v = true
