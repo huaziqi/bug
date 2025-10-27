@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dehf8owa8j41j"]
+[gd_scene load_steps=29 format=3 uid="uid://dehf8owa8j41j"]
 
 [ext_resource type="Script" uid="uid://cxo4v3lqjutf2" path="res://src/script/ui_in_game.gd" id="1_n64jb"]
 [ext_resource type="FontFile" uid="uid://d2o0pmjktk63t" path="res://assets/fonts/Gill Sans Ultra Bold Condensed.ttf" id="1_yw1oe"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b25mjl1eddjii" path="res://assets/temp(临时美术资源)/x_red_15.png" id="4_iks2h"]
 [ext_resource type="FontFile" uid="uid://dmq6uypfm7okh" path="res://assets/fonts/Silver.ttf" id="5_iks2h"]
 [ext_resource type="PackedScene" uid="uid://cwwq0qjikn4cc" path="res://src/Scene/initial_ui.tscn" id="6_ammk3"]
+[ext_resource type="Texture2D" uid="uid://b5ilbcu2n4om5" path="res://terminal_circle_icon_100x100.png" id="9_5tn4j"]
 
 [sub_resource type="Theme" id="Theme_ammk3"]
 
@@ -258,13 +259,23 @@ anchor_right = 0.035
 anchor_bottom = 0.062000003
 offset_left = 910.0
 offset_top = 41.0
-offset_right = 928.68
-offset_bottom = 58.823997
+offset_right = 973.68
+offset_bottom = 152.824
 texture_normal = ExtResource("3_l1ej1")
+
+[node name="TextureButton2" type="TextureButton" parent="CanvasLayer"]
+offset_left = 1011.0
+offset_top = 87.0
+offset_right = 1111.0
+offset_bottom = 187.0
+scale = Vector2(0.6, 0.6)
+focus_mode = 0
+texture_normal = ExtResource("9_5tn4j")
 
 [node name="load_timer" type="Timer" parent="."]
 wait_time = 2.0
 
 [connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/white_bar/PanelContainer/TextureButton" to="CanvasLayer" method="_on_texture_button_bar_cross_pressed"]
 [connection signal="pressed" from="CanvasLayer/TextureButton" to="CanvasLayer" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/TextureButton2" to="CanvasLayer" method="_on_texture_button_2_pressed"]
 [connection signal="timeout" from="load_timer" to="CanvasLayer" method="_on_load_timer_timeout"]

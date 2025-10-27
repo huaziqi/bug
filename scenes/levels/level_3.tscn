@@ -68,3 +68,5 @@ b_gravity = -1.0
 
 [node name="camera" parent="." instance=ExtResource("10_2bnyt")]
 aberration = 0.01
+
+[node name="BasicGround" type="Node2D" parent="."]

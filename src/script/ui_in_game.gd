@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var ui_main=$Panel
 #@onready var ui_setting=$setting_ui
 @onready var ui_restart=$TextureButton
+@onready var ui_terminal=$TextureButton2
 @onready var first_input_instruction=$Panel/VBoxContainer/below_white_bar/MarginContainer/below_bar/initial_instruction
 @onready var add_child_place=$Panel/VBoxContainer/below_white_bar/MarginContainer/below_bar
 @onready var animate_ui=$Panel
@@ -190,7 +191,13 @@ func _on_texture_button_pressed() -> void:
 	if(num >= 0):
 		Dialogic.VAR.set_variable("interact_time", 0)
 	get_tree().reload_current_scene()
-	
+
+func _on_texture_button_2_pressed() -> void:
+	if GameState.state==GameState.PLAYING:
+		ui_out()
+		GameState.state=GameState.PAUSED
+	elif GameState.state==GameState.PAUSED:
+		ui_hide()
 
 func _on_texture_button_bar_cross_pressed() -> void:
 	get_tree().paused = false

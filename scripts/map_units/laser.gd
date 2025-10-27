@@ -5,6 +5,7 @@ extends RigidBody2D
 @export var standing_spot:Vector2
 @export var b_r:float
 @export var r:float
+signal laser_up
 func _ready() -> void:
 	get_node("AnimationPlayer").play("laser")
 func _physics_process(_delta: float) -> void:
@@ -14,6 +15,7 @@ func _physics_process(_delta: float) -> void:
 		linear_velocity=Vector2(0,0)
 		if breaking_progress>=1:
 			$bo.play()
+			laser_up.emit()
 			breaked=true
 	else:
 		if Input.is_action_just_pressed("E"):
