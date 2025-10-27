@@ -20,15 +20,18 @@ func _ready() -> void:
 
 	if(bgm and not MusicManager.is_music_playing(bgm)):
 		MusicManager.play_music(bgm)
-	GameState.level_address_with_index[level_index]=address_level
-	Config.access_levels = GameState.level_address_with_index
-	print(GameState.level_address_with_index)
-	Config._save()
+	if(level_index):
+		GameState.level_address_with_index[level_index]=address_level
+		Config.access_levels = GameState.level_address_with_index
+		Config._save()
 	#print("quanbushuchu")
 	#print(GameState.level_address_with_index)
 	#print("本关的index和保存进度：")
 	#print(level_index)
 	#print(GameState.level_address_with_index[level_index])
+	var num = Dialogic.VAR.get_variable("interact_time")
+	if(timeline_name and player and num == -1):
+		player.freezing = true
 	init_talking()
 	init_player()
 	init_signal()
@@ -51,12 +54,11 @@ func init_talking():
 
 func init_player():
 	if(player):
-		player.global_position = Vector2(150, -10)
+		player.global_position = Vector2(140, -10)
 	else:
 		push_error("player is null")
 
 func npc_talking():
-	print(timeline_name)
 	if(current_dialogue != null or timeline_name == null or timeline_name == ""):
 		return
 	if(player and "freezing" in player):
