@@ -12,22 +12,22 @@ zhang: 还能这样...
 zhang: ....
 zhang: ! ! !
 zhang: 停停！别别！
-zhang: 那是最后的底线！
-zhang: 那涉及我最爱的领域...
-zhang: 前辈，我做了什么让你如此恶整！
+zhang: 那是我的底线！
+zhang: 那涉及我最爱的领域......
+zhang: 前辈，你是有意要恶整我吗？
 zhang: 热力学定律，热力学定律啊！
 jump end
 
 label 1
-zhang: 咦，前辈在注释里好像留了什么?
-zhang: [color=red]”在玩风扇时，小心割到手，”[/color]
-zhang: [color=red]”可能会引发连锁反应“[/color]，什么意思？
+zhang: [color=red]”**——————————**”[/color]
+zhang: [color=red]”**试用按钮时，小心扇叶割伤**”[/color]
+zhang: .....那不是我说的
 jump end
 
 label 2
 zhang: ....
 zhang: 别再过去了，求你....
-zhang: 这对你有什么好处
+zhang: [color=red]”**试着高举那个按钮**”[/color]
 jump end
 
 label repeat
