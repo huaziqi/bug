@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://chshif8cs7021"]
+[gd_scene load_steps=21 format=3 uid="uid://chshif8cs7021"]
 
 [ext_resource type="Script" uid="uid://csityi0x8dkft" path="res://scripts/levels/level_0_manager.gd" id="1_65guy"]
 [ext_resource type="PackedScene" uid="uid://be3c7t3180orp" path="res://scenes/map_units/grounds/basic_ground.tscn" id="1_o2sna"]
@@ -9,8 +9,15 @@
 [ext_resource type="PackedScene" uid="uid://bobd1dnm65ixa" path="res://scenes/characters/npc/zhang.tscn" id="6_6ayib"]
 [ext_resource type="PackedScene" uid="uid://cs3qu0yak2v7l" path="res://scenes/map_units/start_cutscenes.tscn" id="6_65guy"]
 [ext_resource type="PackedScene" uid="uid://5s2ku8p8nqju" path="res://scenes/map_units/camera.tscn" id="6_p6rmu"]
+[ext_resource type="Texture2D" uid="uid://bnvr1tu0v0vuq" path="res://assets/sprites/map_units/temp/e教程素材.png" id="6_vhkxn"]
+[ext_resource type="Texture2D" uid="uid://e5nxs5ymgvwb" path="res://assets/sprites/map_units/temp/wasd教程素材.png" id="7_1q7iv"]
 [ext_resource type="Texture2D" uid="uid://ufso8s6ib6or" path="res://assets/sprites/map_units/mirror_frame.png" id="7_65guy"]
 [ext_resource type="Script" uid="uid://ccvwii8dy8t0d" path="res://src/test/checker.gd" id="8_p6rmu"]
+[ext_resource type="Texture2D" uid="uid://dlfkqe73nce1r" path="res://assets/sprites/map_units/空格教程素材.png" id="8_s4l03"]
+[ext_resource type="Texture2D" uid="uid://njc3pasqau1u" path="res://assets/sprites/map_units/esc教程素材.png" id="9_ypncs"]
+[ext_resource type="FontFile" uid="uid://dmq6uypfm7okh" path="res://assets/fonts/Silver.ttf" id="10_0qejo"]
+[ext_resource type="Texture2D" uid="uid://bqlgrlaqnnpbg" path="res://assets/sprites/map_units/temp/鼠标教程素材.png" id="10_erlbe"]
+[ext_resource type="Texture2D" uid="uid://bvwr2yxu6cyl6" path="res://assets/sprites/map_units/temp/鼠标左键教程素材.png" id="11_xpoxe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34hum"]
 size = Vector2(142, 20)
@@ -36,6 +43,210 @@ collision_mask = 2
 
 [node name="BasicGround" parent="." instance=ExtResource("1_o2sna")]
 position = Vector2(-7, 4)
+
+[node name="keyboard_e" type="Sprite2D" parent="BasicGround"]
+position = Vector2(63.5, 572)
+scale = Vector2(3, 3)
+texture = ExtResource("6_vhkxn")
+
+[node name="keyboard_wasd" type="Sprite2D" parent="BasicGround"]
+position = Vector2(62.000008, 479.5)
+scale = Vector2(3, 3)
+texture = ExtResource("7_1q7iv")
+
+[node name="keyboard_space" type="Sprite2D" parent="BasicGround"]
+position = Vector2(329, 478.5)
+scale = Vector2(3, 3)
+texture = ExtResource("8_s4l03")
+
+[node name="keyboard_esc" type="Sprite2D" parent="BasicGround"]
+position = Vector2(330, 573)
+scale = Vector2(4, 4)
+texture = ExtResource("9_ypncs")
+
+[node name="keyboard_mouse" type="Sprite2D" parent="BasicGround"]
+position = Vector2(892, 480)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("10_erlbe")
+
+[node name="keyboard_mouse;eft" type="Sprite2D" parent="BasicGround"]
+position = Vector2(894.00006, 570)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("11_xpoxe")
+
+[node name="乱码" type="Label" parent="BasicGround"]
+visible = false
+offset_left = 1070.0
+offset_top = 193.0
+offset_right = 1120.0
+offset_bottom = 347.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 7
+text = "v҈̠̣̜͍̜̦̰̰̭̬͓̤̖̰̠̘̟̥͒͆̀̆̿̈́̊̓͐́̄͛͆̽̇̾̉̎̚i̷͓͍̗͇̰͕̘̭̳͙̮͕̳̟̦͎̱̙̦̫̩͓̤̓̒̾̃͋́̊̒̔͌̃̽́̂̍̿̅͌͗̏̚c̷͇͈͈̦͎̖̜̲̥̫̰̲̝̙̆̅͛̎͆̐̀̑̂̌̐̿̎t̷͇̙̫̦͖̝̙̭͕͔̝̬̳̥̜͖̰̣̽̃͐̌̌̎̐̈͑͛̊̓̒͒̒̊͛̅̅̚̚ͅȍ̶̦̤̪̪̰̣͎͔̳͍̥̖̳̦͍̯͇̮͎̣̯̣̦̾̀̔̓̾̇̄͂͊͌̀̄͗̓͒̎ṙ̷͚͉̮̗̱̬̫̱͖̩̯̲̗̥̜͚͓̬͚̗̙̎̃̂̏̐̈̄̓̊͌̽̚ỳ̸͖̗̮̟̠̱̲̬̣̯͉͍͚̖̝̫̎͛̀̈̉̉̍̅̆̀̆̽̓͒̑̊͆͆̎̏̀͊ͅ"
+
+[node name="乱码2" type="Label" parent="BasicGround"]
+visible = false
+offset_left = 1074.0
+offset_top = 187.0
+offset_right = 1124.0
+offset_bottom = 341.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 7
+text = "v҈̠̣̜͍̜̦̰̰̭̬͓̤̖̰̠̘̟̥͒͆̀̆̿̈́̊̓͐́̄͛͆̽̇̾̉̎̚i̷͓͍̗͇̰͕̘̭̳͙̮͕̳̟̦͎̱̙̦̫̩͓̤̓̒̾̃͋́̊̒̔͌̃̽́̂̍̿̅͌͗̏̚c̷͇͈͈̦͎̖̜̲̥̫̰̲̝̙̆̅͛̎͆̐̀̑̂̌̐̿̎t̷͇̙̫̦͖̝̙̭͕͔̝̬̳̥̜͖̰̣̽̃͐̌̌̎̐̈͑͛̊̓̒͒̒̊͛̅̅̚̚ͅȍ̶̦̤̪̪̰̣͎͔̳͍̥̖̳̦͍̯͇̮͎̣̯̣̦̾̀̔̓̾̇̄͂͊͌̀̄͗̓͒̎ṙ̷͚͉̮̗̱̬̫̱͖̩̯̲̗̥̜͚͓̬͚̗̙̎̃̂̏̐̈̄̓̊͌̽̚ỳ̸͖̗̮̟̠̱̲̬̣̯͉͍͚̖̝̫̎͛̀̈̉̉̍̅̆̀̆̽̓͒̑̊͆͆̎̏̀͊ͅ"
+
+[node name="乱码3" type="Label" parent="BasicGround"]
+visible = false
+offset_left = 1074.0
+offset_top = 187.0
+offset_right = 1124.0
+offset_bottom = 341.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 7
+text = "v҈̠̣̜͍̜̦̰̰̭̬͓̤̖̰̠̘̟̥͒͆̀̆̿̈́̊̓͐́̄͛͆̽̇̾̉̎̚i̷͓͍̗͇̰͕̘̭̳͙̮͕̳̟̦͎̱̙̦̫̩͓̤̓̒̾̃͋́̊̒̔͌̃̽́̂̍̿̅͌͗̏̚c̷͇͈͈̦͎̖̜̲̥̫̰̲̝̙̆̅͛̎͆̐̀̑̂̌̐̿̎t̷͇̙̫̦͖̝̙̭͕͔̝̬̳̥̜͖̰̣̽̃͐̌̌̎̐̈͑͛̊̓̒͒̒̊͛̅̅̚̚ͅȍ̶̦̤̪̪̰̣͎͔̳͍̥̖̳̦͍̯͇̮͎̣̯̣̦̾̀̔̓̾̇̄͂͊͌̀̄͗̓͒̎ṙ̷͚͉̮̗̱̬̫̱͖̩̯̲̗̥̜͚͓̬͚̗̙̎̃̂̏̐̈̄̓̊͌̽̚ỳ̸͖̗̮̟̠̱̲̬̣̯͉͍͚̖̝̫̎͛̀̈̉̉̍̅̆̀̆̽̓͒̑̊͆͆̎̏̀͊ͅ"
+
+[node name="乱码4" type="Label" parent="BasicGround"]
+visible = false
+offset_left = 1064.0
+offset_top = 187.0
+offset_right = 1114.0
+offset_bottom = 341.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 7
+text = "v҈̠̣̜͍̜̦̰̰̭̬͓̤̖̰̠̘̟̥͒͆̀̆̿̈́̊̓͐́̄͛͆̽̇̾̉̎̚i̷͓͍̗͇̰͕̘̭̳͙̮͕̳̟̦͎̱̙̦̫̩͓̤̓̒̾̃͋́̊̒̔͌̃̽́̂̍̿̅͌͗̏̚c̷͇͈͈̦͎̖̜̲̥̫̰̲̝̙̆̅͛̎͆̐̀̑̂̌̐̿̎t̷͇̙̫̦͖̝̙̭͕͔̝̬̳̥̜͖̰̣̽̃͐̌̌̎̐̈͑͛̊̓̒͒̒̊͛̅̅̚̚ͅȍ̶̦̤̪̪̰̣͎͔̳͍̥̖̳̦͍̯͇̮͎̣̯̣̦̾̀̔̓̾̇̄͂͊͌̀̄͗̓͒̎ṙ̷͚͉̮̗̱̬̫̱͖̩̯̲̗̥̜͚͓̬͚̗̙̎̃̂̏̐̈̄̓̊͌̽̚ỳ̸͖̗̮̟̠̱̲̬̣̯͉͍͚̖̝̫̎͛̀̈̉̉̍̅̆̀̆̽̓͒̑̊͆͆̎̏̀͊ͅ"
+
+[node name="乱码5" type="Label" parent="BasicGround"]
+visible = false
+offset_left = 1093.0
+offset_top = 197.0
+offset_right = 1143.0
+offset_bottom = 351.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 7
+text = "v҈̠̣̜͍̜̦̰̰̭̬͓̤̖̰̠̘̟̥͒͆̀̆̿̈́̊̓͐́̄͛͆̽̇̾̉̎̚i̷͓͍̗͇̰͕̘̭̳͙̮͕̳̟̦͎̱̙̦̫̩͓̤̓̒̾̃͋́̊̒̔͌̃̽́̂̍̿̅͌͗̏̚c̷͇͈͈̦͎̖̜̲̥̫̰̲̝̙̆̅͛̎͆̐̀̑̂̌̐̿̎t̷͇̙̫̦͖̝̙̭͕͔̝̬̳̥̜͖̰̣̽̃͐̌̌̎̐̈͑͛̊̓̒͒̒̊͛̅̅̚̚ͅȍ̶̦̤̪̪̰̣͎͔̳͍̥̖̳̦͍̯͇̮͎̣̯̣̦̾̀̔̓̾̇̄͂͊͌̀̄͗̓͒̎ṙ̷͚͉̮̗̱̬̫̱͖̩̯̲̗̥̜͚͓̬͚̗̙̎̃̂̏̐̈̄̓̊͌̽̚ỳ̸͖̗̮̟̠̱̲̬̣̯͉͍͚̖̝̫̎͛̀̈̉̉̍̅̆̀̆̽̓͒̑̊͆͆̎̏̀͊ͅ"
+
+[node name="乱码6" type="Label" parent="BasicGround"]
+visible = false
+offset_left = 1097.0
+offset_top = 191.0
+offset_right = 1147.0
+offset_bottom = 345.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 7
+text = "v҈̠̣̜͍̜̦̰̰̭̬͓̤̖̰̠̘̟̥͒͆̀̆̿̈́̊̓͐́̄͛͆̽̇̾̉̎̚i̷͓͍̗͇̰͕̘̭̳͙̮͕̳̟̦͎̱̙̦̫̩͓̤̓̒̾̃͋́̊̒̔͌̃̽́̂̍̿̅͌͗̏̚c̷͇͈͈̦͎̖̜̲̥̫̰̲̝̙̆̅͛̎͆̐̀̑̂̌̐̿̎t̷͇̙̫̦͖̝̙̭͕͔̝̬̳̥̜͖̰̣̽̃͐̌̌̎̐̈͑͛̊̓̒͒̒̊͛̅̅̚̚ͅȍ̶̦̤̪̪̰̣͎͔̳͍̥̖̳̦͍̯͇̮͎̣̯̣̦̾̀̔̓̾̇̄͂͊͌̀̄͗̓͒̎ṙ̷͚͉̮̗̱̬̫̱͖̩̯̲̗̥̜͚͓̬͚̗̙̎̃̂̏̐̈̄̓̊͌̽̚ỳ̸͖̗̮̟̠̱̲̬̣̯͉͍͚̖̝̫̎͛̀̈̉̉̍̅̆̀̆̽̓͒̑̊͆͆̎̏̀͊ͅ"
+
+[node name="乱码7" type="Label" parent="BasicGround"]
+visible = false
+offset_left = 1097.0
+offset_top = 191.0
+offset_right = 1147.0
+offset_bottom = 345.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 7
+text = "v҈̠̣̜͍̜̦̰̰̭̬͓̤̖̰̠̘̟̥͒͆̀̆̿̈́̊̓͐́̄͛͆̽̇̾̉̎̚i̷͓͍̗͇̰͕̘̭̳͙̮͕̳̟̦͎̱̙̦̫̩͓̤̓̒̾̃͋́̊̒̔͌̃̽́̂̍̿̅͌͗̏̚c̷͇͈͈̦͎̖̜̲̥̫̰̲̝̙̆̅͛̎͆̐̀̑̂̌̐̿̎t̷͇̙̫̦͖̝̙̭͕͔̝̬̳̥̜͖̰̣̽̃͐̌̌̎̐̈͑͛̊̓̒͒̒̊͛̅̅̚̚ͅȍ̶̦̤̪̪̰̣͎͔̳͍̥̖̳̦͍̯͇̮͎̣̯̣̦̾̀̔̓̾̇̄͂͊͌̀̄͗̓͒̎ṙ̷͚͉̮̗̱̬̫̱͖̩̯̲̗̥̜͚͓̬͚̗̙̎̃̂̏̐̈̄̓̊͌̽̚ỳ̸͖̗̮̟̠̱̲̬̣̯͉͍͚̖̝̫̎͛̀̈̉̉̍̅̆̀̆̽̓͒̑̊͆͆̎̏̀͊ͅ"
+
+[node name="乱码8" type="Label" parent="BasicGround"]
+visible = false
+offset_left = 1087.0
+offset_top = 191.0
+offset_right = 1137.0
+offset_bottom = 345.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 7
+text = "v҈̠̣̜͍̜̦̰̰̭̬͓̤̖̰̠̘̟̥͒͆̀̆̿̈́̊̓͐́̄͛͆̽̇̾̉̎̚i̷͓͍̗͇̰͕̘̭̳͙̮͕̳̟̦͎̱̙̦̫̩͓̤̓̒̾̃͋́̊̒̔͌̃̽́̂̍̿̅͌͗̏̚c̷͇͈͈̦͎̖̜̲̥̫̰̲̝̙̆̅͛̎͆̐̀̑̂̌̐̿̎t̷͇̙̫̦͖̝̙̭͕͔̝̬̳̥̜͖̰̣̽̃͐̌̌̎̐̈͑͛̊̓̒͒̒̊͛̅̅̚̚ͅȍ̶̦̤̪̪̰̣͎͔̳͍̥̖̳̦͍̯͇̮͎̣̯̣̦̾̀̔̓̾̇̄͂͊͌̀̄͗̓͒̎ṙ̷͚͉̮̗̱̬̫̱͖̩̯̲̗̥̜͚͓̬͚̗̙̎̃̂̏̐̈̄̓̊͌̽̚ỳ̸͖̗̮̟̠̱̲̬̣̯͉͍͚̖̝̫̎͛̀̈̉̉̍̅̆̀̆̽̓͒̑̊͆͆̎̏̀͊ͅ"
+
+[node name="介绍1" type="Label" parent="BasicGround"]
+visible = false
+offset_left = 13.0
+offset_top = 159.0
+offset_right = 468.0
+offset_bottom = 224.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_0qejo")
+theme_override_font_sizes/font_size = 38
+text = "你是“Null”，一个奇怪的小球"
+
+[node name="介绍3" type="Label" parent="BasicGround"]
+visible = false
+offset_left = 912.0
+offset_top = 159.0
+offset_right = 1367.0
+offset_bottom = 246.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_0qejo")
+theme_override_font_sizes/font_size = 38
+text = "利用 BUG，翻过障碍
+拔起旗子，取得胜利"
+
+[node name="教程1" type="Label" parent="BasicGround"]
+visible = false
+offset_left = 127.99999
+offset_top = 469.50003
+offset_right = 583.0
+offset_bottom = 534.5
+theme_override_fonts/font = ExtResource("10_0qejo")
+theme_override_font_sizes/font_size = 38
+text = "控制移动"
+
+[node name="教程4" type="Label" parent="BasicGround"]
+visible = false
+offset_left = 394.0
+offset_top = 558.0
+offset_right = 849.0
+offset_bottom = 623.0
+theme_override_fonts/font = ExtResource("10_0qejo")
+theme_override_font_sizes/font_size = 38
+text = "设置"
+
+[node name="教程5" type="Label" parent="BasicGround"]
+visible = false
+offset_left = 941.0
+offset_top = 467.0
+offset_right = 1396.0
+offset_bottom = 532.0
+theme_override_fonts/font = ExtResource("10_0qejo")
+theme_override_font_sizes/font_size = 38
+text = "鼠标控制“手”"
+
+[node name="教程6" type="Label" parent="BasicGround"]
+visible = false
+offset_left = 941.0
+offset_top = 558.0
+offset_right = 1396.0
+offset_bottom = 623.0
+theme_override_fonts/font = ExtResource("10_0qejo")
+theme_override_font_sizes/font_size = 38
+text = "鼠标左键抓取物品"
+
+[node name="教程2" type="Label" parent="BasicGround"]
+visible = false
+offset_left = 128.49998
+offset_top = 558.0
+offset_right = 583.5
+offset_bottom = 623.0
+theme_override_fonts/font = ExtResource("10_0qejo")
+theme_override_font_sizes/font_size = 38
+text = "互动"
+
+[node name="教程3" type="Label" parent="BasicGround"]
+visible = false
+offset_left = 394.0
+offset_top = 466.5
+offset_right = 849.0
+offset_bottom = 531.5
+theme_override_fonts/font = ExtResource("10_0qejo")
+theme_override_font_sizes/font_size = 38
+text = "跳跃"
+
+[node name="介绍2" type="Label" parent="BasicGround"]
+visible = false
+offset_left = 13.0
+offset_top = 192.0
+offset_right = 468.0
+offset_bottom = 257.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_0qejo")
+theme_override_font_sizes/font_size = 38
+text = "adminZ似乎要跟你说些什么。"
 
 [node name="Flag" parent="." instance=ExtResource("4_wjk5u")]
 position = Vector2(1071, 358)
