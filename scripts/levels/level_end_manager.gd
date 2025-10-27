@@ -2,6 +2,7 @@ extends LevelManager
 @export var finished:bool=false
 @export var pop:PackedScene
 @export var error:PackedScene
+@export var flake:bool=false
 func _ready() -> void:
 	super._ready()
 	MusicManager.stop_music()
@@ -30,6 +31,7 @@ func _ready() -> void:
 	$flake_fountain.modulate.a=0
 	$flake_fountain/AnimationPlayer.play("apear")
 	await $flake_fountain/AnimationPlayer.animation_finished
+	flake=true
 	$flakes.play()
 	$endflake.visible=true
 	$endflake.modulate.a=0
@@ -38,6 +40,8 @@ func _ready() -> void:
 	show_item($Steel_Pipe)
 	$Steel_Pipe.freezing=false
 func _process(_delta: float) -> void:
+	if not flake:
+		$Steel_Pipe.freezing=true
 	if $Steel_Pipe.global_position.y<-100 and not finished:
 		finished=true
 		var e=error.instantiate()
