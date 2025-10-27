@@ -264,6 +264,7 @@ level_manager = NodePath("..")
 player = NodePath("../Steel_Pipe")
 
 [node name="Plantform" type="StaticBody2D" parent="."]
+position = Vector2(-3, 0)
 collision_layer = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Plantform"]
