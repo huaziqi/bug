@@ -8,6 +8,7 @@ var in_container_num : int
 func _ready():
 	pass
 
+
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("num_item"):
 		if(target_item == null):
@@ -15,7 +16,6 @@ func _on_body_entered(body: Node2D) -> void:
 			target_item = body
 			if("self_num" in body):
 				in_container_num = body.self_num
-				#print(in_container_num)
 		else:
 			items_list.append(body)
 
@@ -26,8 +26,8 @@ func _on_body_exited(body: Node2D) -> void:
 		if(not items_list.is_empty()):
 			target_item = items_list[0]
 			items_list[0].snap_target = self
-			if("self_num" in body):
-				in_container_num = body.self_num
+			if("self_num" in items_list[0]):
+				in_container_num = items_list[0].self_num
 			items_list.pop_front()
 	elif(body in items_list):
 		items_list.erase(body)
